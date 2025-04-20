@@ -1,0 +1,11 @@
+{
+  "token": "your_token_here",
+  "sms_url": "https://rest.nexmo.com",
+  "video_url": "https://api.nexmo.com",
+  "sms_path": "/sms/json",
+  "video_path": "/v1/calls",
+  "timeout": 5000,
+  "api_key": "e6fe7347",
+  "api_secret": "vLR4xOjA1DsU90gF",
+  "mobileNumber": "917309591620"
+}

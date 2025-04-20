@@ -1,0 +1,44 @@
+Job Description
+Function: Software Engineering → QA / SDET
+
+SeleniumAutomation TestingREST AssuredJavaAPI Testing
+We are looking for a top-notch SDET with 2+ years of experience, who will deliver on key initiatives, starting from the ideation phase all the way to development and product delivery.
+
+
+
+Responsibilities:
+
+Be an integral member in the design, analysis, development, and deployment efforts in projects to solve complex business problems.
+Develop detailed test strategy and test plans for various features at the functional a system level.
+Collaborate with Developers, Program Managers, QA, and DevOps Engineers in an agile development environment.
+
+
+Requirements:
+
+Experience in analysing test logs, creating test reports, and coordinating with stakeholders.
+Experience in test planning, test design, test strategy, and test execution.
+Strong coding skills in Java.
+Experience on API level testing - Solid Knowledge of the API functioning, both via manual and automation.
+Experience in API automation using tools like Rest Assured, Karate, Postman, etc.
+Good database knowledge.
+Working experience on Android Studio, XCode, Charles Proxy/ Fiddler /Burp, Android ADB.
+
+
+Good to Have:
+
+Experience in NoSQL databases.
+Experience in Security testing.
+Understanding of the Unix-based systems for log monitoring and shell scripting.
+Experience with API monitoring tools like Kibana, Grafana, InfluxDB, etc.
+Understanding the NFR (non-functional requirements), like battery consumption, data consumption, and crash logging.
+Knowledge of tools like Kafka, RabbitMQ, and Crashlytics.
+Performance testing of backend servers using tools like Gatling/JMeter/Golang.
+
+
+Big Pluses if you:
+
+Have a strong focus on business outcomes.
+Are comfortable with collaboration, open communication, and reaching across functional borders.
+They are self-motivated and can get things done.
+Have the ability to communicate and defend your ideas, scaling, and high availability.
+Have a desire to build products that users love, updated with the newest technologies
