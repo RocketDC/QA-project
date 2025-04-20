@@ -42,8 +42,8 @@ String moduleName = "sms";
     public RequestSpecification smsRequest(String phoneNumber, String message) {
 
         RequestSpecification requestSpecification = given()
-                .formParam("api_key", getProperty("api_key"))
-                .formParam("api_secret", getProperty("api_secret"))
+                .formParam("api_key", System.getProperty("api_key"))
+                .formParam("api_secret", System.getProperty("api_secret"))
                 .formParam("to", phoneNumber)
                 .formParam("from", "Nexmo")
                 .formParam("text", message);
