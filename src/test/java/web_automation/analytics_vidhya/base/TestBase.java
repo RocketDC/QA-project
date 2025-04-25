@@ -22,6 +22,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 
@@ -61,10 +62,7 @@ public class TestBase {
 
     @BeforeSuite(alwaysRun = true)
     public void beforeSuite() throws IOException {
-        File logDir = new File("telekomInterview/logs");
-        if (!logDir.exists()) {
-            logDir.mkdirs();
-        }
+
         loadProperties();
         setupExtentReport();
         initializeChromeDriver();
@@ -82,6 +80,23 @@ public class TestBase {
     @AfterTest(alwaysRun = true)
     public void afterTest() {
         // Optional: Additional teardown per test if required
+    }
+
+    public void recordLogs(){
+        File logDir = new File("logs");
+        if (!logDir.exists()) {
+            logDir.mkdirs();
+        }
+        File logFile = new File("logs/test-execution.log");
+
+        if (logFile.exists()) {
+            try {
+                new FileWriter(logFile, false).close();  // Overwrites and clears the file
+                logger.info("Existing log file cleared.");
+            } catch (IOException e) {
+                logger.error("Failed to clear log file: " + e.getMessage());
+            }
+        }
     }
     public void initializeChromeDriver() {
         WebDriverManager.chromedriver().setup();  // Auto-downloads the matching driver
@@ -102,7 +117,7 @@ public class TestBase {
 
         spark.config().setDocumentTitle("Automation Test Report");
         spark.config().setReportName("Web Automation Suite");
-        spark.config().setTheme(Theme.STANDARD);
+        spark.config().setTheme(Theme.DARK);
         spark.config().setTimelineEnabled(true);
         spark.config().setTimeStampFormat("EEEE, MMMM dd, yyyy, hh:mm a '('zzz')'");
     }
