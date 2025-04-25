@@ -5,12 +5,14 @@ import com.aventstack.extentreports.Status;
 import common.TestBase;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import lombok.extern.slf4j.Slf4j;
 import org.json.JSONObject;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+
 
 import static io.restassured.RestAssured.given;
 
@@ -19,9 +21,9 @@ import static io.restassured.RestAssured.given;
  * It includes methods to send an SMS, handle API errors, log API responses,
  * validate API responses, and fetch various properties from a JSON file.
  */
-
+@Slf4j
 public class SmsApi extends TestBase {
-String moduleName = "sms";
+    private final String moduleName = "sms";
 
     @Test(priority = 1)
     public void testSendSms() {
@@ -169,7 +171,7 @@ public Response sendSms(String phoneNumber, String message, String apiKey){
             return jsonObject.getString(key);
 
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Error reading property: {}", key, e);
         }
         return null;
     }

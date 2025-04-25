@@ -32,7 +32,6 @@ import org.testng.ITestContext;
 import org.testng.Reporter;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -163,6 +162,7 @@ public class TestBase {
 //                caps.setCapability("appium:chromedriver_autodownload", true);
 //                caps.setCapability("appium:uiautomator2ServerInstallTimeout", 20000);
 //                caps.setCapability("appium:adbExecTimeout", 40000);
+
 //
 //
 //                //url = new URL("http://127.0.0.1:4723/wd/hub");
