@@ -1,4 +1,4 @@
-package common;
+package api_automation.utils;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

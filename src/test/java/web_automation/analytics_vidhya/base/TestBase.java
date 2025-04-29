@@ -6,6 +6,7 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.JsonFormatter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import com.epam.healenium.SelfHealingDriver;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
@@ -48,11 +49,11 @@ public class TestBase {
     private static final String TIMESTAMP = new SimpleDateFormat("dd-MM-yyyy HH-mm-ss").format(new Date());
     private static final String REPORT_PATH = REPORT_DIR + "/report_" + TIMESTAMP + ".html";
 
-    public static WebDriver getDriver() {
-        return driver.get();
+    public static SelfHealingDriver getDriver() {
+        return (SelfHealingDriver) driver.get();
     }
 
-    public static void setDriver(WebDriver drv) {
+    public static void setDriver(SelfHealingDriver drv) {
         driver.set(drv);
     }
 
@@ -62,7 +63,7 @@ public class TestBase {
 
     @BeforeSuite(alwaysRun = true)
     public void beforeSuite() throws IOException {
-
+        recordLogs();
         loadProperties();
         setupExtentReport();
         initializeChromeDriver();
@@ -99,12 +100,18 @@ public class TestBase {
         }
     }
     public void initializeChromeDriver() {
+
+//        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
+//        WebDriver chromeDriver = new ChromeDriver();
+
         WebDriverManager.chromedriver().setup();  // Auto-downloads the matching driver
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
 
         WebDriver chromeDriver = new ChromeDriver(options);
-        setDriver(chromeDriver);
+//        create Self-healing driver
+        SelfHealingDriver driver = SelfHealingDriver.create(chromeDriver);
+        setDriver(driver);
     }
 
     public void setupExtentReport() throws IOException {

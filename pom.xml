@@ -109,7 +109,24 @@
             <artifactId>webdrivermanager</artifactId>
             <version>5.7.0</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.epam.healenium/healenium-web -->
+        <dependency>
+            <groupId>com.epam.healenium</groupId>
+            <artifactId>healenium-web</artifactId>
+            <version>3.2.5</version>
+        </dependency>
 
+
+<!--        <dependency>-->
+<!--            <groupId>org.jetbrains.kotlin</groupId>-->
+<!--            <artifactId>kotlin-stdlib</artifactId>-->
+<!--            <version>1.8.22</version> &lt;!&ndash; Match with Selenium 4.x / OkHttp 4.x &ndash;&gt;-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>4.11.0</version>
+        </dependency>
         <!--
         <dependency>
             <groupId>com.browserstack</groupId>

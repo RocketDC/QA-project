@@ -39,3 +39,18 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+############################
+# 6. Container artefacts   #
+############################
+# Docker volumes & build cache
+docker-volume/
+*.log
+*.pid
+# Compose override created locally
+docker-compose.override.yml
+*.css
+*.js
+*.html
+*.svg
+*.gitignore
