@@ -54,3 +54,13 @@ docker-compose.override.yml
 *.html
 *.svg
 *.gitignore
+*.jar
+*.war
+*.ear
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.gz
+*.properties
+*.exe
