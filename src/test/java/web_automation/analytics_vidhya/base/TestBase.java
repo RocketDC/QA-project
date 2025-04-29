@@ -10,6 +10,7 @@ import com.epam.healenium.SelfHealingDriver;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -232,4 +233,46 @@ public class TestBase {
             return false;
         }
     }
+
+
+    /**
+     * Core validation method: opens the GenAI Pinnacle page (handled in {@link TestBase#navigateToUrl(String)})
+     * and asserts the presence of each text provided by {@link #textsProvider()}.
+     */
+    public void validateTextPresence(String expectedText) {
+        // Create an Extent node for each individual text so you get granular pass/fail visibility.
+        ExtentTest test = extent.createTest("Validate text ➜ " + expectedText);
+        setExtentTest(test);
+        // Log what we're about to do
+        logger.info("Validating presence of text: '{}'", expectedText);
+
+        boolean isPresent = isTextPresent(expectedText);
+
+        if (isPresent) {
+            test.log(Status.PASS, "Text '" + expectedText + "' is present on the page.");
+            logger.info("✅ Text '{}' is present", expectedText);
+        } else {
+            test.log(Status.FAIL, "Text '" + expectedText + "' is NOT present on the page.");
+            logger.info("❌ Text '{}' is NOT present", expectedText);
+
+        }
+    }
+
+    /**
+     * Helper that returns <code>true</code> when a node containing the supplied text becomes visible within 5 seconds.
+     * Uses <code>normalize-space()</code> so stray whitespace in the DOM does not break the match.
+     */
+    private boolean isTextPresent(String text) {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 5);
+        try {
+            WebElement element = wait.until(
+                    ExpectedConditions.presenceOfElementLocated(
+                            By.xpath("//*[contains(normalize-space(text()), '" + text + "')]")
+                    ));
+            return element != null;
+        } catch (TimeoutException e) {
+            return false;
+        }
+    }
+
 }

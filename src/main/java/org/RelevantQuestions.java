@@ -131,4 +131,44 @@ public class RelevantQuestions {
             sb.append(ch);
         return sb.toString();
      }
+
+    public char firstNonRepeatingCharacter(String str){
+        HashMap<Character ,Integer> charactersCount = new HashMap<>();
+        for (int i = 0; i < str.length(); i++) {
+            char ch = Character.toLowerCase(str.charAt(i));
+            charactersCount.put( ch,(charactersCount.getOrDefault(ch,0)+1));
+        }
+        for (int i = 0; i < str.length(); i++) {
+            if(charactersCount.get( Character.toLowerCase(str.charAt(i))) == 1) return str.charAt(i);
+
+        }
+        return ' ';
+
+
+    }
+
+    public boolean areTwoStringsAnagram(String a , String b){
+
+        a = a.replaceAll("\\s","");
+        b = b.replaceAll("\\s","");
+        if(a.length() != b.length())
+            return false;
+        HashMap <Character, Integer> stringA = new HashMap<>();
+        for (int i = 0; i < a.length(); i++) {
+            char ch = Character.toLowerCase(a.charAt(i));
+            stringA.put(ch ,stringA.getOrDefault(ch,0)+1);
+
+        }
+
+        for (int i = 0; i < b.length(); i++) {
+            char ch = Character.toLowerCase(b.charAt(i));
+            if(!stringA.containsKey(ch) || stringA.get(ch) ==0)
+                return false;
+
+            stringA.put(ch,stringA.get(ch)-1);
+        }
+        return true;
+
+    }
+
 }

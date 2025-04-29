@@ -3,13 +3,10 @@ package org;
 
 public class Main {
     public static void main(String[] args) {
-RelevantQuestions relevantQuestions = new RelevantQuestions();
-        System.out.println(relevantQuestions.removeDuplicate("Mississippi"));
-//        System.out.println("  ".trim());
-
+        Playground playground = new Playground();
+//        System.out.println(playground.firstNonRepeatingCharacter("112233a!"));
     }
 
 
 }
 
-//lombok -- for pojo
