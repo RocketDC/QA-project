@@ -3,6 +3,7 @@ package web_automation.analytics_vidhya.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
@@ -162,7 +163,62 @@ public class HomePage extends TestBase {
     WebElement personalizedRoadmap;
 
 
+    // ========== Third section ==========
 
+    @FindBy (xpath = "//h2[normalize-space()='Curriculum Statistics']")
+    WebElement curriculumStatistics;
+    @FindBy (xpath = "//h4[normalize-space()='50+ Projects']")
+    WebElement projects2;
+    @FindBy (xpath = "//p[contains(text(),'Hands-on learning with industry-relevant challenge')]")
+    WebElement handsOnLearning;
+
+    @FindBy (xpath = "//h4[normalize-space()='300+ Hours']")
+    WebElement hoursOfImmersiveLearning2_2;
+    @FindBy (xpath = "//p[contains(text(),'In-depth GenAI and Agentic AI learning to transfor')]")
+    WebElement inDepthLearning;
+    @FindBy (xpath = "//h4[normalize-space()='40+ Libraries']")
+    WebElement libraries;
+    @FindBy (xpath = "//p[contains(text(),'Develop expertise in 40+ essential industry tools,')]")
+    WebElement developExpertise;
+    @FindBy (xpath = "//h4[normalize-space()='30+ Assignments']")
+    WebElement assignments;
+    @FindBy (xpath = "//p[normalize-space()='To turn knowledge into action']")
+    WebElement turnKnowledgeIntoAction;
+    @FindBy (xpath = "//h4[normalize-space()='75+ Mentorship Sessions']")
+    WebElement mentorshipSessions;
+    @FindBy (xpath = "//p[contains(text(),'1:1 live mentorship session from GenAI and Agentic')]")
+    WebElement liveMentorshipSession;
+
+
+// ========== Fifth section ==========
+    @FindBy (xpath = "//h2[normalize-space()='Curriculum']")
+    WebElement curriculum;
+    @FindBy (xpath = "//p[contains(text(),'From Python foundations to GenAI and Agentic AI : ')]")
+    WebElement fromPythonFoundations;
+    @FindBy (xpath = "//div[contains(text(),'50+ Projects')]")
+    WebElement projects3;
+    @FindBy (xpath = "//div[contains(text(),'300+ Hours')]")
+    WebElement hoursOfImmersiveLearning3;
+    @FindBy (xpath = "//div[normalize-space()='40+ Tools']")
+    WebElement tools;
+    @FindBy (xpath = "//div[contains(text(),'30+ Assignments')]")
+    WebElement assignments2;
+    By curriculamSection = By.xpath( "//div[@class='accordion-item border-0']");
+
+    @FindBy (xpath = "//img[@alt='Choose What to Learn Image']")
+    WebElement chooseWhatToLearnImage;
+    @FindBy (xpath = "//button[normalize-space()='Download Free Curriculum']")
+    WebElement downloadFreeCurriculumButton;
+
+// ========== Sixth section ==========
+    @FindBy (xpath = "//h2[normalize-space()='Libraries & Frameworks']")
+    WebElement librariesAndFrameworks;
+
+    @FindBy(xpath = "//p[contains(text(),'Master 40+ GenAI and Agentic AI tools, libraries a')]")
+    WebElement master40Libraries;
+    By librariesAndFrameworksSection = By.xpath("//div[@class=\"d-inline-block w-auto mb-3\"]");
+    @FindBy (xpath = "//button[normalize-space()='Download Tools Pack']")
+    WebElement downloadToolsPackButton;
 
 
 
