@@ -3,10 +3,10 @@ package web_automation.analytics_vidhya.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindAll;
+
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.asserts.SoftAssert;
 import web_automation.analytics_vidhya.base.TestBase;
 
 public class HomePage extends TestBase {
@@ -16,6 +16,7 @@ public class HomePage extends TestBase {
     // ========== Constructor ==========
     public HomePage(WebDriver driver) {
         this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
     // ========== Locators ==========
@@ -36,6 +37,8 @@ public class HomePage extends TestBase {
     private By downloadProjectButton = By.xpath("//button[text()=\"Download Projects\"]");
     private By skipButton = By.xpath("//button[text()=\"Skip\"]");
     private By skipButton2 = By.xpath("//*[@id=\"pinnaclePlusLeadModal\"]/div/div/div[1]/button");
+    @FindBy(xpath = "//button[@class='btn background-dark-secondary p-2 rounded-circle close']//*[name()='svg']")
+    WebElement closeButtonInPopUp;
 //    private By cbTnC = By.xpath("//*[@id=\"termAndConditionLoginModal\"]");
 //    private By TncLabel = By.xpath("//label[@for=\"termAndConditionLoginModal\"]");
 //    private By cbSendWhatsApp = By.xpath("//input[@type=\"checkbox\" and @id=\"isWhatsappLoginModal\"]");
@@ -78,6 +81,8 @@ public class HomePage extends TestBase {
 
     @FindBy(xpath = "//a[normalize-space()='Curriculum']")
     WebElement curriculumTopNav;
+    @FindBy(xpath = "//a[normalize-space()='Instructors']")
+    WebElement instructorsTopNav;
 
     @FindBy(xpath = "//a[normalize-space()='Fees']")
     WebElement feesTopNav;
@@ -103,7 +108,7 @@ public class HomePage extends TestBase {
     public WebElement placementAssistance;
     @FindBy(xpath = "//h3[normalize-space()='100%']")
     public WebElement placementRate;
-    @FindBy(xpath = "//p[normalize-space()='Hours of Live Workshops']")
+    @FindBy(xpath = "//p[normalize-space()='Hours of Live Workshops Quarterly']")
     public WebElement hoursOfLiveWorkshops;
     @FindBy(xpath = "//h3[normalize-space()='30+']")
     public WebElement liveWorkshops;
@@ -148,8 +153,8 @@ public class HomePage extends TestBase {
     WebElement hoursOfImmersiveLearning2;
     @FindBy(xpath = "//ul[@class='mb-4 ps-3']//li[@class='mb-4 fs-16 text-dark-secondary'][contains(text(),'Full-spectrum GenAI and Agentic AI learning with 1')]")
     WebElement fullSpectrumGenAiAndAgenticAiLearning;
-    @FindBy(xpath = "//ul[@class='mb-4 ps-3']//li[@class='mb-4 fs-16 text-dark-secondary'][contains(text(),'Full-spectrum GenAI and Agentic AI learning with 1')]")
-    WebElement fullSpectrumGenAiAndAgenticAiLearning2;
+    @FindBy(xpath = "//ul[@class='mb-4 ps-3']//li[@class='mb-4 fs-16 text-dark-secondary'][contains(text(),'Master cutting-edge GenAI and Agentic AI framework')]")
+    WebElement masterCuttingEdgeGenAi;
     @FindBy(xpath = "//div[@class='col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-4 mb-lg-0 px-3']//h3[@class='fs-24 fw-semibold mb-4'][normalize-space()='50+ Industry-Aligned Projects']")
     WebElement industryAlignedProjects;
     @FindBy(xpath = "//ul[@class='mb-4 ps-3']//li[@class='mb-4 fs-16 text-dark-secondary'][contains(text(),'Acquire real-world experience through projects tha')]")
@@ -164,7 +169,7 @@ public class HomePage extends TestBase {
     WebElement personalizedRoadmap;
 
 
-    // ========== Third section ==========
+    // ========== Curriculum Statistics section ==========
 
     @FindBy(xpath = "//h2[normalize-space()='Curriculum Statistics']")
     WebElement curriculumStatistics;
@@ -190,8 +195,19 @@ public class HomePage extends TestBase {
     @FindBy(xpath = "//p[contains(text(),'1:1 live mentorship session from GenAI and Agentic')]")
     WebElement liveMentorshipSession;
 
+    // ========== Personalized Roadmap section ==========
 
-    // ========== Fifth section ==========
+    @FindBy(xpath = "//h2[normalize-space()='Personalized Roadmap']")
+    WebElement personalizedRoadmapSection;
+    @FindBy(xpath = "//p[contains(text(),'Your ambition + our expertise = your custom path t')]")
+    WebElement yourAmbition;
+
+    @FindBy(xpath = "//div[@class='d-flex flex-wrap justify-content-center align-items-center']//a[@class='btn btn-dark btn-dark-primary rounded-3 mb-2 mb-md-0 btn-dark-primary-gradient-outline fw-semibold'][normalize-space()='Request Callback']")
+    WebElement requestCallbackButton;
+    @FindBy(xpath = "//button[@id='roadmapBtn']")
+    WebElement getPersonalizedRoadmapButton;
+
+    // ========== Curriculum section ==========
     @FindBy(xpath = "//h2[normalize-space()='Curriculum']")
     WebElement curriculum;
     @FindBy(xpath = "//p[contains(text(),'From Python foundations to GenAI and Agentic AI : ')]")
@@ -204,24 +220,84 @@ public class HomePage extends TestBase {
     WebElement tools;
     @FindBy(xpath = "//div[contains(text(),'30+ Assignments')]")
     WebElement assignments2;
-    By curriculamSection = By.xpath("//div[@class='accordion-item border-0']");
+    private By curriculamSection = By.xpath("//div[@class='accordion-item border-0']");
 
     @FindBy(xpath = "//img[@alt='Choose What to Learn Image']")
     WebElement chooseWhatToLearnImage;
     @FindBy(xpath = "//button[normalize-space()='Download Free Curriculum']")
     WebElement downloadFreeCurriculumButton;
 
-    // ========== Sixth section ==========
+    // ========== Libraries & Frameworks section ==========
     @FindBy(xpath = "//h2[normalize-space()='Libraries & Frameworks']")
     WebElement librariesAndFrameworks;
 
     @FindBy(xpath = "//p[contains(text(),'Master 40+ GenAI and Agentic AI tools, libraries a')]")
     WebElement master40Libraries;
-    By librariesAndFrameworksSection = By.xpath("//div[@class=\"d-inline-block w-auto mb-3\"]");
+    private By librariesAndFrameworksSection = By.xpath("//div[@class=\"d-inline-block w-auto mb-3\"]");
     @FindBy(xpath = "//button[normalize-space()='Download Tools Pack']")
     WebElement downloadToolsPackButton;
 
-// ========== Fourteenth section ==========
+    // ========== Build Your Portfolio section ==========
+    @FindBy(xpath = "//h2[contains(text(),'Build Your Portfolio with')]")
+    WebElement buildYourPortfolio;
+    @FindBy(xpath = "//p[contains(text(),'Accelerate your industry readiness with projects d')]")
+    WebElement accelerateYourIndustryReadiness;
+    @FindBy(xpath = "//div[@class='mx-1']//a[@class='btn btn-dark btn-dark-primary rounded-3 mb-2 mb-md-0 btn-dark-primary-gradient-outline fw-semibold'][normalize-space()='Request Callback']")
+    WebElement requestCallbackButton2;
+    @FindBy(xpath = "//button[normalize-space()='View All Projects']")
+    WebElement viewAllProjectsButton;
+
+    // ========== Real Experience, Real Insights section ==========
+
+    @FindBy(xpath = "//h2[contains(text(),'Real Experience, Real Insights: Your Expert Mentor')]")
+    WebElement realExperienceRealInsights;
+    @FindBy(xpath = "//p[normalize-space()='Tap into decades of combined industry experience']")
+    WebElement tapIntoDecades;
+    @FindBy(xpath = "//div[@class='d-flex flex-wrap w-100 justify-content-center align-items-center']//div[@class='text-center mx-1']//a[@class='btn btn-dark btn-dark-primary rounded-3 mb-2 mb-md-0 btn-dark-primary-gradient-outline fw-semibold'][normalize-space()='Request Callback']")
+    WebElement requestCallbackButton3;
+    @FindBy(xpath = "//button[@class='btn btn-dark btn-dark-primary btn-dark-primary-gradient rounded-3 mx-1 fw-semibold'][normalize-space()='Download Instructors Profile']")
+    WebElement downloadInstructorsProfileButton;
+
+    // ========== Instructor-Led section ==========
+
+    @FindBy(xpath = "//h2[normalize-space()='Instructor-Led Live Workshops']")
+    WebElement instructorLedLiveWorkshops;
+    @FindBy(xpath = "//p[@class='fs-18 fw-normal']")
+    WebElement instructorLedLiveWorkshopsSubHeading;
+    @FindBy(xpath = "//button[normalize-space()='Get Workshops Detail']")
+    WebElement getWorkshopsDetailsButton;
+
+    // ========== Assisted Placements section ==========
+
+    @FindBy(xpath = "//h2[normalize-space()='AV Assisted Placements']")
+    WebElement avAssistedPlacements;
+    @FindBy(xpath = "//p[contains(text(),'Our alumni universe: 1200+ professionals making th')]")
+    WebElement ourAlumniUniverse;
+
+    // ========== Industry-Recognized Certification section ==========
+    @FindBy(xpath = "//h2[normalize-space()='Industry-Recognized Certification']")
+    WebElement industryRecognizedCertification;
+    @FindBy(xpath = "//p[contains(text(),'Get certified in GenAI and Agentic AI from Analyti')]")
+    WebElement getCertified;
+    @FindBy(xpath = "//button[normalize-space()='Earn Certificates']")
+    WebElement earnCertificatesButton;
+
+    // ========== Our Advisors section ==========
+
+    @FindBy(xpath = "//h2[normalize-space()='Our Advisors']")
+    WebElement ourAdvisors;
+    @FindBy(xpath = "//p[contains(text(),'Our advisors ensure our programs are innovative, i')]")
+    WebElement ourAdvisorsSubHeading;
+
+    // ========== AV Learners section ==========
+    @FindBy(xpath = "//h2[normalize-space()='AV Learners Spotlight']")
+    WebElement avLearnersSpotlight;
+
+    @FindBy(xpath = "//a[normalize-space()='View More']")
+    WebElement viewMoreButton;
+
+
+// ========== Money Back section ==========
 
     @FindBy(xpath = "//h2[normalize-space()='Money Back Guarantee!']")
     WebElement moneyBackGuarantee;
@@ -230,7 +306,7 @@ public class HomePage extends TestBase {
     @FindBy(xpath = "//div[@class='col-xl-4 col-lg-4 col-md-4 col-7 order-1 order-md-2 mx-auto']//img[@class='img-fluid']")
     WebElement moneyBackGuaranteeImage;
 
-// ========== Fifteenth section ==========
+// ========== Invest in Your Future section ==========
 
     @FindBy(xpath = "//h2[normalize-space()='Invest in Your Future Today']")
     WebElement investInYourFutureToday;
@@ -257,7 +333,7 @@ public class HomePage extends TestBase {
     @FindBy(xpath = "//div[@id='toggleCard1']//button[@class='btn btn-dark btn-dark-primary btn-dark-primary-gradient rounded-3 w-100 mt-3 fw-semibold'][normalize-space()='Enroll Now']")
     WebElement enrollNowButtonOneTime;
 
-// ========== Sixteenth section ==========
+// ========== Contact Us Today section ==========
 
     @FindBy(xpath = "//h2[normalize-space()='Contact Us Today']")
     WebElement contactUsToday;
@@ -318,7 +394,7 @@ public class HomePage extends TestBase {
     @FindBy(xpath = "//h3[normalize-space()='You’ll hear back from us in 24 hours.']")
     WebElement supportEmailSubHeading;
 
-// ========== Seventeenth section ==========
+// ========== Frequently Asked Questions section ==========
 
     @FindBy(xpath = "//h2[normalize-space()='Frequently Asked Questions']")
     WebElement frequentlyAskedQuestions;
@@ -333,7 +409,7 @@ public class HomePage extends TestBase {
     @FindBy(xpath = "//button[normalize-space()='View More']")
     WebElement viewMore;
 
-// ========== Eighteenth section ==========
+// ========== Flagship Programs section ==========
 
     @FindBy(xpath = "//h2[normalize-space()='Flagship Programs']")
     WebElement flagshipPrograms;
@@ -413,884 +489,634 @@ public class HomePage extends TestBase {
 
 
     // ========== top-nav functions==========
-    public void analyticsVidhyaIconTopNavIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> analyticsVidhyaIconTopNav.isDisplayed());
+    public boolean analyticsVidhyaIconTopNavIsDisplayed() {
+        scrollIntoView(analyticsVidhyaIconTopNav);
+        return analyticsVidhyaIconTopNav.isDisplayed();
     }
 
-    public void whatToExpectTopNavIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> whatToExpectTopNav.isDisplayed());
+    public void clickAnalyticsVidhyaIconTopNav() {
+        scrollIntoView(analyticsVidhyaIconTopNav);
+        click(analyticsVidhyaIconTopNav, "Analytics Vidhya icon in top nav");
     }
 
-    public void curriculumTopNavIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> curriculumTopNav.isDisplayed());
+    public boolean whatToExpectTopNavIsDisplayed() {
+        scrollIntoView(whatToExpectTopNav);
+        return whatToExpectTopNav.isDisplayed();
     }
 
-    public void feesTopNavIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> feesTopNav.isDisplayed());
+    public void clickWhatToExpectTopNav() {
+        scrollIntoView(whatToExpectTopNav);
+        click(whatToExpectTopNav, "What to Expect in top nav");
     }
 
-    public void testimonialsTopNavIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> testimonialsTopNav.isDisplayed());
+    public void validateTextOfWhatToExpectTopNav(String text) {
+        softAssert(whatToExpectTopNav, text);
     }
 
-    public void enrollNowButtonTopNavIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> enrollNowButtonTopNav.isDisplayed());
+    public boolean curriculumTopNavIsDisplayed() {
+        scrollIntoView(curriculumTopNav);
+        return curriculumTopNav.isDisplayed();
     }
 
-    public String getWhatToExpectText() {
-        return whatToExpectTopNav.getText();
+    public void clickCurriculumTopNav() {
+        scrollIntoView(curriculumTopNav);
+        click(curriculumTopNav, "Curriculum in top nav");
     }
 
-    public String getCurriculumText() {
-        return curriculumTopNav.getText();
+    public void validateTextOfCurriculumTopNav(String text) {
+        softAssert(curriculumTopNav, text);
     }
 
-    public String getFeesText() {
-        return feesTopNav.getText();
+    public boolean instructorsTopNavIsDisplayed() {
+        scrollIntoView(instructorsTopNav);
+        return instructorsTopNav.isDisplayed();
     }
 
-    public String getTestimonialsText() {
-        return testimonialsTopNav.getText();
+    public void clickInstructorsTopNav() {
+        scrollIntoView(instructorsTopNav);
+        click(instructorsTopNav, "Instructors in top nav");
     }
 
-    public String getEnrollNowButtonText() {
-        return enrollNowButtonTopNav.getText();
+    public void validateTextOfInstructorsTopNav(String text) {
+        softAssert(instructorsTopNav, text);
     }
 
-    public void clickWhatToExpect() {
-        whatToExpectTopNav.click();
+    public boolean feesTopNavIsDisplayed() {
+        scrollIntoView(feesTopNav);
+        return feesTopNav.isDisplayed();
     }
-    public void clickCurriculum() {
-        curriculumTopNav.click();
+
+    public void clickFeesTopNav() {
+        scrollIntoView(feesTopNav);
+        click(feesTopNav, "Fees in top nav");
     }
-    public void clickFees() {
-        feesTopNav.click();
+
+    public void validateTextOfFeesTopNav(String text) {
+        softAssert(feesTopNav, text);
     }
-    public void clickTestimonials() {
-        testimonialsTopNav.click();
+
+    public boolean testimonialsTopNavIsDisplayed() {
+        scrollIntoView(testimonialsTopNav);
+        return testimonialsTopNav.isDisplayed();
     }
+
+    public void clickTestimonialsTopNav() {
+        scrollIntoView(testimonialsTopNav);
+        click(testimonialsTopNav, "Testimonials in top nav");
+    }
+
+    public void validateTextOfTestimonialsTopNav(String text) {
+        softAssert(testimonialsTopNav, text);
+    }
+
+    public boolean enrollNowButtonTopNavIsDisplayed() {
+        scrollIntoView(enrollNowButtonTopNav);
+        return enrollNowButtonTopNav.isDisplayed();
+    }
+
     public void clickEnrollNowButtonTopNav() {
-        enrollNowButtonTopNav.click();
+        scrollIntoView(enrollNowButtonTopNav);
+        click(enrollNowButtonTopNav, "Enroll Now in top nav");
+    }
+
+    public void validateTextOfEnrollNowButtonTopNav(String text) {
+        softAssert(enrollNowButtonTopNav, text);
+    }
+
+    public void clickOnCloseButtonInPopUp() {
+        hardWait(5);
+        click(closeButtonInPopUp, "Close button in pop up");
+
     }
 
     // ========== Page First View ==========
+    public boolean ifSiteTitleIsDisplayed() {
+        scrollIntoView(siteTitle);
+        return siteTitle.isDisplayed();
+    }
 
-    public void siteTitleIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> siteTitle.isDisplayed());
+    public void validateTextOfSiteTitle(String text) {
+        softAssert(siteTitle, text);
     }
-    public void siteSubTitleIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> siteSubTitle.isDisplayed());
+
+    public boolean ifSiteSubTitleIsDisplayed() {
+        scrollIntoView(siteSubTitle);
+        return siteSubTitle.isDisplayed();
     }
-    public String getSiteTitleText() {
-        return siteTitle.getText();
+
+    public void validateTextOfSiteSubTitle(String text) {
+        softAssert(siteSubTitle, text);
     }
-    public String getSiteSubTitleText() {
-        return siteSubTitle.getText();
+
+    public boolean ifProjectsIsDisplayed() {
+        scrollIntoView(projects);
+        return projects.isDisplayed();
     }
-    public void projectsIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> projects.isDisplayed());
+
+    public void validateTextOfProjects(String text) {
+        softAssert(projects, text);
     }
-    public String getProjectsText() {
-        return projects.getText();
+
+    public boolean ifHoursOfImmersiveLearningIsDisplayed() {
+        scrollIntoView(hoursOfImmersiveLearning);
+        return hoursOfImmersiveLearning.isDisplayed();
     }
-    public void hoursOfImmersiveLearningIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> hoursOfImmersiveLearning.isDisplayed());
+
+    public void validateTextOfHoursOfImmersiveLearning(String text) {
+        softAssert(hoursOfImmersiveLearning, text);
     }
-    public String getHoursOfImmersiveLearningText() {
-        return hoursOfImmersiveLearning.getText();
+
+    public boolean ifPlacementAssistanceIsDisplayed() {
+        scrollIntoView(placementAssistance);
+        return placementAssistance.isDisplayed();
     }
-    public void placementAssistanceIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> placementAssistance.isDisplayed());
+
+    public void validateTextOfPlacementAssistance(String text) {
+        softAssert(placementAssistance, text);
     }
-    public String getPlacementAssistanceText() {
-        return placementAssistance.getText();
+
+    public boolean ifPlacementRateIsDisplayed() {
+        scrollIntoView(placementRate);
+        return placementRate.isDisplayed();
     }
-    public void placementRateIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> placementRate.isDisplayed());
+
+    public void validateTextOfPlacementRate(String text) {
+        softAssert(placementRate, text);
     }
-    public String getPlacementRateText() {
-        return placementRate.getText();
+
+    public boolean ifHoursOfLiveWorkshopsIsDisplayed() {
+        scrollIntoView(hoursOfLiveWorkshops);
+        return hoursOfLiveWorkshops.isDisplayed();
     }
-    public void hoursOfLiveWorkshopsIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> hoursOfLiveWorkshops.isDisplayed());
+
+    public void validateTextOfHoursOfLiveWorkshops(String text) {
+        softAssert(hoursOfLiveWorkshops, text);
     }
-    public String getHoursOfLiveWorkshopsText() {
-        return hoursOfLiveWorkshops.getText();
+
+    public boolean ifLiveWorkshopsIsDisplayed() {
+        scrollIntoView(liveWorkshops);
+        return liveWorkshops.isDisplayed();
     }
-    public void liveWorkshopsIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> liveWorkshops.isDisplayed());
+
+    public void validateTextOfLiveWorkshops(String text) {
+        softAssert(liveWorkshops, text);
     }
-    public String getLiveWorkshopsText() {
-        return liveWorkshops.getText();
+
+    public boolean ifExpertLedMentorshipsIsDisplayed() {
+        scrollIntoView(expertLedMentorships);
+        return expertLedMentorships.isDisplayed();
     }
-    public void expertLedMentorshipsIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> expertLedMentorships.isDisplayed());
+
+    public void validateTextOfExpertLedMentorships(String text) {
+        softAssert(expertLedMentorships, text);
     }
-    public String getExpertLedMentorshipsText() {
-        return expertLedMentorships.getText();
+
+    public boolean ifMentorshipsIsDisplayed() {
+        scrollIntoView(mentorships);
+        return mentorships.isDisplayed();
     }
-    public void mentorshipsIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> mentorships.isDisplayed());
+
+    public void validateTextOfMentorships(String text) {
+        softAssert(mentorships, text);
     }
-    public String getMentorshipsText() {
-        return mentorships.getText();
-    }
+
     // ========== Page First View pop up ==========
 
-    public void popUpTitleIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> popUpTitle.isDisplayed());
+    public boolean ifPopUpTitleIsDisplayed() {
+        scrollIntoView(popUpTitle);
+        return popUpTitle.isDisplayed();
     }
-    public String getPopUpTitleText() {
-        return popUpTitle.getText();
+
+    public void validateTextOfPopUpTitle(String text) {
+        softAssert(popUpTitle, text);
     }
-    public void fullNamePopUpIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> fullNamePopUp.isDisplayed());
+
+    public boolean ifFullNamePopUpIsDisplayed() {
+        scrollIntoView(fullNamePopUp);
+        return fullNamePopUp.isDisplayed();
     }
-    public String getFullNamePopUpText() {
-        return fullNamePopUp.getAttribute("placeholder");
+
+    public void validatePlaceholderTextOfFullName(String text) {
+        validatePlaceholderText(fullNamePopUp, text);
+
     }
+
     public void enterFullNamePopUp(String fullName) {
-        fullNamePopUp.sendKeys(fullName);
+        sendKeys(fullNamePopUp, fullName);
     }
-    public void phoneNumberPopUpIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> phoneNumberPopUp.isDisplayed());
+
+    public boolean ifPhoneNumberPopUpIsDisplayed() {
+        scrollIntoView(phoneNumberPopUp);
+        return phoneNumberPopUp.isDisplayed();
     }
-    public String getPhoneNumberPopUpText() {
-        return phoneNumberPopUp.getAttribute("placeholder");
+
+    public void validatePlaceholderTextOfPhoneNumber(String text) {
+        validatePlaceholderText(phoneNumberPopUp, text);
     }
+
     public void enterPhoneNumberPopUp(String phone) {
-        phoneNumberPopUp.sendKeys(phone);
+        sendKeys(phoneNumberPopUp, phone);
     }
-    public void countryFlagIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> countryFlag.isDisplayed());
+
+    public boolean ifCountryFlagIsDisplayed() {
+        scrollIntoView(countryFlag);
+        return countryFlag.isDisplayed();
     }
-    public String getCountryFlagText() {
-        return countryFlag.getAttribute("title");
+
+    public void clickCountryFlag() {
+        click(countryFlag, "Country Flag");
     }
-    public void countryFlagArrowIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> countryFlagArrowContactUs.isDisplayed());
+
+    public boolean ifEmailPopUpIsDisplayed() {
+        scrollIntoView(emailPopUp);
+        return emailPopUp.isDisplayed();
     }
-    public String getCountryFlagArrowText() {
-        return countryFlagArrowContactUs.getAttribute("title");
+
+    public void validatePlaceholderTextOfEmail(String text) {
+        validatePlaceholderText(emailPopUp, text);
     }
-    public void emailPopUpIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> emailPopUp.isDisplayed());
-    }
-    public String getEmailPopUpText() {
-        return emailPopUp.getAttribute("placeholder");
-    }
+
     public void enterEmailPopUp(String email) {
-        emailPopUp.sendKeys(email);
-    }
-    public void tncTextIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> tncText.isDisplayed());
-    }
-    public String getTncText() {
-        return tncText.getText();
-    }
-    public void tncTextClick() {
-        tncText.click();
-    }
-    public void sendWhatsAppTextIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> sendWhatsAppText.isDisplayed());
-    }
-    public String getSendWhatsAppText() {
-        return sendWhatsAppText.getText();
-    }
-    public void sendWhatsAppTextClick() {
-        sendWhatsAppText.click();
-    }
-    public void downloadBrochureButtonIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> downloadBrochureButtonPopUp.isDisplayed());
-    }
-    public String getDownloadBrochureButtonText() {
-        return downloadBrochureButtonPopUp.getText();
-    }
-    public void downloadBrochureButtonClick() {
-        downloadBrochureButtonPopUp.click();
+        sendKeys(emailPopUp, email);
     }
 
-    // ========== AI ChatBot ==========
+    public boolean ifTncTextIsDisplayed() {
+        scrollIntoView(tncText);
+        return tncText.isDisplayed();
+    }
 
-    public void genAiSavingsOfferIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> genAiSavingsOffer.isDisplayed());
+    public void validateTextTncText(String text) {
+        softAssert(tncText, text);
     }
-    public String getGenAiSavingsOfferText() {
-        return genAiSavingsOffer.getText();
+
+    public boolean ifSendWhatsAppTextIsDisplayed() {
+        scrollIntoView(sendWhatsAppText);
+        return sendWhatsAppText.isDisplayed();
     }
-    public void genAiSavingsOfferClick() {
-        genAiSavingsOffer.click();
+
+    public void validateTextSendWhatsAppText(String text) {
+        softAssert(sendWhatsAppText, text);
     }
-    public void aiSupportIconIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> aiSupportIcon.isDisplayed());
+
+    public boolean ifDownloadBrochureButtonIsDisplayed() {
+        scrollIntoView(downloadBrochureButtonPopUp);
+        return downloadBrochureButtonPopUp.isDisplayed();
     }
-    public String getAiSupportIconText() {
-        return aiSupportIcon.getAttribute("alt");
+
+    public void validateTextDownloadBrochureButton(String text) {
+        softAssert(downloadBrochureButtonPopUp, text);
     }
-    public void aiSupportIconClick() {
-        aiSupportIcon.click();
+
+    public void clickDownloadBrochureButton() {
+        click(downloadBrochureButtonPopUp, "Download Brochure button in pop up");
     }
 
     // ========== second Section ==========
-    public void howDoesTheGenAiPinnaclePlusProgramHelpYouIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> howDoesTheGenAiPinnaclePlusProgramHelpYou.isDisplayed());
-    }
-    public String getHowDoesTheGenAiPinnaclePlusProgramHelpYouText() {
-        return howDoesTheGenAiPinnaclePlusProgramHelpYou.getText();
-    }
-    public void hoursOfImmersiveLearning2IsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> hoursOfImmersiveLearning2.isDisplayed());
-    }
-    public String getHoursOfImmersiveLearning2Text() {
-        return hoursOfImmersiveLearning2.getText();
-    }
-    public void fullSpectrumGenAiAndAgenticAiLearningIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> fullSpectrumGenAiAndAgenticAiLearning.isDisplayed());
-    }
-    public String getFullSpectrumGenAiAndAgenticAiLearningText() {
-        return fullSpectrumGenAiAndAgenticAiLearning.getText();
-    }
-    public void fullSpectrumGenAiAndAgenticAiLearning2IsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> fullSpectrumGenAiAndAgenticAiLearning2.isDisplayed());
-    }
-    public String getFullSpectrumGenAiAndAgenticAiLearning2Text() {
-        return fullSpectrumGenAiAndAgenticAiLearning2.getText();
-    }
-    public void industryAlignedProjectsIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> industryAlignedProjects.isDisplayed());
-    }
-    public String getIndustryAlignedProjectsText() {
-        return industryAlignedProjects.getText();
-    }
-    public void acquireRealWorldExperienceIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> acquireRealWorldExperience.isDisplayed());
-    }
-    public String getAcquireRealWorldExperienceText() {
-        return acquireRealWorldExperience.getText();
-    }
-    public void diverseProjectsIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> diverseProjects.isDisplayed());
-    }
-    public String getDiverseProjectsText() {
-        return diverseProjects.getText();
-    }
-    public void expertMentorshipIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> expertMentorship.isDisplayed());
-    }
-    public String getExpertMentorshipText() {
-        return expertMentorship.getText();
-    }
-    public void expertInsightsIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> expertInsights.isDisplayed());
-    }
-    public String getExpertInsightsText() {
-        return expertInsights.getText();
-    }
-    public void personalizedRoadmapIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> personalizedRoadmap.isDisplayed());
-    }
-    public String getPersonalizedRoadmapText() {
-        return personalizedRoadmap.getText();
-    }
-    // ========== Third section ==========
-
-    public void curriculumStatisticsIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> curriculumStatistics.isDisplayed());
-    }
-    public String getCurriculumStatisticsText() {
-        return curriculumStatistics.getText();
-    }
-    public void projects2IsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> projects2.isDisplayed());
-    }
-    public String getProjects2Text() {
-        return projects2.getText();
-    }
-    public void handsOnLearningIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> handsOnLearning.isDisplayed());
-    }
-    public String getHandsOnLearningText() {
-        return handsOnLearning.getText();
-    }
-    public void hoursOfImmersiveLearning2_2IsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> hoursOfImmersiveLearning2_2.isDisplayed());
-    }
-    public String getHoursOfImmersiveLearning2_2Text() {
-        return hoursOfImmersiveLearning2_2.getText();
-    }
-    public void inDepthLearningIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> inDepthLearning.isDisplayed());
-    }
-    public String getInDepthLearningText() {
-        return inDepthLearning.getText();
-    }
-    public void librariesIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> libraries.isDisplayed());
-    }
-    public String getLibrariesText() {
-        return libraries.getText();
-    }
-    public void developExpertiseIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> developExpertise.isDisplayed());
-    }
-    public String getDevelopExpertiseText() {
-        return developExpertise.getText();
-    }
-    public void assignmentsIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> assignments.isDisplayed());
-    }
-    public String getAssignmentsText() {
-        return assignments.getText();
-    }
-    public void turnKnowledgeIntoActionIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> turnKnowledgeIntoAction.isDisplayed());
-    }
-    public String getTurnKnowledgeIntoActionText() {
-        return turnKnowledgeIntoAction.getText();
-    }
-    public void mentorshipSessionsIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> mentorshipSessions.isDisplayed());
-    }
-    public String getMentorshipSessionsText() {
-        return mentorshipSessions.getText();
-    }
-    public void liveMentorshipSessionIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> liveMentorshipSession.isDisplayed());
-    }
-    public String getLiveMentorshipSessionText() {
-        return liveMentorshipSession.getText();
-    }
-    // ========== Fifth section ==========
-
-    public void curriculumIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> curriculum.isDisplayed());
-    }
-    public String getCurriculumTextFifthSection() {
-        return curriculum.getText();
-    }
-    public void fromPythonFoundationsIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> fromPythonFoundations.isDisplayed());
-    }
-    public String getFromPythonFoundationsText() {
-        return fromPythonFoundations.getText();
+    public boolean ifHowDoesTheGenAiPinnaclePlusProgramHelpYouIsDisplayed() {
+        scrollIntoView(howDoesTheGenAiPinnaclePlusProgramHelpYou);
+        return howDoesTheGenAiPinnaclePlusProgramHelpYou.isDisplayed();
     }
 
-    public void projects3IsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> projects3.isDisplayed());
-    }
-    public String getProjects3Text() {
-        return projects3.getText();
-    }
-    public void hoursOfImmersiveLearning3IsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> hoursOfImmersiveLearning3.isDisplayed());
-    }
-    public String getHoursOfImmersiveLearning3Text() {
-        return hoursOfImmersiveLearning3.getText();
-    }
-    public void toolsIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> tools.isDisplayed());
-    }
-    public String getToolsText() {
-        return tools.getText();
-    }
-    public void assignments2IsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> assignments2.isDisplayed());
-    }
-    public String getAssignments2Text() {
-        return assignments2.getText();
-    }
-    public void chooseWhatToLearnImageIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> chooseWhatToLearnImage.isDisplayed());
-    }
-    public String getChooseWhatToLearnImageText() {
-        return chooseWhatToLearnImage.getAttribute("alt");
-    }
-    public void downloadFreeCurriculumButtonIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> downloadFreeCurriculumButton.isDisplayed());
-    }
-    public String getDownloadFreeCurriculumButtonText() {
-        return downloadFreeCurriculumButton.getText();
-    }
-    public void downloadFreeCurriculumButtonClick() {
-        downloadFreeCurriculumButton.click();
+    public void validateTextOfHowDoesTheGenAiPinnaclePlusProgramHelpYou(String text) {
+        softAssert(howDoesTheGenAiPinnaclePlusProgramHelpYou, text);
     }
 
-    // ========== Sixth section ==========
-
-    public void librariesAndFrameworksIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> librariesAndFrameworks.isDisplayed());
-    }
-    public String getLibrariesAndFrameworksText() {
-        return librariesAndFrameworks.getText();
-    }
-    public void master40LibrariesIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> master40Libraries.isDisplayed());
-    }
-    public String getMaster40LibrariesText() {
-        return master40Libraries.getText();
-    }
-    public void librariesAndFrameworksSectionIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> getDriver().findElement(librariesAndFrameworksSection).isDisplayed());
-    }
-    public String getLibrariesAndFrameworksSectionText() {
-        return getDriver().findElement(librariesAndFrameworksSection).getText();
-    }
-    public void downloadToolsPackButtonIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> downloadToolsPackButton.isDisplayed());
-    }
-    public String getDownloadToolsPackButtonText() {
-        return downloadToolsPackButton.getText();
-    }
-    public void downloadToolsPackButtonClick() {
-        downloadToolsPackButton.click();
-    }
-    // ========== Fourteenth section ==========
-
-    public void moneyBackGuaranteeIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> moneyBackGuarantee.isDisplayed());
+    public boolean ifHoursOfImmersiveLearning2IsDisplayed() {
+        scrollIntoView(hoursOfImmersiveLearning2);
+        return hoursOfImmersiveLearning2.isDisplayed();
     }
 
-    public String getMoneyBackGuaranteeText() {
-        return moneyBackGuarantee.getText();
-    }
-    public void noQuestionAskedIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> noQuestionAsked.isDisplayed());
-    }
-    public String getNoQuestionAskedText() {
-        return noQuestionAsked.getText();
-    }
-    public void moneyBackGuaranteeImageIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> moneyBackGuaranteeImage.isDisplayed());
-    }
-    public String getMoneyBackGuaranteeImageText() {
-        return moneyBackGuaranteeImage.getAttribute("alt");
-    }
-    public void moneyBackGuaranteeImageClick() {
-        moneyBackGuaranteeImage.click();
-    }
-    // ========== Fifteenth section ==========
-    public void investInYourFutureTodayIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> investInYourFutureToday.isDisplayed());
-    }
-    public String getInvestInYourFutureTodayText() {
-        return investInYourFutureToday.getText();
-    }
-    public void exclusiveAccessToAiToolsIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> exclusiveAccessToAiTools.isDisplayed());
-    }
-    public String getExclusiveAccessToAiToolsText() {
-        return exclusiveAccessToAiTools.getText();
-    }
-    public void boostYourCareerIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> boostYourCareer.isDisplayed());
-    }
-    public String getBoostYourCareerText() {
-        return boostYourCareer.getText();
-    }
-    public void enrollNowAndStartYourJourneyIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> enrollNowAndStartYourJourney.isDisplayed());
-    }
-    public String getEnrollNowAndStartYourJourneyText() {
-        return enrollNowAndStartYourJourney.getText();
-    }
-    public void oneTimeToggleLabelIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> oneTimeToggleLabel.isDisplayed());
-    }
-    public String getOneTimeToggleLabelText() {
-        return oneTimeToggleLabel.getText();
-    }
-    public void emiToggleLabelIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> emiToggleLabel.isDisplayed());
-    }
-    public String getEmiToggleLabelText() {
-        return emiToggleLabel.getText();
-    }
-    public void priceToggleIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> priceToggle.isDisplayed());
-    }
-    public String getPriceToggleText() {
-        return priceToggle.getAttribute("aria-checked");
-    }
-    public void oneTimeIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> oneTime.isDisplayed());
-    }
-    public String getOneTimeText() {
-        return oneTime.getText();
-    }
-    public void oneTimePriceIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> oneTimePrice.isDisplayed());
-    }
-    public String getOneTimePriceText() {
-        return oneTimePrice.getText();
-    }
-    public void oneTimePriceInclusiveOfAllTaxesIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> oneTimePriceInclusiveOfAllTaxes.isDisplayed());
-    }
-    public String getOneTimePriceInclusiveOfAllTaxesText() {
-        return oneTimePriceInclusiveOfAllTaxes.getText();
-    }
-    public void levelUpYourProfessionalJourneyIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> levelUpYourProfessionalJourney.isDisplayed());
-    }
-    public String getLevelUpYourProfessionalJourneyText() {
-        return levelUpYourProfessionalJourney.getText();
-    }
-    public void enrollNowButtonOneTimeIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> enrollNowButtonOneTime.isDisplayed());
-    }
-    public String getEnrollNowButtonOneTimeText() {
-        return enrollNowButtonOneTime.getText();
-    }
-    public void enrollNowButtonOneTimeClick() {
-        enrollNowButtonOneTime.click();
-    }
-    // ========== Sixteenth section ==========
-    public void contactUsTodayIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> contactUsToday.isDisplayed());
-    }
-    public String getContactUsTodayText() {
-        return contactUsToday.getText();
-    }
-    public void takeTheFirstStepIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> takeTheFirstStep.isDisplayed());
-    }
-    public String getTakeTheFirstStepText() {
-        return takeTheFirstStep.getText();
-    }
-    public void upskillReskillIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> upskillReskill.isDisplayed());
-    }
-    public String getUpskillReskillText() {
-        return upskillReskill.getText();
-    }
-    public void contactFullNameLabelIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> contactFullNameLabel.isDisplayed());
-    }
-    public String getContactFullNameLabelText() {
-        return contactFullNameLabel.getText();
-    }
-    public void enterContactFullName(String fullName) {
-        contactFullName.sendKeys(fullName);
-    }
-    public void contactEmailLabelIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> contactEmailLabel.isDisplayed());
-    }
-    public String getContactEmailLabelText() {
-        return contactEmailLabel.getText();
-    }
-    public void enterContactEmail(String email) {
-        contactEmail.sendKeys(email);
-    }
-    public void contactPhoneNumberLabelIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> contactPhoneNumberLabel.isDisplayed());
-    }
-    public String getContactPhoneNumberLabelText() {
-        return contactPhoneNumberLabel.getText();
-    }
-    public void enterContactPhoneNumber(String phone) {
-        contactPhoneNumber.sendKeys(phone);
-    }
-    public void countryFlagContactUsIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> countryFlagContactUs.isDisplayed());
-    }
-    public String getCountryFlagContactUsText() {
-        return countryFlagContactUs.getAttribute("title");
-    }
-    public void countryFlagArrowContactUsIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> countryFlagArrowContactUs.isDisplayed());
-    }
-    public String getCountryFlagArrowContactUsText() {
-        return countryFlagArrowContactUs.getAttribute("title");
-    }
-    public void experienceLabelIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> experienceLabel.isDisplayed());
-    }
-    public String getExperienceLabelText() {
-        return experienceLabel.getText();
-    }
-    public void experience0_3IsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> experience0_3.isDisplayed());
-    }
-    public String getExperience0_3Text() {
-        return experience0_3.getText();
-    }
-    public void experience3_8IsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> experience3_8.isDisplayed());
-    }
-    public String getExperience3_8Text() {
-        return experience3_8.getText();
-    }
-    public void experience8_12IsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> experience8_12.isDisplayed());
-    }
-    public String getExperience8_12Text() {
-        return experience8_12.getText();
-    }
-    public void experience12IsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> experience12.isDisplayed());
-    }
-    public String getExperience12Text() {
-        return experience12.getText();
-    }
-    public void termsAndConditionsLabelIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> termsAndConditionsLabel.isDisplayed());
-    }
-    public String getTermsAndConditionsLabelText() {
-        return termsAndConditionsLabel.getText();
-    }
-    public void termsAndConditionsLabelClick() {
-        termsAndConditionsLabel.click();
-    }
-    public void sendWhatsAppLabelIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> sendWhatsAppLabel.isDisplayed());
-    }
-    public String getSendWhatsAppLabelText() {
-        return sendWhatsAppLabel.getText();
-    }
-    public void sendWhatsAppLabelClick() {
-        sendWhatsAppLabel.click();
-    }
-    public void sendWhatsAppCheckboxIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> sendWhatsAppCheckbox.isDisplayed());
-    }
-    public String getSendWhatsAppCheckboxText() {
-        return sendWhatsAppCheckbox.getAttribute("aria-checked");
-    }
-    public void sendWhatsAppCheckboxClick() {
-        sendWhatsAppCheckbox.click();
-    }
-    public void joinTheProgramButtonIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> joinTheProgramButton.isDisplayed());
-    }
-    public String getJoinTheProgramButtonText() {
-        return joinTheProgramButton.getText();
-    }
-    public void joinTheProgramButtonClick() {
-        joinTheProgramButton.click();
-    }
-    public void getExpertGuidanceIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> getExpertGuidance.isDisplayed());
-    }
-    public String getGetExpertGuidanceText() {
-        return getExpertGuidance.getText();
-    }
-    public void needSupportIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> needSupport.isDisplayed());
-    }
-    public String getNeedSupportText() {
-        return needSupport.getText();
-    }
-    public void imagePhoneIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> imagePhone.isDisplayed());
-    }
-    public String getImagePhoneText() {
-        return imagePhone.getAttribute("alt");
-    }
-    public void supportPhoneIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> supportPhoneNumber.isDisplayed());
-    }
-    public String getSupportPhoneText() {
-        return supportPhoneNumber.getText();
-    }
-    public void supportPhoneNumberSubHeadingIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> supportPhoneNumberSubHeading.isDisplayed());
-    }
-    public String getSupportPhoneNumberSubHeadingText() {
-        return supportPhoneNumberSubHeading.getText();
-    }
-    public void imageEmailIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> imageEmail.isDisplayed());
-    }
-    public String getImageEmailText() {
-        return imageEmail.getAttribute("alt");
-    }
-    public void supportEmailIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> supportEmail.isDisplayed());
-    }
-    public String getSupportEmailText() {
-        return supportEmail.getText();
-    }
-    public void supportEmailSubHeadingIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> supportEmailSubHeading.isDisplayed());
-    }
-    public String getSupportEmailSubHeadingText() {
-        return supportEmailSubHeading.getText();
-    }
-    // ========== Seventeenth section ==========
-    public void frequentlyAskedQuestionsIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> frequentlyAskedQuestions.isDisplayed());
-    }
-    public String getFrequentlyAskedQuestionsText() {
-        return frequentlyAskedQuestions.getText();
-    }
-    public void lookingForAnswersIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> lookingForAnswers.isDisplayed());
-    }
-    public String getLookingForAnswersText() {
-        return lookingForAnswers.getText();
-    }
-    public void whatMakesTheGenAiPinnaclePlusProgramDifferentIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> whatMakesTheGenAiPinnaclePlusProgramDifferent.isDisplayed());
-    }
-    public String getWhatMakesTheGenAiPinnaclePlusProgramDifferentText() {
-        return whatMakesTheGenAiPinnaclePlusProgramDifferent.getText();
-    }
-    public void whatMakesTheGenAiPinnaclePlusProgramDifferentClick() {
-        whatMakesTheGenAiPinnaclePlusProgramDifferent.click();
-    }
-    public void howIsTheGenAiPinnaclePlusProgramDifferentIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> howIsTheGenAiPinnaclePlusProgramDifferent.isDisplayed());
-    }
-    public String getHowIsTheGenAiPinnaclePlusProgramDifferentText() {
-        return howIsTheGenAiPinnaclePlusProgramDifferent.getText();
-    }
-    public void howIsTheGenAiPinnaclePlusProgramDifferentClick() {
-        howIsTheGenAiPinnaclePlusProgramDifferent.click();
-    }
-    public void whoIsTheIdealCandidateIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> whoIsTheIdealCandidate.isDisplayed());
-    }
-    public String getWhoIsTheIdealCandidateText() {
-        return whoIsTheIdealCandidate.getText();
-    }
-    public void whoIsTheIdealCandidateClick() {
-        whoIsTheIdealCandidate.click();
-    }
-    public void viewMoreIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> viewMore.isDisplayed());
-    }
-    public String getViewMoreText() {
-        return viewMore.getText();
-    }
-    public void viewMoreClick() {
-        viewMore.click();
-    }
-    // ========== Eighteenth section ==========
-    public void flagshipProgramsIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> flagshipPrograms.isDisplayed());
-    }
-    public String getFlagshipProgramsText() {
-        return flagshipPrograms.getText();
-    }
-    public void genAiPinnacleProgramIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(driver -> genAiPinnacleProgram.isDisplayed());
-    }
-    public String getGenAiPinnacleProgramText() {
-        return genAiPinnacleProgram.getText();
-    }
-    public void genAiPinnacleProgramClick() {
-        genAiPinnacleProgram.click();
-    }
-    public void clickOnGenAiPinnacleProgram() {
-        genAiPinnacleProgram.click();
+    public void validateTextOfHoursOfImmersiveLearning2(String text) {
+        softAssert(hoursOfImmersiveLearning2, text);
+    }
+
+    public boolean ifFullSpectrumGenAiAndAgenticAiLearningIsDisplayed() {
+        scrollIntoView(fullSpectrumGenAiAndAgenticAiLearning);
+        return fullSpectrumGenAiAndAgenticAiLearning.isDisplayed();
+    }
+
+    public void validateTextOfFullSpectrumGenAiAndAgenticAiLearning(String text) {
+        softAssert(fullSpectrumGenAiAndAgenticAiLearning, text);
+    }
+
+    public boolean ifMasterCuttingEdgeGenAiIsDisplayed() {
+        scrollIntoView(masterCuttingEdgeGenAi);
+        return masterCuttingEdgeGenAi.isDisplayed();
+    }
+
+    public void validateTextOfMasterCuttingEdgeGenAi(String text) {
+        softAssert(masterCuttingEdgeGenAi, text);
+    }
+
+    public boolean ifIndustryAlignedProjectsIsDisplayed() {
+        scrollIntoView(industryAlignedProjects);
+        return industryAlignedProjects.isDisplayed();
+    }
+
+    public void validateTextOfIndustryAlignedProjects(String text) {
+        softAssert(industryAlignedProjects, text);
+    }
+
+    public boolean ifAcquireRealWorldExperienceIsDisplayed() {
+        scrollIntoView(acquireRealWorldExperience);
+        return acquireRealWorldExperience.isDisplayed();
+    }
+
+    public void validateTextOfAcquireRealWorldExperience(String text) {
+        softAssert(acquireRealWorldExperience, text);
+    }
+
+    public boolean ifDiverseProjectsIsDisplayed() {
+        scrollIntoView(diverseProjects);
+        return diverseProjects.isDisplayed();
+    }
+
+    public void validateTextOfDiverseProjects(String text) {
+        softAssert(diverseProjects, text);
+    }
+
+    public boolean ifExpertMentorshipIsDisplayed() {
+        scrollIntoView(expertMentorship);
+        return expertMentorship.isDisplayed();
+    }
+
+    public void validateTextOfExpertMentorship(String text) {
+        softAssert(expertMentorship, text);
+    }
+
+    public boolean ifExpertInsightsIsDisplayed() {
+        scrollIntoView(expertInsights);
+        return expertInsights.isDisplayed();
+    }
+
+    public void validateTextOfExpertInsights(String text) {
+        softAssert(expertInsights, text);
+    }
+
+    public boolean ifPersonalizedRoadmapIsDisplayed() {
+        scrollIntoView(personalizedRoadmap);
+        return personalizedRoadmap.isDisplayed();
+    }
+
+    public void validateTextOfPersonalizedRoadmap(String text) {
+        softAssert(personalizedRoadmap, text);
+    }
+
+    // ========== Curriculum Statistics section ==========
+
+    public boolean ifCurriculumStatisticsIsDisplayed() {
+        scrollIntoView(curriculumStatistics);
+        return curriculumStatistics.isDisplayed();
+    }
+
+    public void validateTextOfCurriculumStatistics(String text) {
+        softAssert(curriculumStatistics, text);
+    }
+
+    public boolean ifProjects2IsDisplayed() {
+        scrollIntoView(projects2);
+        return projects2.isDisplayed();
+    }
+
+    public void validateTextOfProjects2(String text) {
+        softAssert(projects2, text);
+    }
+
+    public boolean ifHandsOnLearningIsDisplayed() {
+        scrollIntoView(handsOnLearning);
+        return handsOnLearning.isDisplayed();
+    }
+
+    public void validateTextOfHandsOnLearning(String text) {
+        softAssert(handsOnLearning, text);
+    }
+
+    public boolean ifHoursOfImmersiveLearning2_2IsDisplayed() {
+        scrollIntoView(hoursOfImmersiveLearning2_2);
+        return hoursOfImmersiveLearning2_2.isDisplayed();
+    }
+
+    public void validateTextOfHoursOfImmersiveLearning2_2(String text) {
+        softAssert(hoursOfImmersiveLearning2_2, text);
+    }
+
+    public boolean ifInDepthLearningIsDisplayed() {
+        scrollIntoView(inDepthLearning);
+        return inDepthLearning.isDisplayed();
+    }
+
+    public void validateTextOfInDepthLearning(String text) {
+        softAssert(inDepthLearning, text);
+    }
+
+    public boolean ifLibrariesIsDisplayed() {
+        scrollIntoView(libraries);
+        return libraries.isDisplayed();
+    }
+
+    public void validateTextOfLibraries(String text) {
+        softAssert(libraries, text);
+    }
+
+    public boolean ifDevelopExpertiseIsDisplayed() {
+        scrollIntoView(developExpertise);
+        return developExpertise.isDisplayed();
+    }
+
+    public void validateTextOfDevelopExpertise(String text) {
+        softAssert(developExpertise, text);
+    }
+
+    public boolean ifAssignmentsIsDisplayed() {
+        scrollIntoView(assignments);
+        return assignments.isDisplayed();
+    }
+
+    public void validateTextOfAssignments(String text) {
+        softAssert(assignments, text);
+    }
+
+    public boolean ifTurnKnowledgeIntoActionIsDisplayed() {
+        scrollIntoView(turnKnowledgeIntoAction);
+        return turnKnowledgeIntoAction.isDisplayed();
+    }
+
+    public void validateTextOfTurnKnowledgeIntoAction(String text) {
+        softAssert(turnKnowledgeIntoAction, text);
+    }
+
+    public boolean ifMentorshipSessionsIsDisplayed() {
+        scrollIntoView(mentorshipSessions);
+        return mentorshipSessions.isDisplayed();
+    }
+
+    public void validateTextOfMentorshipSessions(String text) {
+        softAssert(mentorshipSessions, text);
+    }
+
+    public boolean ifLiveMentorshipSessionIsDisplayed() {
+        scrollIntoView(liveMentorshipSession);
+        return liveMentorshipSession.isDisplayed();
+    }
+
+    public void validateTextOfLiveMentorshipSession(String text) {
+        softAssert(liveMentorshipSession, text);
+    }
+
+
+    // ========== Personalized Roadmap section ==========
+
+    public boolean ifPersonalizedRoadmapSectionIsDisplayed() {
+        scrollIntoView(personalizedRoadmapSection);
+        return personalizedRoadmapSection.isDisplayed();
+    }
+
+    public void validateTextOfPersonalizedRoadmapSection(String text) {
+        softAssert(personalizedRoadmapSection, text);
+    }
+
+    public boolean ifYourAmbitionIsDisplayed() {
+        scrollIntoView(yourAmbition);
+        return yourAmbition.isDisplayed();
+    }
+
+    public void validateTextOfYourAmbition(String text) {
+        softAssert(yourAmbition, text);
+    }
+
+    public boolean ifRequestCallbackButtonIsDisplayed() {
+        scrollIntoView(requestCallbackButton);
+        return requestCallbackButton.isDisplayed();
+    }
+
+    public void validateTextOfRequestCallbackButton(String text) {
+        softAssert(requestCallbackButton, text);
+    }
+
+    public void clickRequestCallbackButton() {
+        click(requestCallbackButton, "Request Callback button");
+    }
+
+    public boolean ifGetPersonalizedRoadmapButtonIsDisplayed() {
+        scrollIntoView(getPersonalizedRoadmapButton);
+        return getPersonalizedRoadmapButton.isDisplayed();
+    }
+
+    public void validateTextOfGetPersonalizedRoadmapButton(String text) {
+        softAssert(getPersonalizedRoadmapButton, text);
+    }
+
+    public void clickGetPersonalizedRoadmapButton() {
+        click(getPersonalizedRoadmapButton, "Get Personalized Roadmap button");
+    }
+
+    // ========== Curriculum section ==========
+    public boolean ifCurriculumIsDisplayed() {
+        scrollIntoView(curriculum);
+        return curriculum.isDisplayed();
+    }
+
+    public void validateTextOfCurriculum(String text) {
+        softAssert(curriculum, text);
+    }
+
+    public boolean ifFromPythonFoundationsIsDisplayed() {
+        scrollIntoView(fromPythonFoundations);
+        return fromPythonFoundations.isDisplayed();
+    }
+
+    public void validateTextOfFromPythonFoundations(String text) {
+        softAssert(fromPythonFoundations, text);
+    }
+
+    public boolean ifProjects3IsDisplayed() {
+        scrollIntoView(projects3);
+        return projects3.isDisplayed();
+    }
+
+    public void validateTextOfProjects3(String text) {
+        softAssert(projects3, text);
+    }
+
+    public boolean ifHoursOfImmersiveLearning3IsDisplayed() {
+        scrollIntoView(hoursOfImmersiveLearning3);
+        return hoursOfImmersiveLearning3.isDisplayed();
+    }
+
+    public void validateTextOfHoursOfImmersiveLearning3(String text) {
+        softAssert(hoursOfImmersiveLearning3, text);
+    }
+
+    public boolean ifToolsIsDisplayed() {
+        scrollIntoView(tools);
+        return tools.isDisplayed();
+    }
+
+    public void validateTextOfTools(String text) {
+        softAssert(tools, text);
+    }
+
+    public boolean ifAssignments2IsDisplayed() {
+        scrollIntoView(assignments2);
+        return assignments2.isDisplayed();
+    }
+
+    public void validateTextOfAssignments2(String text) {
+        softAssert(assignments2, text);
+    }
+
+    public boolean ifChooseWhatToLearnImageIsDisplayed() {
+        scrollIntoView(chooseWhatToLearnImage);
+        return chooseWhatToLearnImage.isDisplayed();
+    }
+
+    public void validateTextOfChooseWhatToLearnImage(String text) {
+        softAssert(chooseWhatToLearnImage, text);
+    }
+
+    public boolean ifDownloadFreeCurriculumButtonIsDisplayed() {
+        scrollIntoView(downloadFreeCurriculumButton);
+        return downloadFreeCurriculumButton.isDisplayed();
+    }
+
+    public void validateTextOfDownloadFreeCurriculumButton(String text) {
+        softAssert(downloadFreeCurriculumButton, text);
+    }
+
+    public void clickDownloadFreeCurriculumButton() {
+        click(downloadFreeCurriculumButton, "Download Free Curriculum button");
+    }
+
+    // ========== Libraries & Frameworks section ==========
+    public boolean ifLibrariesAndFrameworksIsDisplayed() {
+        scrollIntoView(librariesAndFrameworks);
+        return librariesAndFrameworks.isDisplayed();
+    }
+
+    public void validateTextOfLibrariesAndFrameworks(String text) {
+        softAssert(librariesAndFrameworks, text);
+    }
+
+    public boolean ifMaster40LibrariesIsDisplayed() {
+        scrollIntoView(master40Libraries);
+        return master40Libraries.isDisplayed();
+    }
+
+    public void validateTextOfMaster40Libraries(String text) {
+        softAssert(master40Libraries, text);
+    }
+
+    public boolean ifDownloadToolsPackButtonIsDisplayed() {
+        scrollIntoView(downloadToolsPackButton);
+        return downloadToolsPackButton.isDisplayed();
+    }
+
+    public void validateTextOfDownloadToolsPackButton(String text) {
+        softAssert(downloadToolsPackButton, text);
+    }
+
+    public void clickDownloadToolsPackButton() {
+        click(downloadToolsPackButton, "Download Tools Pack button");
     }
 
 }

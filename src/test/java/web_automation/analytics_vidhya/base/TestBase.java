@@ -13,6 +13,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterSuite;
@@ -50,13 +51,20 @@ public class TestBase {
     private static final String TIMESTAMP = new SimpleDateFormat("dd-MM-yyyy HH-mm-ss").format(new Date());
     private static final String REPORT_PATH = REPORT_DIR + "/report_" + TIMESTAMP + ".html";
 
-    public static SelfHealingDriver getDriver() {
-        return (SelfHealingDriver) driver.get();
-    }
+//    public static SelfHealingDriver getDriver() {
+//        return (SelfHealingDriver) driver.get();
+//    }
+//public static void setDriver(SelfHealingDriver drv) {
+//    driver.set(drv);
+//}
 
-    public static void setDriver(SelfHealingDriver drv) {
+    public static WebDriver getDriver() {
+        return driver.get();
+    }
+    public static void setDriver(WebDriver drv) {
         driver.set(drv);
     }
+
 
     public static void setExtentTest(ExtentTest testObj) {
         test.set(testObj);
@@ -108,10 +116,17 @@ public class TestBase {
         WebDriverManager.chromedriver().setup();  // Auto-downloads the matching driver
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
+//  Prepare prefs to disable notifications (2 = block, 1 = allow)
+        Map<String, Object> prefs = new HashMap<>();
+        prefs.put("profile.default_content_setting_values.notifications", 2);
+// Apply prefs
+        options.setExperimentalOption("prefs", prefs);
 
-        WebDriver chromeDriver = new ChromeDriver(options);
+//        WebDriver chromeDriver = new ChromeDriver(options);
 //        create Self-healing driver
-        SelfHealingDriver driver = SelfHealingDriver.create(chromeDriver);
+//        SelfHealingDriver driver = SelfHealingDriver.create(chromeDriver);
+
+        WebDriver driver = new ChromeDriver(options);
         setDriver(driver);
     }
 
@@ -178,12 +193,16 @@ public class TestBase {
         }
     }
 
-    public void waitForElementToBeClickable(WebElement el) {
+    public void click(WebElement el,String message) {
+        ExtentTest test = extent.createTest("Clicking on ➜ " + message);
+        setExtentTest(test);
         try {
             new WebDriverWait(getDriver(), 10)
                     .until(ExpectedConditions.elementToBeClickable(el));
+            el.click();
         } catch (Exception e) {
-            logger.error("Element not clickable: " + e.getMessage());
+            logger.error("Reference message :-"+message+"Element not clickable: ");
+            test.log(Status.FAIL, "Reference message:- "+message+"Element not clickable: ");
         }
     }
     public void waitForElementToBeVisible(WebElement el) {
@@ -211,18 +230,7 @@ public class TestBase {
         }
     }
 
-    public void softAssert(WebElement element, String expectedText, String message) {
-        ExtentTest test = extent.createTest("TC" + getClass() + "launchingTheWebApp", "Launching the analytics vidhya app").assignCategory(moduleName);
-        setExtentTest(test);
-        waitForElementToBeVisible(element);
-        String actualText = element.getText();
-        if (actualText.equals(expectedText)) {
-            test.log(Status.PASS, message + " - Expected: " + expectedText + ", Actual: " + actualText);
-        } else {
-            test.log(Status.FAIL, message + " - Expected: " + expectedText + ", Actual: " + actualText);
-            softAssert.fail(message + " - Expected: " + expectedText + ", Actual: " + actualText);
-        }
-    }
+
 
     public boolean isElementEnabled(WebElement el) {
         try {
@@ -235,10 +243,7 @@ public class TestBase {
     }
 
 
-    /**
-     * Core validation method: opens the GenAI Pinnacle page (handled in {@link TestBase#navigateToUrl(String)})
-     * and asserts the presence of each text provided by {@link #textsProvider()}.
-     */
+
     public void validateTextPresence(String expectedText) {
         // Create an Extent node for each individual text so you get granular pass/fail visibility.
         ExtentTest test = extent.createTest("Validate text ➜ " + expectedText);
@@ -272,6 +277,55 @@ public class TestBase {
             return element != null;
         } catch (TimeoutException e) {
             return false;
+        }
+    }
+    public void scrollIntoView(WebElement target) {
+        logger.info(target.getLocation().toString());
+        Actions actions = new Actions(getDriver());
+        WebDriverWait wait = new WebDriverWait(getDriver(), 10);
+        actions.moveToElement(target).perform();
+        wait.until(ExpectedConditions.visibilityOf(target));
+    }
+
+    public void softAssert(WebElement element, String expectedText) {
+        ExtentTest test = extent.createTest("Checking text ➜ " + expectedText);
+        setExtentTest(test);
+        waitForElementToBeVisible(element);
+        String actualText = element.getText();
+        if (actualText.equals(expectedText)) {
+            test.log(Status.PASS,  "Validating if [" + expectedText + "] is present");
+        } else {
+            test.log(Status.FAIL, "Text not found - Expected: " + expectedText + ", Actual: " + actualText);
+            softAssert.fail("Text not found - Expected: " + expectedText + ", Actual: " + actualText);
+            logger.error("Text not found - Expected: " + expectedText + ", Actual: " + actualText);
+        }
+    }
+
+    public void validatePlaceholderText(WebElement element, String expectedText) {
+        ExtentTest test = extent.createTest("Checking text ➜ " + expectedText);
+        setExtentTest(test);
+        waitForElementToBeVisible(element);
+        String actualText = element.getAttribute("placeholder");
+        if (actualText.equals(expectedText)) {
+            test.log(Status.PASS,  "Validating if Placeholder text [" + expectedText + "] is present");
+        } else {
+            test.log(Status.FAIL, "Placeholder Text not found - Expected: " + expectedText + ", Actual: " + actualText);
+            softAssert.fail("Placeholder Text not found - Expected: " + expectedText + ", Actual: " + actualText);
+            logger.error("Placeholder Text not found - Expected: " + expectedText + ", Actual: " + actualText);
+        }
+    }
+    public void sendKeys(WebElement element, String expectedText) {
+        ExtentTest test = extent.createTest("Sending text ➜ " + expectedText);
+        setExtentTest(test);
+        waitForElementToBeVisible(element);
+        boolean isEditable = element.getAttribute("readonly") == null;
+        if (isEditable) {
+            element.clear();
+            element.sendKeys(expectedText);
+            test.log(Status.PASS,  "Entered text [" + expectedText + "] to the textbox");
+        } else {
+           test.log(Status.FAIL, "Failed to enter "+expectedText+"Textbox is not editable");
+            logger.error("Failed to enter "+expectedText+"Textbox is not editable");
         }
     }
 

@@ -12,4 +12,14 @@ public class AnalyticsVidhyaDataProvider {
 
         };
     }
+
+    @DataProvider
+    public static Object[][] analyticVidhyaPopUpData() {
+        return new Object[][]{
+
+                {  "Alpha Beta", "7894561235","abc@abc.aki"},
+
+
+        };
+    }
 }
