@@ -63,7 +63,7 @@ public class Login extends TestBase {
 
     }
 
-    //    @Test(priority = 2)
+        @Test(priority = 2)
     public void validatingNavButtonsCTA() {
         ExtentTest test = extent.createTest("TC" + getClass() + "validatingNavCTA", "Validating if nav buttons are working").assignCategory(moduleName);
         setExtentTest(test);
@@ -140,6 +140,7 @@ public class Login extends TestBase {
             test.log(Status.PASS, "Enroll now CTA is displayed");
             homePage.validateTextOfEnrollNowButtonTopNav("Enroll Now");
             homePage.clickEnrollNowButtonTopNav();
+            homePage.clickOnCloseButtonInPopUp();
             logger.info("Enroll now CTA is clicked");
             test.log(Status.PASS, "Enroll now CTA is clicked");
         } else {
@@ -149,7 +150,7 @@ public class Login extends TestBase {
 
     }
 
-    //    @Test(priority = 3)
+        @Test(priority = 3)
     public void validatingfirstScreen() {
         ExtentTest test = extent.createTest("TC" + getClass() + "validatingfirstScreen", "Validating if first screen is displayed").assignCategory(moduleName);
         setExtentTest(test);
@@ -262,7 +263,7 @@ public class Login extends TestBase {
         }
     }
 
-//    @Test(priority = 4, dataProvider = "analyticVidhyaPopUpData", dataProviderClass = AnalyticsVidhyaDataProvider.class)
+        @Test(priority = 4, dataProvider = "analyticVidhyaPopUpData", dataProviderClass = AnalyticsVidhyaDataProvider.class)
     public void validatingFirstScreenContactBox(String name, String phoneNumber, String email) {
         ExtentTest test = extent.createTest("TC" + getClass() + "validatingFirstScreenBox", "Validating if first screen").assignCategory(moduleName);
         setExtentTest(test);
@@ -360,7 +361,7 @@ public class Login extends TestBase {
 
     }
 
-//    @Test(priority = 5)
+        @Test(priority = 5)
     public void validatingSecondScreen() {
         ExtentTest test = extent.createTest("TC" + getClass() + "validatingSecondScreen", "Validating How Does the GenAI Pinnacle Plus Program Help You? section").assignCategory(moduleName);
         setExtentTest(test);
@@ -468,7 +469,7 @@ public class Login extends TestBase {
         }
     }
 
-//    @Test(priority = 6)
+        @Test(priority = 6)
     public void validatingThirdScreen() {
         ExtentTest test = extent.createTest("TC" + getClass() + "validatingCurriculumStatisticsSection", "Validating Curriculum Statistics section").assignCategory(moduleName);
         setExtentTest(test);
@@ -587,12 +588,12 @@ public class Login extends TestBase {
 
     }
 
-    @Test(priority = 7)
+        @Test(priority = 7)
     public void validatingFourthScreen() {
         ExtentTest test = extent.createTest("TC" + getClass() + "validatingPersonalizedRoadmapScreen", "Validating Personalized Roadmap section").assignCategory(moduleName);
         setExtentTest(test);
         HomePage homePage = new HomePage(getDriver());
-        if (homePage.ifPersonalizedRoadmapSectionIsDisplayed()){
+        if (homePage.ifPersonalizedRoadmapSectionIsDisplayed()) {
             logger.info("Personalized roadmap section is displayed");
             test.log(Status.PASS, "Personalized roadmap section is displayed");
             homePage.validateTextOfPersonalizedRoadmapSection("Personalized Roadmap");
@@ -602,7 +603,7 @@ public class Login extends TestBase {
             test.log(Status.FAIL, "Personalized roadmap section is not displayed");
             logger.info("Personalized roadmap section is not displayed");
         }
-        if(homePage.ifYourAmbitionIsDisplayed()){
+        if (homePage.ifYourAmbitionIsDisplayed()) {
             logger.info("Your ambition is displayed");
             test.log(Status.PASS, "Your ambition is displayed");
             homePage.validateTextOfYourAmbition("Your ambition + our expertise = your custom path to mastery");
@@ -612,7 +613,7 @@ public class Login extends TestBase {
             test.log(Status.FAIL, "Your ambition is not displayed");
             logger.info("Your ambition is not displayed");
         }
-        if(homePage.ifRequestCallbackButtonIsDisplayed()){
+        if (homePage.ifRequestCallbackButtonIsDisplayed()) {
             logger.info("Request callback button is displayed");
             test.log(Status.PASS, "Request callback button is displayed");
             homePage.validateTextOfRequestCallbackButton("Request Callback");
@@ -624,7 +625,7 @@ public class Login extends TestBase {
             test.log(Status.FAIL, "Request callback button is not displayed");
             logger.info("Request callback button is not displayed");
         }
-        if(homePage.ifGetPersonalizedRoadmapButtonIsDisplayed()){
+        if (homePage.ifGetPersonalizedRoadmapButtonIsDisplayed()) {
             logger.info("Get personalized roadmap button is displayed");
             test.log(Status.PASS, "Get personalized roadmap button is displayed");
             homePage.validateTextOfGetPersonalizedRoadmapButton("Get Personalized Roadmap");
@@ -639,12 +640,12 @@ public class Login extends TestBase {
 
     }
 
-    @Test(priority = 8)
+        @Test(priority = 8)
     public void validatingFifthScreen() {
         ExtentTest test = extent.createTest("TC" + getClass() + "validatingFifthScreen", "Validating Curriculum section").assignCategory(moduleName);
         setExtentTest(test);
         HomePage homePage = new HomePage(getDriver());
-        if (homePage.ifCurriculumIsDisplayed()){
+        if (homePage.ifCurriculumIsDisplayed()) {
             logger.info("Curriculum is displayed");
             test.log(Status.PASS, "Curriculum is displayed");
             homePage.validateTextOfCurriculum("Curriculum");
@@ -654,7 +655,7 @@ public class Login extends TestBase {
             test.log(Status.FAIL, "Curriculum is not displayed");
             logger.info("Curriculum is not displayed");
         }
-        if(homePage.ifFromPythonFoundationsIsDisplayed()){
+        if (homePage.ifFromPythonFoundationsIsDisplayed()) {
             logger.info("From python foundations is displayed");
             test.log(Status.PASS, "From python foundations is displayed");
             homePage.validateTextOfFromPythonFoundations("From Python foundations to GenAI and Agentic AI : Master 14 cutting-edge modules");
@@ -664,7 +665,7 @@ public class Login extends TestBase {
             test.log(Status.FAIL, "From python foundations is not displayed");
             logger.info("From python foundations is not displayed");
         }
-        if(homePage.ifProjects3IsDisplayed()){
+        if (homePage.ifProjects3IsDisplayed()) {
             logger.info("Projects is displayed");
             test.log(Status.PASS, "Projects is displayed");
             homePage.validateTextOfProjects3("50+ Projects");
@@ -674,7 +675,7 @@ public class Login extends TestBase {
             test.log(Status.FAIL, "Projects is not displayed");
             logger.info("Projects is not displayed");
         }
-        if(homePage.ifHoursOfImmersiveLearning3IsDisplayed()){
+        if (homePage.ifHoursOfImmersiveLearning3IsDisplayed()) {
             logger.info("Hours of immersive learning is displayed");
             test.log(Status.PASS, "Hours of immersive learning is displayed");
             homePage.validateTextOfHoursOfImmersiveLearning3("300+ Hours");
@@ -684,7 +685,7 @@ public class Login extends TestBase {
             test.log(Status.FAIL, "Hours of immersive learning is not displayed");
             logger.info("Hours of immersive learning is not displayed");
         }
-        if(homePage.ifToolsIsDisplayed()){
+        if (homePage.ifToolsIsDisplayed()) {
             logger.info("Tools is displayed");
             test.log(Status.PASS, "Tools is displayed");
             homePage.validateTextOfTools("40+ Tools");
@@ -695,7 +696,7 @@ public class Login extends TestBase {
             logger.info("Tools is not displayed");
         }
 
-        if(homePage.ifAssignments2IsDisplayed()){
+        if (homePage.ifAssignments2IsDisplayed()) {
             logger.info("Assignments is displayed");
             test.log(Status.PASS, "Assignments is displayed");
             homePage.validateTextOfAssignments2("30+ Assignments");
@@ -706,7 +707,7 @@ public class Login extends TestBase {
             logger.info("Assignments is not displayed");
         }
 
-        if(homePage.ifChooseWhatToLearnImageIsDisplayed()){
+        if (homePage.ifChooseWhatToLearnImageIsDisplayed()) {
             logger.info("Choose what to learn image is displayed");
             test.log(Status.PASS, "Choose what to learn image is displayed");
             logger.info("Choose what to learn image is validated");
@@ -715,7 +716,7 @@ public class Login extends TestBase {
             test.log(Status.FAIL, "Choose what to learn image is not displayed");
             logger.info("Choose what to learn image is not displayed");
         }
-        if(homePage.ifDownloadFreeCurriculumButtonIsDisplayed()){
+        if (homePage.ifDownloadFreeCurriculumButtonIsDisplayed()) {
             logger.info("Download free curriculum button is displayed");
             test.log(Status.PASS, "Download free curriculum button is displayed");
             homePage.validateTextOfDownloadFreeCurriculumButton("Download Free Curriculum");
@@ -730,23 +731,23 @@ public class Login extends TestBase {
 
     }
 
-    @Test(priority = 9)
+        @Test(priority = 9)
     public void validateFifthScreenContactBox() {
         ExtentTest test = extent.createTest("TC" + getClass() + "validatingFifthScreenContactBox", "Validating Libraries & Frameworks section").assignCategory(moduleName);
         setExtentTest(test);
         HomePage homePage = new HomePage(getDriver());
-        if (homePage.ifLibrariesAndFrameworksIsDisplayed()){
+        if (homePage.ifLibrariesAndFrameworksIsDisplayed()) {
             logger.info("Libraries and Frameworks is displayed");
             test.log(Status.PASS, "Libraries and Frameworks is displayed");
             homePage.validateTextOfLibrariesAndFrameworks("Libraries & Frameworks");
             logger.info("Libraries and Frameworks is validated");
             test.log(Status.PASS, "Libraries and Frameworks is validated");
 
-        }else {
+        } else {
             test.log(Status.FAIL, "Libraries and Frameworks is not displayed");
             logger.info("Libraries and Frameworks is not displayed");
         }
-        if(homePage.ifMaster40LibrariesIsDisplayed()){
+        if (homePage.ifMaster40LibrariesIsDisplayed()) {
             logger.info("Master 40 libraries is displayed");
             test.log(Status.PASS, "Master 40 libraries is displayed");
             homePage.validateTextOfMaster40Libraries("Master 40+ GenAI and Agentic AI tools, libraries and frameworks for skill-building");
@@ -757,7 +758,7 @@ public class Login extends TestBase {
             logger.info("Master 40 libraries is not displayed");
         }
 
-        if(homePage.ifDownloadToolsPackButtonIsDisplayed()){
+        if (homePage.ifDownloadToolsPackButtonIsDisplayed()) {
             logger.info("Download tools pack button is displayed");
             test.log(Status.PASS, "Download tools pack button is displayed");
             homePage.validateTextOfDownloadToolsPackButton("Download Tools Pack");
@@ -773,6 +774,318 @@ public class Login extends TestBase {
 
     }
 
+    @Test(priority = 10)
+    public void validatingSixthScreen() {
+        ExtentTest test = extent.createTest("TC" + getClass() + "validatingSixthScreen", "Validating Build Your Portfolio section").assignCategory(moduleName);
+        setExtentTest(test);
+        HomePage homePage = new HomePage(getDriver());
+        if (homePage.ifBuildYourPortfolioIsDisplayed()) {
+            logger.info("Build your portfolio is displayed");
+            test.log(Status.PASS, "Build your portfolio is displayed");
+            homePage.validateTextOfBuildYourPortfolio("Build Your Portfolio with 50+ Industry-Relevant Projects");
+            logger.info("Build your portfolio is validated");
+            test.log(Status.PASS, "Build your portfolio is validated");
+        } else {
+            test.log(Status.FAIL, "Build your portfolio is not displayed");
+            logger.info("Build your portfolio is not displayed");
+        }
+        if (homePage.ifAccelerateYourIndustryReadinessIsDisplayed()) {
+            logger.info("Accelerate your industry readiness is displayed");
+            test.log(Status.PASS, "Accelerate your industry readiness is displayed");
+            homePage.validateTextOfAccelerateYourIndustryReadiness("Accelerate your industry readiness with projects designed to tackle real-world challenges.");
+            logger.info("Accelerate your industry readiness is validated");
+            test.log(Status.PASS, "Accelerate your industry readiness is validated");
+        } else {
+            test.log(Status.FAIL, "Accelerate your industry readiness is not displayed");
+            logger.info("Accelerate your industry readiness is not displayed");
+        }
+        if (homePage.ifRequestCallbackButton2IsDisplayed()) {
+            logger.info("Request callback button is displayed");
+            test.log(Status.PASS, "Request callback button is displayed");
+            homePage.validateTextOfRequestCallbackButton2("Request Callback");
+            homePage.clickRequestCallbackButton2();
+            homePage.clickOnCloseButtonInPopUp();
+            logger.info("Request callback button is validated");
+            test.log(Status.PASS, "Request callback button is validated");
+        } else {
+            test.log(Status.FAIL, "Request callback button is not displayed");
+            logger.info("Request callback button is not displayed");
+        }
+        if (homePage.ifViewAllProjectsButtonIsDisplayed()) {
+            logger.info("View all projects button is displayed");
+            test.log(Status.PASS, "View all projects button is displayed");
+            homePage.validateTextOfViewAllProjectsButton("View All Projects");
+            homePage.clickViewAllProjectsButton();
+            homePage.clickOnCloseButtonInPopUp();
+            logger.info("View all projects button is validated");
+            test.log(Status.PASS, "View all projects button is validated");
+        } else {
+            test.log(Status.FAIL, "View all projects button is not displayed");
+            logger.info("View all projects button is not displayed");
+        }
+    }
+
+    @Test(priority = 11)
+    public void validatingSeventhScreen() {
+        ExtentTest test = extent.createTest("TC" + getClass() + "validatingSeventhScreen", "Validating Real Experience, Real Insights section").assignCategory(moduleName);
+        setExtentTest(test);
+        HomePage homePage = new HomePage(getDriver());
+        if (homePage.ifRealExperienceRealInsightsIsDisplayed()) {
+            logger.info("Real experience, real insights is displayed");
+            test.log(Status.PASS, "Real experience, real insights is displayed");
+            homePage.validateTextOfRealExperienceRealInsights("Real Experience, Real Insights: Your Expert Mentors");
+            logger.info("Real experience, real insights is validated");
+            test.log(Status.PASS, "Real experience, real insights is validated");
+        } else {
+            test.log(Status.FAIL, "Real experience, real insights is not displayed");
+            logger.info("Real experience, real insights is not displayed");
+        }
+        if (homePage.ifTapIntoDecadesIsDisplayed()) {
+            logger.info("Tap into decades is displayed");
+            test.log(Status.PASS, "Tap into decades is displayed");
+            homePage.validateTextOfTapIntoDecades("Tap into decades of combined industry experience");
+            logger.info("Tap into decades is validated");
+            test.log(Status.PASS, "Tap into decades is validated");
+        } else {
+            test.log(Status.FAIL, "Tap into decades is not displayed");
+            logger.info("Tap into decades is not displayed");
+        }
+
+        if (homePage.ifRequestCallbackButton3IsDisplayed()) {
+            logger.info("Request callback button is displayed");
+            test.log(Status.PASS, "Request callback button is displayed");
+            homePage.validateTextOfRequestCallbackButton3("Request Callback");
+            homePage.clickRequestCallbackButton3();
+            homePage.clickOnCloseButtonInPopUp();
+            logger.info("Request callback button is validated");
+            test.log(Status.PASS, "Request callback button is validated");
+        } else {
+            test.log(Status.FAIL, "Request callback button is not displayed");
+            logger.info("Request callback button is not displayed");
+        }
+
+        if (homePage.ifDownloadInstructorsProfileButtonIsDisplayed()) {
+            logger.info("Download instructors profile button is displayed");
+            test.log(Status.PASS, "Download instructors profile button is displayed");
+            homePage.validateTextOfDownloadInstructorsProfileButton("Download Instructors Profile");
+            homePage.clickDownloadInstructorsProfileButton();
+            homePage.clickOnCloseButtonInPopUp();
+            logger.info("Download instructors profile button is validated");
+            test.log(Status.PASS, "Download instructors profile button is validated");
+        } else {
+            test.log(Status.FAIL, "Download instructors profile button is not displayed");
+            logger.info("Download instructors profile button is not displayed");
+        }
 
 
+    }
+
+    @Test(priority = 12)
+    public void validatingEighthScreen() {
+        ExtentTest test = extent.createTest("TC" + getClass() + "validatingEighthScreen", "Validating Instructor-Led section").assignCategory(moduleName);
+        setExtentTest(test);
+        HomePage homePage = new HomePage(getDriver());
+        if (homePage.ifInstructorLedLiveWorkshopsIsDisplayed()) {
+            logger.info("Instructor led live workshops is displayed");
+            test.log(Status.PASS, "Instructor led live workshops is displayed");
+            homePage.validateTextOfInstructorLedLiveWorkshops("Instructor-Led Live Workshops");
+            logger.info("Instructor led live workshops is validated");
+            test.log(Status.PASS, "Instructor led live workshops is validated");
+        } else {
+            test.log(Status.FAIL, "Instructor led live workshops is not displayed");
+            logger.info("Instructor led live workshops is not displayed");
+        }
+        if (homePage.ifInstructorLedLiveWorkshopsSubHeadingIsDisplayed()) {
+            logger.info("Instructor led live workshops sub heading is displayed");
+            test.log(Status.PASS, "Instructor led live workshops sub heading is displayed");
+            homePage.validateTextOfInstructorLedLiveWorkshopsSubHeading("Live GenAI and Agentic AI workshops : Solve real-world problems with expert insights");
+            logger.info("Instructor led live workshops sub heading is validated");
+            test.log(Status.PASS, "Instructor led live workshops sub heading is validated");
+        } else {
+            test.log(Status.FAIL, "Instructor led live workshops sub heading is not displayed");
+            logger.info("Instructor led live workshops sub heading is not displayed");
+        }
+
+        if (homePage.ifGetWorkshopsDetailsButtonIsDisplayed()) {
+            logger.info("Get workshops details button is displayed");
+            test.log(Status.PASS, "Get workshops details button is displayed");
+            homePage.validateTextOfGetWorkshopsDetailsButton("Get Workshops Details");
+            homePage.clickGetWorkshopsDetailsButton();
+            homePage.clickOnCloseButtonInPopUp();
+            logger.info("Get workshops details button is validated");
+            test.log(Status.PASS, "Get workshops details button is validated");
+        } else {
+            test.log(Status.FAIL, "Get workshops details button is not displayed");
+            logger.info("Get workshops details button is not displayed");
+        }
+
+    }
+
+    @Test(priority = 13)
+    public void validatingNinthScreen() {
+        ExtentTest test = extent.createTest("TC" + getClass() + "validatingNinthScreen", "Validating Assisted Placements section").assignCategory(moduleName);
+        setExtentTest(test);
+        HomePage homePage = new HomePage(getDriver());
+        if (homePage.ifAvAssistedPlacementsIsDisplayed()) {
+            logger.info("Av assisted placements is displayed");
+            test.log(Status.PASS, "Av assisted placements is displayed");
+            homePage.validateTextOfAvAssistedPlacements("AV Assisted Placements");
+            logger.info("Av assisted placements is validated");
+            test.log(Status.PASS, "Av assisted placements is validated");
+        } else {
+            test.log(Status.FAIL, "Av assisted placements is not displayed");
+            logger.info("Av assisted placements is not displayed");
+        }
+        if (homePage.ifOurAlumniUniverseIsDisplayed()) {
+            logger.info("Our alumni universe is displayed");
+            test.log(Status.PASS, "Our alumni universe: 1200+ professionals making their mark");
+            homePage.validateTextOfOurAlumniUniverse("Our Alumni Universe");
+            logger.info("Our alumni universe is validated");
+            test.log(Status.PASS, "Our alumni universe is validated");
+        } else {
+            test.log(Status.FAIL, "Our alumni universe is not displayed");
+            logger.info("Our alumni universe is not displayed");
+        }
+    }
+
+    @Test(priority = 14)
+    public void validatingTenthScreen() {
+        ExtentTest test = extent.createTest("TC" + getClass() + "validatingTenthScreen", "Validating Industry-Recognized Certification section").assignCategory(moduleName);
+        setExtentTest(test);
+        HomePage homePage = new HomePage(getDriver());
+        if (homePage.ifIndustryRecognizedCertificationIsDisplayed()) {
+            logger.info("Industry recognized certification is displayed");
+            test.log(Status.PASS, "Industry recognized certification is displayed");
+            homePage.validateTextOfIndustryRecognizedCertification("Industry-Recognized Certification");
+            logger.info("Industry recognized certification is validated");
+            test.log(Status.PASS, "Industry recognized certification is validated");
+        } else {
+            test.log(Status.FAIL, "Industry recognized certification is not displayed");
+            logger.info("Industry recognized certification is not displayed");
+        }
+
+        if (homePage.ifGetCertifiedIsDisplayed()) {
+            logger.info("Get certified is displayed");
+            test.log(Status.PASS, "Get certified is displayed");
+            homePage.validateTextOfGetCertified("Get certified in GenAI and Agentic AI from Analytics Vidhya, Fractal and Western State University, and share your achievement with the world");
+            logger.info("Get certified is validated");
+            test.log(Status.PASS, "Get certified is validated");
+        } else {
+            test.log(Status.FAIL, "Get certified is not displayed");
+            logger.info("Get certified is not displayed");
+        }
+
+        if (homePage.ifEarnCertificatesButtonIsDisplayed()) {
+            logger.info("Earn certificates button is displayed");
+            test.log(Status.PASS, "Earn certificates button is displayed");
+            homePage.validateTextOfEarnCertificatesButton("Earn Certificates");
+            homePage.clickEarnCertificatesButton();
+            homePage.clickOnCloseButtonInPopUp();
+            logger.info("Earn certificates button is validated");
+            test.log(Status.PASS, "Earn certificates button is validated");
+        } else {
+            test.log(Status.FAIL, "Earn certificates button is not displayed");
+            logger.info("Earn certificates button is not displayed");
+        }
+
+    }
+
+    @Test(priority = 15)
+    public void validatingEleventhScreen() {
+        ExtentTest test = extent.createTest("TC" + getClass() + "validatingEleventhScreen", "Validating Our Advisors section").assignCategory(moduleName);
+        setExtentTest(test);
+        HomePage homePage = new HomePage(getDriver());
+        if (homePage.ifOurAdvisorsIsDisplayed()) {
+            logger.info("Our advisors is displayed");
+            test.log(Status.PASS, "Our advisors is displayed");
+            homePage.validateTextOfOurAdvisors("Our Advisors");
+            logger.info("Our advisors is validated");
+            test.log(Status.PASS, "Our advisors is validated");
+        } else {
+            test.log(Status.FAIL, "Our advisors is not displayed");
+            logger.info("Our advisors is not displayed");
+        }
+
+        if (homePage.ifOurAdvisorsSubHeadingIsDisplayed()) {
+            logger.info("Our advisors sub heading is displayed");
+            test.log(Status.PASS, "Our advisors sub heading is displayed");
+            homePage.validateTextOfOurAdvisorsSubHeading("Our advisors ensure our programs are innovative, impactful, and industry-aligned.");
+            logger.info("Our advisors sub heading is validated");
+            test.log(Status.PASS, "Our advisors sub heading is validated");
+        } else {
+            test.log(Status.FAIL, "Our advisors sub heading is not displayed");
+            logger.info("Our advisors sub heading is not displayed");
+        }
+    }
+
+    @Test(priority = 16)
+    public void validatingTwelfthScreen() {
+        ExtentTest test = extent.createTest("TC" + getClass() + "validatingTwelfthScreen", "Validating AV Learners section").assignCategory(moduleName);
+        setExtentTest(test);
+        HomePage homePage = new HomePage(getDriver());
+        if (homePage.ifAvLearnersSpotlightIsDisplayed()) {
+            logger.info("Av learners spotlight is displayed");
+            test.log(Status.PASS, "Av learners spotlight is displayed");
+            homePage.validateTextOfAvLearnersSpotlight("AV Learners Spotlight");
+            logger.info("Av learners spotlight is validated");
+            test.log(Status.PASS, "Av learners spotlight is validated");
+        } else {
+            test.log(Status.FAIL, "Av learners spotlight is not displayed");
+            logger.info("Av learners spotlight is not displayed");
+        }
+
+        if (homePage.ifViewMoreButtonIsDisplayed()) {
+            logger.info("View more button is displayed");
+            test.log(Status.PASS, "View more button is displayed");
+            homePage.validateTextOfViewMoreButton("View More");
+            homePage.clickViewMoreButton();
+            getDriver().navigate().back();
+//            hardWait(5);
+            homePage.clickOnCloseButtonInPopUp();
+            logger.info("View more button is validated");
+            test.log(Status.PASS, "View more button is validated");
+        } else {
+            test.log(Status.FAIL, "View more button is not displayed");
+            logger.info("View more button is not displayed");
+        }
+    }
+
+    @Test(priority = 17)
+    public void validatingThirteenthScreen() {
+        ExtentTest test = extent.createTest("TC" + getClass() + "validatingThirteenthScreen", "Validating Money Back section").assignCategory(moduleName);
+        setExtentTest(test);
+        HomePage homePage = new HomePage(getDriver());
+        if (homePage.ifMoneyBackGuaranteeIsDisplayed()){
+            logger.info("Money back guarantee is displayed");
+            test.log(Status.PASS, "Money back guarantee is displayed");
+            homePage.validateTextOfMoneyBackGuarantee("Money Back Guarantee!");
+            logger.info("Money back guarantee is validated");
+            test.log(Status.PASS, "Money back guarantee is validated");
+        } else {
+            test.log(Status.FAIL, "Money back guarantee is not displayed");
+            logger.info("Money back guarantee is not displayed");
+        }
+
+        if(homePage.ifNoQuestionAskedIsDisplayed()){
+            logger.info("No question asked is displayed");
+            test.log(Status.PASS, "No question asked is displayed");
+            homePage.validateTextOfNoQuestionAsked("GenAI Pinnacle Plus Program comes with 7 days no questions asked Money Back Guarantee. If the Program is bought in pre-launch offer or on discounted price, then the fee paid is non-refundable. For more T&C, Click here");
+            logger.info("No question asked is validated");
+            test.log(Status.PASS, "No question asked is validated");
+        } else {
+            test.log(Status.FAIL, "No question asked is not displayed");
+            logger.info("No question asked is not displayed");
+        }
+
+        if(homePage.ifMoneyBackGuaranteeImageIsDisplayed()){
+            logger.info("Money back guarantee image is displayed");
+            test.log(Status.PASS, "Money back guarantee image is displayed");
+            logger.info("Money back guarantee image is validated");
+            test.log(Status.PASS, "Money back guarantee image is validated");
+        } else {
+            test.log(Status.FAIL, "Money back guarantee image is not displayed");
+            logger.info("Money back guarantee image is not displayed");
+        }
+
+    }
 }

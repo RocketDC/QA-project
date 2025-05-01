@@ -584,7 +584,7 @@ public class HomePage extends TestBase {
     }
 
     public void clickOnCloseButtonInPopUp() {
-        hardWait(5);
+//        hardWait(5);
         click(closeButtonInPopUp, "Close button in pop up");
 
     }
@@ -1118,5 +1118,214 @@ public class HomePage extends TestBase {
     public void clickDownloadToolsPackButton() {
         click(downloadToolsPackButton, "Download Tools Pack button");
     }
+
+// ========== Build Your Portfolio section ==========
+    public boolean ifBuildYourPortfolioIsDisplayed() {
+        scrollIntoView(buildYourPortfolio);
+        return buildYourPortfolio.isDisplayed();
+    }
+
+    public void validateTextOfBuildYourPortfolio(String text) {
+        softAssert(buildYourPortfolio, text);
+    }
+    public boolean ifAccelerateYourIndustryReadinessIsDisplayed() {
+        scrollIntoView(accelerateYourIndustryReadiness);
+        return accelerateYourIndustryReadiness.isDisplayed();
+    }
+    public void validateTextOfAccelerateYourIndustryReadiness(String text) {
+        softAssert(accelerateYourIndustryReadiness, text);
+    }
+    public boolean ifRequestCallbackButton2IsDisplayed() {
+        scrollIntoView(requestCallbackButton2);
+        return requestCallbackButton2.isDisplayed();
+    }
+    public void validateTextOfRequestCallbackButton2(String text) {
+        softAssert(requestCallbackButton2, text);
+    }
+    public void clickRequestCallbackButton2() {
+        click(requestCallbackButton2, "Request Callback button");
+    }
+    public boolean ifViewAllProjectsButtonIsDisplayed() {
+        scrollIntoView(viewAllProjectsButton);
+        return viewAllProjectsButton.isDisplayed();
+    }
+    public void validateTextOfViewAllProjectsButton(String text) {
+        softAssert(viewAllProjectsButton, text);
+    }
+    public void clickViewAllProjectsButton() {
+        click(viewAllProjectsButton, "View All Projects button");
+    }
+
+    // ========== Real Experience, Real Insights section ==========
+
+    public boolean ifRealExperienceRealInsightsIsDisplayed() {
+        scrollIntoView(realExperienceRealInsights);
+        return realExperienceRealInsights.isDisplayed();
+    }
+    public void validateTextOfRealExperienceRealInsights(String text) {
+        softAssert(realExperienceRealInsights, text);
+    }
+    public boolean ifTapIntoDecadesIsDisplayed() {
+        scrollIntoView(tapIntoDecades);
+        return tapIntoDecades.isDisplayed();
+    }
+    public void validateTextOfTapIntoDecades(String text) {
+        softAssert(tapIntoDecades, text);
+    }
+    public boolean ifRequestCallbackButton3IsDisplayed() {
+        scrollIntoView(requestCallbackButton3);
+        return requestCallbackButton3.isDisplayed();
+    }
+    public void validateTextOfRequestCallbackButton3(String text) {
+        softAssert(requestCallbackButton3, text);
+    }
+    public void clickRequestCallbackButton3() {
+        click(requestCallbackButton3, "Request Callback button");
+    }
+    public boolean ifDownloadInstructorsProfileButtonIsDisplayed() {
+        scrollIntoView(downloadInstructorsProfileButton);
+        return downloadInstructorsProfileButton.isDisplayed();
+    }
+    public void validateTextOfDownloadInstructorsProfileButton(String text) {
+        softAssert(downloadInstructorsProfileButton, text);
+    }
+    public void clickDownloadInstructorsProfileButton() {
+        click(downloadInstructorsProfileButton, "Download Instructors Profile button");
+    }
+
+
+
+    // ========== Instructor-Led section ==========
+
+    public boolean ifInstructorLedLiveWorkshopsIsDisplayed() {
+        scrollIntoView(instructorLedLiveWorkshops);
+        return instructorLedLiveWorkshops.isDisplayed();
+    }
+
+    public void validateTextOfInstructorLedLiveWorkshops(String text) {
+        softAssert(instructorLedLiveWorkshops, text);
+    }
+    public boolean ifInstructorLedLiveWorkshopsSubHeadingIsDisplayed() {
+        scrollIntoView(instructorLedLiveWorkshopsSubHeading);
+        return instructorLedLiveWorkshopsSubHeading.isDisplayed();
+    }
+    public void validateTextOfInstructorLedLiveWorkshopsSubHeading(String text) {
+        softAssert(instructorLedLiveWorkshopsSubHeading, text);
+    }
+    public boolean ifGetWorkshopsDetailsButtonIsDisplayed() {
+        scrollIntoView(getWorkshopsDetailsButton);
+        return getWorkshopsDetailsButton.isDisplayed();
+    }
+    public void validateTextOfGetWorkshopsDetailsButton(String text) {
+        softAssert(getWorkshopsDetailsButton, text);
+    }
+    public void clickGetWorkshopsDetailsButton() {
+        click(getWorkshopsDetailsButton, "Get Workshops Detail button");
+    }
+
+
+    // ========== Assisted Placements section ==========
+
+    public boolean ifAvAssistedPlacementsIsDisplayed() {
+        scrollIntoView(avAssistedPlacements);
+        return avAssistedPlacements.isDisplayed();
+    }
+
+    public void validateTextOfAvAssistedPlacements(String text) {
+        softAssert(avAssistedPlacements, text);
+    }
+    public boolean ifOurAlumniUniverseIsDisplayed() {
+        scrollIntoView(ourAlumniUniverse);
+        return ourAlumniUniverse.isDisplayed();
+    }
+    public void validateTextOfOurAlumniUniverse(String text) {
+        softAssert(ourAlumniUniverse, text);
+    }
+
+
+    // ========== Industry-Recognized Certification section ==========
+
+    public boolean ifIndustryRecognizedCertificationIsDisplayed() {
+        scrollIntoView(industryRecognizedCertification);
+        return industryRecognizedCertification.isDisplayed();
+    }
+    public void validateTextOfIndustryRecognizedCertification(String text) {
+        softAssert(industryRecognizedCertification, text);
+    }
+    public boolean ifGetCertifiedIsDisplayed() {
+        scrollIntoView(getCertified);
+        return getCertified.isDisplayed();
+    }
+    public void validateTextOfGetCertified(String text) {
+        softAssert(getCertified, text);
+    }
+    public boolean ifEarnCertificatesButtonIsDisplayed() {
+        scrollIntoView(earnCertificatesButton);
+        return earnCertificatesButton.isDisplayed();
+    }
+    public void validateTextOfEarnCertificatesButton(String text) {
+        softAssert(earnCertificatesButton, text);
+    }
+    public void clickEarnCertificatesButton() {
+        click(earnCertificatesButton, "Earn Certificates button");
+    }
+    // ========== Our Advisors section ==========
+    public boolean ifOurAdvisorsIsDisplayed() {
+        scrollIntoView(ourAdvisors);
+        return ourAdvisors.isDisplayed();
+    }
+    public void validateTextOfOurAdvisors(String text) {
+        softAssert(ourAdvisors, text);
+    }
+    public boolean ifOurAdvisorsSubHeadingIsDisplayed() {
+        scrollIntoView(ourAdvisorsSubHeading);
+        return ourAdvisorsSubHeading.isDisplayed();
+    }
+    public void validateTextOfOurAdvisorsSubHeading(String text) {
+        softAssert(ourAdvisorsSubHeading, text);
+    }
+    // ========== AV Learners section ==========
+    public boolean ifAvLearnersSpotlightIsDisplayed() {
+        scrollIntoView(avLearnersSpotlight);
+        return avLearnersSpotlight.isDisplayed();
+    }
+    public void validateTextOfAvLearnersSpotlight(String text) {
+        softAssert(avLearnersSpotlight, text);
+    }
+    public boolean ifViewMoreButtonIsDisplayed() {
+        scrollIntoView(viewMoreButton);
+        return viewMoreButton.isDisplayed();
+    }
+    public void validateTextOfViewMoreButton(String text) {
+        softAssert(viewMoreButton, text);
+    }
+    public void clickViewMoreButton() {
+        click(viewMoreButton, "View More button");
+    }
+    // ========== Money Back section ==========
+    public boolean ifMoneyBackGuaranteeIsDisplayed() {
+        scrollIntoView(moneyBackGuarantee);
+        return moneyBackGuarantee.isDisplayed();
+    }
+    public void validateTextOfMoneyBackGuarantee(String text) {
+        softAssert(moneyBackGuarantee, text);
+    }
+    public boolean ifNoQuestionAskedIsDisplayed() {
+        scrollIntoView(noQuestionAsked);
+        return noQuestionAsked.isDisplayed();
+    }
+    public void validateTextOfNoQuestionAsked(String text) {
+        softAssert(noQuestionAsked, text);
+    }
+    public boolean ifMoneyBackGuaranteeImageIsDisplayed() {
+        scrollIntoView(moneyBackGuaranteeImage);
+        return moneyBackGuaranteeImage.isDisplayed();
+    }
+    public void validateTextOfMoneyBackGuaranteeImage(String text) {
+        softAssert(moneyBackGuaranteeImage, text);
+    }
+
+    // ========== Invest in Your Future section ==========
+
 
 }
