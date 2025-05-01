@@ -220,7 +220,124 @@ public class HomePage extends TestBase {
     @FindBy (xpath = "//button[normalize-space()='Download Tools Pack']")
     WebElement downloadToolsPackButton;
 
+// ========== Fourteenth section ==========
 
+    @FindBy (xpath = "//h2[normalize-space()='Money Back Guarantee!']")
+    WebElement moneyBackGuarantee;
+    @FindBy (xpath = "//p[contains(text(),'GenAI Pinnacle Plus Program comes with 7 days no q')]")
+    WebElement noQuestionAsked;
+    @FindBy (xpath = "//div[@class='col-xl-4 col-lg-4 col-md-4 col-7 order-1 order-md-2 mx-auto']//img[@class='img-fluid']")
+    WebElement moneyBackGuaranteeImage;
+
+// ========== Fifteenth section ==========
+
+@FindBy (xpath = "//h2[normalize-space()='Invest in Your Future Today']")
+    WebElement investInYourFutureToday;
+    @FindBy (xpath = "//span[contains(text(),'Exclusive access to AI tools builds expertise with')]")
+    WebElement exclusiveAccessToAiTools;
+    @FindBy (xpath = "//span[contains(text(),'Boost your career, fast-track your growth with per')]")
+    WebElement boostYourCareer;
+    @FindBy (xpath = "//span[contains(text(),'Enroll now and start your journey to becoming a Ge')]")
+    WebElement enrollNowAndStartYourJourney;
+    @FindBy (xpath = "//h3[@id='oneTimeToggleLabel']")
+    WebElement oneTimeToggleLabel;
+    @FindBy (xpath = "//label[@id='emiToggleLabel']")
+    WebElement emiToggleLabel;
+    @FindBy (xpath = "//input[@id='priceCheck']")
+    WebElement priceToggle;
+    @FindBy (xpath = "//h4[normalize-space()='One Time']")
+    WebElement oneTime;
+    @FindBy (xpath = "//h4[normalize-space()='One Time']/../h5[@class='fs-40 fw-bold mb-2']")
+    WebElement oneTimePrice;
+    @FindBy (xpath = "//div[@id='toggleCard1']//h6[@class='text-dark-secondary mt-3 mb-5'][normalize-space()='(Inclusive of all taxes)']")
+    WebElement oneTimePriceInclusiveOfAllTaxes;
+    @FindBy (xpath = "//div[@id='toggleCard1']//p[@class='text-dark-secondary'][normalize-space()='Level Up Your Professional Journey']")
+    WebElement levelUpYourProfessionalJourney;
+    @FindBy (xpath = "//div[@id='toggleCard1']//button[@class='btn btn-dark btn-dark-primary btn-dark-primary-gradient rounded-3 w-100 mt-3 fw-semibold'][normalize-space()='Enroll Now']")
+    WebElement enrollNowButtonOneTime;
+
+// ========== Sixteenth section ==========
+
+    @FindBy (xpath = "//h2[normalize-space()='Contact Us Today']")
+    WebElement contactUsToday;
+    @FindBy (xpath = "//p[contains(text(),'Take the first step towards a future of innovation')]")
+    WebElement takeTheFirstStep;
+    @FindBy (xpath = "//h2[normalize-space()='Upskill, Reskill, Thrive']")
+    WebElement upskillReskill;
+    @FindBy (xpath = "//label[@for='contactFullName']")
+    WebElement contactFullNameLabel;
+    @FindBy (xpath = "//input[@id='contactFullName']")
+    WebElement contactFullName;
+    @FindBy (xpath = "//label[@for='contactEmail']")
+    WebElement contactEmailLabel;
+    @FindBy (xpath = "//input[@id='contactEmail']")
+    WebElement contactEmail;
+    @FindBy (xpath = "//label[@for='contactPhoneNumber']")
+    WebElement contactPhoneNumberLabel;
+    @FindBy (xpath = "//input[@id='contactPhoneNumber']")
+    WebElement contactPhoneNumber;
+    @FindBy (xpath = "//div[@class='col-xl col-md-12 col-12 mb-3']//div[@title='India: +91']//div[@class='iti__flag iti__in']")
+    WebElement countryFlagContactUs;
+    @FindBy (xpath = "//div[@class='col-xl col-md-12 col-12 mb-3']//div[@class='iti__arrow']")
+    WebElement countryFlagArrowContactUs;
+    @FindBy (xpath = "//label[normalize-space()='Experience :']")
+    WebElement experienceLabel;
+    @FindBy (xpath = "(//label[normalize-space()='0-3yrs'])[1]")
+    WebElement experience0_3;
+    @FindBy (xpath = "//label[normalize-space()='3-8yrs']")
+    WebElement experience3_8;
+    @FindBy (xpath = "//label[normalize-space()='8-12yrs']")
+    WebElement experience8_12;
+    @FindBy (xpath = "//label[normalize-space()='12yrs+']")
+    WebElement experience12;
+    @FindBy (xpath = "//div[@class='mt-3 mb-2 d-flex flex-wrap']//label[@for='termAndConditionLoginModal']")
+    WebElement termsAndConditionsLabel;
+    @FindBy (xpath = "//label[@for='isWhatsappContactModal']")
+    WebElement sendWhatsAppLabel;
+    @FindBy (xpath = "//input[@id='isWhatsappContactModal']")
+    WebElement sendWhatsAppCheckbox;
+    //Recapta is not implemented
+    @FindBy (xpath = "//button[normalize-space()='Join the program now!!']")
+    WebElement joinTheProgramButton;
+
+    @FindBy (xpath = "//h3[normalize-space()='Get Expert Guidance']")
+    WebElement getExpertGuidance;
+    @FindBy (xpath = "//p[@class='text-dark-tertiary mt-4 fs-20 fw-light mb-5']")
+    WebElement needSupport;
+    @FindBy (xpath = "//div[@class='col-lg-5 col-md-12 col-sm-12 mb-3 ps-lg-5']//li[1]//div[1]//div[1]")
+    WebElement imagePhone;
+    @FindBy (xpath = "//a[normalize-space()='+91-9354711240']")
+    WebElement supportPhoneNumber;
+    @FindBy (xpath = "//h3[normalize-space()='10AM - 7PM (IST) Mon-Sun']")
+    WebElement supportPhoneNumberSubHeading;
+    @FindBy (xpath = "//div[@class='col-lg-5 col-md-12 col-sm-12 mb-3 ps-lg-5']//li[2]//div[1]//div[1]")
+    WebElement imageEmail;
+    @FindBy (xpath =  "//p[normalize-space()='customersupport@analyticsvidhya.com']")
+    WebElement supportEmail;
+    @FindBy (xpath = "//h3[normalize-space()='You’ll hear back from us in 24 hours.']")
+    WebElement supportEmailSubHeading;
+
+// ========== Seventeenth section ==========
+
+    @FindBy (xpath = "//h2[normalize-space()='Frequently Asked Questions']")
+    WebElement frequentlyAskedQuestions;
+    @FindBy (xpath = "//p[normalize-space()='Looking for answers to other questions?']")
+    WebElement lookingForAnswers;
+    @FindBy (xpath = "//button[contains(text(),'What makes the GenAI Pinnacle Plus Program differe')]")
+    WebElement whatMakesTheGenAiPinnaclePlusProgramDifferent;
+    @FindBy (xpath = "//button[contains(text(),'How is the GenAI Pinnacle Plus Program different f')]")
+    WebElement howIsTheGenAiPinnaclePlusProgramDifferent;
+    @FindBy (xpath = "//button[normalize-space()='Who is the ideal candidate for this program?']")
+    WebElement whoIsTheIdealCandidate;
+    @FindBy (xpath = "//button[normalize-space()='View More']")
+    WebElement viewMore;
+
+// ========== Eighteenth section ==========
+
+    @FindBy (xpath = "//h2[normalize-space()='Flagship Programs']")
+    WebElement flagshipPrograms;
+    @FindBy (xpath = "//a[normalize-space()='GenAI Pinnacle Program']")
+    WebElement genAiPinnacleProgram;
 
 
 
