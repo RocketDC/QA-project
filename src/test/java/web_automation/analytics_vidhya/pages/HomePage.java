@@ -145,13 +145,13 @@ public class HomePage extends TestBase {
     @FindBy(xpath = "//div[@class='d-flex align-items-center justify-content-center rounded-circle bg-my-gradient cursor-pointer floating-icons']")
     WebElement aiSupportIcon;
 
-    @FindBy (xpath = "//div[@class='d-flex align-items-center justify-content-center rounded-circle background-dark-tertiary text-center mt-3 cursor-pointer floating-icons']")
+    @FindBy(xpath = "//div[@class='d-flex align-items-center justify-content-center rounded-circle background-dark-tertiary text-center mt-3 cursor-pointer floating-icons']")
     WebElement supportCrossIcon;
 
-    @FindBy (xpath = "//div[@class='d-flex align-items-center justify-content-center rounded-circle background-dark-tertiary mt-3 cursor-pointer floating-icons']")
+    @FindBy(xpath = "//div[@class='d-flex align-items-center justify-content-center rounded-circle background-dark-tertiary mt-3 cursor-pointer floating-icons']")
     WebElement supportWhatsAppIcon;
 
-    @FindBy (xpath = "//*[name()='path' and contains(@d,'M10.5654 2')]")
+    @FindBy(xpath = "//*[name()='path' and contains(@d,'M10.5654 2')]")
     WebElement supportPhoneIcon;
 
 
@@ -338,7 +338,7 @@ public class HomePage extends TestBase {
     WebElement emi;
     @FindBy(xpath = "//h4[normalize-space()='One Time']/../h5[@class='fs-40 fw-bold mb-2']")
     WebElement price;
-    @FindBy (xpath = "//h5[contains(text(),'₹9,499')]")
+    @FindBy(xpath = "//h5[contains(text(),'₹9,499')]")
     WebElement emiPrice;
     @FindBy(xpath = "//div[@id='toggleCard1']//h6[@class='text-dark-secondary mt-3 mb-5'][normalize-space()='(Inclusive of all taxes)']")
     WebElement oneTimePriceInclusiveOfAllTaxes;
@@ -1133,7 +1133,7 @@ public class HomePage extends TestBase {
         click(downloadToolsPackButton, "Download Tools Pack button");
     }
 
-// ========== Build Your Portfolio section ==========
+    // ========== Build Your Portfolio section ==========
     public boolean ifBuildYourPortfolioIsDisplayed() {
         scrollIntoView(buildYourPortfolio);
         return buildYourPortfolio.isDisplayed();
@@ -1142,30 +1142,38 @@ public class HomePage extends TestBase {
     public void validateTextOfBuildYourPortfolio(String text) {
         softAssert(buildYourPortfolio, text);
     }
+
     public boolean ifAccelerateYourIndustryReadinessIsDisplayed() {
         scrollIntoView(accelerateYourIndustryReadiness);
         return accelerateYourIndustryReadiness.isDisplayed();
     }
+
     public void validateTextOfAccelerateYourIndustryReadiness(String text) {
         softAssert(accelerateYourIndustryReadiness, text);
     }
+
     public boolean ifRequestCallbackButton2IsDisplayed() {
         scrollIntoView(requestCallbackButton2);
         return requestCallbackButton2.isDisplayed();
     }
+
     public void validateTextOfRequestCallbackButton2(String text) {
         softAssert(requestCallbackButton2, text);
     }
+
     public void clickRequestCallbackButton2() {
         click(requestCallbackButton2, "Request Callback button");
     }
+
     public boolean ifViewAllProjectsButtonIsDisplayed() {
         scrollIntoView(viewAllProjectsButton);
         return viewAllProjectsButton.isDisplayed();
     }
+
     public void validateTextOfViewAllProjectsButton(String text) {
         softAssert(viewAllProjectsButton, text);
     }
+
     public void clickViewAllProjectsButton() {
         click(viewAllProjectsButton, "View All Projects button");
     }
@@ -1176,37 +1184,45 @@ public class HomePage extends TestBase {
         scrollIntoView(realExperienceRealInsights);
         return realExperienceRealInsights.isDisplayed();
     }
+
     public void validateTextOfRealExperienceRealInsights(String text) {
         softAssert(realExperienceRealInsights, text);
     }
+
     public boolean ifTapIntoDecadesIsDisplayed() {
         scrollIntoView(tapIntoDecades);
         return tapIntoDecades.isDisplayed();
     }
+
     public void validateTextOfTapIntoDecades(String text) {
         softAssert(tapIntoDecades, text);
     }
+
     public boolean ifRequestCallbackButton3IsDisplayed() {
         scrollIntoView(requestCallbackButton3);
         return requestCallbackButton3.isDisplayed();
     }
+
     public void validateTextOfRequestCallbackButton3(String text) {
         softAssert(requestCallbackButton3, text);
     }
+
     public void clickRequestCallbackButton3() {
         click(requestCallbackButton3, "Request Callback button");
     }
+
     public boolean ifDownloadInstructorsProfileButtonIsDisplayed() {
         scrollIntoView(downloadInstructorsProfileButton);
         return downloadInstructorsProfileButton.isDisplayed();
     }
+
     public void validateTextOfDownloadInstructorsProfileButton(String text) {
         softAssert(downloadInstructorsProfileButton, text);
     }
+
     public void clickDownloadInstructorsProfileButton() {
         click(downloadInstructorsProfileButton, "Download Instructors Profile button");
     }
-
 
 
     // ========== Instructor-Led section ==========
@@ -1219,20 +1235,25 @@ public class HomePage extends TestBase {
     public void validateTextOfInstructorLedLiveWorkshops(String text) {
         softAssert(instructorLedLiveWorkshops, text);
     }
+
     public boolean ifInstructorLedLiveWorkshopsSubHeadingIsDisplayed() {
         scrollIntoView(instructorLedLiveWorkshopsSubHeading);
         return instructorLedLiveWorkshopsSubHeading.isDisplayed();
     }
+
     public void validateTextOfInstructorLedLiveWorkshopsSubHeading(String text) {
         softAssert(instructorLedLiveWorkshopsSubHeading, text);
     }
+
     public boolean ifGetWorkshopsDetailsButtonIsDisplayed() {
         scrollIntoView(getWorkshopsDetailsButton);
         return getWorkshopsDetailsButton.isDisplayed();
     }
+
     public void validateTextOfGetWorkshopsDetailsButton(String text) {
         softAssert(getWorkshopsDetailsButton, text);
     }
+
     public void clickGetWorkshopsDetailsButton() {
         click(getWorkshopsDetailsButton, "Get Workshops Detail button");
     }
@@ -1248,10 +1269,12 @@ public class HomePage extends TestBase {
     public void validateTextOfAvAssistedPlacements(String text) {
         softAssert(avAssistedPlacements, text);
     }
+
     public boolean ifOurAlumniUniverseIsDisplayed() {
         scrollIntoView(ourAlumniUniverse);
         return ourAlumniUniverse.isDisplayed();
     }
+
     public void validateTextOfOurAlumniUniverse(String text) {
         softAssert(ourAlumniUniverse, text);
     }
@@ -1263,78 +1286,99 @@ public class HomePage extends TestBase {
         scrollIntoView(industryRecognizedCertification);
         return industryRecognizedCertification.isDisplayed();
     }
+
     public void validateTextOfIndustryRecognizedCertification(String text) {
         softAssert(industryRecognizedCertification, text);
     }
+
     public boolean ifGetCertifiedIsDisplayed() {
         scrollIntoView(getCertified);
         return getCertified.isDisplayed();
     }
+
     public void validateTextOfGetCertified(String text) {
         softAssert(getCertified, text);
     }
+
     public boolean ifEarnCertificatesButtonIsDisplayed() {
         scrollIntoView(earnCertificatesButton);
         return earnCertificatesButton.isDisplayed();
     }
+
     public void validateTextOfEarnCertificatesButton(String text) {
         softAssert(earnCertificatesButton, text);
     }
+
     public void clickEarnCertificatesButton() {
         click(earnCertificatesButton, "Earn Certificates button");
     }
+
     // ========== Our Advisors section ==========
     public boolean ifOurAdvisorsIsDisplayed() {
         scrollIntoView(ourAdvisors);
         return ourAdvisors.isDisplayed();
     }
+
     public void validateTextOfOurAdvisors(String text) {
         softAssert(ourAdvisors, text);
     }
+
     public boolean ifOurAdvisorsSubHeadingIsDisplayed() {
         scrollIntoView(ourAdvisorsSubHeading);
         return ourAdvisorsSubHeading.isDisplayed();
     }
+
     public void validateTextOfOurAdvisorsSubHeading(String text) {
         softAssert(ourAdvisorsSubHeading, text);
     }
+
     // ========== AV Learners section ==========
     public boolean ifAvLearnersSpotlightIsDisplayed() {
         scrollIntoView(avLearnersSpotlight);
         return avLearnersSpotlight.isDisplayed();
     }
+
     public void validateTextOfAvLearnersSpotlight(String text) {
         softAssert(avLearnersSpotlight, text);
     }
+
     public boolean ifViewMoreButtonIsDisplayed() {
         scrollIntoView(viewMoreButton);
         return viewMoreButton.isDisplayed();
     }
+
     public void validateTextOfViewMoreButton(String text) {
         softAssert(viewMoreButton, text);
     }
+
     public void clickViewMoreButton() {
         click(viewMoreButton, "View More button");
     }
+
     // ========== Money Back section ==========
     public boolean ifMoneyBackGuaranteeIsDisplayed() {
         scrollIntoView(moneyBackGuarantee);
         return moneyBackGuarantee.isDisplayed();
     }
+
     public void validateTextOfMoneyBackGuarantee(String text) {
         softAssert(moneyBackGuarantee, text);
     }
+
     public boolean ifNoQuestionAskedIsDisplayed() {
         scrollIntoView(noQuestionAsked);
         return noQuestionAsked.isDisplayed();
     }
+
     public void validateTextOfNoQuestionAsked(String text) {
         softAssert(noQuestionAsked, text);
     }
+
     public boolean ifMoneyBackGuaranteeImageIsDisplayed() {
         scrollIntoView(moneyBackGuaranteeImage);
         return moneyBackGuaranteeImage.isDisplayed();
     }
+
     public void validateTextOfMoneyBackGuaranteeImage(String text) {
         softAssert(moneyBackGuaranteeImage, text);
     }
@@ -1345,63 +1389,80 @@ public class HomePage extends TestBase {
         scrollIntoView(investInYourFutureToday);
         return investInYourFutureToday.isDisplayed();
     }
+
     public void validateTextOfInvestInYourFutureToday(String text) {
         softAssert(investInYourFutureToday, text);
     }
+
     public boolean ifExclusiveAccessToAiToolsIsDisplayed() {
         scrollIntoView(exclusiveAccessToAiTools);
         return exclusiveAccessToAiTools.isDisplayed();
     }
+
     public void validateTextOfExclusiveAccessToAiTools(String text) {
         softAssert(exclusiveAccessToAiTools, text);
     }
+
     public boolean ifBoostYourCareerIsDisplayed() {
         scrollIntoView(boostYourCareer);
         return boostYourCareer.isDisplayed();
     }
+
     public void validateTextOfBoostYourCareer(String text) {
         softAssert(boostYourCareer, text);
     }
-    public boolean ifEnrollNowTextIsDisplayed(){
+
+    public boolean ifEnrollNowTextIsDisplayed() {
         scrollIntoView(enrollNowAndStartYourJourney);
         return enrollNowAndStartYourJourney.isDisplayed();
     }
+
     public void validateTextOfEnrollNowText(String text) {
         softAssert(enrollNowAndStartYourJourney, text);
     }
+
     public boolean ifOneTimeToggleLabelIsDisplayed() {
         scrollIntoView(oneTimeToggleLabel);
         return oneTimeToggleLabel.isDisplayed();
     }
+
     public void validateTextOfOneTimeToggleLabel(String text) {
         softAssert(oneTimeToggleLabel, text);
     }
+
     public boolean ifEmiToggleLabelIsDisplayed() {
         scrollIntoView(emiToggleLabel);
         return emiToggleLabel.isDisplayed();
     }
+
     public void validateTextOfEmiToggleLabel(String text) {
         softAssert(emiToggleLabel, text);
     }
-    public boolean ifPriceToggleIsDisplayed(){
+
+    public boolean ifPriceToggleIsDisplayed() {
         scrollIntoView(priceToggle);
         return priceToggle.isDisplayed();
     }
+
     public void clickPriceToggle() {
         scrollIntoView(priceToggle);
         click(priceToggle, "Price Toggle");
     }
-    public boolean ifOneTimeTextIsDisplayed(){
+
+    public boolean ifOneTimeTextIsDisplayed() {
         scrollIntoView(oneTime);
         return oneTime.isDisplayed();
     }
+
     public void validateTextOfOneTimeText(String text) {
         softAssert(oneTime, text);
     }
-    public boolean ifemiTextIsDisplayed(){
+
+    public boolean ifemiTextIsDisplayed() {
         scrollIntoView(emi);
         return emi.isDisplayed();
     }
+
     public void validateTextOfEmiText(String text) {
         softAssert(emi, text);
     }
@@ -1411,13 +1472,16 @@ public class HomePage extends TestBase {
         scrollIntoView(price);
         return price.isDisplayed();
     }
+
     public void validateTextOfPrice(String text) {
         softAssert(price, text);
     }
+
     public boolean emiPriceIsDisplayed() {
         scrollIntoView(emiPrice);
         return emiPrice.isDisplayed();
     }
+
     public void validateTextOfEmiPrice(String text) {
         softAssert(emiPrice, text);
     }
@@ -1426,13 +1490,16 @@ public class HomePage extends TestBase {
         scrollIntoView(oneTimePriceInclusiveOfAllTaxes);
         return oneTimePriceInclusiveOfAllTaxes.isDisplayed();
     }
+
     public void validateTextOfOneTimePriceInclusiveOfAllTaxes(String text) {
         softAssert(oneTimePriceInclusiveOfAllTaxes, text);
     }
+
     public boolean levelUpYourProfessionalJourneyIsDisplayed() {
         scrollIntoView(levelUpYourProfessionalJourney);
         return levelUpYourProfessionalJourney.isDisplayed();
     }
+
     public void validateTextOfLevelUpYourProfessionalJourney(String text) {
         softAssert(levelUpYourProfessionalJourney, text);
     }
@@ -1441,9 +1508,11 @@ public class HomePage extends TestBase {
         scrollIntoView(enrollNowButtonOneTime);
         return enrollNowButtonOneTime.isDisplayed();
     }
+
     public void validateTextOfEnrollNowButtonOneTime(String text) {
         softAssert(enrollNowButtonOneTime, text);
     }
+
     public void clickEnrollNowButtonOneTime() {
         click(enrollNowButtonOneTime, "Enroll Now button One Time");
     }
@@ -1453,13 +1522,16 @@ public class HomePage extends TestBase {
         scrollIntoView(contactUsToday);
         return contactUsToday.isDisplayed();
     }
+
     public void validateTextOfContactUsToday(String text) {
         softAssert(contactUsToday, text);
     }
+
     public boolean takeTheFirstStepIsDisplayed() {
         scrollIntoView(takeTheFirstStep);
         return takeTheFirstStep.isDisplayed();
     }
+
     public void validateTextOfTakeTheFirstStep(String text) {
         softAssert(takeTheFirstStep, text);
     }
@@ -1468,6 +1540,7 @@ public class HomePage extends TestBase {
         scrollIntoView(upskillReskill);
         return upskillReskill.isDisplayed();
     }
+
     public void validateTextOfUpskillReskill(String text) {
         softAssert(upskillReskill, text);
     }
@@ -1476,108 +1549,136 @@ public class HomePage extends TestBase {
         scrollIntoView(contactFullNameLabel);
         return contactFullNameLabel.isDisplayed();
     }
+
     public void validateTextOfContactFullNameLabel(String text) {
         softAssert(contactFullNameLabel, text);
     }
+
     public boolean contactFullNameIsDisplayed() {
         scrollIntoView(contactFullName);
         return contactFullName.isDisplayed();
     }
+
     public void validatePlaceholderTextOfContactFullName(String text) {
         validatePlaceholderText(contactFullName, text);
     }
+
     public void enterTextInContactFullName(String fullName) {
         sendKeys(contactFullName, fullName);
     }
+
     public boolean contactPhoneNumberLabelIsDisplayed() {
         scrollIntoView(contactPhoneNumberLabel);
         return contactPhoneNumberLabel.isDisplayed();
     }
+
     public void validateTextOfContactPhoneNumberLabel(String text) {
         softAssert(contactPhoneNumberLabel, text);
     }
+
     public void validatePlaceholderTextOfContactPhoneNumber(String text) {
         validatePlaceholderText(contactPhoneNumber, text);
     }
+
     public boolean contactPhoneNumberIsDisplayed() {
         scrollIntoView(contactPhoneNumber);
         return contactPhoneNumber.isDisplayed();
     }
+
     public void enterTextInContactPhoneNumber(String phone) {
         sendKeys(contactPhoneNumber, phone);
     }
+
     public boolean contactEmailLabelIsDisplayed() {
         scrollIntoView(contactEmailLabel);
         return contactEmailLabel.isDisplayed();
     }
+
     public void validateTextOfContactEmailLabel(String text) {
         softAssert(contactEmailLabel, text);
     }
+
     public void validatePlaceholderTextOfContactEmail(String text) {
         validatePlaceholderText(contactEmail, text);
     }
+
     public boolean contactEmailIsDisplayed() {
         scrollIntoView(contactEmail);
         return contactEmail.isDisplayed();
     }
+
     public void enterTextInContactEmail(String email) {
         sendKeys(contactEmail, email);
     }
 
-    public boolean countryFlagContactUsIsDisplayed(){
+    public boolean countryFlagContactUsIsDisplayed() {
         scrollIntoView(countryFlagContactUs);
         return countryFlagContactUs.isDisplayed();
     }
+
     public void clickCountryFlagContactUs() {
         click(countryFlagContactUs, "Country Flag in Contact Us");
     }
-    public boolean countryFlagArrowContactUsIsDisplayed(){
+
+    public boolean countryFlagArrowContactUsIsDisplayed() {
         scrollIntoView(countryFlagArrowContactUs);
         return countryFlagArrowContactUs.isDisplayed();
     }
+
     public void clickCountryFlagArrowContactUs() {
         click(countryFlagArrowContactUs, "Country Flag Arrow in Contact Us");
     }
-    public boolean experienceLabelIsDisplayed(){
+
+    public boolean experienceLabelIsDisplayed() {
         scrollIntoView(experienceLabel);
         return experienceLabel.isDisplayed();
     }
+
     public void validateTextOfExperienceLabel(String text) {
         softAssert(experienceLabel, text);
     }
-    public  boolean experience0_3IsDisplayed() {
+
+    public boolean experience0_3IsDisplayed() {
         scrollIntoView(experience0_3);
         return experience0_3.isDisplayed();
     }
+
     public void validateTextOfExperience0_3(String text) {
         softAssert(experience0_3, text);
     }
+
     public boolean experience3_8IsDisplayed() {
         scrollIntoView(experience3_8);
         return experience3_8.isDisplayed();
     }
+
     public void validateTextOfExperience3_8(String text) {
         softAssert(experience3_8, text);
     }
+
     public boolean experience8_12IsDisplayed() {
         scrollIntoView(experience8_12);
         return experience8_12.isDisplayed();
     }
+
     public void validateTextOfExperience8_12(String text) {
         softAssert(experience8_12, text);
     }
+
     public boolean experience12IsDisplayed() {
         scrollIntoView(experience12);
         return experience12.isDisplayed();
     }
+
     public void validateTextOfExperience12(String text) {
         softAssert(experience12, text);
     }
 
-public void termsAndConditionsLabelIsDisplayed() {
+    public boolean termsAndConditionsLabelIsDisplayed() {
         scrollIntoView(termsAndConditionsLabel);
-        termsAndConditionsLabel.isDisplayed();
+        return termsAndConditionsLabel.isDisplayed();
     }
+
     public void validateTextOfTermsAndConditionsLabel(String text) {
         softAssert(termsAndConditionsLabel, text);
     }
@@ -1586,78 +1687,90 @@ public void termsAndConditionsLabelIsDisplayed() {
         scrollIntoView(sendWhatsAppLabel);
         return sendWhatsAppLabel.isDisplayed();
     }
+
     public void validateTextOfSendWhatsAppLabel(String text) {
         softAssert(sendWhatsAppLabel, text);
     }
-    public void sendWhatsAppCheckboxIsDisplayed() {
+
+    public boolean sendWhatsAppCheckboxIsDisplayed() {
         scrollIntoView(sendWhatsAppCheckbox);
-        sendWhatsAppCheckbox.isDisplayed();
+        return sendWhatsAppCheckbox.isDisplayed();
 
     }
+
     public void clickSendWhatsAppCheckbox() {
         click(sendWhatsAppCheckbox, "Send WhatsApp Checkbox");
     }
 
-    public void joinTheProgramButtonIsDisplayed() {
+    public boolean joinTheProgramButtonIsDisplayed() {
         scrollIntoView(joinTheProgramButton);
-        joinTheProgramButton.isDisplayed();
+        return joinTheProgramButton.isDisplayed();
     }
+
     public void validateTextOfJoinTheProgramButton(String text) {
         softAssert(joinTheProgramButton, text);
     }
+
     public void clickJoinTheProgramButton() {
         click(joinTheProgramButton, "Join The Program button");
     }
 
-    public boolean getExpertGuidanceIsDisplayed(){
+    public boolean getExpertGuidanceIsDisplayed() {
         scrollIntoView(getExpertGuidance);
         return getExpertGuidance.isDisplayed();
     }
+
     public void validateTextOfGetExpertGuidance(String text) {
         softAssert(getExpertGuidance, text);
     }
-    public boolean needSupportIsDisplayed(){
+
+    public boolean needSupportIsDisplayed() {
         scrollIntoView(needSupport);
         return needSupport.isDisplayed();
     }
+
     public void validateTextOfNeedSupport(String text) {
         softAssert(needSupport, text);
     }
 
-    public boolean imagePhoneIsDisplayed(){
+    public boolean imagePhoneIsDisplayed() {
         scrollIntoView(imagePhone);
         return imagePhone.isDisplayed();
     }
 
-    public boolean supportPhoneNumberIsDisplayed(){
+    public boolean supportPhoneNumberIsDisplayed() {
         scrollIntoView(supportPhoneNumber);
         return supportPhoneNumber.isDisplayed();
     }
+
     public void validateTextOfSupportPhoneNumber(String text) {
         softAssert(supportPhoneNumber, text);
     }
-    public boolean supportPhoneNumberSubHeadingIsDisplayed(){
+
+    public boolean supportPhoneNumberSubHeadingIsDisplayed() {
         scrollIntoView(supportPhoneNumberSubHeading);
         return supportPhoneNumberSubHeading.isDisplayed();
     }
+
     public void validateTextOfSupportPhoneNumberSubHeading(String text) {
         softAssert(supportPhoneNumberSubHeading, text);
     }
 
-    public boolean imageEmailIsDisplayed(){
+    public boolean imageEmailIsDisplayed() {
         scrollIntoView(imageEmail);
         return imageEmail.isDisplayed();
     }
 
-    public boolean supportEmailIsDisplayed(){
+    public boolean supportEmailIsDisplayed() {
         scrollIntoView(supportEmail);
         return supportEmail.isDisplayed();
     }
+
     public void validateTextOfSupportEmail(String text) {
         softAssert(supportEmail, text);
     }
 
-    public  boolean supportEmailSubHeadingIsDisplayed(){
+    public boolean supportEmailSubHeadingIsDisplayed() {
         scrollIntoView(supportEmailSubHeading);
         return supportEmailSubHeading.isDisplayed();
     }
@@ -1671,46 +1784,56 @@ public void termsAndConditionsLabelIsDisplayed() {
         scrollIntoView(frequentlyAskedQuestions);
         return frequentlyAskedQuestions.isDisplayed();
     }
+
     public void validateTextOfFrequentlyAskedQuestions(String text) {
         softAssert(frequentlyAskedQuestions, text);
     }
-    public  boolean lookingForAnswersIsDisplayed(){
+
+    public boolean lookingForAnswersIsDisplayed() {
         scrollIntoView(lookingForAnswers);
         return lookingForAnswers.isDisplayed();
     }
+
     public void validateTextOfLookingForAnswers(String text) {
         softAssert(lookingForAnswers, text);
     }
 
-    public boolean whatMakesTheGenAiPinnaclePlusProgramDifferentIsDisplayed(){
+    public boolean whatMakesTheGenAiPinnaclePlusProgramDifferentIsDisplayed() {
         scrollIntoView(whatMakesTheGenAiPinnaclePlusProgramDifferent);
         return whatMakesTheGenAiPinnaclePlusProgramDifferent.isDisplayed();
     }
+
     public void validateTextOfWhatMakesTheGenAiPinnaclePlusProgramDifferent(String text) {
         softAssert(whatMakesTheGenAiPinnaclePlusProgramDifferent, text);
     }
-    public boolean howIsTheGenAiPinnaclePlusProgramDifferentIsDisplayed(){
+
+    public boolean howIsTheGenAiPinnaclePlusProgramDifferentIsDisplayed() {
         scrollIntoView(howIsTheGenAiPinnaclePlusProgramDifferent);
         return howIsTheGenAiPinnaclePlusProgramDifferent.isDisplayed();
     }
+
     public void validateTextOfhowIsTheGenAiPinnaclePlusProgramDifferent(String text) {
         softAssert(howIsTheGenAiPinnaclePlusProgramDifferent, text);
     }
-    public boolean whoIsTheIdealCandidateIsDisplayed(){
+
+    public boolean whoIsTheIdealCandidateIsDisplayed() {
         scrollIntoView(whoIsTheIdealCandidate);
         return whoIsTheIdealCandidate.isDisplayed();
     }
+
     public void validateTextOfWhoIsTheIdealCandidate(String text) {
         softAssert(whoIsTheIdealCandidate, text);
     }
 
-    public boolean viewMoreButton2IsDisplayed(){
+    public boolean viewMoreButton2IsDisplayed() {
         scrollIntoView(viewMoreButton);
         return viewMoreButton.isDisplayed();
     }
+
     public void validateTextOfViewMoreButton2(String text) {
         softAssert(viewMoreButton, text);
     }
+
     public void clickViewMoreButton2() {
         click(viewMoreButton, "View More button");
     }
@@ -1721,16 +1844,20 @@ public void termsAndConditionsLabelIsDisplayed() {
         scrollIntoView(flagshipPrograms);
         return flagshipPrograms.isDisplayed();
     }
+
     public void validateTextOfFlagshipPrograms(String text) {
         softAssert(flagshipPrograms, text);
     }
+
     public boolean ifGenAiPinnacleProgramIsDisplayed() {
         scrollIntoView(genAiPinnacleProgram);
         return genAiPinnacleProgram.isDisplayed();
     }
+
     public void validateTextOfGenAiPinnacleProgram(String text) {
         softAssert(genAiPinnacleProgram, text);
     }
+
     public void clickGenAiPinnacleProgram() {
         click(genAiPinnacleProgram, "Gen Ai Pinnacle Program");
     }

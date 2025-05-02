@@ -63,7 +63,7 @@ public class Login extends TestBase {
 
     }
 
-        @Test(priority = 2)
+    @Test(priority = 2)
     public void validatingNavButtonsCTA() {
         ExtentTest test = extent.createTest("TC" + getClass() + "validatingNavCTA", "Validating if nav buttons are working").assignCategory(moduleName);
         setExtentTest(test);
@@ -150,7 +150,7 @@ public class Login extends TestBase {
 
     }
 
-        @Test(priority = 3)
+    @Test(priority = 3)
     public void validatingfirstScreen() {
         ExtentTest test = extent.createTest("TC" + getClass() + "validatingfirstScreen", "Validating if first screen is displayed").assignCategory(moduleName);
         setExtentTest(test);
@@ -263,7 +263,7 @@ public class Login extends TestBase {
         }
     }
 
-        @Test(priority = 4, dataProvider = "analyticVidhyaPopUpData", dataProviderClass = AnalyticsVidhyaDataProvider.class)
+    @Test(priority = 4, dataProvider = "analyticVidhyaPopUpData", dataProviderClass = AnalyticsVidhyaDataProvider.class)
     public void validatingFirstScreenContactBox(String name, String phoneNumber, String email) {
         ExtentTest test = extent.createTest("TC" + getClass() + "validatingFirstScreenBox", "Validating if first screen").assignCategory(moduleName);
         setExtentTest(test);
@@ -361,7 +361,7 @@ public class Login extends TestBase {
 
     }
 
-        @Test(priority = 5)
+    @Test(priority = 5)
     public void validatingSecondScreen() {
         ExtentTest test = extent.createTest("TC" + getClass() + "validatingSecondScreen", "Validating How Does the GenAI Pinnacle Plus Program Help You? section").assignCategory(moduleName);
         setExtentTest(test);
@@ -469,7 +469,7 @@ public class Login extends TestBase {
         }
     }
 
-        @Test(priority = 6)
+    @Test(priority = 6)
     public void validatingThirdScreen() {
         ExtentTest test = extent.createTest("TC" + getClass() + "validatingCurriculumStatisticsSection", "Validating Curriculum Statistics section").assignCategory(moduleName);
         setExtentTest(test);
@@ -588,7 +588,7 @@ public class Login extends TestBase {
 
     }
 
-        @Test(priority = 7)
+    @Test(priority = 7)
     public void validatingFourthScreen() {
         ExtentTest test = extent.createTest("TC" + getClass() + "validatingPersonalizedRoadmapScreen", "Validating Personalized Roadmap section").assignCategory(moduleName);
         setExtentTest(test);
@@ -640,7 +640,7 @@ public class Login extends TestBase {
 
     }
 
-        @Test(priority = 8)
+    @Test(priority = 8)
     public void validatingFifthScreen() {
         ExtentTest test = extent.createTest("TC" + getClass() + "validatingFifthScreen", "Validating Curriculum section").assignCategory(moduleName);
         setExtentTest(test);
@@ -731,7 +731,7 @@ public class Login extends TestBase {
 
     }
 
-        @Test(priority = 9)
+    @Test(priority = 9)
     public void validateFifthScreenContactBox() {
         ExtentTest test = extent.createTest("TC" + getClass() + "validatingFifthScreenContactBox", "Validating Libraries & Frameworks section").assignCategory(moduleName);
         setExtentTest(test);
@@ -1055,7 +1055,7 @@ public class Login extends TestBase {
         ExtentTest test = extent.createTest("TC" + getClass() + "validatingThirteenthScreen", "Validating Money Back section").assignCategory(moduleName);
         setExtentTest(test);
         HomePage homePage = new HomePage(getDriver());
-        if (homePage.ifMoneyBackGuaranteeIsDisplayed()){
+        if (homePage.ifMoneyBackGuaranteeIsDisplayed()) {
             logger.info("Money back guarantee is displayed");
             test.log(Status.PASS, "Money back guarantee is displayed");
             homePage.validateTextOfMoneyBackGuarantee("Money Back Guarantee!");
@@ -1066,7 +1066,7 @@ public class Login extends TestBase {
             logger.info("Money back guarantee is not displayed");
         }
 
-        if(homePage.ifNoQuestionAskedIsDisplayed()){
+        if (homePage.ifNoQuestionAskedIsDisplayed()) {
             logger.info("No question asked is displayed");
             test.log(Status.PASS, "No question asked is displayed");
             homePage.validateTextOfNoQuestionAsked("GenAI Pinnacle Plus Program comes with 7 days no questions asked Money Back Guarantee. If the Program is bought in pre-launch offer or on discounted price, then the fee paid is non-refundable. For more T&C, Click here");
@@ -1077,7 +1077,7 @@ public class Login extends TestBase {
             logger.info("No question asked is not displayed");
         }
 
-        if(homePage.ifMoneyBackGuaranteeImageIsDisplayed()){
+        if (homePage.ifMoneyBackGuaranteeImageIsDisplayed()) {
             logger.info("Money back guarantee image is displayed");
             test.log(Status.PASS, "Money back guarantee image is displayed");
             logger.info("Money back guarantee image is validated");
@@ -1089,8 +1089,8 @@ public class Login extends TestBase {
 
     }
 
-    @Test(priority = 18,dataProvider = "analyticVidhyaFees", dataProviderClass = AnalyticsVidhyaDataProvider.class)
-    public void validatingFourteenthScreen(String fullTimeFee,String emiFee) {
+    @Test(priority = 18, dataProvider = "analyticVidhyaFees", dataProviderClass = AnalyticsVidhyaDataProvider.class)
+    public void validatingFourteenthScreen(String fullTimeFee, String emiFee) {
         ExtentTest test = extent.createTest("TC" + getClass() + "validatingFourteenthScreen", "Validating Invest in Your Future section").assignCategory(moduleName);
         setExtentTest(test);
         HomePage homePage = new HomePage(getDriver());
@@ -1181,9 +1181,10 @@ public class Login extends TestBase {
             logger.info("Price before clicking toggle is validated");
             homePage.clickPriceToggle();
             logger.info("Price toggle is clicked");
-            if(homePage.ifemiTextIsDisplayed()){
+            if (homePage.ifemiTextIsDisplayed()) {
                 logger.info("EMI text is displayed");
                 test.log(Status.PASS, "EMI text is displayed");
+                hardWait(3);
                 homePage.validateTextOfEmiText("EMI");
                 logger.info("EMI text is validated");
                 test.log(Status.PASS, "EMI text is validated");
@@ -1244,12 +1245,12 @@ public class Login extends TestBase {
         }
     }
 
-    @Test(priority = 19,dataProvider = "analyticVidhyaPopUpData", dataProviderClass = AnalyticsVidhyaDataProvider.class)
+    @Test(priority = 19, dataProvider = "analyticVidhyaPopUpData", dataProviderClass = AnalyticsVidhyaDataProvider.class)
     public void validatingFifteenthScreen(String name, String phoneNumber, String email) {
         ExtentTest test = extent.createTest("TC" + getClass() + "validatingFifteenthScreen", "Validating Contact Us Today section").assignCategory(moduleName);
         setExtentTest(test);
         HomePage homePage = new HomePage(getDriver());
-        if (homePage.ifContactUsTodayIsDisplayed()){
+        if (homePage.ifContactUsTodayIsDisplayed()) {
             logger.info("Contact us today is displayed");
             test.log(Status.PASS, "Contact us today is displayed");
             homePage.validateTextOfContactUsToday("Contact Us Today");
@@ -1259,17 +1260,17 @@ public class Login extends TestBase {
             test.log(Status.FAIL, "Contact us today is not displayed");
             logger.info("Contact us today is not displayed");
         }
-        if(homePage.takeTheFirstStepIsDisplayed()){
+        if (homePage.takeTheFirstStepIsDisplayed()) {
             logger.info("Take the first step is displayed");
             test.log(Status.PASS, "Take the first step is displayed");
-            homePage.validateTextOfTakeTheFirstStep("Actual: Take the first step towards a future of innovation & excellence with Analytics Vidhya");
+            homePage.validateTextOfTakeTheFirstStep("Take the first step towards a future of innovation & excellence with Analytics Vidhya");
             logger.info("Take the first step is validated");
             test.log(Status.PASS, "Take the first step is validated");
         } else {
             test.log(Status.FAIL, "Take the first step is not displayed");
             logger.info("Take the first step is not displayed");
         }
-        if(homePage.upskillReskillIsDisplayed()){
+        if (homePage.upskillReskillIsDisplayed()) {
             logger.info("Upskill reskill is displayed");
             test.log(Status.PASS, "Upskill reskill is displayed");
             homePage.validateTextOfUpskillReskill("Upskill, Reskill, Thrive");
@@ -1279,7 +1280,7 @@ public class Login extends TestBase {
             test.log(Status.FAIL, "Upskill reskill is not displayed");
             logger.info("Upskill reskill is not displayed");
         }
-        if(homePage.contactFullNameLabelIsDisplayed()){
+        if (homePage.contactFullNameLabelIsDisplayed()) {
             logger.info("Contact full name label is displayed");
             test.log(Status.PASS, "Contact full name label is displayed");
             homePage.validateTextOfContactFullNameLabel("Full Name");
@@ -1289,7 +1290,7 @@ public class Login extends TestBase {
             test.log(Status.FAIL, "Contact full name label is not displayed");
             logger.info("Contact full name label is not displayed");
         }
-        if(homePage.contactFullNameIsDisplayed()){
+        if (homePage.contactFullNameIsDisplayed()) {
             logger.info("Contact full name text box is displayed");
             test.log(Status.PASS, "Contact full name text box is displayed");
             homePage.validatePlaceholderTextOfContactFullName("Your Full Name");
@@ -1300,7 +1301,7 @@ public class Login extends TestBase {
             test.log(Status.FAIL, "Contact full name text box is not displayed");
             logger.info("Contact full name text box is not displayed");
         }
-        if(homePage.contactPhoneNumberLabelIsDisplayed()){
+        if (homePage.contactPhoneNumberLabelIsDisplayed()) {
             logger.info("Contact phone number label is displayed");
             test.log(Status.PASS, "Contact phone number label is displayed");
             homePage.validateTextOfContactPhoneNumberLabel("Phone Number");
@@ -1310,7 +1311,7 @@ public class Login extends TestBase {
             test.log(Status.FAIL, "Contact phone number label is not displayed");
             logger.info("Contact phone number label is not displayed");
         }
-        if(homePage.contactPhoneNumberIsDisplayed()){
+        if (homePage.contactPhoneNumberIsDisplayed()) {
             logger.info("Contact phone number text box is displayed");
             test.log(Status.PASS, "Contact phone number text box is displayed");
             homePage.validatePlaceholderTextOfContactPhoneNumber("Your Phone Number");
@@ -1321,7 +1322,7 @@ public class Login extends TestBase {
             test.log(Status.FAIL, "Contact phone number text box is not displayed");
             logger.info("Contact phone number text box is not displayed");
         }
-        if(homePage.contactEmailLabelIsDisplayed()){
+        if (homePage.contactEmailLabelIsDisplayed()) {
             logger.info("Contact email label is displayed");
             test.log(Status.PASS, "Contact email label is displayed");
             homePage.validateTextOfContactEmailLabel("Email Id");
@@ -1331,7 +1332,7 @@ public class Login extends TestBase {
             test.log(Status.FAIL, "Contact email label is not displayed");
             logger.info("Contact email label is not displayed");
         }
-        if(homePage.contactEmailIsDisplayed()){
+        if (homePage.contactEmailIsDisplayed()) {
             logger.info("Contact email text box is displayed");
             test.log(Status.PASS, "Contact email text box is displayed");
             homePage.validatePlaceholderTextOfContactEmail("Your Email Id");
@@ -1342,7 +1343,7 @@ public class Login extends TestBase {
             test.log(Status.FAIL, "Contact email text box is not displayed");
             logger.info("Contact email text box is not displayed");
         }
-        if(homePage.countryFlagContactUsIsDisplayed()){
+        if (homePage.countryFlagContactUsIsDisplayed()) {
             logger.info("Country flag is displayed");
             test.log(Status.PASS, "Country flag is displayed");
             homePage.clickCountryFlagContactUs();
@@ -1354,7 +1355,7 @@ public class Login extends TestBase {
             test.log(Status.FAIL, "Country flag is not displayed");
             logger.info("Country flag is not displayed");
         }
-        if(homePage.countryFlagArrowContactUsIsDisplayed()){
+        if (homePage.countryFlagArrowContactUsIsDisplayed()) {
             logger.info("Country flag arrow is displayed");
             test.log(Status.PASS, "Country flag arrow is displayed");
             homePage.clickCountryFlagArrowContactUs();
@@ -1366,7 +1367,7 @@ public class Login extends TestBase {
             test.log(Status.FAIL, "Country flag arrow is not displayed");
             logger.info("Country flag arrow is not displayed");
         }
-        if(homePage.experienceLabelIsDisplayed()){
+        if (homePage.experienceLabelIsDisplayed()) {
             logger.info("Experience label is displayed");
             test.log(Status.PASS, "Experience label is displayed");
             homePage.validateTextOfExperienceLabel("Experience :");
@@ -1376,7 +1377,7 @@ public class Login extends TestBase {
             test.log(Status.FAIL, "Experience label is not displayed");
             logger.info("Experience label is not displayed");
         }
-        if(homePage.experience0_3IsDisplayed()){
+        if (homePage.experience0_3IsDisplayed()) {
             logger.info("Experience 0-3 is displayed");
             test.log(Status.PASS, "Experience 0-3 is displayed");
             homePage.validateTextOfExperience0_3("0-3yrs");
@@ -1386,7 +1387,7 @@ public class Login extends TestBase {
             test.log(Status.FAIL, "Experience 0-3 is not displayed");
             logger.info("Experience 0-3 is not displayed");
         }
-        if(homePage.experience3_8IsDisplayed()){
+        if (homePage.experience3_8IsDisplayed()) {
             logger.info("Experience 3-8 is displayed");
             test.log(Status.PASS, "Experience 3-8 is displayed");
             homePage.validateTextOfExperience3_8("3-8yrs");
@@ -1396,7 +1397,251 @@ public class Login extends TestBase {
             test.log(Status.FAIL, "Experience 3-8 is not displayed");
             logger.info("Experience 3-8 is not displayed");
         }
+        if (homePage.experience8_12IsDisplayed()) {
+            logger.info("Experience 8-12 is displayed");
+            test.log(Status.PASS, "Experience 8-12 is displayed");
+            homePage.validateTextOfExperience8_12("8-12yrs");
+            logger.info("Experience 8-12 is validated");
+            test.log(Status.PASS, "Experience 8-12 is validated");
+        } else {
+            test.log(Status.FAIL, "Experience 8-12 is not displayed");
+            logger.info("Experience 8-12 is not displayed");
+        }
+        if (homePage.experience12IsDisplayed()) {
+            logger.info("Experience 12+ is displayed");
+            test.log(Status.PASS, "Experience 12+ is displayed");
+            homePage.validateTextOfExperience12("12yrs+");
+            logger.info("Experience 12+ is validated");
+            test.log(Status.PASS, "Experience 12+ is validated");
+        } else {
+            test.log(Status.FAIL, "Experience 12+ is not displayed");
+            logger.info("Experience 12+ is not displayed");
+        }
+
+        if (homePage.termsAndConditionsLabelIsDisplayed()) {
+            logger.info("Terms and conditions label is displayed");
+            test.log(Status.PASS, "Terms and conditions label is displayed");
+            homePage.validateTextOfTermsAndConditionsLabel("I Agree to the Terms & Conditions");
+            logger.info("Terms and conditions label is validated");
+            test.log(Status.PASS, "Terms and conditions label is validated");
+        } else {
+            test.log(Status.FAIL, "Terms and conditions label is not displayed");
+            logger.info("Terms and conditions label is not displayed");
+        }
+        if (homePage.sendWhatsAppLabelIsDisplayed()) {
+            logger.info("Send WhatsApp label is displayed");
+            test.log(Status.PASS, "Send WhatsApp label is displayed");
+            homePage.validateTextOfSendWhatsAppLabel("Send WhatsApp Updates");
+            logger.info("Send WhatsApp label is validated");
+            test.log(Status.PASS, "Send WhatsApp label is validated");
+        } else {
+            test.log(Status.FAIL, "Send WhatsApp label is not displayed");
+            logger.info("Send WhatsApp label is not displayed");
+        }
+        if (homePage.sendWhatsAppCheckboxIsDisplayed()) {
+            logger.info("Send WhatsApp checkbox is displayed");
+            test.log(Status.PASS, "Send WhatsApp checkbox is displayed");
+            homePage.clickSendWhatsAppCheckbox();
+            logger.info("Send WhatsApp checkbox is clicked");
+            homePage.clickSendWhatsAppCheckbox();
+            logger.info("Send WhatsApp checkbox is validated");
+            test.log(Status.PASS, "Send WhatsApp checkbox is validated");
+        } else {
+            test.log(Status.FAIL, "Send WhatsApp checkbox is not displayed");
+            logger.info("Send WhatsApp checkbox is not displayed");
+        }
+
+        if (homePage.joinTheProgramButtonIsDisplayed()) {
+            logger.info("Join the program button is displayed");
+            test.log(Status.PASS, "Join the program button is displayed");
+            homePage.validateTextOfJoinTheProgramButton("Join the program now!!");
+//            homePage.clickJoinTheProgramButton();
+//            homePage.clickOnCloseButtonInPopUp();
+            logger.info("Join the program button is validated");
+            test.log(Status.PASS, "Join the program button is validated");
+        } else {
+            test.log(Status.FAIL, "Join the program button is not displayed");
+            logger.info("Join the program button is not displayed");
+        }
+
+        if (homePage.getExpertGuidanceIsDisplayed()) {
+            logger.info("Get expert guidance is displayed");
+            test.log(Status.PASS, "Get expert guidance is displayed");
+            homePage.validateTextOfGetExpertGuidance("Get Expert Guidance");
+            logger.info("Get expert guidance is validated");
+            test.log(Status.PASS, "Get expert guidance is validated");
+        } else {
+            test.log(Status.FAIL, "Get expert guidance is not displayed");
+            logger.info("Get expert guidance is not displayed");
+        }
+
+        if (homePage.needSupportIsDisplayed()) {
+            logger.info("Need support is displayed");
+            test.log(Status.PASS, "Need support is displayed");
+            homePage.validateTextOfNeedSupport("Need support? We've got your back anytime!");
+            logger.info("Need support is validated");
+            test.log(Status.PASS, "Need support is validated");
+        } else {
+            test.log(Status.FAIL, "Need support is not displayed");
+            logger.info("Need support is not displayed");
+        }
+
+        if (homePage.imagePhoneIsDisplayed()) {
+            logger.info("Image phone is displayed");
+            test.log(Status.PASS, "Image phone is displayed");
+            logger.info("Image phone is validated");
+            test.log(Status.PASS, "Image phone is validated");
+        } else {
+            test.log(Status.FAIL, "Image phone is not displayed");
+            logger.info("Image phone is not displayed");
+        }
+        if (homePage.supportPhoneNumberIsDisplayed()) {
+            logger.info("Support phone number is displayed");
+            test.log(Status.PASS, "Support phone number is displayed");
+            homePage.validateTextOfSupportPhoneNumber("+91-9354711240");
+            logger.info("Support phone number is validated");
+            test.log(Status.PASS, "Support phone number is validated");
+        } else {
+            test.log(Status.FAIL, "Support phone number is not displayed");
+            logger.info("Support phone number is not displayed");
+        }
+        if (homePage.supportPhoneNumberSubHeadingIsDisplayed()) {
+            logger.info("Support phone number sub heading is displayed");
+            test.log(Status.PASS, "Support phone number sub heading is displayed");
+            homePage.validateTextOfSupportPhoneNumberSubHeading("We are available 24/7 to assist you.");
+            logger.info("Support phone number sub heading is validated");
+            test.log(Status.PASS, "Support phone number sub heading is validated");
+        } else {
+            test.log(Status.FAIL, "Support phone number sub heading is not displayed");
+            logger.info("Support phone number sub heading is not displayed");
+        }
+        if (homePage.imageEmailIsDisplayed()) {
+            logger.info("Image email is displayed");
+            test.log(Status.PASS, "Image email is displayed");
+            logger.info("Image email is validated");
+            test.log(Status.PASS, "Image email is validated");
+        } else {
+            test.log(Status.FAIL, "Image email is not displayed");
+            logger.info("Image email is not displayed");
+        }
+        if (homePage.supportEmailIsDisplayed()) {
+            logger.info("Support email is displayed");
+            test.log(Status.PASS, "Support email is displayed");
+            homePage.validateTextOfSupportEmail("");
+            logger.info("Support email is validated");
+            test.log(Status.PASS, "Support email is validated");
+        } else {
+            test.log(Status.FAIL, "Support email is not displayed");
+            logger.info("Support email is not displayed");
+        }
+        if (homePage.supportEmailSubHeadingIsDisplayed()) {
+            logger.info("Support email sub heading is displayed");
+            test.log(Status.PASS, "Support email sub heading is displayed");
+            homePage.validateTextOfSupportEmailSubHeading("We are available 24/7 to assist you.");
+            logger.info("Support email sub heading is validated");
+            test.log(Status.PASS, "Support email sub heading is validated");
+        } else {
+            test.log(Status.FAIL, "Support email sub heading is not displayed");
+            logger.info("Support email sub heading is not displayed");
+        }
+    }
+
+    @Test(priority = 20)
+    public void validatingSixteenthSection() {
+        ExtentTest test = extent.createTest("TC" + getClass() + "validatingSixteenthSection", "Validating Frequently Asked Questions section").assignCategory(moduleName);
+        setExtentTest(test);
+        HomePage homePage = new HomePage(getDriver());
+        if (homePage.ifFrequentlyAskedQuestionsIsDisplayed()) {
+            logger.info("Frequently asked questions is displayed");
+            test.log(Status.PASS, "Frequently asked questions is displayed");
+            homePage.validateTextOfFrequentlyAskedQuestions("Frequently Asked Questions");
+            logger.info("Frequently asked questions is validated");
+            test.log(Status.PASS, "Frequently asked questions is validated");
+        } else {
+            test.log(Status.FAIL, "Frequently asked questions is not displayed");
+            logger.info("Frequently asked questions is not displayed");
+        }
+        if (homePage.lookingForAnswersIsDisplayed()) {
+            logger.info("Looking for answers is displayed");
+            test.log(Status.PASS, "Looking for answers is displayed");
+            homePage.validateTextOfLookingForAnswers("Looking for answers to other questions?");
+            logger.info("Looking for answers is validated");
+            test.log(Status.PASS, "Looking for answers is validated");
+        } else {
+            test.log(Status.FAIL, "Looking for answers is not displayed");
+            logger.info("Looking for answers is not displayed");
+        }
+        if (homePage.whatMakesTheGenAiPinnaclePlusProgramDifferentIsDisplayed()) {
+            logger.info("What makes the GenAi Pinnacle Plus program different is displayed");
+            test.log(Status.PASS, "What makes the GenAi Pinnacle Plus program different is displayed");
+            homePage.validateTextOfWhatMakesTheGenAiPinnaclePlusProgramDifferent("What makes the GenAI Pinnacle Plus Program different from other AI courses?");
+            logger.info("What makes the GenAi Pinnacle Plus program different is validated");
+            test.log(Status.PASS, "What makes the GenAi Pinnacle Plus program different is validated");
+        } else {
+            test.log(Status.FAIL, "What makes the GenAi Pinnacle Plus program different is not displayed");
+            logger.info("What makes the GenAi Pinnacle Plus program different is not displayed");
+        }
+        if (homePage.howIsTheGenAiPinnaclePlusProgramDifferentIsDisplayed()) {
+            logger.info("How is the GenAi Pinnacle Plus program different is displayed");
+            test.log(Status.PASS, "How is the GenAi Pinnacle Plus program different is displayed");
+            homePage.validateTextOfhowIsTheGenAiPinnaclePlusProgramDifferent("How is the GenAI Pinnacle Plus Program different from the Pinnacle Program?");
+            logger.info("How is the GenAi Pinnacle Plus program different is validated");
+            test.log(Status.PASS, "How is the GenAi Pinnacle Plus program different is validated");
+        } else {
+            test.log(Status.FAIL, "How is the GenAi Pinnacle Plus program different is not displayed");
+            logger.info("How is the GenAi Pinnacle Plus program different is not displayed");
+        }
+        if (homePage.whoIsTheIdealCandidateIsDisplayed()) {
+            logger.info("Who is the ideal candidate is displayed");
+            test.log(Status.PASS, "Who is the ideal candidate is displayed");
+            homePage.validateTextOfWhoIsTheIdealCandidate("Who is the ideal candidate for this program?");
+            logger.info("Who is the ideal candidate is validated");
+            test.log(Status.PASS, "Who is the ideal candidate is validated");
+        } else {
+            test.log(Status.FAIL, "Who is the ideal candidate is not displayed");
+            logger.info("Who is the ideal candidate is not displayed");
+        }
+        if (homePage.viewMoreButton2IsDisplayed()) {
+            logger.info("View more button 2 is displayed");
+            test.log(Status.PASS, "View more button 2 is displayed");
+            homePage.validateTextOfViewMoreButton2("View More");
+            homePage.clickViewMoreButton2();
+            getDriver().navigate().back();
 
 
+        } else {
+            test.log(Status.FAIL, "View more button 2 is not displayed");
+            logger.info("View more button 2 is not displayed");
+        }
+
+    }
+
+    @Test(priority = 21)
+    public void validatingSeventeenthSection() {
+        ExtentTest test = extent.createTest("TC" + getClass() + "validatingSeventeenthSection", "Validating Flagship Programs section").assignCategory(moduleName);
+        setExtentTest(test);
+        HomePage homePage = new HomePage(getDriver());
+        if (homePage.ifFlagshipProgramsIsDisplayed()) {
+            logger.info("Flagship programs is displayed");
+            test.log(Status.PASS, "Flagship programs is displayed");
+            homePage.validateTextOfFlagshipPrograms("Flagship Programs");
+            logger.info("Flagship programs is validated");
+            test.log(Status.PASS, "Flagship programs is validated");
+        } else {
+            test.log(Status.FAIL, "Flagship programs is not displayed");
+            logger.info("Flagship programs is not displayed");
+        }
+        if (homePage.ifGenAiPinnacleProgramIsDisplayed()) {
+            logger.info("GenAi Pinnacle program is displayed");
+            test.log(Status.PASS, "GenAi Pinnacle program is displayed");
+            homePage.validateTextOfGenAiPinnacleProgram("GenAI Pinnacle Program");
+            homePage.clickGenAiPinnacleProgram();
+            getDriver().navigate().back();
+            logger.info("GenAi Pinnacle program is validated");
+            test.log(Status.PASS, "GenAi Pinnacle program is validated");
+        } else {
+            test.log(Status.FAIL, "GenAi Pinnacle program is not displayed");
+            logger.info("GenAi Pinnacle program is not displayed");
+        }
     }
 }
