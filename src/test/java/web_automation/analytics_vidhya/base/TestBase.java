@@ -201,8 +201,8 @@ public class TestBase {
                     .until(ExpectedConditions.elementToBeClickable(el));
             el.click();
         } catch (Exception e) {
-            logger.error("Reference message :-"+message+"Element not clickable: ");
-            test.log(Status.FAIL, "Reference message:- "+message+"Element not clickable: ");
+            logger.error("Reference message :-"+message+"\nElement not clickable: ");
+            test.log(Status.FAIL, "Reference message:- "+message+"\nElement not clickable: ");
         }
     }
     public void waitForElementToBeVisible(WebElement el) {

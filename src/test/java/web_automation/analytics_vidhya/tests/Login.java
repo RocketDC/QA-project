@@ -909,7 +909,7 @@ public class Login extends TestBase {
         if (homePage.ifGetWorkshopsDetailsButtonIsDisplayed()) {
             logger.info("Get workshops details button is displayed");
             test.log(Status.PASS, "Get workshops details button is displayed");
-            homePage.validateTextOfGetWorkshopsDetailsButton("Get Workshops Details");
+            homePage.validateTextOfGetWorkshopsDetailsButton("Get Workshops Detail");
             homePage.clickGetWorkshopsDetailsButton();
             homePage.clickOnCloseButtonInPopUp();
             logger.info("Get workshops details button is validated");
@@ -939,7 +939,7 @@ public class Login extends TestBase {
         if (homePage.ifOurAlumniUniverseIsDisplayed()) {
             logger.info("Our alumni universe is displayed");
             test.log(Status.PASS, "Our alumni universe: 1200+ professionals making their mark");
-            homePage.validateTextOfOurAlumniUniverse("Our Alumni Universe");
+            homePage.validateTextOfOurAlumniUniverse("Our alumni universe: 1200+ professionals making their mark");
             logger.info("Our alumni universe is validated");
             test.log(Status.PASS, "Our alumni universe is validated");
         } else {
@@ -1086,6 +1086,317 @@ public class Login extends TestBase {
             test.log(Status.FAIL, "Money back guarantee image is not displayed");
             logger.info("Money back guarantee image is not displayed");
         }
+
+    }
+
+    @Test(priority = 18,dataProvider = "analyticVidhyaFees", dataProviderClass = AnalyticsVidhyaDataProvider.class)
+    public void validatingFourteenthScreen(String fullTimeFee,String emiFee) {
+        ExtentTest test = extent.createTest("TC" + getClass() + "validatingFourteenthScreen", "Validating Invest in Your Future section").assignCategory(moduleName);
+        setExtentTest(test);
+        HomePage homePage = new HomePage(getDriver());
+        if (homePage.ifInvestInYourFutureTodayIsDisplayed()) {
+            logger.info("Invest in your future today is displayed");
+            test.log(Status.PASS, "Invest in your future today is displayed");
+            homePage.validateTextOfInvestInYourFutureToday("Invest in Your Future Today");
+            logger.info("Invest in your future today is validated");
+            test.log(Status.PASS, "Invest in your future today is validated");
+        } else {
+            test.log(Status.FAIL, "Invest in your future today is not displayed");
+            logger.info("Invest in your future today is not displayed");
+        }
+        if (homePage.ifExclusiveAccessToAiToolsIsDisplayed()) {
+            logger.info("Exclusive access to ai tools is displayed");
+            test.log(Status.PASS, "Exclusive access to ai tools is displayed");
+            homePage.validateTextOfExclusiveAccessToAiTools("Exclusive access to AI tools builds expertise with cutting-edge frameworks.");
+            logger.info("Exclusive access to ai tools is validated");
+            test.log(Status.PASS, "Exclusive access to ai tools is validated");
+        } else {
+            test.log(Status.FAIL, "Exclusive access to ai tools is not displayed");
+            logger.info("Exclusive access to ai tools is not displayed");
+        }
+        if (homePage.ifBoostYourCareerIsDisplayed()) {
+            logger.info("Boost your career is displayed");
+            test.log(Status.PASS, "Boost your career is displayed");
+            homePage.validateTextOfBoostYourCareer("Boost your career, fast-track your growth with personalized mentorship.");
+            logger.info("Boost your career is validated");
+            test.log(Status.PASS, "Boost your career is validated");
+        } else {
+            test.log(Status.FAIL, "Boost your career is not displayed");
+            logger.info("Boost your career is not displayed");
+        }
+        if (homePage.ifEnrollNowTextIsDisplayed()) {
+            logger.info("Enroll now text is displayed");
+            test.log(Status.PASS, "Enroll now text is displayed");
+            homePage.validateTextOfEnrollNowText("Enroll now and start your journey to becoming a Generative AI and Agentic AI expert.");
+            logger.info("Enroll now text is validated");
+            test.log(Status.PASS, "Enroll now text is validated");
+        } else {
+            test.log(Status.FAIL, "Enroll now text is not displayed");
+            logger.info("Enroll now text is not displayed");
+        }
+        if (homePage.ifOneTimeToggleLabelIsDisplayed()) {
+            logger.info("One time toggle label is displayed");
+            test.log(Status.PASS, "One time toggle label is displayed");
+            homePage.validateTextOfOneTimeToggleLabel("ONE TIME");
+            logger.info("One time toggle label is validated");
+            test.log(Status.PASS, "One time toggle label is validated");
+        } else {
+            test.log(Status.FAIL, "One time toggle label is not displayed");
+            logger.info("One time toggle label is not displayed");
+        }
+        if (homePage.ifEmiToggleLabelIsDisplayed()) {
+            logger.info("EMI toggle label is displayed");
+            test.log(Status.PASS, "EMI toggle label is displayed");
+            homePage.validateTextOfEmiToggleLabel("EMI");
+            logger.info("EMI toggle label is validated");
+            test.log(Status.PASS, "EMI toggle label is validated");
+        } else {
+            test.log(Status.FAIL, "EMI toggle label is not displayed");
+            logger.info("EMI toggle label is not displayed");
+        }
+        if (homePage.ifPriceToggleIsDisplayed()) {
+            logger.info("Price toggle is displayed");
+            test.log(Status.PASS, "Price toggle is displayed");
+            if (homePage.ifOneTimeTextIsDisplayed()) {
+                logger.info("One time text is displayed");
+                test.log(Status.PASS, "One time text is displayed");
+                homePage.validateTextOfOneTimeText("ONE TIME");
+                logger.info("One time text is validated");
+                test.log(Status.PASS, "One time text is validated");
+            } else {
+                test.log(Status.FAIL, "One time text is not displayed");
+                logger.info("One time text is not displayed");
+            }
+            if (homePage.priceIsDisplayed()) {
+                logger.info("One time price is displayed");
+                test.log(Status.PASS, "One time price is displayed");
+                homePage.validateTextOfPrice(fullTimeFee);
+                logger.info("One time price is validated");
+                test.log(Status.PASS, "One time price is validated");
+            } else {
+                test.log(Status.FAIL, "One time price is not displayed");
+                logger.info("One time price is not displayed");
+            }
+            homePage.validateTextOfOneTimeText(fullTimeFee);
+            logger.info("Price before clicking toggle is validated");
+            homePage.clickPriceToggle();
+            logger.info("Price toggle is clicked");
+            if(homePage.ifemiTextIsDisplayed()){
+                logger.info("EMI text is displayed");
+                test.log(Status.PASS, "EMI text is displayed");
+                homePage.validateTextOfEmiText("EMI");
+                logger.info("EMI text is validated");
+                test.log(Status.PASS, "EMI text is validated");
+            } else {
+                test.log(Status.FAIL, "EMI text is not displayed");
+                logger.info("EMI text is not displayed");
+            }
+            if (homePage.emiPriceIsDisplayed()) {
+                logger.info("EMI price is displayed");
+                test.log(Status.PASS, "EMI price is displayed");
+                homePage.validateTextOfEmiPrice(emiFee);
+                logger.info("EMI price is validated");
+                test.log(Status.PASS, "EMI price is validated");
+            } else {
+                test.log(Status.FAIL, "EMI price is not displayed");
+                logger.info("EMI price is not displayed");
+            }
+            logger.info("Price after clicking toggle is validated");
+            logger.info("Price toggle is validated");
+            test.log(Status.PASS, "Price toggle is validated");
+        } else {
+            test.log(Status.FAIL, "Price toggle is not displayed");
+            logger.info("Price toggle is not displayed");
+        }
+
+
+        if (homePage.oneTimePriceInclusiveOfAllTaxesIsDisplayed()) {
+            logger.info("One time price inclusive of all taxes is displayed");
+            test.log(Status.PASS, "One time price inclusive of all taxes is displayed");
+            homePage.validateTextOfOneTimePriceInclusiveOfAllTaxes("Inclusive of all taxes");
+            logger.info("One time price inclusive of all taxes is validated");
+            test.log(Status.PASS, "One time price inclusive of all taxes is validated");
+        } else {
+            test.log(Status.FAIL, "One time price inclusive of all taxes is not displayed");
+            logger.info("One time price inclusive of all taxes is not displayed");
+        }
+        if (homePage.levelUpYourProfessionalJourneyIsDisplayed()) {
+            logger.info("Level up your professional journey is displayed");
+            test.log(Status.PASS, "Level up your professional journey is displayed");
+            homePage.validateTextOfLevelUpYourProfessionalJourney("Level up your professional journey with our EMI plans");
+            logger.info("Level up your professional journey is validated");
+            test.log(Status.PASS, "Level up your professional journey is validated");
+        } else {
+            test.log(Status.FAIL, "Level up your professional journey is not displayed");
+            logger.info("Level up your professional journey is not displayed");
+        }
+        if (homePage.enrollNowButtonOneTimeIsDisplayed()) {
+            logger.info("Enroll now button one time is displayed");
+            test.log(Status.PASS, "Enroll now button one time is displayed");
+            homePage.validateTextOfEnrollNowButtonOneTime("Enroll Now");
+            homePage.clickEnrollNowButtonOneTime();
+            homePage.clickOnCloseButtonInPopUp();
+            logger.info("Enroll now button one time is validated");
+            test.log(Status.PASS, "Enroll now button one time is validated");
+        } else {
+            test.log(Status.FAIL, "Enroll now button one time is not displayed");
+            logger.info("Enroll now button one time is not displayed");
+        }
+    }
+
+    @Test(priority = 19,dataProvider = "analyticVidhyaPopUpData", dataProviderClass = AnalyticsVidhyaDataProvider.class)
+    public void validatingFifteenthScreen(String name, String phoneNumber, String email) {
+        ExtentTest test = extent.createTest("TC" + getClass() + "validatingFifteenthScreen", "Validating Contact Us Today section").assignCategory(moduleName);
+        setExtentTest(test);
+        HomePage homePage = new HomePage(getDriver());
+        if (homePage.ifContactUsTodayIsDisplayed()){
+            logger.info("Contact us today is displayed");
+            test.log(Status.PASS, "Contact us today is displayed");
+            homePage.validateTextOfContactUsToday("Contact Us Today");
+            logger.info("Contact us today is validated");
+            test.log(Status.PASS, "Contact us today is validated");
+        } else {
+            test.log(Status.FAIL, "Contact us today is not displayed");
+            logger.info("Contact us today is not displayed");
+        }
+        if(homePage.takeTheFirstStepIsDisplayed()){
+            logger.info("Take the first step is displayed");
+            test.log(Status.PASS, "Take the first step is displayed");
+            homePage.validateTextOfTakeTheFirstStep("Actual: Take the first step towards a future of innovation & excellence with Analytics Vidhya");
+            logger.info("Take the first step is validated");
+            test.log(Status.PASS, "Take the first step is validated");
+        } else {
+            test.log(Status.FAIL, "Take the first step is not displayed");
+            logger.info("Take the first step is not displayed");
+        }
+        if(homePage.upskillReskillIsDisplayed()){
+            logger.info("Upskill reskill is displayed");
+            test.log(Status.PASS, "Upskill reskill is displayed");
+            homePage.validateTextOfUpskillReskill("Upskill, Reskill, Thrive");
+            logger.info("Upskill reskill is validated");
+            test.log(Status.PASS, "Upskill reskill is validated");
+        } else {
+            test.log(Status.FAIL, "Upskill reskill is not displayed");
+            logger.info("Upskill reskill is not displayed");
+        }
+        if(homePage.contactFullNameLabelIsDisplayed()){
+            logger.info("Contact full name label is displayed");
+            test.log(Status.PASS, "Contact full name label is displayed");
+            homePage.validateTextOfContactFullNameLabel("Full Name");
+            logger.info("Contact full name label is validated");
+            test.log(Status.PASS, "Contact full name label is validated");
+        } else {
+            test.log(Status.FAIL, "Contact full name label is not displayed");
+            logger.info("Contact full name label is not displayed");
+        }
+        if(homePage.contactFullNameIsDisplayed()){
+            logger.info("Contact full name text box is displayed");
+            test.log(Status.PASS, "Contact full name text box is displayed");
+            homePage.validatePlaceholderTextOfContactFullName("Your Full Name");
+            homePage.enterTextInContactFullName(name);
+            logger.info("Contact full name text box is validated");
+            test.log(Status.PASS, "Contact full name text box is validated");
+        } else {
+            test.log(Status.FAIL, "Contact full name text box is not displayed");
+            logger.info("Contact full name text box is not displayed");
+        }
+        if(homePage.contactPhoneNumberLabelIsDisplayed()){
+            logger.info("Contact phone number label is displayed");
+            test.log(Status.PASS, "Contact phone number label is displayed");
+            homePage.validateTextOfContactPhoneNumberLabel("Phone Number");
+            logger.info("Contact phone number label is validated");
+            test.log(Status.PASS, "Contact phone number label is validated");
+        } else {
+            test.log(Status.FAIL, "Contact phone number label is not displayed");
+            logger.info("Contact phone number label is not displayed");
+        }
+        if(homePage.contactPhoneNumberIsDisplayed()){
+            logger.info("Contact phone number text box is displayed");
+            test.log(Status.PASS, "Contact phone number text box is displayed");
+            homePage.validatePlaceholderTextOfContactPhoneNumber("Your Phone Number");
+            homePage.enterTextInContactPhoneNumber(phoneNumber);
+            logger.info("Contact phone number text box is validated");
+            test.log(Status.PASS, "Contact phone number text box is validated");
+        } else {
+            test.log(Status.FAIL, "Contact phone number text box is not displayed");
+            logger.info("Contact phone number text box is not displayed");
+        }
+        if(homePage.contactEmailLabelIsDisplayed()){
+            logger.info("Contact email label is displayed");
+            test.log(Status.PASS, "Contact email label is displayed");
+            homePage.validateTextOfContactEmailLabel("Email Id");
+            logger.info("Contact email label is validated");
+            test.log(Status.PASS, "Contact email label is validated");
+        } else {
+            test.log(Status.FAIL, "Contact email label is not displayed");
+            logger.info("Contact email label is not displayed");
+        }
+        if(homePage.contactEmailIsDisplayed()){
+            logger.info("Contact email text box is displayed");
+            test.log(Status.PASS, "Contact email text box is displayed");
+            homePage.validatePlaceholderTextOfContactEmail("Your Email Id");
+            homePage.enterTextInContactEmail(email);
+            logger.info("Contact email text box is validated");
+            test.log(Status.PASS, "Contact email text box is validated");
+        } else {
+            test.log(Status.FAIL, "Contact email text box is not displayed");
+            logger.info("Contact email text box is not displayed");
+        }
+        if(homePage.countryFlagContactUsIsDisplayed()){
+            logger.info("Country flag is displayed");
+            test.log(Status.PASS, "Country flag is displayed");
+            homePage.clickCountryFlagContactUs();
+            logger.info("Country flag is clicked");
+            homePage.clickCountryFlagContactUs();
+            logger.info("Country flag is validated");
+            test.log(Status.PASS, "Country flag is validated");
+        } else {
+            test.log(Status.FAIL, "Country flag is not displayed");
+            logger.info("Country flag is not displayed");
+        }
+        if(homePage.countryFlagArrowContactUsIsDisplayed()){
+            logger.info("Country flag arrow is displayed");
+            test.log(Status.PASS, "Country flag arrow is displayed");
+            homePage.clickCountryFlagArrowContactUs();
+            logger.info("Country flag arrow is clicked");
+            homePage.clickCountryFlagArrowContactUs();
+            logger.info("Country flag arrow is validated");
+            test.log(Status.PASS, "Country flag arrow is validated");
+        } else {
+            test.log(Status.FAIL, "Country flag arrow is not displayed");
+            logger.info("Country flag arrow is not displayed");
+        }
+        if(homePage.experienceLabelIsDisplayed()){
+            logger.info("Experience label is displayed");
+            test.log(Status.PASS, "Experience label is displayed");
+            homePage.validateTextOfExperienceLabel("Experience :");
+            logger.info("Experience label is validated");
+            test.log(Status.PASS, "Experience label is validated");
+        } else {
+            test.log(Status.FAIL, "Experience label is not displayed");
+            logger.info("Experience label is not displayed");
+        }
+        if(homePage.experience0_3IsDisplayed()){
+            logger.info("Experience 0-3 is displayed");
+            test.log(Status.PASS, "Experience 0-3 is displayed");
+            homePage.validateTextOfExperience0_3("0-3yrs");
+            logger.info("Experience 0-3 is validated");
+            test.log(Status.PASS, "Experience 0-3 is validated");
+        } else {
+            test.log(Status.FAIL, "Experience 0-3 is not displayed");
+            logger.info("Experience 0-3 is not displayed");
+        }
+        if(homePage.experience3_8IsDisplayed()){
+            logger.info("Experience 3-8 is displayed");
+            test.log(Status.PASS, "Experience 3-8 is displayed");
+            homePage.validateTextOfExperience3_8("3-8yrs");
+            logger.info("Experience 3-8 is validated");
+            test.log(Status.PASS, "Experience 3-8 is validated");
+        } else {
+            test.log(Status.FAIL, "Experience 3-8 is not displayed");
+            logger.info("Experience 3-8 is not displayed");
+        }
+
 
     }
 }

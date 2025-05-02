@@ -22,4 +22,13 @@ public class AnalyticsVidhyaDataProvider {
 
         };
     }
+    @DataProvider
+    public static Object[][] analyticVidhyaFees() {
+        return new Object[][]{
+
+                {  "₹94,999", "₹9,499"},
+
+
+        };
+    }
 }
