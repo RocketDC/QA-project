@@ -23,6 +23,7 @@ import org.testng.asserts.SoftAssert;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import io.github.bonigarcia.wdm.WebDriverManager;
+
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -61,8 +62,17 @@ public class TestBase {
     public static WebDriver getDriver() {
         return driver.get();
     }
+
     public static void setDriver(WebDriver drv) {
         driver.set(drv);
+    }
+
+    public void threadSleep(int seconds) {
+        try {
+            Thread.sleep(seconds * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -92,7 +102,7 @@ public class TestBase {
         // Optional: Additional teardown per test if required
     }
 
-    public void recordLogs(){
+    public void recordLogs() {
         File logDir = new File("logs");
         if (!logDir.exists()) {
             logDir.mkdirs();
@@ -108,6 +118,7 @@ public class TestBase {
             }
         }
     }
+
     public void initializeChromeDriver() {
 
 //        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
@@ -193,7 +204,7 @@ public class TestBase {
         }
     }
 
-    public void click(WebElement el,String message) {
+    public void click(WebElement el, String message) {
         ExtentTest test = extent.createTest("Clicking on ➜ " + message);
         setExtentTest(test);
         try {
@@ -201,10 +212,11 @@ public class TestBase {
                     .until(ExpectedConditions.elementToBeClickable(el));
             el.click();
         } catch (Exception e) {
-            logger.error("Reference message :-"+message+"\nElement not clickable: ");
-            test.log(Status.FAIL, "Reference message:- "+message+"\nElement not clickable: ");
+            logger.error("Reference message :-" + message + "\nElement not clickable: ");
+            test.log(Status.FAIL, "Reference message:- " + message + "\nElement not clickable: ");
         }
     }
+
     public void waitForElementToBeVisible(WebElement el) {
         try {
             new WebDriverWait(getDriver(), 10)
@@ -213,6 +225,7 @@ public class TestBase {
             logger.error("Element not visible: " + e.getMessage());
         }
     }
+
     public void waitForElementToBeInvisible(WebElement el) {
         try {
             new WebDriverWait(getDriver(), 10)
@@ -221,6 +234,7 @@ public class TestBase {
             logger.error("Element not invisible: " + e.getMessage());
         }
     }
+
     public void waitForElementToBePresent(WebElement el) {
         try {
             new WebDriverWait(getDriver(), 10)
@@ -229,7 +243,6 @@ public class TestBase {
             logger.error("Element not present: " + e.getMessage());
         }
     }
-
 
 
     public boolean isElementEnabled(WebElement el) {
@@ -241,7 +254,6 @@ public class TestBase {
             return false;
         }
     }
-
 
 
     public void validateTextPresence(String expectedText) {
@@ -279,12 +291,42 @@ public class TestBase {
             return false;
         }
     }
+
     public void scrollIntoView(WebElement target) {
-        logger.info(target.getLocation().toString());
-        Actions actions = new Actions(getDriver());
-        WebDriverWait wait = new WebDriverWait(getDriver(), 10);
-        actions.moveToElement(target).perform();
-        wait.until(ExpectedConditions.visibilityOf(target));
+        try {
+            logger.info("Scrolling ➜ " + target.getLocation().toString());
+            Actions actions = new Actions(getDriver());
+            WebDriverWait wait = new WebDriverWait(getDriver(), 10);
+            actions.moveToElement(target).perform();
+            wait.until(ExpectedConditions.visibilityOf(target));
+        } catch (Exception e) {
+            logger.error("Error scrolling to element: " + e.getMessage());
+        }
+        if (target == null) {
+            logger.error("Target element is null");
+            return;
+        }
+        if (!isElementDisplayed(target)) {
+            logger.error("Target element is not displayed");
+        }
+
+    }
+
+    public boolean isDisplayed(WebElement element) {
+        ExtentTest test = extent.createTest("Checking if element is displayed");
+        setExtentTest(test);
+        try {
+            new WebDriverWait(getDriver(), 10)
+                    .until(ExpectedConditions.visibilityOf(element));
+            if (element.isDisplayed()) {
+                return true;
+            }
+
+        } catch (TimeoutException e) {
+            logger.error("TimeoutException :- "+ e.getMessage());
+            return false;
+        }
+        return false;
     }
 
     public void softAssert(WebElement element, String expectedText) {
@@ -293,7 +335,7 @@ public class TestBase {
         waitForElementToBeVisible(element);
         String actualText = element.getText();
         if (actualText.equals(expectedText)) {
-            test.log(Status.PASS,  "Validating if [" + expectedText + "] is present");
+            test.log(Status.PASS, "Validating if [" + expectedText + "] is present");
         } else {
             test.log(Status.FAIL, "Text not found - Expected: " + expectedText + ", Actual: " + actualText);
             softAssert.fail("Text not found - Expected: " + expectedText + ", Actual: " + actualText);
@@ -307,13 +349,14 @@ public class TestBase {
         waitForElementToBeVisible(element);
         String actualText = element.getAttribute("placeholder");
         if (actualText.equals(expectedText)) {
-            test.log(Status.PASS,  "Validating if Placeholder text [" + expectedText + "] is present");
+            test.log(Status.PASS, "Validating if Placeholder text [" + expectedText + "] is present");
         } else {
             test.log(Status.FAIL, "Placeholder Text not found - Expected: " + expectedText + ", Actual: " + actualText);
             softAssert.fail("Placeholder Text not found - Expected: " + expectedText + ", Actual: " + actualText);
             logger.error("Placeholder Text not found - Expected: " + expectedText + ", Actual: " + actualText);
         }
     }
+
     public void sendKeys(WebElement element, String expectedText) {
         ExtentTest test = extent.createTest("Sending text ➜ " + expectedText);
         setExtentTest(test);
@@ -322,10 +365,10 @@ public class TestBase {
         if (isEditable) {
             element.clear();
             element.sendKeys(expectedText);
-            test.log(Status.PASS,  "Entered text [" + expectedText + "] to the textbox");
+            test.log(Status.PASS, "Entered text [" + expectedText + "] to the textbox");
         } else {
-           test.log(Status.FAIL, "Failed to enter "+expectedText+"Textbox is not editable");
-            logger.error("Failed to enter "+expectedText+"Textbox is not editable");
+            test.log(Status.FAIL, "Failed to enter " + expectedText + "Textbox is not editable");
+            logger.error("Failed to enter " + expectedText + "Textbox is not editable");
         }
     }
 

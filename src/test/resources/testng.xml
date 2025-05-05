@@ -15,7 +15,7 @@
     <test name="Analytics Vidya UI">
 
         <classes>
-            <class name="web_automation.analytics_vidhya.tests.Login"/>
+            <class name="web_automation.analytics_vidhya.tests.TC_HomePage"/>
 
 
 

@@ -8,7 +8,10 @@ import org.testng.annotations.Test;
 import web_automation.analytics_vidhya.pages.HomePage;
 import web_automation.analytics_vidhya.utils.AnalyticsVidhyaDataProvider;
 
-public class Login extends TestBase {
+import java.util.ArrayList;
+import java.util.List;
+
+public class TC_HomePage extends TestBase {
 
     private final String moduleName = "analyticsVidhyaLoginPage";
 
@@ -63,7 +66,7 @@ public class Login extends TestBase {
 
     }
 
-    @Test(priority = 2)
+        @Test(priority = 2)
     public void validatingNavButtonsCTA() {
         ExtentTest test = extent.createTest("TC" + getClass() + "validatingNavCTA", "Validating if nav buttons are working").assignCategory(moduleName);
         setExtentTest(test);
@@ -150,7 +153,7 @@ public class Login extends TestBase {
 
     }
 
-    @Test(priority = 3)
+        @Test(priority = 3)
     public void validatingfirstScreen() {
         ExtentTest test = extent.createTest("TC" + getClass() + "validatingfirstScreen", "Validating if first screen is displayed").assignCategory(moduleName);
         setExtentTest(test);
@@ -263,7 +266,7 @@ public class Login extends TestBase {
         }
     }
 
-    @Test(priority = 4, dataProvider = "analyticVidhyaPopUpData", dataProviderClass = AnalyticsVidhyaDataProvider.class)
+        @Test(priority = 4, dataProvider = "analyticVidhyaPopUpData", dataProviderClass = AnalyticsVidhyaDataProvider.class)
     public void validatingFirstScreenContactBox(String name, String phoneNumber, String email) {
         ExtentTest test = extent.createTest("TC" + getClass() + "validatingFirstScreenBox", "Validating if first screen").assignCategory(moduleName);
         setExtentTest(test);
@@ -361,7 +364,7 @@ public class Login extends TestBase {
 
     }
 
-    @Test(priority = 5)
+        @Test(priority = 5)
     public void validatingSecondScreen() {
         ExtentTest test = extent.createTest("TC" + getClass() + "validatingSecondScreen", "Validating How Does the GenAI Pinnacle Plus Program Help You? section").assignCategory(moduleName);
         setExtentTest(test);
@@ -469,7 +472,7 @@ public class Login extends TestBase {
         }
     }
 
-    @Test(priority = 6)
+        @Test(priority = 6)
     public void validatingThirdScreen() {
         ExtentTest test = extent.createTest("TC" + getClass() + "validatingCurriculumStatisticsSection", "Validating Curriculum Statistics section").assignCategory(moduleName);
         setExtentTest(test);
@@ -588,7 +591,7 @@ public class Login extends TestBase {
 
     }
 
-    @Test(priority = 7)
+        @Test(priority = 7)
     public void validatingFourthScreen() {
         ExtentTest test = extent.createTest("TC" + getClass() + "validatingPersonalizedRoadmapScreen", "Validating Personalized Roadmap section").assignCategory(moduleName);
         setExtentTest(test);
@@ -640,7 +643,7 @@ public class Login extends TestBase {
 
     }
 
-    @Test(priority = 8)
+        @Test(priority = 8)
     public void validatingFifthScreen() {
         ExtentTest test = extent.createTest("TC" + getClass() + "validatingFifthScreen", "Validating Curriculum section").assignCategory(moduleName);
         setExtentTest(test);
@@ -731,7 +734,7 @@ public class Login extends TestBase {
 
     }
 
-    @Test(priority = 9)
+        @Test(priority = 9)
     public void validateFifthScreenContactBox() {
         ExtentTest test = extent.createTest("TC" + getClass() + "validatingFifthScreenContactBox", "Validating Libraries & Frameworks section").assignCategory(moduleName);
         setExtentTest(test);
@@ -774,7 +777,7 @@ public class Login extends TestBase {
 
     }
 
-    @Test(priority = 10)
+        @Test(priority = 10)
     public void validatingSixthScreen() {
         ExtentTest test = extent.createTest("TC" + getClass() + "validatingSixthScreen", "Validating Build Your Portfolio section").assignCategory(moduleName);
         setExtentTest(test);
@@ -825,7 +828,7 @@ public class Login extends TestBase {
         }
     }
 
-    @Test(priority = 11)
+        @Test(priority = 11)
     public void validatingSeventhScreen() {
         ExtentTest test = extent.createTest("TC" + getClass() + "validatingSeventhScreen", "Validating Real Experience, Real Insights section").assignCategory(moduleName);
         setExtentTest(test);
@@ -880,7 +883,7 @@ public class Login extends TestBase {
 
     }
 
-    @Test(priority = 12)
+        @Test(priority = 12)
     public void validatingEighthScreen() {
         ExtentTest test = extent.createTest("TC" + getClass() + "validatingEighthScreen", "Validating Instructor-Led section").assignCategory(moduleName);
         setExtentTest(test);
@@ -921,7 +924,7 @@ public class Login extends TestBase {
 
     }
 
-    @Test(priority = 13)
+        @Test(priority = 13)
     public void validatingNinthScreen() {
         ExtentTest test = extent.createTest("TC" + getClass() + "validatingNinthScreen", "Validating Assisted Placements section").assignCategory(moduleName);
         setExtentTest(test);
@@ -948,7 +951,7 @@ public class Login extends TestBase {
         }
     }
 
-    @Test(priority = 14)
+        @Test(priority = 14)
     public void validatingTenthScreen() {
         ExtentTest test = extent.createTest("TC" + getClass() + "validatingTenthScreen", "Validating Industry-Recognized Certification section").assignCategory(moduleName);
         setExtentTest(test);
@@ -990,7 +993,7 @@ public class Login extends TestBase {
 
     }
 
-    @Test(priority = 15)
+        @Test(priority = 15)
     public void validatingEleventhScreen() {
         ExtentTest test = extent.createTest("TC" + getClass() + "validatingEleventhScreen", "Validating Our Advisors section").assignCategory(moduleName);
         setExtentTest(test);
@@ -1018,7 +1021,7 @@ public class Login extends TestBase {
         }
     }
 
-    @Test(priority = 16)
+        @Test(priority = 16)
     public void validatingTwelfthScreen() {
         ExtentTest test = extent.createTest("TC" + getClass() + "validatingTwelfthScreen", "Validating AV Learners section").assignCategory(moduleName);
         setExtentTest(test);
@@ -1050,7 +1053,7 @@ public class Login extends TestBase {
         }
     }
 
-    @Test(priority = 17)
+        @Test(priority = 17)
     public void validatingThirteenthScreen() {
         ExtentTest test = extent.createTest("TC" + getClass() + "validatingThirteenthScreen", "Validating Money Back section").assignCategory(moduleName);
         setExtentTest(test);
@@ -1089,7 +1092,7 @@ public class Login extends TestBase {
 
     }
 
-    @Test(priority = 18, dataProvider = "analyticVidhyaFees", dataProviderClass = AnalyticsVidhyaDataProvider.class)
+        @Test(priority = 18, dataProvider = "analyticVidhyaFees", dataProviderClass = AnalyticsVidhyaDataProvider.class)
     public void validatingFourteenthScreen(String fullTimeFee, String emiFee) {
         ExtentTest test = extent.createTest("TC" + getClass() + "validatingFourteenthScreen", "Validating Invest in Your Future section").assignCategory(moduleName);
         setExtentTest(test);
@@ -1177,8 +1180,9 @@ public class Login extends TestBase {
                 test.log(Status.FAIL, "One time price is not displayed");
                 logger.info("One time price is not displayed");
             }
-            homePage.validateTextOfOneTimeText(fullTimeFee);
+            homePage.validateTextOfOneTimeText("ONE TIME");
             logger.info("Price before clicking toggle is validated");
+            homePage.clickPriceToggle();
             homePage.clickPriceToggle();
             logger.info("Price toggle is clicked");
             if (homePage.ifemiTextIsDisplayed()) {
@@ -1214,7 +1218,7 @@ public class Login extends TestBase {
         if (homePage.oneTimePriceInclusiveOfAllTaxesIsDisplayed()) {
             logger.info("One time price inclusive of all taxes is displayed");
             test.log(Status.PASS, "One time price inclusive of all taxes is displayed");
-            homePage.validateTextOfOneTimePriceInclusiveOfAllTaxes("Inclusive of all taxes");
+            homePage.validateTextOfOneTimePriceInclusiveOfAllTaxes("(Inclusive of all taxes)");
             logger.info("One time price inclusive of all taxes is validated");
             test.log(Status.PASS, "One time price inclusive of all taxes is validated");
         } else {
@@ -1224,7 +1228,7 @@ public class Login extends TestBase {
         if (homePage.levelUpYourProfessionalJourneyIsDisplayed()) {
             logger.info("Level up your professional journey is displayed");
             test.log(Status.PASS, "Level up your professional journey is displayed");
-            homePage.validateTextOfLevelUpYourProfessionalJourney("Level up your professional journey with our EMI plans");
+            homePage.validateTextOfLevelUpYourProfessionalJourney("Level Up Your Professional Journey");
             logger.info("Level up your professional journey is validated");
             test.log(Status.PASS, "Level up your professional journey is validated");
         } else {
@@ -1245,7 +1249,7 @@ public class Login extends TestBase {
         }
     }
 
-    @Test(priority = 19, dataProvider = "analyticVidhyaPopUpData", dataProviderClass = AnalyticsVidhyaDataProvider.class)
+        @Test(priority = 19, dataProvider = "analyticVidhyaPopUpData", dataProviderClass = AnalyticsVidhyaDataProvider.class)
     public void validatingFifteenthScreen(String name, String phoneNumber, String email) {
         ExtentTest test = extent.createTest("TC" + getClass() + "validatingFifteenthScreen", "Validating Contact Us Today section").assignCategory(moduleName);
         setExtentTest(test);
@@ -1527,7 +1531,7 @@ public class Login extends TestBase {
         if (homePage.supportEmailIsDisplayed()) {
             logger.info("Support email is displayed");
             test.log(Status.PASS, "Support email is displayed");
-            homePage.validateTextOfSupportEmail("");
+            homePage.validateTextOfSupportEmail("customersupport@analyticsvidhya.com");
             logger.info("Support email is validated");
             test.log(Status.PASS, "Support email is validated");
         } else {
@@ -1546,7 +1550,7 @@ public class Login extends TestBase {
         }
     }
 
-    @Test(priority = 20)
+        @Test(priority = 20)
     public void validatingSixteenthSection() {
         ExtentTest test = extent.createTest("TC" + getClass() + "validatingSixteenthSection", "Validating Frequently Asked Questions section").assignCategory(moduleName);
         setExtentTest(test);
@@ -1616,7 +1620,7 @@ public class Login extends TestBase {
 
     }
 
-    @Test(priority = 21)
+        @Test(priority = 21)
     public void validatingSeventeenthSection() {
         ExtentTest test = extent.createTest("TC" + getClass() + "validatingSeventeenthSection", "Validating Flagship Programs section").assignCategory(moduleName);
         setExtentTest(test);
@@ -1636,12 +1640,348 @@ public class Login extends TestBase {
             test.log(Status.PASS, "GenAi Pinnacle program is displayed");
             homePage.validateTextOfGenAiPinnacleProgram("GenAI Pinnacle Program");
             homePage.clickGenAiPinnacleProgram();
-            getDriver().navigate().back();
+            List<String> handles = new ArrayList<>(getDriver().getWindowHandles());
+            getDriver().switchTo().window(handles.get(1));
+            getDriver().close();
+            getDriver().switchTo().window(handles.get(0));
+
             logger.info("GenAi Pinnacle program is validated");
             test.log(Status.PASS, "GenAi Pinnacle program is validated");
         } else {
             test.log(Status.FAIL, "GenAi Pinnacle program is not displayed");
             logger.info("GenAi Pinnacle program is not displayed");
         }
+    }
+
+    @Test(priority = 22, dataProvider = "analyticVidhyaPopUpData", dataProviderClass = AnalyticsVidhyaDataProvider.class)
+    public void validatePopUps(String name, String phoneNumber, String email) {
+        ExtentTest test = extent.createTest("TC" + getClass() + "validatePopUps", "Validating Pop Ups").assignCategory(moduleName);
+        setExtentTest(test);
+        HomePage homePage = new HomePage(getDriver());
+
+        if (homePage.enrollNowButtonTopNavIsDisplayed()){
+            logger.info("Enroll now button top nav is displayed");
+            test.log(Status.PASS, "Enroll now button top nav is displayed");
+            homePage.clickEnrollNowButtonTopNav();
+            logger.info("Enroll now button top nav is clicked");
+            validatePopUpCommonFields(name, phoneNumber, email,"Step Into the AI-Powered Future","Enroll Now");
+            logger.info("Enroll now popUp is validated");
+            test.log(Status.PASS, "Enroll now popUp is validated");
+            getDriver().navigate().back();
+            hardWait(7);
+            homePage.clickOnCloseButtonInPopUp();
+
+        } else {
+            test.log(Status.FAIL, "Enroll now button top nav is not displayed");
+            logger.info("Enroll now button top nav is not displayed");
+        }
+        if (homePage.ifRequestCallbackButtonIsDisplayed()) {
+            logger.info("Request callback button is displayed");
+            test.log(Status.PASS, "Request callback button is displayed");
+            homePage.clickRequestCallbackButton();
+            logger.info("Request callback button is clicked");
+            validatePopUpCommonFields(name, phoneNumber, email, "Get in Touch with Our Team", "Request Callback");
+            logger.info("Request callback popUp is validated");
+            test.log(Status.PASS, "Request callback popUp is validated");
+            homePage.clickSkipButton();
+
+        } else {
+            test.log(Status.FAIL, "Request callback button is not displayed");
+            logger.info("Request callback button is not displayed");
+        }
+        if(homePage.ifGetPersonalizedRoadmapButtonIsDisplayed()){
+            logger.info("Get personalized roadmap button is displayed");
+            test.log(Status.PASS, "Get personalized roadmap button is displayed");
+            homePage.clickGetPersonalizedRoadmapButton();
+            logger.info("Get personalized roadmap button is clicked");
+            validatePopUpCommonFields(name, phoneNumber, email,"Your GenAI & Agentic AI Blueprint","Create My Roadmap");
+            logger.info("Get personalized roadmap popUp is validated");
+            test.log(Status.PASS, "Get personalized roadmap popUp is validated");
+            homePage.clickSkipButton();
+
+        } else {
+            test.log(Status.FAIL, "Get personalized roadmap button is not displayed");
+            logger.info("Get personalized roadmap button is not displayed");
+        }
+        if (homePage.ifDownloadFreeCurriculumButtonIsDisplayed()) {
+            logger.info("Download free curriculum button is displayed");
+            test.log(Status.PASS, "Download free curriculum button is displayed");
+            homePage.clickDownloadFreeCurriculumButton();
+            logger.info("Download free curriculum button is clicked");
+            validatePopUpCommonFields(name, phoneNumber, email, "Access Curriculum for Free", "Unlock Content");
+            logger.info("Download free curriculum popUp is validated");
+            test.log(Status.PASS, "Download free curriculum popUp is validated");
+            homePage.clickSkipButton();
+
+        } else {
+            test.log(Status.FAIL, "Download free curriculum button is not displayed");
+            logger.info("Download free curriculum button is not displayed");
+        }
+        if (homePage.ifDownloadToolsPackButtonIsDisplayed()) {
+            logger.info("Download tools pack button is displayed");
+            test.log(Status.PASS, "Download tools pack button is displayed");
+            homePage.clickDownloadToolsPackButton();
+            logger.info("Download tools pack button is clicked");
+            validatePopUpCommonFields(name, phoneNumber, email, "Get Your Tools Pack Instantly", "Download Tools Pack");
+            logger.info("Download tools pack popUp is validated");
+            test.log(Status.PASS, "Download tools pack popUp is validated");
+            homePage.clickSkipButton();
+
+        } else {
+            test.log(Status.FAIL, "Download tools pack button is not displayed");
+            logger.info("Download tools pack button is not displayed");
+        }
+        if (homePage.ifRequestCallbackButton2IsDisplayed()) {
+            logger.info("Request callback button 2 is displayed");
+            test.log(Status.PASS, "Request callback button 2 is displayed");
+            homePage.clickRequestCallbackButton2();
+            logger.info("Request callback button 2 is clicked");
+            validatePopUpCommonFields(name, phoneNumber, email, "Get in Touch with Our Team", "Request Callback");
+            logger.info("Request callback popUp is validated");
+            test.log(Status.PASS, "Request callback popUp is validated");
+            homePage.clickSkipButton();
+
+        } else {
+            test.log(Status.FAIL, "Request callback button 2 is not displayed");
+            logger.info("Request callback button 2 is not displayed");
+        }
+        if (homePage.ifViewAllProjectsButtonIsDisplayed()) {
+            logger.info("View all projects button is displayed");
+            test.log(Status.PASS, "View all projects button is displayed");
+            homePage.clickViewAllProjectsButton();
+            logger.info("View all projects button is clicked");
+            validatePopUpCommonFields(name, phoneNumber, email, "Real-World GenAI & Agentic AI Projects", "View Projects");
+            logger.info("View all projects popUp is validated");
+            test.log(Status.PASS, "View all projects popUp is validated");
+            homePage.clickSkipButton();
+
+        } else {
+            test.log(Status.FAIL, "View all projects button is not displayed");
+            logger.info("View all projects button is not displayed");
+        }
+        if (homePage.ifRequestCallbackButton3IsDisplayed()) {
+            logger.info("Request callback button 3 is displayed");
+            test.log(Status.PASS, "Request callback button 3 is displayed");
+            homePage.clickRequestCallbackButton3();
+            logger.info("Request callback button 3 is clicked");
+            validatePopUpCommonFields(name, phoneNumber, email, "Get in Touch with Our Team", "Request Callback");
+            logger.info("Request callback popUp is validated");
+            test.log(Status.PASS, "Request callback popUp is validated");
+            homePage.clickSkipButton();
+        } else {
+            test.log(Status.FAIL, "Request callback button 3 is not displayed");
+            logger.info("Request callback button 3 is not displayed");
+        }
+        if (homePage.ifDownloadInstructorsProfileButtonIsDisplayed()) {
+            logger.info("Download instructors profile button is displayed");
+            test.log(Status.PASS, "Download instructors profile button is displayed");
+            homePage.clickDownloadInstructorsProfileButton();
+            logger.info("Download instructors profile button is clicked");
+            validatePopUpCommonFields(name, phoneNumber, email, "Meet Your Mentors", "Learn About Us");
+            logger.info("Download instructors profile popUp is validated");
+            test.log(Status.PASS, "Download instructors profile popUp is validated");
+            homePage.clickSkipButton();
+        } else {
+            test.log(Status.FAIL, "Download instructors profile button is not displayed");
+            logger.info("Download instructors profile button is not displayed");
+        }
+        if (homePage.ifGetWorkshopsDetailsButtonIsDisplayed()) {
+            logger.info("Get workshops details button is displayed");
+            test.log(Status.PASS, "Get workshops details button is displayed");
+            homePage.clickGetWorkshopsDetailsButton();
+            logger.info("Get workshops details button is clicked");
+            validatePopUpCommonFields(name, phoneNumber, email, "Experience Live, Instructor-Led Workshops", "Get Details");
+            logger.info("Get workshops details popUp is validated");
+            test.log(Status.PASS, "Get workshops details popUp is validated");
+            homePage.clickSkipButton();
+
+        } else {
+            test.log(Status.FAIL, "Get workshops details button is not displayed");
+            logger.info("Get workshops details button is not displayed");
+        }
+        if (homePage.ifEarnCertificatesButtonIsDisplayed()) {
+            logger.info("Earn certificates button is displayed");
+            test.log(Status.PASS, "Earn certificates button is displayed");
+            homePage.clickEarnCertificatesButton();
+            logger.info("Earn certificates button is clicked");
+            validatePopUpCommonFields(name, phoneNumber, email, "Your Learning, Our Recognition", "Get Started");
+            logger.info("Earn certificates popUp is validated");
+            test.log(Status.PASS, "Earn certificates popUp is validated");
+            getDriver().navigate().back();
+            threadSleep(9);
+            homePage.clickOnCloseButtonInPopUp();
+
+        } else {
+            test.log(Status.FAIL, "Earn certificates button is not displayed");
+            logger.info("Earn certificates button is not displayed");
+        }
+        if (homePage.enrollNowButtonOneTimeIsDisplayed()) {
+            logger.info("Enroll now button one time is displayed");
+            test.log(Status.PASS, "Enroll now button one time is displayed");
+            homePage.clickEnrollNowButtonOneTime();
+            logger.info("Enroll now button one time is clicked");
+            validatePopUpCommonFields(name, phoneNumber, email, "Enroll Today, Excel Tomorrow", "Enroll Now");
+            logger.info("Enroll now popUp is validated");
+            test.log(Status.PASS, "Enroll now popUp is validated");
+            getDriver().navigate().back();
+            threadSleep(9);
+            homePage.clickOnCloseButtonInPopUp();
+
+        } else {
+            test.log(Status.FAIL, "Enroll now button one time is not displayed");
+            logger.info("Enroll now button one time is not displayed");
+        }
+
+    }
+
+    public void validatePopUpCommonFields(String name, String phoneNumber, String email, String popUpTitle, String buttonText) {
+        ExtentTest test = extent.createTest("TC" + getClass() + "validatePopUpCommonFields", "Validating Pop Up Common Fields").assignCategory(moduleName);
+        setExtentTest(test);
+        HomePage homePage = new HomePage(getDriver());
+        threadSleep(4);
+        if (homePage.ifCloseButtonIsDisplayed()) {
+            logger.info("Close button is displayed");
+            test.log(Status.PASS, "Close button is displayed");
+//            homePage.clickOnCloseButtonInPopUp();
+//            logger.info("Close button is clicked");
+//            test.log(Status.PASS, "Close button is clicked");
+        } else {
+            test.log(Status.FAIL, "Close button is not displayed");
+            logger.info("Close button is not displayed");
+        }
+        if (homePage.isPopUpTitleIsDisplayed()) {
+            logger.info("Pop up title is displayed");
+            test.log(Status.PASS, "Pop up title is displayed");
+            homePage.validateTextOfPopUpTitle2(popUpTitle);
+            logger.info("Pop up title is validated");
+            test.log(Status.PASS, "Pop up title is validated");
+        } else {
+            test.log(Status.FAIL, "Pop up title is not displayed");
+            logger.info("Pop up title is not displayed");
+        }
+        if (homePage.isPopUpFullNameLabelIsDisplayed()) {
+            logger.info("Pop up full name label is displayed");
+            test.log(Status.PASS, "Pop up full name label is displayed");
+            homePage.validateTextOfPopUpFullNameLabel("Full Name");
+            logger.info("Pop up full name label is validated");
+            test.log(Status.PASS, "Pop up full name label is validated");
+        } else {
+            test.log(Status.FAIL, "Pop up full name label is not displayed");
+            logger.info("Pop up full name label is not displayed");
+        }
+        if (homePage.isPopUpFullNameTextBoxIsDisplayed()) {
+            logger.info("Pop up full name text box is displayed");
+            test.log(Status.PASS, "Pop up full name text box is displayed");
+            homePage.validatePlaceholderTextOfPopUpFullName("Your Full Name");
+            homePage.enterTextInPopUpFullName(name);
+            logger.info("Pop up full name text box is validated");
+            test.log(Status.PASS, "Pop up full name text box is validated");
+        } else {
+            test.log(Status.FAIL, "Pop up full name text box is not displayed");
+            logger.info("Pop up full name text box is not displayed");
+        }
+        if (homePage.isPopUpPhoneNumberLabelIsDisplayed()) {
+            logger.info("Pop up phone number label is displayed");
+            test.log(Status.PASS, "Pop up phone number label is displayed");
+            homePage.validateTextOfPopUpPhoneNumberLabel("Phone Number");
+            logger.info("Pop up phone number label is validated");
+            test.log(Status.PASS, "Pop up phone number label is validated");
+        } else {
+            test.log(Status.FAIL, "Pop up phone number label is not displayed");
+            logger.info("Pop up phone number label is not displayed");
+        }
+        if(homePage.isPopUpCountryFlagIsDisplayed()){
+            logger.info("Pop up country flag is displayed");
+            test.log(Status.PASS, "Pop up country flag is displayed");
+            homePage.clickOnCountryFlagInPopUp();
+            logger.info("Pop up country flag is clicked");
+            homePage.clickOnCountryFlagInPopUp();
+            logger.info("Pop up country flag is validated");
+            test.log(Status.PASS, "Pop up country flag is validated");
+        } else {
+            test.log(Status.FAIL, "Pop up country flag is not displayed");
+            logger.info("Pop up country flag is not displayed");
+        }
+        if(homePage.isPopUpCountryFlagArrowIsDisplayed()){
+            logger.info("Pop up country flag arrow is displayed");
+            test.log(Status.PASS, "Pop up country flag arrow is displayed");
+            homePage.clickOnCountryFlagArrowInPopUp();
+            logger.info("Pop up country flag arrow is clicked");
+            homePage.clickOnCountryFlagInPopUp();//arrow click doesn't work in second time
+            logger.info("Pop up country flag arrow is validated");
+            test.log(Status.PASS, "Pop up country flag arrow is validated");
+        } else {
+            test.log(Status.FAIL, "Pop up country flag arrow is not displayed");
+            logger.info("Pop up country flag arrow is not displayed");
+        }
+        if (homePage.isPopUpPhoneNumberIsDisplayed()) {
+            logger.info("Pop up phone number text box is displayed");
+            test.log(Status.PASS, "Pop up phone number text box is displayed");
+            homePage.validatePlaceholderTextOfPopUpPhoneNumber("Your Phone Number");
+            homePage.enterTextInPopUpPhoneNumber(phoneNumber);
+            logger.info("Pop up phone number text box is validated");
+            test.log(Status.PASS, "Pop up phone number text box is validated");
+        } else {
+            test.log(Status.FAIL, "Pop up phone number text box is not displayed");
+            logger.info("Pop up phone number text box is not displayed");
+        }
+        if (homePage.isPopUpEmailLabelIsDisplayed()) {
+            logger.info("Pop up email label is displayed");
+            test.log(Status.PASS, "Pop up email label is displayed");
+            homePage.validateTextOfPopUpEmailLabel("Email Id");
+            logger.info("Pop up email label is validated");
+            test.log(Status.PASS, "Pop up email label is validated");
+        } else {
+            test.log(Status.FAIL, "Pop up email label is not displayed");
+            logger.info("Pop up email label is not displayed");
+        }
+        if (homePage.isPopUpEmailTextBoxIsDisplayed()) {
+            logger.info("Pop up email text box is displayed");
+            test.log(Status.PASS, "Pop up email text box is displayed");
+            homePage.validatePlaceholderTextOfPopUpEmail("Your Email Id");
+            homePage.enterTextInPopUpEmail(email);
+            logger.info("Pop up email text box is validated");
+            test.log(Status.PASS, "Pop up email text box is validated");
+        } else {
+            test.log(Status.FAIL, "Pop up email text box is not displayed");
+            logger.info("Pop up email text box is not displayed");
+        }
+        if (homePage.isPopUpTnCLabelIsDisplayed()) {
+            logger.info("Pop up TnC label is displayed");
+            test.log(Status.PASS, "Pop up TnC label is displayed");
+            homePage.validateTextOfPopUpTnCLabel("I Agree to the terms & conditions");
+            logger.info("Pop up TnC label is validated");
+            test.log(Status.PASS, "Pop up TnC label is validated");
+        } else {
+            test.log(Status.FAIL, "Pop up TnC label is not displayed");
+            logger.info("Pop up TnC label is not displayed");
+        }
+        if (homePage.isPopUpSendWhatsAppCheckboxIsDisplayed()) {
+            logger.info("Pop up send WhatsApp checkbox is displayed");
+            test.log(Status.PASS, "Pop up send WhatsApp checkbox is displayed");
+            homePage.clickPopUpSendWhatsAppCheckbox();
+            logger.info("Pop up send WhatsApp checkbox is clicked");
+            homePage.clickPopUpSendWhatsAppCheckbox();
+            logger.info("Pop up send WhatsApp checkbox is validated");
+            test.log(Status.PASS, "Pop up send WhatsApp checkbox is validated");
+        } else {
+            test.log(Status.FAIL, "Pop up send WhatsApp checkbox is not displayed");
+            logger.info("Pop up send WhatsApp checkbox is not displayed");
+        }
+        if (homePage.ifSubmitButtonIsDisplayed()) {
+            logger.info("Submit button is displayed");
+            test.log(Status.PASS, "Submit button is displayed");
+            homePage.validateTextOfSubmitButton(buttonText);
+            homePage.clickSubmitButton();
+            logger.info("Submit button is clicked");
+            logger.info("Submit button is validated");
+            test.log(Status.PASS, "Submit button is validated");
+
+        } else {
+            test.log(Status.FAIL, "Submit button is not displayed");
+            logger.info("Submit button is not displayed");
+        }
+
+
     }
 }

@@ -399,13 +399,13 @@ public class HomePage extends TestBase {
     WebElement imagePhone;
     @FindBy(xpath = "//a[normalize-space()='+91-9354711240']")
     WebElement supportPhoneNumber;
-    @FindBy(xpath = "//h3[normalize-space()='10AM - 7PM (IST) Mon-Sun']")
+    @FindBy(xpath = "//span[normalize-space()='10AM - 7PM (IST) Mon-Sun']")
     WebElement supportPhoneNumberSubHeading;
     @FindBy(xpath = "//div[@class='col-lg-5 col-md-12 col-sm-12 mb-3 ps-lg-5']//li[2]//div[1]//div[1]")
     WebElement imageEmail;
     @FindBy(xpath = "//p[normalize-space()='customersupport@analyticsvidhya.com']")
     WebElement supportEmail;
-    @FindBy(xpath = "//h3[normalize-space()='You’ll hear back from us in 24 hours.']")
+    @FindBy(xpath = "(//span[normalize-space()=\"You'll hear back from us in 24 hours.\"])[1]")
     WebElement supportEmailSubHeading;
 
 // ========== Frequently Asked Questions section ==========
@@ -429,6 +429,34 @@ public class HomePage extends TestBase {
     WebElement flagshipPrograms;
     @FindBy(xpath = "//a[normalize-space()='GenAI Pinnacle Program']")
     WebElement genAiPinnacleProgram;
+
+    // ========== pop ups ==========
+    @FindBy(xpath = "//h2[@class='text-white fs-32']")
+    WebElement popUpHeading;
+    @FindBy(xpath = "//label[@for='leadFullName'][normalize-space()='Full Name']")
+    WebElement popUpFullNameLabel;
+    @FindBy(xpath = "//input[@id='leadFullName']")
+    WebElement popUpEnterTextFullName;
+    @FindBy(xpath = "//label[@for='leadFullName'][normalize-space()='Phone Number']")
+    WebElement popUpPhoneNumberLabel;
+    @FindBy(xpath = "(//div[@title='India: +91'])[10]")
+    WebElement popUpCountryFlag;
+    @FindBy(xpath = "//div[@class='col-lg col-md-12 col-12 mb-3']//div[@class='iti__arrow']")
+    WebElement popUpCountryFlagArrow;
+    @FindBy(xpath = "//input[@id='leadPhoneNumber']")
+    WebElement popUpEnterTextPhoneNumber;
+    @FindBy(xpath = "//label[@for='leadFullName'][normalize-space()='Email Id']")
+    WebElement popUpEmailLabel;
+    @FindBy(xpath = "//input[@id='leadEmail']")
+    WebElement popUpEnterTextEmail;
+    @FindBy(xpath = "//div[@class='mt-4 mb-4 d-flex flex-wrap']//label[@for='termAndConditionLoginModal']")
+    WebElement popUpTnCLabel;
+    @FindBy(xpath = "//input[@id='isWhatsappLoginModal']")
+    WebElement popUpSendWhatsAppCheckbox;
+    @FindBy(xpath = "//label[@for='isWhatsappLoginModal']")
+    WebElement popUpSendWhatsAppLabel;
+    @FindBy(xpath = "//button[@class='btn btn-dark btn-dark-primary rounded-3 fs-16 d-flex align-items-center w-100 justify-content-center m-0']")
+    WebElement popUpSubmitButton;
 
 
     // ========== Actions ==========
@@ -498,14 +526,15 @@ public class HomePage extends TestBase {
     }
 
     public void clickSkipButton() {
-        driver.findElement(skipButton2).click();
+        threadSleep(5);
+        click( driver.findElement(skipButton2), "Skip button");
     }
 
 
     // ========== top-nav functions==========
     public boolean analyticsVidhyaIconTopNavIsDisplayed() {
         scrollIntoView(analyticsVidhyaIconTopNav);
-        return analyticsVidhyaIconTopNav.isDisplayed();
+        return isDisplayed(analyticsVidhyaIconTopNav);
     }
 
     public void clickAnalyticsVidhyaIconTopNav() {
@@ -515,7 +544,7 @@ public class HomePage extends TestBase {
 
     public boolean whatToExpectTopNavIsDisplayed() {
         scrollIntoView(whatToExpectTopNav);
-        return whatToExpectTopNav.isDisplayed();
+        return isDisplayed(whatToExpectTopNav);
     }
 
     public void clickWhatToExpectTopNav() {
@@ -529,7 +558,7 @@ public class HomePage extends TestBase {
 
     public boolean curriculumTopNavIsDisplayed() {
         scrollIntoView(curriculumTopNav);
-        return curriculumTopNav.isDisplayed();
+        return isDisplayed(curriculumTopNav);
     }
 
     public void clickCurriculumTopNav() {
@@ -543,7 +572,7 @@ public class HomePage extends TestBase {
 
     public boolean instructorsTopNavIsDisplayed() {
         scrollIntoView(instructorsTopNav);
-        return instructorsTopNav.isDisplayed();
+        return isDisplayed(instructorsTopNav);
     }
 
     public void clickInstructorsTopNav() {
@@ -557,7 +586,7 @@ public class HomePage extends TestBase {
 
     public boolean feesTopNavIsDisplayed() {
         scrollIntoView(feesTopNav);
-        return feesTopNav.isDisplayed();
+        return isDisplayed(feesTopNav);
     }
 
     public void clickFeesTopNav() {
@@ -571,7 +600,7 @@ public class HomePage extends TestBase {
 
     public boolean testimonialsTopNavIsDisplayed() {
         scrollIntoView(testimonialsTopNav);
-        return testimonialsTopNav.isDisplayed();
+        return isDisplayed(testimonialsTopNav);
     }
 
     public void clickTestimonialsTopNav() {
@@ -585,7 +614,7 @@ public class HomePage extends TestBase {
 
     public boolean enrollNowButtonTopNavIsDisplayed() {
         scrollIntoView(enrollNowButtonTopNav);
-        return enrollNowButtonTopNav.isDisplayed();
+        return isDisplayed(enrollNowButtonTopNav);
     }
 
     public void clickEnrollNowButtonTopNav() {
@@ -597,16 +626,11 @@ public class HomePage extends TestBase {
         softAssert(enrollNowButtonTopNav, text);
     }
 
-    public void clickOnCloseButtonInPopUp() {
-//        hardWait(5);
-        click(closeButtonInPopUp, "Close button in pop up");
-
-    }
 
     // ========== Page First View ==========
     public boolean ifSiteTitleIsDisplayed() {
         scrollIntoView(siteTitle);
-        return siteTitle.isDisplayed();
+        return isDisplayed(siteTitle);
     }
 
     public void validateTextOfSiteTitle(String text) {
@@ -615,7 +639,7 @@ public class HomePage extends TestBase {
 
     public boolean ifSiteSubTitleIsDisplayed() {
         scrollIntoView(siteSubTitle);
-        return siteSubTitle.isDisplayed();
+        return isDisplayed(siteSubTitle);
     }
 
     public void validateTextOfSiteSubTitle(String text) {
@@ -624,7 +648,7 @@ public class HomePage extends TestBase {
 
     public boolean ifProjectsIsDisplayed() {
         scrollIntoView(projects);
-        return projects.isDisplayed();
+        return isDisplayed(projects);
     }
 
     public void validateTextOfProjects(String text) {
@@ -633,7 +657,7 @@ public class HomePage extends TestBase {
 
     public boolean ifHoursOfImmersiveLearningIsDisplayed() {
         scrollIntoView(hoursOfImmersiveLearning);
-        return hoursOfImmersiveLearning.isDisplayed();
+        return isDisplayed(hoursOfImmersiveLearning);
     }
 
     public void validateTextOfHoursOfImmersiveLearning(String text) {
@@ -642,7 +666,7 @@ public class HomePage extends TestBase {
 
     public boolean ifPlacementAssistanceIsDisplayed() {
         scrollIntoView(placementAssistance);
-        return placementAssistance.isDisplayed();
+        return isDisplayed(placementAssistance);
     }
 
     public void validateTextOfPlacementAssistance(String text) {
@@ -651,7 +675,7 @@ public class HomePage extends TestBase {
 
     public boolean ifPlacementRateIsDisplayed() {
         scrollIntoView(placementRate);
-        return placementRate.isDisplayed();
+        return isDisplayed(placementRate);
     }
 
     public void validateTextOfPlacementRate(String text) {
@@ -660,7 +684,7 @@ public class HomePage extends TestBase {
 
     public boolean ifHoursOfLiveWorkshopsIsDisplayed() {
         scrollIntoView(hoursOfLiveWorkshops);
-        return hoursOfLiveWorkshops.isDisplayed();
+        return isDisplayed(hoursOfLiveWorkshops);
     }
 
     public void validateTextOfHoursOfLiveWorkshops(String text) {
@@ -669,7 +693,7 @@ public class HomePage extends TestBase {
 
     public boolean ifLiveWorkshopsIsDisplayed() {
         scrollIntoView(liveWorkshops);
-        return liveWorkshops.isDisplayed();
+        return isDisplayed(liveWorkshops);
     }
 
     public void validateTextOfLiveWorkshops(String text) {
@@ -678,7 +702,7 @@ public class HomePage extends TestBase {
 
     public boolean ifExpertLedMentorshipsIsDisplayed() {
         scrollIntoView(expertLedMentorships);
-        return expertLedMentorships.isDisplayed();
+        return isDisplayed(expertLedMentorships);
     }
 
     public void validateTextOfExpertLedMentorships(String text) {
@@ -687,7 +711,7 @@ public class HomePage extends TestBase {
 
     public boolean ifMentorshipsIsDisplayed() {
         scrollIntoView(mentorships);
-        return mentorships.isDisplayed();
+        return isDisplayed(mentorships);
     }
 
     public void validateTextOfMentorships(String text) {
@@ -698,7 +722,7 @@ public class HomePage extends TestBase {
 
     public boolean ifPopUpTitleIsDisplayed() {
         scrollIntoView(popUpTitle);
-        return popUpTitle.isDisplayed();
+        return isDisplayed(popUpTitle);
     }
 
     public void validateTextOfPopUpTitle(String text) {
@@ -707,7 +731,7 @@ public class HomePage extends TestBase {
 
     public boolean ifFullNamePopUpIsDisplayed() {
         scrollIntoView(fullNamePopUp);
-        return fullNamePopUp.isDisplayed();
+        return isDisplayed(fullNamePopUp);
     }
 
     public void validatePlaceholderTextOfFullName(String text) {
@@ -721,7 +745,7 @@ public class HomePage extends TestBase {
 
     public boolean ifPhoneNumberPopUpIsDisplayed() {
         scrollIntoView(phoneNumberPopUp);
-        return phoneNumberPopUp.isDisplayed();
+        return isDisplayed(phoneNumberPopUp);
     }
 
     public void validatePlaceholderTextOfPhoneNumber(String text) {
@@ -734,7 +758,7 @@ public class HomePage extends TestBase {
 
     public boolean ifCountryFlagIsDisplayed() {
         scrollIntoView(countryFlag);
-        return countryFlag.isDisplayed();
+        return isDisplayed(countryFlag);
     }
 
     public void clickCountryFlag() {
@@ -743,7 +767,7 @@ public class HomePage extends TestBase {
 
     public boolean ifEmailPopUpIsDisplayed() {
         scrollIntoView(emailPopUp);
-        return emailPopUp.isDisplayed();
+        return isDisplayed(emailPopUp);
     }
 
     public void validatePlaceholderTextOfEmail(String text) {
@@ -756,7 +780,7 @@ public class HomePage extends TestBase {
 
     public boolean ifTncTextIsDisplayed() {
         scrollIntoView(tncText);
-        return tncText.isDisplayed();
+        return isDisplayed(tncText);
     }
 
     public void validateTextTncText(String text) {
@@ -765,7 +789,7 @@ public class HomePage extends TestBase {
 
     public boolean ifSendWhatsAppTextIsDisplayed() {
         scrollIntoView(sendWhatsAppText);
-        return sendWhatsAppText.isDisplayed();
+        return isDisplayed(sendWhatsAppText);
     }
 
     public void validateTextSendWhatsAppText(String text) {
@@ -774,7 +798,7 @@ public class HomePage extends TestBase {
 
     public boolean ifDownloadBrochureButtonIsDisplayed() {
         scrollIntoView(downloadBrochureButtonPopUp);
-        return downloadBrochureButtonPopUp.isDisplayed();
+        return isDisplayed(downloadBrochureButtonPopUp);
     }
 
     public void validateTextDownloadBrochureButton(String text) {
@@ -788,7 +812,7 @@ public class HomePage extends TestBase {
     // ========== second Section ==========
     public boolean ifHowDoesTheGenAiPinnaclePlusProgramHelpYouIsDisplayed() {
         scrollIntoView(howDoesTheGenAiPinnaclePlusProgramHelpYou);
-        return howDoesTheGenAiPinnaclePlusProgramHelpYou.isDisplayed();
+        return isDisplayed(howDoesTheGenAiPinnaclePlusProgramHelpYou);
     }
 
     public void validateTextOfHowDoesTheGenAiPinnaclePlusProgramHelpYou(String text) {
@@ -797,7 +821,7 @@ public class HomePage extends TestBase {
 
     public boolean ifHoursOfImmersiveLearning2IsDisplayed() {
         scrollIntoView(hoursOfImmersiveLearning2);
-        return hoursOfImmersiveLearning2.isDisplayed();
+        return isDisplayed(hoursOfImmersiveLearning2);
     }
 
     public void validateTextOfHoursOfImmersiveLearning2(String text) {
@@ -806,7 +830,7 @@ public class HomePage extends TestBase {
 
     public boolean ifFullSpectrumGenAiAndAgenticAiLearningIsDisplayed() {
         scrollIntoView(fullSpectrumGenAiAndAgenticAiLearning);
-        return fullSpectrumGenAiAndAgenticAiLearning.isDisplayed();
+        return isDisplayed(fullSpectrumGenAiAndAgenticAiLearning);
     }
 
     public void validateTextOfFullSpectrumGenAiAndAgenticAiLearning(String text) {
@@ -815,7 +839,7 @@ public class HomePage extends TestBase {
 
     public boolean ifMasterCuttingEdgeGenAiIsDisplayed() {
         scrollIntoView(masterCuttingEdgeGenAi);
-        return masterCuttingEdgeGenAi.isDisplayed();
+        return isDisplayed(masterCuttingEdgeGenAi);
     }
 
     public void validateTextOfMasterCuttingEdgeGenAi(String text) {
@@ -824,7 +848,7 @@ public class HomePage extends TestBase {
 
     public boolean ifIndustryAlignedProjectsIsDisplayed() {
         scrollIntoView(industryAlignedProjects);
-        return industryAlignedProjects.isDisplayed();
+        return isDisplayed(industryAlignedProjects);
     }
 
     public void validateTextOfIndustryAlignedProjects(String text) {
@@ -833,7 +857,7 @@ public class HomePage extends TestBase {
 
     public boolean ifAcquireRealWorldExperienceIsDisplayed() {
         scrollIntoView(acquireRealWorldExperience);
-        return acquireRealWorldExperience.isDisplayed();
+        return isDisplayed(acquireRealWorldExperience);
     }
 
     public void validateTextOfAcquireRealWorldExperience(String text) {
@@ -842,7 +866,7 @@ public class HomePage extends TestBase {
 
     public boolean ifDiverseProjectsIsDisplayed() {
         scrollIntoView(diverseProjects);
-        return diverseProjects.isDisplayed();
+        return isDisplayed(diverseProjects);
     }
 
     public void validateTextOfDiverseProjects(String text) {
@@ -851,7 +875,7 @@ public class HomePage extends TestBase {
 
     public boolean ifExpertMentorshipIsDisplayed() {
         scrollIntoView(expertMentorship);
-        return expertMentorship.isDisplayed();
+        return isDisplayed(expertMentorship);
     }
 
     public void validateTextOfExpertMentorship(String text) {
@@ -860,7 +884,7 @@ public class HomePage extends TestBase {
 
     public boolean ifExpertInsightsIsDisplayed() {
         scrollIntoView(expertInsights);
-        return expertInsights.isDisplayed();
+        return isDisplayed(expertInsights);
     }
 
     public void validateTextOfExpertInsights(String text) {
@@ -869,7 +893,7 @@ public class HomePage extends TestBase {
 
     public boolean ifPersonalizedRoadmapIsDisplayed() {
         scrollIntoView(personalizedRoadmap);
-        return personalizedRoadmap.isDisplayed();
+        return isDisplayed(personalizedRoadmap);
     }
 
     public void validateTextOfPersonalizedRoadmap(String text) {
@@ -880,7 +904,7 @@ public class HomePage extends TestBase {
 
     public boolean ifCurriculumStatisticsIsDisplayed() {
         scrollIntoView(curriculumStatistics);
-        return curriculumStatistics.isDisplayed();
+        return isDisplayed(curriculumStatistics);
     }
 
     public void validateTextOfCurriculumStatistics(String text) {
@@ -889,7 +913,7 @@ public class HomePage extends TestBase {
 
     public boolean ifProjects2IsDisplayed() {
         scrollIntoView(projects2);
-        return projects2.isDisplayed();
+        return isDisplayed(projects2);
     }
 
     public void validateTextOfProjects2(String text) {
@@ -898,7 +922,7 @@ public class HomePage extends TestBase {
 
     public boolean ifHandsOnLearningIsDisplayed() {
         scrollIntoView(handsOnLearning);
-        return handsOnLearning.isDisplayed();
+        return isDisplayed(handsOnLearning);
     }
 
     public void validateTextOfHandsOnLearning(String text) {
@@ -907,7 +931,7 @@ public class HomePage extends TestBase {
 
     public boolean ifHoursOfImmersiveLearning2_2IsDisplayed() {
         scrollIntoView(hoursOfImmersiveLearning2_2);
-        return hoursOfImmersiveLearning2_2.isDisplayed();
+        return isDisplayed(hoursOfImmersiveLearning2_2);
     }
 
     public void validateTextOfHoursOfImmersiveLearning2_2(String text) {
@@ -916,7 +940,7 @@ public class HomePage extends TestBase {
 
     public boolean ifInDepthLearningIsDisplayed() {
         scrollIntoView(inDepthLearning);
-        return inDepthLearning.isDisplayed();
+        return isDisplayed(inDepthLearning);
     }
 
     public void validateTextOfInDepthLearning(String text) {
@@ -925,7 +949,7 @@ public class HomePage extends TestBase {
 
     public boolean ifLibrariesIsDisplayed() {
         scrollIntoView(libraries);
-        return libraries.isDisplayed();
+        return isDisplayed(libraries);
     }
 
     public void validateTextOfLibraries(String text) {
@@ -934,7 +958,7 @@ public class HomePage extends TestBase {
 
     public boolean ifDevelopExpertiseIsDisplayed() {
         scrollIntoView(developExpertise);
-        return developExpertise.isDisplayed();
+        return isDisplayed(developExpertise);
     }
 
     public void validateTextOfDevelopExpertise(String text) {
@@ -943,7 +967,7 @@ public class HomePage extends TestBase {
 
     public boolean ifAssignmentsIsDisplayed() {
         scrollIntoView(assignments);
-        return assignments.isDisplayed();
+        return isDisplayed(assignments);
     }
 
     public void validateTextOfAssignments(String text) {
@@ -952,7 +976,7 @@ public class HomePage extends TestBase {
 
     public boolean ifTurnKnowledgeIntoActionIsDisplayed() {
         scrollIntoView(turnKnowledgeIntoAction);
-        return turnKnowledgeIntoAction.isDisplayed();
+        return isDisplayed(turnKnowledgeIntoAction);
     }
 
     public void validateTextOfTurnKnowledgeIntoAction(String text) {
@@ -961,7 +985,7 @@ public class HomePage extends TestBase {
 
     public boolean ifMentorshipSessionsIsDisplayed() {
         scrollIntoView(mentorshipSessions);
-        return mentorshipSessions.isDisplayed();
+        return isDisplayed(mentorshipSessions);
     }
 
     public void validateTextOfMentorshipSessions(String text) {
@@ -970,7 +994,7 @@ public class HomePage extends TestBase {
 
     public boolean ifLiveMentorshipSessionIsDisplayed() {
         scrollIntoView(liveMentorshipSession);
-        return liveMentorshipSession.isDisplayed();
+        return isDisplayed(liveMentorshipSession);
     }
 
     public void validateTextOfLiveMentorshipSession(String text) {
@@ -982,7 +1006,7 @@ public class HomePage extends TestBase {
 
     public boolean ifPersonalizedRoadmapSectionIsDisplayed() {
         scrollIntoView(personalizedRoadmapSection);
-        return personalizedRoadmapSection.isDisplayed();
+        return isDisplayed(personalizedRoadmapSection);
     }
 
     public void validateTextOfPersonalizedRoadmapSection(String text) {
@@ -991,7 +1015,7 @@ public class HomePage extends TestBase {
 
     public boolean ifYourAmbitionIsDisplayed() {
         scrollIntoView(yourAmbition);
-        return yourAmbition.isDisplayed();
+        return isDisplayed(yourAmbition);
     }
 
     public void validateTextOfYourAmbition(String text) {
@@ -1000,7 +1024,7 @@ public class HomePage extends TestBase {
 
     public boolean ifRequestCallbackButtonIsDisplayed() {
         scrollIntoView(requestCallbackButton);
-        return requestCallbackButton.isDisplayed();
+        return isDisplayed(requestCallbackButton);
     }
 
     public void validateTextOfRequestCallbackButton(String text) {
@@ -1013,7 +1037,7 @@ public class HomePage extends TestBase {
 
     public boolean ifGetPersonalizedRoadmapButtonIsDisplayed() {
         scrollIntoView(getPersonalizedRoadmapButton);
-        return getPersonalizedRoadmapButton.isDisplayed();
+        return isDisplayed(getPersonalizedRoadmapButton);
     }
 
     public void validateTextOfGetPersonalizedRoadmapButton(String text) {
@@ -1027,7 +1051,7 @@ public class HomePage extends TestBase {
     // ========== Curriculum section ==========
     public boolean ifCurriculumIsDisplayed() {
         scrollIntoView(curriculum);
-        return curriculum.isDisplayed();
+        return isDisplayed(curriculum);
     }
 
     public void validateTextOfCurriculum(String text) {
@@ -1036,7 +1060,7 @@ public class HomePage extends TestBase {
 
     public boolean ifFromPythonFoundationsIsDisplayed() {
         scrollIntoView(fromPythonFoundations);
-        return fromPythonFoundations.isDisplayed();
+        return isDisplayed(fromPythonFoundations);
     }
 
     public void validateTextOfFromPythonFoundations(String text) {
@@ -1045,7 +1069,7 @@ public class HomePage extends TestBase {
 
     public boolean ifProjects3IsDisplayed() {
         scrollIntoView(projects3);
-        return projects3.isDisplayed();
+        return isDisplayed(projects3);
     }
 
     public void validateTextOfProjects3(String text) {
@@ -1054,7 +1078,7 @@ public class HomePage extends TestBase {
 
     public boolean ifHoursOfImmersiveLearning3IsDisplayed() {
         scrollIntoView(hoursOfImmersiveLearning3);
-        return hoursOfImmersiveLearning3.isDisplayed();
+        return isDisplayed(hoursOfImmersiveLearning3);
     }
 
     public void validateTextOfHoursOfImmersiveLearning3(String text) {
@@ -1063,7 +1087,7 @@ public class HomePage extends TestBase {
 
     public boolean ifToolsIsDisplayed() {
         scrollIntoView(tools);
-        return tools.isDisplayed();
+        return isDisplayed(tools);
     }
 
     public void validateTextOfTools(String text) {
@@ -1072,7 +1096,7 @@ public class HomePage extends TestBase {
 
     public boolean ifAssignments2IsDisplayed() {
         scrollIntoView(assignments2);
-        return assignments2.isDisplayed();
+        return isDisplayed(assignments2);
     }
 
     public void validateTextOfAssignments2(String text) {
@@ -1081,7 +1105,7 @@ public class HomePage extends TestBase {
 
     public boolean ifChooseWhatToLearnImageIsDisplayed() {
         scrollIntoView(chooseWhatToLearnImage);
-        return chooseWhatToLearnImage.isDisplayed();
+        return isDisplayed(chooseWhatToLearnImage);
     }
 
     public void validateTextOfChooseWhatToLearnImage(String text) {
@@ -1090,7 +1114,7 @@ public class HomePage extends TestBase {
 
     public boolean ifDownloadFreeCurriculumButtonIsDisplayed() {
         scrollIntoView(downloadFreeCurriculumButton);
-        return downloadFreeCurriculumButton.isDisplayed();
+        return isDisplayed(downloadFreeCurriculumButton);
     }
 
     public void validateTextOfDownloadFreeCurriculumButton(String text) {
@@ -1104,7 +1128,7 @@ public class HomePage extends TestBase {
     // ========== Libraries & Frameworks section ==========
     public boolean ifLibrariesAndFrameworksIsDisplayed() {
         scrollIntoView(librariesAndFrameworks);
-        return librariesAndFrameworks.isDisplayed();
+        return isDisplayed(librariesAndFrameworks);
     }
 
     public void validateTextOfLibrariesAndFrameworks(String text) {
@@ -1113,7 +1137,7 @@ public class HomePage extends TestBase {
 
     public boolean ifMaster40LibrariesIsDisplayed() {
         scrollIntoView(master40Libraries);
-        return master40Libraries.isDisplayed();
+        return isDisplayed(master40Libraries);
     }
 
     public void validateTextOfMaster40Libraries(String text) {
@@ -1122,7 +1146,7 @@ public class HomePage extends TestBase {
 
     public boolean ifDownloadToolsPackButtonIsDisplayed() {
         scrollIntoView(downloadToolsPackButton);
-        return downloadToolsPackButton.isDisplayed();
+        return isDisplayed(downloadToolsPackButton);
     }
 
     public void validateTextOfDownloadToolsPackButton(String text) {
@@ -1136,7 +1160,7 @@ public class HomePage extends TestBase {
     // ========== Build Your Portfolio section ==========
     public boolean ifBuildYourPortfolioIsDisplayed() {
         scrollIntoView(buildYourPortfolio);
-        return buildYourPortfolio.isDisplayed();
+        return isDisplayed(buildYourPortfolio);
     }
 
     public void validateTextOfBuildYourPortfolio(String text) {
@@ -1145,7 +1169,7 @@ public class HomePage extends TestBase {
 
     public boolean ifAccelerateYourIndustryReadinessIsDisplayed() {
         scrollIntoView(accelerateYourIndustryReadiness);
-        return accelerateYourIndustryReadiness.isDisplayed();
+        return isDisplayed(accelerateYourIndustryReadiness);
     }
 
     public void validateTextOfAccelerateYourIndustryReadiness(String text) {
@@ -1154,7 +1178,7 @@ public class HomePage extends TestBase {
 
     public boolean ifRequestCallbackButton2IsDisplayed() {
         scrollIntoView(requestCallbackButton2);
-        return requestCallbackButton2.isDisplayed();
+        return isDisplayed(requestCallbackButton2);
     }
 
     public void validateTextOfRequestCallbackButton2(String text) {
@@ -1167,7 +1191,7 @@ public class HomePage extends TestBase {
 
     public boolean ifViewAllProjectsButtonIsDisplayed() {
         scrollIntoView(viewAllProjectsButton);
-        return viewAllProjectsButton.isDisplayed();
+        return isDisplayed(viewAllProjectsButton);
     }
 
     public void validateTextOfViewAllProjectsButton(String text) {
@@ -1182,7 +1206,7 @@ public class HomePage extends TestBase {
 
     public boolean ifRealExperienceRealInsightsIsDisplayed() {
         scrollIntoView(realExperienceRealInsights);
-        return realExperienceRealInsights.isDisplayed();
+        return isDisplayed(realExperienceRealInsights);
     }
 
     public void validateTextOfRealExperienceRealInsights(String text) {
@@ -1191,7 +1215,7 @@ public class HomePage extends TestBase {
 
     public boolean ifTapIntoDecadesIsDisplayed() {
         scrollIntoView(tapIntoDecades);
-        return tapIntoDecades.isDisplayed();
+        return isDisplayed(tapIntoDecades);
     }
 
     public void validateTextOfTapIntoDecades(String text) {
@@ -1200,7 +1224,7 @@ public class HomePage extends TestBase {
 
     public boolean ifRequestCallbackButton3IsDisplayed() {
         scrollIntoView(requestCallbackButton3);
-        return requestCallbackButton3.isDisplayed();
+        return isDisplayed(requestCallbackButton3);
     }
 
     public void validateTextOfRequestCallbackButton3(String text) {
@@ -1213,7 +1237,7 @@ public class HomePage extends TestBase {
 
     public boolean ifDownloadInstructorsProfileButtonIsDisplayed() {
         scrollIntoView(downloadInstructorsProfileButton);
-        return downloadInstructorsProfileButton.isDisplayed();
+        return isDisplayed(downloadInstructorsProfileButton);
     }
 
     public void validateTextOfDownloadInstructorsProfileButton(String text) {
@@ -1229,7 +1253,7 @@ public class HomePage extends TestBase {
 
     public boolean ifInstructorLedLiveWorkshopsIsDisplayed() {
         scrollIntoView(instructorLedLiveWorkshops);
-        return instructorLedLiveWorkshops.isDisplayed();
+        return isDisplayed(instructorLedLiveWorkshops);
     }
 
     public void validateTextOfInstructorLedLiveWorkshops(String text) {
@@ -1238,7 +1262,7 @@ public class HomePage extends TestBase {
 
     public boolean ifInstructorLedLiveWorkshopsSubHeadingIsDisplayed() {
         scrollIntoView(instructorLedLiveWorkshopsSubHeading);
-        return instructorLedLiveWorkshopsSubHeading.isDisplayed();
+        return isDisplayed(instructorLedLiveWorkshopsSubHeading);
     }
 
     public void validateTextOfInstructorLedLiveWorkshopsSubHeading(String text) {
@@ -1247,7 +1271,7 @@ public class HomePage extends TestBase {
 
     public boolean ifGetWorkshopsDetailsButtonIsDisplayed() {
         scrollIntoView(getWorkshopsDetailsButton);
-        return getWorkshopsDetailsButton.isDisplayed();
+        return isDisplayed(getWorkshopsDetailsButton);
     }
 
     public void validateTextOfGetWorkshopsDetailsButton(String text) {
@@ -1263,7 +1287,7 @@ public class HomePage extends TestBase {
 
     public boolean ifAvAssistedPlacementsIsDisplayed() {
         scrollIntoView(avAssistedPlacements);
-        return avAssistedPlacements.isDisplayed();
+        return isDisplayed(avAssistedPlacements);
     }
 
     public void validateTextOfAvAssistedPlacements(String text) {
@@ -1272,7 +1296,7 @@ public class HomePage extends TestBase {
 
     public boolean ifOurAlumniUniverseIsDisplayed() {
         scrollIntoView(ourAlumniUniverse);
-        return ourAlumniUniverse.isDisplayed();
+        return isDisplayed(ourAlumniUniverse);
     }
 
     public void validateTextOfOurAlumniUniverse(String text) {
@@ -1284,7 +1308,7 @@ public class HomePage extends TestBase {
 
     public boolean ifIndustryRecognizedCertificationIsDisplayed() {
         scrollIntoView(industryRecognizedCertification);
-        return industryRecognizedCertification.isDisplayed();
+        return isDisplayed(industryRecognizedCertification);
     }
 
     public void validateTextOfIndustryRecognizedCertification(String text) {
@@ -1293,7 +1317,7 @@ public class HomePage extends TestBase {
 
     public boolean ifGetCertifiedIsDisplayed() {
         scrollIntoView(getCertified);
-        return getCertified.isDisplayed();
+        return isDisplayed(getCertified);
     }
 
     public void validateTextOfGetCertified(String text) {
@@ -1302,7 +1326,7 @@ public class HomePage extends TestBase {
 
     public boolean ifEarnCertificatesButtonIsDisplayed() {
         scrollIntoView(earnCertificatesButton);
-        return earnCertificatesButton.isDisplayed();
+        return isDisplayed(earnCertificatesButton);
     }
 
     public void validateTextOfEarnCertificatesButton(String text) {
@@ -1316,7 +1340,7 @@ public class HomePage extends TestBase {
     // ========== Our Advisors section ==========
     public boolean ifOurAdvisorsIsDisplayed() {
         scrollIntoView(ourAdvisors);
-        return ourAdvisors.isDisplayed();
+        return isDisplayed(ourAdvisors);
     }
 
     public void validateTextOfOurAdvisors(String text) {
@@ -1325,7 +1349,7 @@ public class HomePage extends TestBase {
 
     public boolean ifOurAdvisorsSubHeadingIsDisplayed() {
         scrollIntoView(ourAdvisorsSubHeading);
-        return ourAdvisorsSubHeading.isDisplayed();
+        return isDisplayed(ourAdvisorsSubHeading);
     }
 
     public void validateTextOfOurAdvisorsSubHeading(String text) {
@@ -1335,7 +1359,7 @@ public class HomePage extends TestBase {
     // ========== AV Learners section ==========
     public boolean ifAvLearnersSpotlightIsDisplayed() {
         scrollIntoView(avLearnersSpotlight);
-        return avLearnersSpotlight.isDisplayed();
+        return isDisplayed(avLearnersSpotlight);
     }
 
     public void validateTextOfAvLearnersSpotlight(String text) {
@@ -1344,7 +1368,7 @@ public class HomePage extends TestBase {
 
     public boolean ifViewMoreButtonIsDisplayed() {
         scrollIntoView(viewMoreButton);
-        return viewMoreButton.isDisplayed();
+        return isDisplayed(viewMoreButton);
     }
 
     public void validateTextOfViewMoreButton(String text) {
@@ -1358,7 +1382,7 @@ public class HomePage extends TestBase {
     // ========== Money Back section ==========
     public boolean ifMoneyBackGuaranteeIsDisplayed() {
         scrollIntoView(moneyBackGuarantee);
-        return moneyBackGuarantee.isDisplayed();
+        return isDisplayed(moneyBackGuarantee);
     }
 
     public void validateTextOfMoneyBackGuarantee(String text) {
@@ -1367,7 +1391,7 @@ public class HomePage extends TestBase {
 
     public boolean ifNoQuestionAskedIsDisplayed() {
         scrollIntoView(noQuestionAsked);
-        return noQuestionAsked.isDisplayed();
+        return isDisplayed(noQuestionAsked);
     }
 
     public void validateTextOfNoQuestionAsked(String text) {
@@ -1376,7 +1400,7 @@ public class HomePage extends TestBase {
 
     public boolean ifMoneyBackGuaranteeImageIsDisplayed() {
         scrollIntoView(moneyBackGuaranteeImage);
-        return moneyBackGuaranteeImage.isDisplayed();
+        return isDisplayed(moneyBackGuaranteeImage);
     }
 
     public void validateTextOfMoneyBackGuaranteeImage(String text) {
@@ -1387,7 +1411,7 @@ public class HomePage extends TestBase {
 
     public boolean ifInvestInYourFutureTodayIsDisplayed() {
         scrollIntoView(investInYourFutureToday);
-        return investInYourFutureToday.isDisplayed();
+        return isDisplayed(investInYourFutureToday);
     }
 
     public void validateTextOfInvestInYourFutureToday(String text) {
@@ -1396,7 +1420,7 @@ public class HomePage extends TestBase {
 
     public boolean ifExclusiveAccessToAiToolsIsDisplayed() {
         scrollIntoView(exclusiveAccessToAiTools);
-        return exclusiveAccessToAiTools.isDisplayed();
+        return isDisplayed(exclusiveAccessToAiTools);
     }
 
     public void validateTextOfExclusiveAccessToAiTools(String text) {
@@ -1405,7 +1429,7 @@ public class HomePage extends TestBase {
 
     public boolean ifBoostYourCareerIsDisplayed() {
         scrollIntoView(boostYourCareer);
-        return boostYourCareer.isDisplayed();
+        return isDisplayed(boostYourCareer);
     }
 
     public void validateTextOfBoostYourCareer(String text) {
@@ -1414,7 +1438,7 @@ public class HomePage extends TestBase {
 
     public boolean ifEnrollNowTextIsDisplayed() {
         scrollIntoView(enrollNowAndStartYourJourney);
-        return enrollNowAndStartYourJourney.isDisplayed();
+        return isDisplayed(enrollNowAndStartYourJourney);
     }
 
     public void validateTextOfEnrollNowText(String text) {
@@ -1423,7 +1447,7 @@ public class HomePage extends TestBase {
 
     public boolean ifOneTimeToggleLabelIsDisplayed() {
         scrollIntoView(oneTimeToggleLabel);
-        return oneTimeToggleLabel.isDisplayed();
+        return isDisplayed(oneTimeToggleLabel);
     }
 
     public void validateTextOfOneTimeToggleLabel(String text) {
@@ -1432,7 +1456,7 @@ public class HomePage extends TestBase {
 
     public boolean ifEmiToggleLabelIsDisplayed() {
         scrollIntoView(emiToggleLabel);
-        return emiToggleLabel.isDisplayed();
+        return isDisplayed(emiToggleLabel);
     }
 
     public void validateTextOfEmiToggleLabel(String text) {
@@ -1441,7 +1465,7 @@ public class HomePage extends TestBase {
 
     public boolean ifPriceToggleIsDisplayed() {
         scrollIntoView(priceToggle);
-        return priceToggle.isDisplayed();
+        return isDisplayed(priceToggle);
     }
 
     public void clickPriceToggle() {
@@ -1451,7 +1475,7 @@ public class HomePage extends TestBase {
 
     public boolean ifOneTimeTextIsDisplayed() {
         scrollIntoView(oneTime);
-        return oneTime.isDisplayed();
+        return isDisplayed(oneTime);
     }
 
     public void validateTextOfOneTimeText(String text) {
@@ -1459,8 +1483,9 @@ public class HomePage extends TestBase {
     }
 
     public boolean ifemiTextIsDisplayed() {
+
         scrollIntoView(emi);
-        return emi.isDisplayed();
+        return isDisplayed(emi);
     }
 
     public void validateTextOfEmiText(String text) {
@@ -1470,7 +1495,7 @@ public class HomePage extends TestBase {
 
     public boolean priceIsDisplayed() {
         scrollIntoView(price);
-        return price.isDisplayed();
+        return isDisplayed(price);
     }
 
     public void validateTextOfPrice(String text) {
@@ -1479,7 +1504,7 @@ public class HomePage extends TestBase {
 
     public boolean emiPriceIsDisplayed() {
         scrollIntoView(emiPrice);
-        return emiPrice.isDisplayed();
+        return isDisplayed(emiPrice);
     }
 
     public void validateTextOfEmiPrice(String text) {
@@ -1488,7 +1513,7 @@ public class HomePage extends TestBase {
 
     public boolean oneTimePriceInclusiveOfAllTaxesIsDisplayed() {
         scrollIntoView(oneTimePriceInclusiveOfAllTaxes);
-        return oneTimePriceInclusiveOfAllTaxes.isDisplayed();
+        return isDisplayed(oneTimePriceInclusiveOfAllTaxes);
     }
 
     public void validateTextOfOneTimePriceInclusiveOfAllTaxes(String text) {
@@ -1497,7 +1522,7 @@ public class HomePage extends TestBase {
 
     public boolean levelUpYourProfessionalJourneyIsDisplayed() {
         scrollIntoView(levelUpYourProfessionalJourney);
-        return levelUpYourProfessionalJourney.isDisplayed();
+        return isDisplayed(levelUpYourProfessionalJourney);
     }
 
     public void validateTextOfLevelUpYourProfessionalJourney(String text) {
@@ -1506,7 +1531,7 @@ public class HomePage extends TestBase {
 
     public boolean enrollNowButtonOneTimeIsDisplayed() {
         scrollIntoView(enrollNowButtonOneTime);
-        return enrollNowButtonOneTime.isDisplayed();
+        return isDisplayed(enrollNowButtonOneTime);
     }
 
     public void validateTextOfEnrollNowButtonOneTime(String text) {
@@ -1520,7 +1545,7 @@ public class HomePage extends TestBase {
     // ========== Contact Us Today section ==========
     public boolean ifContactUsTodayIsDisplayed() {
         scrollIntoView(contactUsToday);
-        return contactUsToday.isDisplayed();
+        return isDisplayed(contactUsToday);
     }
 
     public void validateTextOfContactUsToday(String text) {
@@ -1529,7 +1554,7 @@ public class HomePage extends TestBase {
 
     public boolean takeTheFirstStepIsDisplayed() {
         scrollIntoView(takeTheFirstStep);
-        return takeTheFirstStep.isDisplayed();
+        return isDisplayed(takeTheFirstStep);
     }
 
     public void validateTextOfTakeTheFirstStep(String text) {
@@ -1538,7 +1563,7 @@ public class HomePage extends TestBase {
 
     public boolean upskillReskillIsDisplayed() {
         scrollIntoView(upskillReskill);
-        return upskillReskill.isDisplayed();
+        return isDisplayed(upskillReskill);
     }
 
     public void validateTextOfUpskillReskill(String text) {
@@ -1547,7 +1572,7 @@ public class HomePage extends TestBase {
 
     public boolean contactFullNameLabelIsDisplayed() {
         scrollIntoView(contactFullNameLabel);
-        return contactFullNameLabel.isDisplayed();
+        return isDisplayed(contactFullNameLabel);
     }
 
     public void validateTextOfContactFullNameLabel(String text) {
@@ -1556,7 +1581,7 @@ public class HomePage extends TestBase {
 
     public boolean contactFullNameIsDisplayed() {
         scrollIntoView(contactFullName);
-        return contactFullName.isDisplayed();
+        return isDisplayed(contactFullName);
     }
 
     public void validatePlaceholderTextOfContactFullName(String text) {
@@ -1569,7 +1594,7 @@ public class HomePage extends TestBase {
 
     public boolean contactPhoneNumberLabelIsDisplayed() {
         scrollIntoView(contactPhoneNumberLabel);
-        return contactPhoneNumberLabel.isDisplayed();
+        return isDisplayed(contactPhoneNumberLabel);
     }
 
     public void validateTextOfContactPhoneNumberLabel(String text) {
@@ -1582,7 +1607,7 @@ public class HomePage extends TestBase {
 
     public boolean contactPhoneNumberIsDisplayed() {
         scrollIntoView(contactPhoneNumber);
-        return contactPhoneNumber.isDisplayed();
+        return isDisplayed(contactPhoneNumber);
     }
 
     public void enterTextInContactPhoneNumber(String phone) {
@@ -1591,7 +1616,7 @@ public class HomePage extends TestBase {
 
     public boolean contactEmailLabelIsDisplayed() {
         scrollIntoView(contactEmailLabel);
-        return contactEmailLabel.isDisplayed();
+        return isDisplayed(contactEmailLabel);
     }
 
     public void validateTextOfContactEmailLabel(String text) {
@@ -1604,7 +1629,7 @@ public class HomePage extends TestBase {
 
     public boolean contactEmailIsDisplayed() {
         scrollIntoView(contactEmail);
-        return contactEmail.isDisplayed();
+        return isDisplayed(contactEmail);
     }
 
     public void enterTextInContactEmail(String email) {
@@ -1613,7 +1638,7 @@ public class HomePage extends TestBase {
 
     public boolean countryFlagContactUsIsDisplayed() {
         scrollIntoView(countryFlagContactUs);
-        return countryFlagContactUs.isDisplayed();
+        return isDisplayed(countryFlagContactUs);
     }
 
     public void clickCountryFlagContactUs() {
@@ -1622,7 +1647,7 @@ public class HomePage extends TestBase {
 
     public boolean countryFlagArrowContactUsIsDisplayed() {
         scrollIntoView(countryFlagArrowContactUs);
-        return countryFlagArrowContactUs.isDisplayed();
+        return isDisplayed(countryFlagArrowContactUs);
     }
 
     public void clickCountryFlagArrowContactUs() {
@@ -1631,7 +1656,7 @@ public class HomePage extends TestBase {
 
     public boolean experienceLabelIsDisplayed() {
         scrollIntoView(experienceLabel);
-        return experienceLabel.isDisplayed();
+        return isDisplayed(experienceLabel);
     }
 
     public void validateTextOfExperienceLabel(String text) {
@@ -1640,7 +1665,7 @@ public class HomePage extends TestBase {
 
     public boolean experience0_3IsDisplayed() {
         scrollIntoView(experience0_3);
-        return experience0_3.isDisplayed();
+        return isDisplayed(experience0_3);
     }
 
     public void validateTextOfExperience0_3(String text) {
@@ -1649,7 +1674,7 @@ public class HomePage extends TestBase {
 
     public boolean experience3_8IsDisplayed() {
         scrollIntoView(experience3_8);
-        return experience3_8.isDisplayed();
+        return isDisplayed(experience3_8);
     }
 
     public void validateTextOfExperience3_8(String text) {
@@ -1658,7 +1683,7 @@ public class HomePage extends TestBase {
 
     public boolean experience8_12IsDisplayed() {
         scrollIntoView(experience8_12);
-        return experience8_12.isDisplayed();
+        return isDisplayed(experience8_12);
     }
 
     public void validateTextOfExperience8_12(String text) {
@@ -1667,7 +1692,7 @@ public class HomePage extends TestBase {
 
     public boolean experience12IsDisplayed() {
         scrollIntoView(experience12);
-        return experience12.isDisplayed();
+        return isDisplayed(experience12);
     }
 
     public void validateTextOfExperience12(String text) {
@@ -1676,7 +1701,7 @@ public class HomePage extends TestBase {
 
     public boolean termsAndConditionsLabelIsDisplayed() {
         scrollIntoView(termsAndConditionsLabel);
-        return termsAndConditionsLabel.isDisplayed();
+        return isDisplayed(termsAndConditionsLabel);
     }
 
     public void validateTextOfTermsAndConditionsLabel(String text) {
@@ -1685,7 +1710,7 @@ public class HomePage extends TestBase {
 
     public boolean sendWhatsAppLabelIsDisplayed() {
         scrollIntoView(sendWhatsAppLabel);
-        return sendWhatsAppLabel.isDisplayed();
+        return isDisplayed(sendWhatsAppLabel);
     }
 
     public void validateTextOfSendWhatsAppLabel(String text) {
@@ -1694,7 +1719,7 @@ public class HomePage extends TestBase {
 
     public boolean sendWhatsAppCheckboxIsDisplayed() {
         scrollIntoView(sendWhatsAppCheckbox);
-        return sendWhatsAppCheckbox.isDisplayed();
+        return isDisplayed(sendWhatsAppCheckbox);
 
     }
 
@@ -1704,7 +1729,7 @@ public class HomePage extends TestBase {
 
     public boolean joinTheProgramButtonIsDisplayed() {
         scrollIntoView(joinTheProgramButton);
-        return joinTheProgramButton.isDisplayed();
+        return isDisplayed(joinTheProgramButton);
     }
 
     public void validateTextOfJoinTheProgramButton(String text) {
@@ -1717,7 +1742,7 @@ public class HomePage extends TestBase {
 
     public boolean getExpertGuidanceIsDisplayed() {
         scrollIntoView(getExpertGuidance);
-        return getExpertGuidance.isDisplayed();
+        return isDisplayed(getExpertGuidance);
     }
 
     public void validateTextOfGetExpertGuidance(String text) {
@@ -1726,7 +1751,7 @@ public class HomePage extends TestBase {
 
     public boolean needSupportIsDisplayed() {
         scrollIntoView(needSupport);
-        return needSupport.isDisplayed();
+        return isDisplayed(needSupport);
     }
 
     public void validateTextOfNeedSupport(String text) {
@@ -1735,12 +1760,12 @@ public class HomePage extends TestBase {
 
     public boolean imagePhoneIsDisplayed() {
         scrollIntoView(imagePhone);
-        return imagePhone.isDisplayed();
+        return isDisplayed(imagePhone);
     }
 
     public boolean supportPhoneNumberIsDisplayed() {
         scrollIntoView(supportPhoneNumber);
-        return supportPhoneNumber.isDisplayed();
+        return isDisplayed(supportPhoneNumber);
     }
 
     public void validateTextOfSupportPhoneNumber(String text) {
@@ -1749,7 +1774,7 @@ public class HomePage extends TestBase {
 
     public boolean supportPhoneNumberSubHeadingIsDisplayed() {
         scrollIntoView(supportPhoneNumberSubHeading);
-        return supportPhoneNumberSubHeading.isDisplayed();
+        return isDisplayed(supportPhoneNumberSubHeading);
     }
 
     public void validateTextOfSupportPhoneNumberSubHeading(String text) {
@@ -1758,12 +1783,12 @@ public class HomePage extends TestBase {
 
     public boolean imageEmailIsDisplayed() {
         scrollIntoView(imageEmail);
-        return imageEmail.isDisplayed();
+        return isDisplayed(imageEmail);
     }
 
     public boolean supportEmailIsDisplayed() {
         scrollIntoView(supportEmail);
-        return supportEmail.isDisplayed();
+        return isDisplayed(supportEmail);
     }
 
     public void validateTextOfSupportEmail(String text) {
@@ -1772,7 +1797,7 @@ public class HomePage extends TestBase {
 
     public boolean supportEmailSubHeadingIsDisplayed() {
         scrollIntoView(supportEmailSubHeading);
-        return supportEmailSubHeading.isDisplayed();
+        return isDisplayed(supportEmailSubHeading);
     }
 
     public void validateTextOfSupportEmailSubHeading(String text) {
@@ -1782,7 +1807,7 @@ public class HomePage extends TestBase {
     // ========== Frequently Asked Questions section ==========
     public boolean ifFrequentlyAskedQuestionsIsDisplayed() {
         scrollIntoView(frequentlyAskedQuestions);
-        return frequentlyAskedQuestions.isDisplayed();
+        return isDisplayed(frequentlyAskedQuestions);
     }
 
     public void validateTextOfFrequentlyAskedQuestions(String text) {
@@ -1791,7 +1816,7 @@ public class HomePage extends TestBase {
 
     public boolean lookingForAnswersIsDisplayed() {
         scrollIntoView(lookingForAnswers);
-        return lookingForAnswers.isDisplayed();
+        return isDisplayed(lookingForAnswers);
     }
 
     public void validateTextOfLookingForAnswers(String text) {
@@ -1800,7 +1825,7 @@ public class HomePage extends TestBase {
 
     public boolean whatMakesTheGenAiPinnaclePlusProgramDifferentIsDisplayed() {
         scrollIntoView(whatMakesTheGenAiPinnaclePlusProgramDifferent);
-        return whatMakesTheGenAiPinnaclePlusProgramDifferent.isDisplayed();
+        return isDisplayed(whatMakesTheGenAiPinnaclePlusProgramDifferent);
     }
 
     public void validateTextOfWhatMakesTheGenAiPinnaclePlusProgramDifferent(String text) {
@@ -1809,7 +1834,7 @@ public class HomePage extends TestBase {
 
     public boolean howIsTheGenAiPinnaclePlusProgramDifferentIsDisplayed() {
         scrollIntoView(howIsTheGenAiPinnaclePlusProgramDifferent);
-        return howIsTheGenAiPinnaclePlusProgramDifferent.isDisplayed();
+        return isDisplayed(howIsTheGenAiPinnaclePlusProgramDifferent);
     }
 
     public void validateTextOfhowIsTheGenAiPinnaclePlusProgramDifferent(String text) {
@@ -1818,7 +1843,7 @@ public class HomePage extends TestBase {
 
     public boolean whoIsTheIdealCandidateIsDisplayed() {
         scrollIntoView(whoIsTheIdealCandidate);
-        return whoIsTheIdealCandidate.isDisplayed();
+        return isDisplayed(whoIsTheIdealCandidate);
     }
 
     public void validateTextOfWhoIsTheIdealCandidate(String text) {
@@ -1827,7 +1852,7 @@ public class HomePage extends TestBase {
 
     public boolean viewMoreButton2IsDisplayed() {
         scrollIntoView(viewMoreButton);
-        return viewMoreButton.isDisplayed();
+        return isDisplayed(viewMoreButton);
     }
 
     public void validateTextOfViewMoreButton2(String text) {
@@ -1842,7 +1867,7 @@ public class HomePage extends TestBase {
 
     public boolean ifFlagshipProgramsIsDisplayed() {
         scrollIntoView(flagshipPrograms);
-        return flagshipPrograms.isDisplayed();
+        return isDisplayed(flagshipPrograms);
     }
 
     public void validateTextOfFlagshipPrograms(String text) {
@@ -1851,7 +1876,7 @@ public class HomePage extends TestBase {
 
     public boolean ifGenAiPinnacleProgramIsDisplayed() {
         scrollIntoView(genAiPinnacleProgram);
-        return genAiPinnacleProgram.isDisplayed();
+        return isDisplayed(genAiPinnacleProgram);
     }
 
     public void validateTextOfGenAiPinnacleProgram(String text) {
@@ -1861,4 +1886,149 @@ public class HomePage extends TestBase {
     public void clickGenAiPinnacleProgram() {
         click(genAiPinnacleProgram, "Gen Ai Pinnacle Program");
     }
+
+    // ========== pop ups ==========
+
+    public boolean isPopUpTitleIsDisplayed() {
+        scrollIntoView(popUpHeading);
+        return isDisplayed(popUpHeading);
+    }
+
+    public void validateTextOfPopUpTitle2(String text) {
+        softAssert(popUpHeading, text);
+    }
+
+    public boolean isPopUpFullNameLabelIsDisplayed() {
+        scrollIntoView(popUpEnterTextFullName);
+        return isDisplayed(popUpEnterTextFullName);
+    }
+
+    public void validateTextOfPopUpFullNameLabel(String text) {
+        softAssert(popUpFullNameLabel, text);
+    }
+
+    public boolean isPopUpFullNameTextBoxIsDisplayed() {
+        scrollIntoView(popUpEnterTextFullName);
+        return isDisplayed(popUpEnterTextFullName);
+    }
+
+    public void enterTextInPopUpFullName(String text) {
+        sendKeys(popUpEnterTextFullName, text);
+    }
+
+    public void validatePlaceholderTextOfPopUpFullName(String text) {
+        validatePlaceholderText(popUpEnterTextFullName, text);
+    }
+
+
+    public boolean isPopUpCountryFlagIsDisplayed() {
+        scrollIntoView(popUpCountryFlag);
+        return isDisplayed(popUpCountryFlag);
+    }
+
+    public void clickOnCountryFlagInPopUp() {
+        click(popUpCountryFlag, "Pop Up Country Flag");
+    }
+
+    public boolean isPopUpCountryFlagArrowIsDisplayed() {
+        scrollIntoView(popUpCountryFlagArrow);
+        return isDisplayed(popUpCountryFlagArrow);
+    }
+
+    public void clickOnCountryFlagArrowInPopUp() {
+        click(popUpCountryFlagArrow, "Pop Up Country Flag Arrow");
+    }
+
+    public boolean isPopUpPhoneNumberLabelIsDisplayed() {
+        scrollIntoView(popUpPhoneNumberLabel);
+        return isDisplayed(popUpPhoneNumberLabel);
+    }
+
+    public void validateTextOfPopUpPhoneNumberLabel(String text) {
+        softAssert(popUpPhoneNumberLabel, text);
+    }
+
+
+    public boolean isPopUpPhoneNumberIsDisplayed() {
+        scrollIntoView(popUpEnterTextPhoneNumber);
+        return isDisplayed(popUpEnterTextPhoneNumber);
+    }
+
+    public void enterTextInPopUpPhoneNumber(String text) {
+        sendKeys(popUpEnterTextPhoneNumber, text);
+    }
+
+    public void validatePlaceholderTextOfPopUpPhoneNumber(String text) {
+        validatePlaceholderText(popUpEnterTextPhoneNumber, text);
+    }
+
+    public boolean isPopUpEmailLabelIsDisplayed() {
+        scrollIntoView(popUpEmailLabel);
+        return isDisplayed(popUpEmailLabel);
+    }
+
+    public void validateTextOfPopUpEmailLabel(String text) {
+        softAssert(popUpEmailLabel, text);
+    }
+
+    public boolean isPopUpEmailTextBoxIsDisplayed() {
+        scrollIntoView(popUpEnterTextEmail);
+        return isDisplayed(popUpEnterTextEmail);
+    }
+
+    public void enterTextInPopUpEmail(String text) {
+        sendKeys(popUpEnterTextEmail, text);
+    }
+
+    public void validatePlaceholderTextOfPopUpEmail(String text) {
+        validatePlaceholderText(popUpEnterTextEmail, text);
+    }
+
+    public boolean isPopUpTnCLabelIsDisplayed() {
+        scrollIntoView(popUpTnCLabel);
+        return isDisplayed(popUpTnCLabel);
+    }
+
+    public void validateTextOfPopUpTnCLabel(String text) {
+        softAssert(popUpTnCLabel, text);
+    }
+
+    //    public boolean isPopUpTnCCheckboxIsDisplayed() {
+//        scrollIntoView(popUpTnCCheckbox);
+//        return popUpTnCCheckbox.isDisplayed();
+//    }
+//    public void clickPopUpTnCCheckbox() {
+//        click(popUpTnCCheckbox, "Pop Up TnC Checkbox");
+//    }
+    public boolean isPopUpSendWhatsAppCheckboxIsDisplayed() {
+        scrollIntoView(popUpSendWhatsAppCheckbox);
+        return isDisplayed(popUpSendWhatsAppCheckbox);
+    }
+
+    public void clickPopUpSendWhatsAppCheckbox() {
+        click(popUpSendWhatsAppCheckbox, "Pop Up Send WhatsApp Checkbox");
+    }
+
+    public boolean ifSubmitButtonIsDisplayed() {
+        scrollIntoView(popUpSubmitButton);
+        return isDisplayed(popUpSubmitButton);
+    }
+
+    public void validateTextOfSubmitButton(String text) {
+        softAssert(popUpSubmitButton, text);
+    }
+
+    public void clickSubmitButton() {
+        click(popUpSubmitButton, "Submit button");
+    }
+
+    public boolean ifCloseButtonIsDisplayed() {
+        scrollIntoView(closeButtonInPopUp);
+        return isDisplayed(closeButtonInPopUp);
+    }
+
+    public void clickOnCloseButtonInPopUp() {
+        click(closeButtonInPopUp, "Close button in pop up");
+    }
+
 }
