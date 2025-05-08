@@ -52,16 +52,17 @@ public class TestBase {
     private static final String TIMESTAMP = new SimpleDateFormat("dd-MM-yyyy HH-mm-ss").format(new Date());
     private static final String REPORT_PATH = REPORT_DIR + "/report_" + TIMESTAMP + ".html";
 
-//    public static SelfHealingDriver getDriver() {
-//        return (SelfHealingDriver) driver.get();
-//    }
-//public static void setDriver(SelfHealingDriver drv) {
-//    driver.set(drv);
-//}
-
-    public static WebDriver getDriver() {
-        return driver.get();
+    public static SelfHealingDriver getDriver() {
+        return (SelfHealingDriver) driver.get();
     }
+
+    public static void setDriver(SelfHealingDriver drv) {
+        driver.set(drv);
+    }
+
+//    public static WebDriver getDriver() {
+//        return driver.get();
+//    }
 
     public static void setDriver(WebDriver drv) {
         driver.set(drv);
@@ -82,8 +83,8 @@ public class TestBase {
 
     @BeforeSuite(alwaysRun = true)
     public void beforeSuite() throws IOException {
-        recordLogs();
         loadProperties();
+        recordLogs();
         setupExtentReport();
         initializeChromeDriver();
     }
@@ -107,7 +108,7 @@ public class TestBase {
         if (!logDir.exists()) {
             logDir.mkdirs();
         }
-        File logFile = new File("logs/test-execution.log");
+        File logFile = new File("logs/web_automation_execution.log");
 
         if (logFile.exists()) {
             try {
@@ -132,12 +133,11 @@ public class TestBase {
         prefs.put("profile.default_content_setting_values.notifications", 2);
 // Apply prefs
         options.setExperimentalOption("prefs", prefs);
-
-//        WebDriver chromeDriver = new ChromeDriver(options);
+        System.setProperty("heal-enabled", "false");
+        WebDriver chromeDriver = new ChromeDriver(options);
 //        create Self-healing driver
-//        SelfHealingDriver driver = SelfHealingDriver.create(chromeDriver);
-
-        WebDriver driver = new ChromeDriver(options);
+        SelfHealingDriver driver = SelfHealingDriver.create(chromeDriver);
+//        WebDriver driver = new ChromeDriver(options);
         setDriver(driver);
     }
 
@@ -323,7 +323,7 @@ public class TestBase {
             }
 
         } catch (TimeoutException e) {
-            logger.error("TimeoutException :- "+ e.getMessage());
+            logger.error("TimeoutException :- " + e.getMessage());
             return false;
         }
         return false;

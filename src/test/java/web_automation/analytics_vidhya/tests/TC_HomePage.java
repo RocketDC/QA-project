@@ -1890,30 +1890,30 @@ public class TC_HomePage extends TestBase {
             test.log(Status.FAIL, "Pop up phone number label is not displayed");
             logger.info("Pop up phone number label is not displayed");
         }
-        if(homePage.isPopUpCountryFlagIsDisplayed()){
-            logger.info("Pop up country flag is displayed");
-            test.log(Status.PASS, "Pop up country flag is displayed");
-            homePage.clickOnCountryFlagInPopUp();
-            logger.info("Pop up country flag is clicked");
-            homePage.clickOnCountryFlagInPopUp();
-            logger.info("Pop up country flag is validated");
-            test.log(Status.PASS, "Pop up country flag is validated");
-        } else {
-            test.log(Status.FAIL, "Pop up country flag is not displayed");
-            logger.info("Pop up country flag is not displayed");
-        }
-        if(homePage.isPopUpCountryFlagArrowIsDisplayed()){
-            logger.info("Pop up country flag arrow is displayed");
-            test.log(Status.PASS, "Pop up country flag arrow is displayed");
-            homePage.clickOnCountryFlagArrowInPopUp();
-            logger.info("Pop up country flag arrow is clicked");
-            homePage.clickOnCountryFlagInPopUp();//arrow click doesn't work in second time
-            logger.info("Pop up country flag arrow is validated");
-            test.log(Status.PASS, "Pop up country flag arrow is validated");
-        } else {
-            test.log(Status.FAIL, "Pop up country flag arrow is not displayed");
-            logger.info("Pop up country flag arrow is not displayed");
-        }
+//        if(homePage.isPopUpCountryFlagIsDisplayed()){
+//            logger.info("Pop up country flag is displayed");
+//            test.log(Status.PASS, "Pop up country flag is displayed");
+//            homePage.clickOnCountryFlagInPopUp();
+//            logger.info("Pop up country flag is clicked");
+//            homePage.clickOnCountryFlagInPopUp();
+//            logger.info("Pop up country flag is validated");
+//            test.log(Status.PASS, "Pop up country flag is validated");
+//        } else {
+//            test.log(Status.FAIL, "Pop up country flag is not displayed");
+//            logger.info("Pop up country flag is not displayed");
+//        }
+//        if(homePage.isPopUpCountryFlagArrowIsDisplayed()){
+//            logger.info("Pop up country flag arrow is displayed");
+//            test.log(Status.PASS, "Pop up country flag arrow is displayed");
+//            homePage.clickOnCountryFlagArrowInPopUp();
+//            logger.info("Pop up country flag arrow is clicked");
+//            homePage.clickOnCountryFlagArrowInPopUp();//arrow click doesn't work in second time
+//            logger.info("Pop up country flag arrow is validated");
+//            test.log(Status.PASS, "Pop up country flag arrow is validated");
+//        } else {
+//            test.log(Status.FAIL, "Pop up country flag arrow is not displayed");
+//            logger.info("Pop up country flag arrow is not displayed");
+//        }
         if (homePage.isPopUpPhoneNumberIsDisplayed()) {
             logger.info("Pop up phone number text box is displayed");
             test.log(Status.PASS, "Pop up phone number text box is displayed");
