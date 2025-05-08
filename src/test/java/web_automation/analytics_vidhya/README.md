@@ -17,7 +17,7 @@ Just clone, install dependencies, and run `mvn test` to watch the suite drive th
 | Web UI Automation | **Selenium 4**          | Cross‑browser interaction (CSS/JS support, CDP APIs)         |
 | Self‑Healing      | **Healenium**           | Replaces broken locators automatically to cut flaky failures |
 | Driver Mgmt       | **WebDriverManager**    | Downloads & caches the matching ChromeDriver binary          |
-| Logging           | **Log4j 2**             | Structured log output to `logs/test‑execution.log`           |
+| Logging           | **Log4j 2**             | Structured log output to `logs/web_automation_execution.log`           |
 | Reports           | **Extent Spark Report** | Interactive HTML results (pass/fail charts, screenshots)     |
 
 ---
