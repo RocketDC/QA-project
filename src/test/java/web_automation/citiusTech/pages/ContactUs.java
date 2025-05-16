@@ -2,8 +2,9 @@ package web_automation.citiusTech.pages;
 
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.WebElement;
+import web_automation.citiusTech.base.TestBase;
 
-public class ContactUs {
+public class ContactUs extends TestBase{
 
     //This class is used to store all the locators and methods for the Contact Us page
     //@FindBy is used to store the locators
@@ -222,6 +223,267 @@ public WebElement contactUsButton3;
 
 
 
+// ===========================(NAV Buttons section)===========================
+
+    public boolean citiusTechLogoIsDisplayed() {
+        scrollIntoView(citiusTechLogo);
+        return isDisplayed(citiusTechLogo);
+    }
+
+    public void clickCitiusTechLogo() {
+        scrollIntoView(citiusTechLogo);
+        click(citiusTechLogo, "Citius Tech logo");
+    }
+
+
+
+    public boolean whatWeDoNavIsDisplayed() {
+        scrollIntoView(whatWeDoNav);
+        return isDisplayed(whatWeDoNav);
+    }
+
+    public void clickWhatWeDoNav() {
+        scrollIntoView(whatWeDoNav);
+        click(whatWeDoNav, "What we do Nav");
+    }
+
+    public void validateTextOfWhatWeDoNav(String text) {
+        softAssert(whatWeDoNav, text);
+    }
+
+    public boolean whoWeAreNavIsDisplayed() {
+        scrollIntoView(whoWeAreNav);
+        return isDisplayed(whoWeAreNav);
+    }
+
+    public void clickWhoWeAreNav() {
+        scrollIntoView(whoWeAreNav);
+        click(whoWeAreNav, "Who we are Nav");
+    }
+
+    public void validateTextOfWhoWeAreNav(String text) {
+        softAssert(whoWeAreNav, text);
+    }
+
+    public boolean whatWeThinkNavIsDisplayed() {
+        scrollIntoView(whatWeThinkNav);
+        return isDisplayed(whatWeThinkNav);
+    }
+
+    public void clickWhatWeThinkNav() {
+        scrollIntoView(whatWeThinkNav);
+        click(whatWeThinkNav, "What we think Nav");
+    }
+
+    public void validateTextOfWhatWeThinkNav(String text) {
+        softAssert(whatWeThinkNav, text);
+    }
+
+    public boolean partnersNavIsDisplayed() {
+        scrollIntoView(partnersNav);
+        return isDisplayed(partnersNav);
+    }
+
+    public void clickPartnersNav() {
+        scrollIntoView(partnersNav);
+        click(partnersNav, "Partners Nav");
+    }
+
+    public void validateTextOfPartnersNav(String text) {
+        softAssert(partnersNav, text);
+    }
+
+    public boolean careersNavIsDisplayed() {
+        scrollIntoView(careersNav);
+        return isDisplayed(careersNav);
+    }
+
+    public void clickCareersNav() {
+        scrollIntoView(careersNav);
+        click(careersNav, "Careers Nav");
+    }
+
+    public void validateTextOfCareersNav(String text) {
+        softAssert(careersNav, text);
+    }
+
+    public boolean contactUsNavIsDisplayed() {
+        scrollIntoView(contactUsNav);
+        return isDisplayed(contactUsNav);
+    }
+
+    public void clickContactUsNav() {
+        scrollIntoView(contactUsNav);
+        click(contactUsNav, "Contact Us Nav");
+    }
+
+    public void validateTextOfContactUsNav(String text) {
+        softAssert(contactUsNav, text);
+    }
+
+    public boolean searchIconNavIsDisplayed() {
+        scrollIntoView(searchIconNav);
+        return isDisplayed(searchIconNav);
+    }
+
+    public void clickSearchIconNav() {
+        scrollIntoView(searchIconNav);
+        click(searchIconNav, "Search Icon Nav");
+    }
+
+     // ===========================(Cover Photo section)===========================
+
+    public boolean coverPhotoIsDisplayed() {
+        scrollIntoView(coverPhoto);
+        return isDisplayed(coverPhoto);
+    }
+
+    public void clickCoverPhoto() {
+        scrollIntoView(coverPhoto);
+        click(coverPhoto, "Cover Photo");
+    }
+
+    public void validateTextOfCoverPhoto(String text) {
+        softAssert(coverPhoto, text);
+    }
+
+    public boolean whoWeAreLabelIsDisplayed() {
+        scrollIntoView(whoWeAreLabel);
+        return isDisplayed(whoWeAreLabel);
+    }
+
+    public void clickWhoWeAreLabel() {
+        scrollIntoView(whoWeAreLabel);
+        click(whoWeAreLabel, "Who We Are Label");
+    }
+
+    public void validateTextOfWhoWeAreLabel(String text) {
+        softAssert(whoWeAreLabel, text);
+    }
+
+    public boolean contactUsHeadingIsDisplayed() {
+        scrollIntoView(contactUsHeading);
+        return isDisplayed(contactUsHeading);
+    }
+
+    public void clickContactUsHeading() {
+        scrollIntoView(contactUsHeading);
+        click(contactUsHeading, "Contact Us Heading");
+    }
+
+    public void validateTextOfContactUsHeading(String text) {
+        softAssert(contactUsHeading, text);
+    }
+
+    public boolean contactUsSubheadingIsDisplayed() {
+        scrollIntoView(contactUsSubheading);
+        return isDisplayed(contactUsSubheading);
+    }
+
+    public void clickContactUsSubheading() {
+        scrollIntoView(contactUsSubheading);
+        click(contactUsSubheading, "Contact Us Subheading");
+    }
+
+    public void validateTextOfContactUsSubheading(String text) {
+        softAssert(contactUsSubheading, text);
+    }
+
+
+    // ======================(Get in Touch section)====================
+
+    public boolean getInTouchHeadingIsDisplayed() {
+        scrollIntoView(getInTouchHeading);
+        return isDisplayed(getInTouchHeading);
+    }
+
+    public void clickGetInTouchHeading() {
+        scrollIntoView(getInTouchHeading);
+        click(getInTouchHeading, "Get in Touch Heading");
+    }
+
+    public void validateTextOfGetInTouchHeading(String text) {
+        softAssert(getInTouchHeading, text);
+    }
+
+    public boolean getInTouchSubheadingIsDisplayed() {
+        scrollIntoView(getInTouchSubheading);
+        return isDisplayed(getInTouchSubheading);
+    }
+
+    public void clickGetInTouchSubheading() {
+        scrollIntoView(getInTouchSubheading);
+        click(getInTouchSubheading, "Get in Touch Subheading");
+    }
+
+    public void validateTextOfGetInTouchSubheading(String text) {
+        softAssert(getInTouchSubheading, text);
+    }
+
+    public boolean writeToUsLabelIsDisplayed() {
+        scrollIntoView(writeToUsLabel);
+        return isDisplayed(writeToUsLabel);
+    }
+
+
+    public void validateTextOfWriteToUsLabel(String text) {
+        softAssert(writeToUsLabel, text);
+    }
+
+    public boolean generalInformationLabelIsDisplayed() {
+        scrollIntoView(generalInformationLabel);
+        return isDisplayed(generalInformationLabel);
+    }
+
+    public void validateTextOfGeneralInformationLabel(String text) {
+        softAssert(generalInformationLabel, text);
+    }
+
+    public boolean generalInformationEmailIsDisplayed() {
+        scrollIntoView(generalInformationEmail);
+        return isDisplayed(generalInformationEmail);
+    }
+
+    public void validateTextOfGeneralInformationEmail(String text) {
+        softAssert(generalInformationEmail, text);
+    }
+
+    public boolean salesQueryLabelIsDisplayed() {
+        scrollIntoView(salesQueryLabel);
+        return isDisplayed(salesQueryLabel);
+    }
+
+    public void validateTextOfSalesQueryLabel(String text) {
+        softAssert(salesQueryLabel, text);
+    }
+
+    public boolean salesQueryEmailIsDisplayed() {
+        scrollIntoView(salesQueryEmail);
+        return isDisplayed(salesQueryEmail);
+    }
+
+    public void validateTextOfSalesQueryEmail(String text) {
+        softAssert(salesQueryEmail, text);
+    }
+
+
+    //==================================(Request for proposal box)==================================
+
+    public boolean requestForProposalButtonIsDisplayed() {
+        scrollIntoView(requestForProposalButton);
+        return isDisplayed(requestForProposalButton);
+    }
+
+    public void validateTextOfRequestForProposalButton(String text) {
+        softAssert(requestForProposalButton, text);
+    }
+
+    public void clickRequestForProposalButton() {
+        scrollIntoView(requestForProposalButton);
+        click(requestForProposalButton, "Request for Proposal Button");
+    }
+    
 
     
+
 }
