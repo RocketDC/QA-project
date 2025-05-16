@@ -12,6 +12,10 @@ public class HomePage extends TestBase{
     @FindBy(xpath = "//a[@class='button'][normalize-space()='Contact']") 
     public WebElement contactUsButton;
 
+    //Contact Us button in footer locator
+    @FindBy(xpath = "//a[@target='_blank'][normalize-space()='Contact']") 
+    public WebElement contactUsButtonFooter;
+
     //Method to check if Contact Us button is displayed
     public boolean contactUsButtonIsDisplayed() {
         scrollIntoView(contactUsButton);
@@ -27,6 +31,23 @@ public class HomePage extends TestBase{
     //Method to validate the text of the Contact Us button
     public void validateTextOfContactUsButton(String text) {
         softAssert(contactUsButton, text);
+    }
+
+    //Method to check if Contact Us button in footer is displayed
+    public boolean contactUsButtonFooterIsDisplayed() {
+        scrollIntoView(contactUsButtonFooter);
+        return isDisplayed(contactUsButtonFooter);
+    }
+
+    //Method to click on the Contact Us button in footer
+    public void clickContactUsButtonFooter() {
+        scrollIntoView(contactUsButtonFooter);
+        click(contactUsButtonFooter, "Contact Us button in footer");
+    }
+
+    //Method to validate the text of the Contact Us button in footer
+    public void validateTextOfContactUsButtonFooter(String text) {
+        softAssert(contactUsButtonFooter, text);
     }
 
     
