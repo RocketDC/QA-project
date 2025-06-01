@@ -339,6 +339,7 @@ public class CommonTestBase {
         String actualText = element.getText();
         if (actualText.equals(expectedText)) {
             test.log(Status.PASS, "Validating if [" + expectedText + "] is present");
+            logger.info("Validating if [" + expectedText + "] is present");
         } else {
             test.log(Status.FAIL, "Text not found - Expected: " + expectedText + ", Actual: " + actualText);
             softAssert.fail("Text not found - Expected: " + expectedText + ", Actual: " + actualText);
@@ -353,6 +354,7 @@ public class CommonTestBase {
         String actualText = element.getAttribute("placeholder");
         if (actualText.equals(expectedText)) {
             test.log(Status.PASS, "Validating if Placeholder text [" + expectedText + "] is present");
+            logger.info("Validating if Placeholder text [" + expectedText + "] is present");
         } else {
             test.log(Status.FAIL, "Placeholder Text not found - Expected: " + expectedText + ", Actual: " + actualText);
             softAssert.fail("Placeholder Text not found - Expected: " + expectedText + ", Actual: " + actualText);
@@ -369,9 +371,25 @@ public class CommonTestBase {
             element.clear();
             element.sendKeys(expectedText);
             test.log(Status.PASS, "Entered text [" + expectedText + "] to the textbox");
+            logger.info("Entered text [" + expectedText + "] to the textbox");
         } else {
             test.log(Status.FAIL, "Failed to enter " + expectedText + "Textbox is not editable");
             logger.error("Failed to enter " + expectedText + "Textbox is not editable");
+        }
+    }
+
+    public void hover(WebElement element, String message) {
+        ExtentTest test = extent.createTest("Hovering on ➜ " + message);
+        setExtentTest(test);
+        try {
+            waitForElementToBeVisible(element);
+            Actions actions = new Actions(getDriver());
+            actions.moveToElement(element).perform();
+            test.log(Status.PASS, "Hovered on " + message);
+            logger.info("Hovered on " + message);
+        } catch (Exception e) {
+            test.log(Status.FAIL, "Failed to hover on " + message);
+            logger.error("Failed to hover on " + message);
         }
     }
 

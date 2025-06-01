@@ -1,12 +1,21 @@
 package web_automation.citiusTech.pages;
 
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 import web_automation.citiusTech.base.TestBase;
 
-public class ContactUs extends TestBase{
 
-    //This class is used to store all the locators and methods for the Contact Us page
+public class ContactUs extends TestBase {
+    WebDriver driver;
+    
+    public ContactUs(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
+
+    // This class is used to store all the locators and methods for the Contact Us page
     //@FindBy is used to store the locators
 
     // ===========================(NAV Buttons section)===========================
@@ -482,6 +491,29 @@ public WebElement contactUsButton3;
         scrollIntoView(requestForProposalButton);
         click(requestForProposalButton, "Request for Proposal Button");
     }
+
+
+    //================================(Consult our experts section)================================
+
+    public boolean consultOurExpertsHeadingIsDisplayed() {
+        scrollIntoView(consultOurExpertsHeading);
+        return isDisplayed(consultOurExpertsHeading);
+    }
+
+    public void validateTextOfConsultOurExpertsHeading(String text) {
+        softAssert(consultOurExpertsHeading, text);
+    }
+
+    public boolean consultOurExpertsSubheadingIsDisplayed() {
+        scrollIntoView(consultOurExpertsSubheading);
+        return isDisplayed(consultOurExpertsSubheading);
+    }
+
+    public void validateTextOfConsultOurExpertsSubheading(String text) {
+        softAssert(consultOurExpertsSubheading, text);
+    }
+
+    
     
 
     
