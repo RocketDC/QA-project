@@ -12,7 +12,7 @@ import web_automation.wissen.utils.WissenDataProvider;
 public class TC_ContactUs extends TestBase {
     public final String moduleName = "Contact Us";
 
-    @Test(priority = 1,description = "Testing if user can navigate to Contact Us page and click on Write To Us link")
+    @Test(priority = 1,description = "Testing if user can navigate to Contact Us page and click on Write To Us link",dataProvider = "wissenUrls",dataProviderClass = WissenDataProvider.class)
     public void testContactUsNavigation(String url) {
         ExtentTest test = extent
                 .createTest("TC_ContactUs_testContactUsNavigation",
@@ -61,7 +61,8 @@ public class TC_ContactUs extends TestBase {
     }
     
     @Test(priority = 2,description = "Testing if user can fill the contact us form and submit",dataProvider = "wissenData",dataProviderClass = WissenDataProvider.class,dependsOnMethods = "testContactUsNavigation")
-    public void testContactUsForm(String url, String name,String surname, String position, String company, String reasonOfContact, String email, String phone, String message) {
+    public void testContactUsForm(String name, String surname, String position, String company, String email,
+            String phone, String reasonOfContact, String message) {
         ExtentTest test = extent
                 .createTest("TC_ContactUs_testContactUsForm",
                         "Testing Contact Us page navigation and form submission")
@@ -82,7 +83,8 @@ public class TC_ContactUs extends TestBase {
         }
 
         if (contactUs.isContactUsSubHeadingDisplayed()) {
-            contactUs.validateTextOfContactUsSubHeading("Please contact us via this form, and we will reply as soon as possible.");
+            contactUs.validateTextOfContactUsSubHeading(
+                    "Please contact us via this form, and we will reply as soon as possible.");
             test.log(Status.PASS, "Contact Us subHeading is displayed");
             logger.info("Contact Us subHeading is displayed");
         } else {
@@ -93,7 +95,7 @@ public class TC_ContactUs extends TestBase {
         // Validating the form fields
         // Name
         if (contactUs.isNameLabelDisplayed()) {
-            contactUs.validateTextOfNameLabel("Name");
+            contactUs.validateTextOfNameLabel("NAME");
             test.log(Status.PASS, "Name label is displayed");
             logger.info("Name label is displayed");
         } else {
@@ -102,7 +104,7 @@ public class TC_ContactUs extends TestBase {
         }
 
         if (contactUs.isNameInputDisplayed()) {
-            contactUs.validatePlaceholderTextOfNameInput("Name");
+            contactUs.validatePlaceholderTextOfNameInput("e.g. Julia");
             contactUs.enterName(name);
             test.log(Status.PASS, "Name input is displayed");
             logger.info("Name input is displayed");
@@ -113,7 +115,7 @@ public class TC_ContactUs extends TestBase {
 
         // Surname
         if (contactUs.isSurnameLabelDisplayed()) {
-            contactUs.validateTextOfSurnameLabel("Surname");
+            contactUs.validateTextOfSurnameLabel("SURNAME");
             test.log(Status.PASS, "Surname label is displayed");
             logger.info("Surname label is displayed");
         } else {
@@ -122,7 +124,7 @@ public class TC_ContactUs extends TestBase {
         }
 
         if (contactUs.isSurnameInputDisplayed()) {
-            contactUs.validatePlaceholderTextOfSurnameInput("Surname");
+            contactUs.validatePlaceholderTextOfSurnameInput("e.g. Smith");
             contactUs.enterSurname(surname);
             test.log(Status.PASS, "Surname input is displayed");
             logger.info("Surname input is displayed");
@@ -133,7 +135,7 @@ public class TC_ContactUs extends TestBase {
 
         // Position
         if (contactUs.isPositionLabelDisplayed()) {
-            contactUs.validateTextOfPositionLabel("Position");
+            contactUs.validateTextOfPositionLabel("POSITION");
             test.log(Status.PASS, "Position label is displayed");
             logger.info("Position label is displayed");
         } else {
@@ -142,7 +144,7 @@ public class TC_ContactUs extends TestBase {
         }
 
         if (contactUs.isPositionInputDisplayed()) {
-            contactUs.validatePlaceholderTextOfPositionInput("Position");
+            contactUs.validatePlaceholderTextOfPositionInput("e.g. CFO");
             contactUs.enterPosition(position);
             test.log(Status.PASS, "Position input is displayed");
             logger.info("Position input is displayed");
@@ -153,7 +155,7 @@ public class TC_ContactUs extends TestBase {
 
         // Company
         if (contactUs.isCompanyLabelDisplayed()) {
-            contactUs.validateTextOfCompanyLabel("Company");
+            contactUs.validateTextOfCompanyLabel("COMPANY");
             test.log(Status.PASS, "Company label is displayed");
             logger.info("Company label is displayed");
         } else {
@@ -162,7 +164,7 @@ public class TC_ContactUs extends TestBase {
         }
 
         if (contactUs.isCompanyInputDisplayed()) {
-            contactUs.validatePlaceholderTextOfCompanyInput("Company");
+            contactUs.validatePlaceholderTextOfCompanyInput("e.g. Papers");
             contactUs.enterCompany(company);
             test.log(Status.PASS, "Company input is displayed");
             logger.info("Company input is displayed");
@@ -173,7 +175,7 @@ public class TC_ContactUs extends TestBase {
 
         // Email
         if (contactUs.isEmailLabelDisplayed()) {
-            contactUs.validateTextOfEmailLabel("Email");
+            contactUs.validateTextOfEmailLabel("EMAIL");
             test.log(Status.PASS, "Email label is displayed");
             logger.info("Email label is displayed");
         } else {
@@ -182,7 +184,7 @@ public class TC_ContactUs extends TestBase {
         }
 
         if (contactUs.isEmailInputDisplayed()) {
-            contactUs.validatePlaceholderTextOfEmailInput("Email");
+            contactUs.validatePlaceholderTextOfEmailInput("e.g.  julia.smith@gmail.com");
             contactUs.enterEmail(email);
             test.log(Status.PASS, "Email input is displayed");
             logger.info("Email input is displayed");
@@ -193,7 +195,7 @@ public class TC_ContactUs extends TestBase {
 
         // Phone
         if (contactUs.isPhoneLabelDisplayed()) {
-            contactUs.validateTextOfPhoneLabel("Phone");
+            contactUs.validateTextOfPhoneLabel("PHONE");
             test.log(Status.PASS, "Phone label is displayed");
             logger.info("Phone label is displayed");
         } else {
@@ -202,7 +204,7 @@ public class TC_ContactUs extends TestBase {
         }
 
         if (contactUs.isPhoneInputDisplayed()) {
-            contactUs.validatePlaceholderTextOfPhoneInput("Phone");
+            contactUs.validatePlaceholderTextOfPhoneInput("e.g.  555 - 777 - 333");
             contactUs.enterPhone(phone);
             test.log(Status.PASS, "Phone input is displayed");
             logger.info("Phone input is displayed");
@@ -213,7 +215,7 @@ public class TC_ContactUs extends TestBase {
 
         // Reason of contact
         if (contactUs.isReasonOfContactLabelDisplayed()) {
-            contactUs.validateTextOfReasonOfContactLabel("Reason of contact");
+            contactUs.validateTextOfReasonOfContactLabel("REASON FOR CONTACT");
             test.log(Status.PASS, "Reason of contact label is displayed");
             logger.info("Reason of contact label is displayed");
         } else {
@@ -222,7 +224,7 @@ public class TC_ContactUs extends TestBase {
         }
 
         if (contactUs.isReasonOfContactInputDisplayed()) {
-            contactUs.validatePlaceholderTextOfReasonOfContactInput("Reason of contact");
+            contactUs.validatePlaceholderTextOfReasonOfContactInput("Want to avail Saas as a service");
             contactUs.enterReasonOfContact(reasonOfContact);
             test.log(Status.PASS, "Reason of contact input is displayed");
             logger.info("Reason of contact input is displayed");
@@ -233,7 +235,7 @@ public class TC_ContactUs extends TestBase {
 
         // Message
         if (contactUs.isMessageLabelDisplayed()) {
-            contactUs.validateTextOfMessageLabel("Message");
+            contactUs.validateTextOfMessageLabel("MESSAGE");
             test.log(Status.PASS, "Message label is displayed");
             logger.info("Message label is displayed");
         } else {
@@ -242,7 +244,7 @@ public class TC_ContactUs extends TestBase {
         }
 
         if (contactUs.isMessageInputDisplayed()) {
-            contactUs.validatePlaceholderTextOfMessageInput("Message");
+            contactUs.validatePlaceholderTextOfMessageInput("Let us know");
             contactUs.enterMessage(message);
             test.log(Status.PASS, "Message input is displayed");
             logger.info("Message input is displayed");
@@ -253,7 +255,7 @@ public class TC_ContactUs extends TestBase {
 
         // I agree
         if (contactUs.isIAgreeLabelDisplayed()) {
-            contactUs.validateTextOfIAgreeLabel("I agree");
+            contactUs.validateTextOfIAgreeLabel("I agree with the processing of personal data.");
             test.log(Status.PASS, "I agree label is displayed");
             logger.info("I agree label is displayed");
         } else {
@@ -281,15 +283,339 @@ public class TC_ContactUs extends TestBase {
             logger.error("Submit button is not displayed");
         }
 
-        // Success message
-        if (contactUs.isSuccessMessageDisplayed()) {
-            contactUs.validateTextOfSuccessMessage("Success");
-            test.log(Status.PASS, "Success message is displayed");
-            logger.info("Success message is displayed");
+        hardWait(4);
+
+        // Success page
+        if (contactUs.isSuccessPageHeadingDisplayed()) {
+            contactUs.validateTextOfSuccessPageHeading("Contact Us");
+            test.log(Status.PASS, "Success page heading is displayed");
+            logger.info("Success page heading is displayed");
         } else {
-            test.log(Status.FAIL, "Success message is not displayed");
-            logger.error("Success message is not displayed");
+            test.log(Status.FAIL, "Success page heading is not displayed");
+            logger.error("Success page heading is not displayed");
         }
 
+        if (contactUs.isSuccessPageSubHeadingDisplayed()) {
+            contactUs.validateTextOfSuccessPageSubHeading(
+                    "Please contact us via this form, and we will reply as soon as possible.");
+            test.log(Status.PASS, "Success page sub heading is displayed");
+            logger.info("Success page sub heading is displayed");
+        } else {
+            test.log(Status.FAIL, "Success page sub heading is not displayed");
+            logger.error("Success page sub heading is not displayed");
+        }
+
+        if (contactUs.isSuccessPageMessageDisplayed()) {
+            contactUs.validateTextOfSuccessPageMessage("Our team will get back to you with your request to connect.");
+            test.log(Status.PASS, "Success page message is displayed");
+            logger.info("Success page message is displayed");
+        } else {
+            test.log(Status.FAIL, "Success page message is not displayed");
+            logger.error("Success page message is not displayed");
+        }
+
+    }
+    
+    @Test(priority = 3, description = "Testing if user can navigate to Contact Us page and click on Location")
+    public void navigateToLocation() {
+        ExtentTest test = extent.createTest("TC_ContactUs_navigateToLocation", "Testing Contact Us page navigation and form submission").assignCategory(moduleName);
+        setExtentTest(test);
+
+        // Initialize pages
+        HomePage homePage = new HomePage(getDriver());
+        ContactUs contactUs = new ContactUs(getDriver());
+
+        // Navigate to Contact Us page
+        if (homePage.isContactUsLinkDisplayed()) {
+            test.log(Status.PASS, "Contact Us link is displayed");
+            logger.info("Contact Us link is displayed");
+            homePage.validateTextOfContactUsLink("Contact Us");
+            homePage.hoverContactUs();
+            // Click on Location link
+            if (homePage.isLocationLinkDisplayed()) {
+                test.log(Status.PASS, "Location link is displayed");
+                logger.info("Location link is displayed");
+                homePage.clickLocationLink();
+                test.log(Status.INFO, "Clicked on Location link");
+                logger.info("Clicked on Location link");
+            } else {
+                test.log(Status.FAIL, "Location link is not displayed");
+                logger.error("Location link is not displayed");
+            }
+        } else {
+            test.log(Status.FAIL, "Contact Us link is not displayed");
+            logger.error("Contact Us link is not displayed");
+        }
+
+        hardWait(2);
+        
+        // Verify Location page
+        if (contactUs.isLocationHeadingDisplayed()) {
+            contactUs.validateTextOfLocationHeading("Location");
+            test.log(Status.PASS, "Location heading is displayed");
+            logger.info("Location heading is displayed");
+        } else {
+            test.log(Status.FAIL, "Location heading is not displayed");
+            logger.error("Location heading is not displayed");
+        }
+
+        if (contactUs.isLocationSubHeadingDisplayed()) {
+            contactUs.validateTextOfLocationSubHeading("Wissen has an open, tolerant, merit-driven, and transparent work culture, where we encourage ideas for improvement from all quarters and have even created a democratic space for dissent.");
+            test.log(Status.PASS, "Location sub heading is displayed");
+            logger.info("Location sub heading is displayed");
+        } else {
+            test.log(Status.FAIL, "Location sub heading is not displayed");
+            logger.error("Location sub heading is not displayed");
+        }
+
+        if (contactUs.isWissenGADisplayed()) {
+            contactUs.validateTextOfWissenGA("WISSEN – USA (GA)");
+            test.log(Status.PASS, "Wissen GA is displayed");
+            logger.info("Wissen GA is displayed");
+        } else {
+            test.log(Status.FAIL, "Wissen GA is not displayed");
+            logger.error("Wissen GA is not displayed");
+        }
+
+        if(contactUs.isWissenGAAddressDisplayed()) {
+            contactUs.validateTextOfWissenGAAddress("12505 Broadwell Rd, Alpharetta, GA 30004, United States");
+            test.log(Status.PASS, "Wissen GA address is displayed");
+            logger.info("Wissen GA address is displayed");
+        } else {
+            test.log(Status.FAIL, "Wissen GA address is not displayed");
+            logger.error("Wissen GA address is not displayed");
+        }
+if(contactUs.isWissenWIDisplayed()) {
+    contactUs.validateTextOfWissenWI("WISSEN – USA (WI)");
+    test.log(Status.PASS, "WissenWI is displayed");
+    logger.info("WissenWI is displayed");
+} else {
+    test.log(Status.FAIL, "WissenWI is not displayed");
+    logger.error("WissenWI is not displayed");
+}
+if(contactUs.isWissenWIAddressDisplayed()) {
+    contactUs.validateTextOfWissenWIAddress("2325 Parklawn Drive Suite K Waukesha, Wisconsin 53186, United States");
+    test.log(Status.PASS, "WissenWI address is displayed");
+    logger.info("WissenWI address is displayed");
+} else {
+    test.log(Status.FAIL, "WissenWI address is not displayed");
+    logger.error("WissenWI address is not displayed");
+}
+        if(contactUs.isWissenNYDisplayed()) {
+            contactUs.validateTextOfWissenNY("WISSEN – USA (NY)");
+            test.log(Status.PASS, "WissenNY is displayed");
+            logger.info("WissenNY is displayed");
+        } else {
+            test.log(Status.FAIL, "WissenNY is not displayed");
+            logger.error("WissenNY is not displayed");
+        }
+        if(contactUs.isWissenNYAddressDisplayed()) {
+            contactUs.validateTextOfWissenNYAddress("25 Broadway, 9th Floor, New York, NY 10004, United States");
+            test.log(Status.PASS, "WissenNY address is displayed");
+            logger.info("WissenNY address is displayed");
+        } else {
+            test.log(Status.FAIL, "WissenNY address is not displayed");
+            logger.error("WissenNY address is not displayed");
+        }
+
+        if(contactUs.isWissenTxDisplayed()) {
+            contactUs.validateTextOfWissenTx("WISSEN – USA (TX)");
+            test.log(Status.PASS, "Wissen TX is displayed");
+            logger.info("Wissen TX is displayed");
+        } else {
+            test.log(Status.FAIL, "Wissen TX is not displayed");
+            logger.error("Wissen TX is not displayed");
+        }
+
+        if (contactUs.isWissenTxAddressDisplayed()) {
+            contactUs.validateTextOfWissenTxAddress("5717, Legacy Dr Suite 250 Plano, TX 75024, United States");
+            test.log(Status.PASS, "Wissen TX is displayed");
+            logger.info("Wissen TX is displayed");
+        } else {
+            test.log(Status.FAIL, "Wissen TX is not displayed");
+            logger.error("Wissen TX is not displayed");
+        }
+
+        if(contactUs.isWissenDelhiDisplayed()) {
+            contactUs.validateTextOfWissenDelhi("WISSEN – DELHI");
+            test.log(Status.PASS, "Wissen Delhi is displayed");
+            logger.info("Wissen Delhi is displayed");
+        } else {
+            test.log(Status.FAIL, "Wissen Delhi is not displayed");
+            logger.error("Wissen Delhi is not displayed");
+        }
+
+        if(contactUs.isWissenDelhiAddressDisplayed()) {
+            contactUs.validateTextOfWissenDelhiAddress("Wework, Cyber City, DLF Forum, DLF Tower 10th Rd, Phase III, Gurugram, Haryana 122002");
+            test.log(Status.PASS, "Wissen Delhi address is displayed");
+            logger.info("Wissen Delhi address is displayed");
+        } else {
+            test.log(Status.FAIL, "Wissen Delhi address is not displayed");
+            logger.error("Wissen Delhi address is not displayed");
+        }
+
+        if(contactUs.isWissenBangaloreDisplayed()) {
+            contactUs.validateTextOfWissenBangalore("WISSEN-BANGALORE");
+            test.log(Status.PASS, "Wissen Bangalore is displayed");
+            logger.info("Wissen Bangalore is displayed");
+        } else {
+            test.log(Status.FAIL, "Wissen Bangalore is not displayed");
+            logger.error("Wissen Bangalore is not displayed");
+        }
+
+        if(contactUs.isWissenBangaloreAddressDisplayed()) {
+            contactUs.validateTextOfWissenBangaloreAddress("#176, Adarsh Eco Place 4th Floor, KIADB EPIP 2nd Phase Whitefield Bangalore, Karnataka 560066");
+            test.log(Status.PASS, "Wissen Bangalore address is displayed");
+            logger.info("Wissen Bangalore address is displayed");
+        } else {
+            test.log(Status.FAIL, "Wissen Bangalore address is not displayed");
+            logger.error("Wissen Bangalore address is not displayed");
+        }
+
+//        if(contactUs.isWissenMumbaiDisplayed()) {
+//            contactUs.validateTextOfWissenMumbai("Wissen Mumbai");
+//            test.log(Status.PASS, "Wissen Mumbai is displayed");
+//            logger.info("Wissen Mumbai is displayed");
+//        } else {
+//            test.log(Status.FAIL, "Wissen Mumbai is not displayed");
+//            logger.error("Wissen Mumbai is not displayed");
+//        }
+//
+//        if(contactUs.isWissenMumbaiAddressDisplayed()) {
+//            contactUs.validateTextOfWissenMumbaiAddress("Wissen Mumbai");
+//            test.log(Status.PASS, "Wissen Mumbai address is displayed");
+//            logger.info("Wissen Mumbai address is displayed");
+//        } else {
+//            test.log(Status.FAIL, "Wissen Mumbai address is not displayed");
+//            logger.error("Wissen Mumbai address is not displayed");
+//        }
+
+        if(contactUs.isWissenPuneDisplayed()) {
+            contactUs.validateTextOfWissenPune("WISSEN – PUNE");
+            test.log(Status.PASS, "Wissen Pune is displayed");
+            logger.info("Wissen Pune is displayed");
+        } else {
+            test.log(Status.FAIL, "Wissen Pune is not displayed");
+            logger.error("Wissen Pune is not displayed");
+        }
+
+        if(contactUs.isWissenPuneAddressDisplayed()) {
+            contactUs.validateTextOfWissenPuneAddress("Smartworks M Agile, Level 2 Pan card Club Road, Baner, Pune, Maharashtra, 411045");
+            test.log(Status.PASS, "Wissen Pune address is displayed");
+            logger.info("Wissen Pune address is displayed");
+        } else {
+            test.log(Status.FAIL, "Wissen Pune address is not displayed");
+            logger.error("Wissen Pune address is not displayed");
+        }
+
+        if(contactUs.isWissenHyderabadDisplayed()) {
+            contactUs.validateTextOfWissenHyderabad("WISSEN-HYDERABAD");
+            test.log(Status.PASS, "Wissen Hyderabad is displayed");
+            logger.info("Wissen Hyderabad is displayed");
+        } else {
+            test.log(Status.FAIL, "Wissen Hyderabad is not displayed");
+            logger.error("Wissen Hyderabad is not displayed");
+        }
+
+        if(contactUs.isWissenHyderabadAddressDisplayed()) {
+            contactUs.validateTextOfWissenHyderabadAddress("Q4, 9th Floor, Cyber Towers");
+            test.log(Status.PASS, "Wissen Hyderabad address is displayed");
+            logger.info("Wissen Hyderabad address is displayed");
+        } else {
+            test.log(Status.FAIL, "Wissen Hyderabad address is not displayed");
+            logger.error("Wissen Hyderabad address is not displayed");
+        }
+
+        if(contactUs.isWissenChennaiDisplayed()) {
+            contactUs.validateTextOfWissenChennai("WISSEN – CHENNAI");
+            test.log(Status.PASS, "Wissen Chennai is displayed");
+            logger.info("Wissen Chennai is displayed");
+        } else {
+            test.log(Status.FAIL, "Wissen Chennai is not displayed");
+            logger.error("Wissen Chennai is not displayed");
+        }
+
+        if(contactUs.isWissenChennaiAddressDisplayed()) {
+            contactUs.validateTextOfWissenChennaiAddress("Awfis Sierra, Plot no. 21, Electrical, Electronics & Instruments industries Perungudi, Sholinganallur, Seevaram, OMR, Chennai, Tamil Nadu 600096");
+            test.log(Status.PASS, "Wissen Chennai address is displayed");
+            logger.info("Wissen Chennai address is displayed");
+        } else {
+            test.log(Status.FAIL, "Wissen Chennai address is not displayed");
+            logger.error("Wissen Chennai address is not displayed");
+        }
+
+        if(contactUs.isWissenCanadaDisplayed()) {
+            contactUs.validateTextOfWissenCanada("WISSEN – CANADA");
+            test.log(Status.PASS, "Wissen Canada is displayed");
+            logger.info("Wissen Canada is displayed");
+        } else {
+            test.log(Status.FAIL, "Wissen Canada is not displayed");
+            logger.error("Wissen Canada is not displayed");
+        }
+
+        if(contactUs.isWissenCanadaAddressDisplayed()) {
+            contactUs.validateTextOfWissenCanadaAddress("157 Adelaide St W #338, Toronto, ON M5H 1P9");
+            test.log(Status.PASS, "Wissen Canada address is displayed");
+            logger.info("Wissen Canada address is displayed");
+        } else {
+            test.log(Status.FAIL, "Wissen Canada address is not displayed");
+            logger.error("Wissen Canada address is not displayed");
+        }
+
+//        if(contactUs.isWissenUKDisplayed()) {
+//            contactUs.validateTextOfWissenUK("Wissen UK");
+//            test.log(Status.PASS, "Wissen UK is displayed");
+//            logger.info("Wissen UK is displayed");
+//        } else {
+//            test.log(Status.FAIL, "Wissen UK is not displayed");
+//            logger.error("Wissen UK is not displayed");
+//        }
+//
+//        if(contactUs.isWissenUKAddressDisplayed()) {
+//            contactUs.validateTextOfWissenUKAddress("Wissen UK");
+//            test.log(Status.PASS, "Wissen UK address is displayed");
+//            logger.info("Wissen UK address is displayed");
+//        } else {
+//            test.log(Status.FAIL, "Wissen UK address is not displayed");
+//            logger.error("Wissen UK address is not displayed");
+//        }
+
+        if(contactUs.isWissenAUDisplayed()) {
+            contactUs.validateTextOfWissenAU("WISSEN – AUSTRALIA");
+            test.log(Status.PASS, "Wissen AU is displayed");
+            logger.info("Wissen AU is displayed");
+        } else {
+            test.log(Status.FAIL, "Wissen AU is not displayed");
+            logger.error("Wissen AU is not displayed");
+        }
+
+        if(contactUs.isWissenAUAddressDisplayed()) {
+            contactUs.validateTextOfWissenAUAddress("Wissen Australia Pty Ltd, 19/105A Darling Point Road, DARLING POINT NSW 2027");
+            test.log(Status.PASS, "Wissen AU address is displayed");
+            logger.info("Wissen AU address is displayed");
+        } else {
+            test.log(Status.FAIL, "Wissen AU address is not displayed");
+            logger.error("Wissen AU address is not displayed");
+        }
+
+        if(contactUs.isWissenVIDisplayed()) {
+            contactUs.validateTextOfWissenVI("WISSEN – VIETNAM");
+            test.log(Status.PASS, "Wissen VI is displayed");
+            logger.info("Wissen VI is displayed");
+        } else {
+            test.log(Status.FAIL, "Wissen VI is not displayed");
+            logger.error("Wissen VI is not displayed");
+        }
+
+        if(contactUs.isWissenVIAddressDisplayed()) {
+            contactUs.validateTextOfWissenVIAddress("Marshal Global, Level 21, S-30, Vietcom bank Tower, 5 Me Linh Square, District 1, Ho Chi Minh City");
+            test.log(Status.PASS, "Wissen VI address is displayed");
+            logger.info("Wissen VI address is displayed");
+        } else {
+            test.log(Status.FAIL, "Wissen VI address is not displayed");
+            logger.error("Wissen VI address is not displayed");
+        }
+
+        
     }
 }

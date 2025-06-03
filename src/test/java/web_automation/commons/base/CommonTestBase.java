@@ -297,7 +297,7 @@ public class CommonTestBase {
 
     public void scrollIntoView(WebElement target) {
         try {
-            logger.info("Scrolling ➜ " + target.getLocation().toString());
+            logger.info("Scrolling...");
             Actions actions = new Actions(getDriver());
             WebDriverWait wait = new WebDriverWait(getDriver(), 10);
             actions.moveToElement(target).perform();

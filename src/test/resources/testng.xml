@@ -12,12 +12,17 @@
 <!--        </classes>-->
 <!--    </test>-->
 
-    <test name="Analytics Vidya UI">
+<!--    <test name="Analytics Vidya UI">-->
+
+<!--        <classes>-->
+<!--            <class name="web_automation.analytics_vidhya.tests.TC_HomePage"/>-->
+
+<!--        </classes>-->
+<!--    </test>-->
+    <test name="Wissen UI">
 
         <classes>
-            <class name="web_automation.analytics_vidhya.tests.TC_HomePage"/>
-
-
+            <class name="web_automation.wissen.tests.TC_ContactUs"/>
 
         </classes>
     </test>

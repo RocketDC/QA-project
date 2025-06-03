@@ -28,7 +28,9 @@ public class HomePage extends TestBase {
     @FindBy(xpath = "//p[text()='Write to Us']")
     private WebElement writeToUsLink;
     
-    
+    // Location navigation link
+    @FindBy(xpath = "//a[@href='/contact/location']")
+    private WebElement locationLink;
     
     // ========== Actions ==========
 
@@ -63,6 +65,12 @@ public class HomePage extends TestBase {
     }
     
     
-    
-    
+    public boolean isLocationLinkDisplayed() {
+        scrollIntoView(locationLink);
+        return isDisplayed(locationLink);
+    }
+    public void clickLocationLink() {
+        scrollIntoView(locationLink);
+        click(locationLink, "LocationLink");
+    }
 }
