@@ -20,6 +20,7 @@ Before you begin, ensure you have met the following requirements:
    ```bash
    git clone git@github.com:RocketDC/QA-project.git
    cd <folder-name>
+   git checkout "tools_and_skills"
    ```
 
 2. Set up your development environment:
