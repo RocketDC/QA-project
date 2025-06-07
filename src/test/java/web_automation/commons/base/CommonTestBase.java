@@ -347,6 +347,20 @@ public class CommonTestBase {
         }
     }
 
+    // creating soft assert that validates between two strings
+    public void softAssert(String actualText, String expectedText) {
+        ExtentTest test = extent.createTest("Checking text ➜ " + expectedText);
+        setExtentTest(test);
+        if (actualText.equals(expectedText)) {
+            test.log(Status.PASS, "Validating if [" + expectedText + "] is present");
+            logger.info("Validating if [" + expectedText + "] is present");
+        } else {
+            test.log(Status.FAIL, "Text not found - Expected: " + expectedText + ", Actual: " + actualText);
+            softAssert.fail("Text not found - Expected: " + expectedText + ", Actual: " + actualText);
+            logger.error("Text not found - Expected: " + expectedText + ", Actual: " + actualText);
+        }
+    }
+
     public void validatePlaceholderText(WebElement element, String expectedText) {
         ExtentTest test = extent.createTest("Checking text ➜ " + expectedText);
         setExtentTest(test);
@@ -392,5 +406,92 @@ public class CommonTestBase {
             logger.error("Failed to hover on " + message);
         }
     }
+
+    // Validating alerts checkbox
+    public boolean isAlertPresent(){
+        ExtentTest test = extent.createTest("Checking if alert is present");
+        setExtentTest(test);
+        try {
+            WebDriverWait wait = new WebDriverWait(getDriver(), 10);
+            wait.until(ExpectedConditions.alertIsPresent());
+            test.log(Status.PASS, "Alert is present");
+            logger.info("Alert is present");
+            return getDriver().switchTo().alert() != null;
+        } catch (TimeoutException e) {
+            test.log(Status.FAIL, "No alert found");
+            logger.error("No alert found: " + e.getMessage());
+            return false;
+        }
+    }
+
+    public void acceptAlert() {
+        ExtentTest test = extent.createTest("Accepting alert");
+        setExtentTest(test);
+        try {
+            if (isAlertPresent()) {
+                getDriver().switchTo().alert().accept();
+                test.log(Status.PASS, "Alert accepted successfully");
+                logger.info("Alert accepted successfully");
+            } else {
+                test.log(Status.FAIL, "No alert to accept");
+                logger.error("No alert to accept");
+            }
+        } catch (Exception e) {
+            test.log(Status.FAIL, "Failed to accept alert: " + e.getMessage());
+            logger.error("Failed to accept alert: " + e.getMessage());
+        }
+    }
+    public void dismissAlert() {
+        ExtentTest test = extent.createTest("Dismissing alert");
+        setExtentTest(test);
+        try {
+            if (isAlertPresent()) {
+                getDriver().switchTo().alert().dismiss();
+                test.log(Status.PASS, "Alert dismissed successfully");
+                logger.info("Alert dismissed successfully");
+            } else {
+                test.log(Status.FAIL, "No alert to dismiss");
+                logger.error("No alert to dismiss");
+            }
+        } catch (Exception e) {
+            test.log(Status.FAIL, "Failed to dismiss alert: " + e.getMessage());
+            logger.error("Failed to dismiss alert: " + e.getMessage());
+        }
+    }
+
+    public String getAlertText() {
+        ExtentTest test = extent.createTest("Getting alert text");
+        setExtentTest(test);
+        try {
+            if (isAlertPresent()) {
+                String alertText = getDriver().switchTo().alert().getText();
+                test.log(Status.PASS, "Alert text retrieved: " + alertText);
+                logger.info("Alert text retrieved: " + alertText);
+                return alertText;
+            } else {
+                test.log(Status.FAIL, "No alert to get text from");
+                logger.error("No alert to get text from");
+                return null;
+            }
+        } catch (Exception e) {
+            test.log(Status.FAIL, "Failed to get alert text: " + e.getMessage());
+            logger.error("Failed to get alert text: " + e.getMessage());
+            return null;
+        }
+    }
+    public void switchToFrame(WebElement frame) {
+        ExtentTest test = extent.createTest("Switching to frame");
+        setExtentTest(test);
+        try {
+            getDriver().switchTo().frame(frame);
+            test.log(Status.PASS, "Switched to frame successfully");
+            logger.info("Switched to frame successfully");
+        } catch (Exception e) {
+            test.log(Status.FAIL, "Failed to switch to frame: " + e.getMessage());
+            logger.error("Failed to switch to frame: " + e.getMessage());
+        }
+    }
+
+
 
 }

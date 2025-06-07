@@ -91,7 +91,29 @@ public class TC_ContactUs extends TestBase {
             test.log(Status.FAIL, "Contact Us subHeading is not displayed");
             logger.error("Contact Us subHeading is not displayed");
         }
+/*
+        //Clicking the submit button to validate alert message
+        if (contactUs.isSubmitButtonDisplayed()) {
+            contactUs.clickSubmitButton();
+            test.log(Status.INFO, "Clicked on Submit button without filling the form");
+            logger.info("Clicked on Submit button without filling the form");
 
+        } else {
+            test.log(Status.FAIL, "Submit button is not displayed");
+            logger.error("Submit button is not displayed");
+        }
+
+        // Validating the alert message
+        if (contactUs.isAlertBoxDisplayed()) {
+            contactUs.validateAlertBoxText("Please fill out this field.");
+            test.log(Status.PASS, "Alert message is displayed");
+            logger.info("Alert message is displayed");
+            contactUs.acceptAlertBox();
+        } else {
+            test.log(Status.FAIL, "Alert message is not displayed");
+            logger.error("Alert message is not displayed");
+        }
+*/
         // Validating the form fields
         // Name
         if (contactUs.isNameLabelDisplayed()) {

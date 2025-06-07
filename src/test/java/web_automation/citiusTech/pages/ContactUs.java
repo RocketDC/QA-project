@@ -21,11 +21,15 @@ public class ContactUs extends TestBase {
     // ===========================(NAV Buttons section)===========================
 
     //Citius Tech logo locator
-    @FindBy(xpath = "//img[@alt='Citius Tech']") 
+    @FindBy(xpath = "(//img[@title='CitiusTech'])[1]")
     public WebElement citiusTechLogo;
     //What we do Nav locator
     @FindBy(xpath = "//a[normalize-space()='What we do']") 
     public WebElement whatWeDoNav;
+    // What we do Nav Heading locator
+    @FindBy(xpath = "//p[@class='citius-glb-heading-p' and text()='What we do']")
+    public WebElement whatWeDoNavHeading;
+
     // Who we are Nav locator
     @FindBy(xpath = "//a[normalize-space()='Who we are']") 
     public WebElement whoWeAreNav;
@@ -39,7 +43,7 @@ public class ContactUs extends TestBase {
     @FindBy(xpath = "//a[normalize-space()='Careers']") 
     public WebElement careersNav;
     // Contact Us Nav locator
-    @FindBy(xpath = "//a[normalize-space()='Contact Us']") 
+    @FindBy(xpath = "(//div[@class='citius-contact-button'])[1]")
     public WebElement contactUsNav;
     // Search Icon Nav locator
     @FindBy(xpath = "//a[@class='button'][normalize-space()='Search']") 
@@ -251,9 +255,15 @@ public WebElement contactUsButton3;
         return isDisplayed(whatWeDoNav);
     }
 
-    public void clickWhatWeDoNav() {
-        scrollIntoView(whatWeDoNav);
-        click(whatWeDoNav, "What we do Nav");
+    public void hoverWhatWeDoNav() {
+        hover(whatWeDoNav, "What We Do Nav");
+    }
+    public boolean setWhatWeDoNavHeadingIsDisplayed() {
+        scrollIntoView(whatWeDoNavHeading);
+        return isDisplayed(whatWeDoNavHeading);
+    }
+    public void validateTextOfWhatWeDoNavHeading(String text) {
+        softAssert(whatWeDoNavHeading, text);
     }
 
     public void validateTextOfWhatWeDoNav(String text) {

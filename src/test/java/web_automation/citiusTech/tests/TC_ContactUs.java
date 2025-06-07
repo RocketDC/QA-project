@@ -17,6 +17,10 @@ public final String moduleName = "Contact Us";
         setExtentTest(test);
         ContactUs contactUs = new ContactUs(getDriver());
         getDriver().get(url);
+        test.log(Status.INFO, "Navigated to " + url);
+        logger.info("Navigated to " + url);
+
+
 
         //Validating cookies
         // acceptCookies();//Commenting for now
@@ -31,7 +35,24 @@ public final String moduleName = "Contact Us";
             test.log(Status.FAIL, "Page title is incorrect");
             logger.info("Page title is incorrect");
         }
+// Validating the presence of What We Do nav test
+        if( contactUs.whatWeDoNavIsDisplayed()) {
+            test.log(Status.PASS, "What We Do nav is displayed");
+            logger.info("What We Do nav is displayed");
+            contactUs.hoverWhatWeDoNav();
+            if( contactUs.setWhatWeDoNavHeadingIsDisplayed()) {
+                test.log(Status.PASS, "What We Do nav text is displayed");
+                logger.info("What We Do nav text is displayed");
+                contactUs.validateTextOfWhatWeDoNav("What We Do");
+            } else {
+                test.log(Status.FAIL, "What We Do nav text is not displayed");
+                logger.info("What We Do nav text is not displayed");
+            }
 
+        } else {
+            test.log(Status.FAIL, "What We Do nav is not displayed");
+            logger.info("What We Do nav is not displayed");
+        }
     
         if (contactUs.citiusTechLogoIsDisplayed()) {
             test.log(Status.PASS, "Citius Tech logo is displayed");
@@ -45,7 +66,10 @@ public final String moduleName = "Contact Us";
             test.log(Status.FAIL, "Citius Tech logo is not displayed");
             logger.info("Citius Tech logo is not displayed");
         }
-    
+        // Navigating to Contact Us page
+        getDriver().navigate().to(url + path);
+        test.log(Status.INFO, "Navigated to Contact Us page: " + url + path);
+        logger.info("Navigated to Contact Us page: " + url + path);
         
     }
 

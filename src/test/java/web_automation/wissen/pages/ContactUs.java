@@ -479,6 +479,20 @@ public class ContactUs extends TestBase {
         click(submitButton, "SubmitButton");
     }
 
+    // Alert box for submit button
+    public boolean isAlertBoxDisplayed() {
+        return isAlertPresent();
+    }
+    public void acceptAlertBox() {
+        acceptAlert();
+    }
+    public void dismissAlertBox() {
+        dismissAlert();
+    }
+    public void validateAlertBoxText(String text) {
+        softAssert(getAlertText(), text);
+    }
+
     public boolean isSuccessPageHeadingDisplayed() {
         scrollIntoView(successPageHeading);
         return isDisplayed(successPageHeading);
