@@ -23,7 +23,7 @@ import org.testng.asserts.SoftAssert;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import io.github.bonigarcia.wdm.WebDriverManager;
-
+import org.openqa.selenium.support.ui.Select;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -492,6 +492,21 @@ public class CommonTestBase {
         }
     }
 
-
+// Selecting a dropdown option
+public void selectDropdown(WebElement element, String option) {
+    ExtentTest test = extent.createTest("Selecting option from dropdown");
+    setExtentTest(test);
+    try {
+        new WebDriverWait(getDriver(), 10)
+                .until(ExpectedConditions.elementToBeClickable(element));
+        Select select = new Select(element);
+        select.selectByVisibleText(option);
+        test.log(Status.PASS, "Selected option from dropdown: " + option);
+        logger.info("Selected option from dropdown: " + option);
+    } catch (Exception e) {
+        test.log(Status.FAIL, "Failed to select option from dropdown: " + e.getMessage());
+        logger.error("Failed to select option from dropdown: " + e.getMessage());
+    }
+}   
 
 }

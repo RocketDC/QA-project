@@ -1,4 +1,4 @@
-package web_automation.citiusTech.base;
+package web_automation.morningstar.base;
 
 import web_automation.commons.base.CommonTestBase;
 
