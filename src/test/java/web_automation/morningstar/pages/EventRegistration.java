@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import web_automation.morningstar.base.TestBase;
 
-class EventRegistration extends TestBase {
+public class EventRegistration extends TestBase {
     WebDriver driver;
 
     public EventRegistration(WebDriver driver) {
@@ -195,8 +195,8 @@ class EventRegistration extends TestBase {
         return isDisplayed(imRegisteringOnBehalfOfThisPersonCheckbox);
     }
 
-    public void validateTextImRegisteringOnBehalfOfThisPersonCheckbox(String expectedText) {
-        softAssert(imRegisteringOnBehalfOfThisPersonCheckbox, expectedText);
+    public void clickOnImRegisteringOnBehalfOfThisPersonCheckbox() {
+        click(imRegisteringOnBehalfOfThisPersonCheckbox, "I'm registering on behalf of this person");
     }
 
     // Cancel Button

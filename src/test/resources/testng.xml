@@ -6,7 +6,7 @@
     <test name="Morningstar UI">
 
         <classes>
-            <class name="web_automation.morningstar.tests.TC_InvenstementConferenceRegister"/>
+            <class name="web_automation.morningstar.tests.TC_InvestmentConferenceRegister"/>
 
         </classes>
     </test>

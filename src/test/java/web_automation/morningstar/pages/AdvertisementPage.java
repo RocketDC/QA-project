@@ -18,7 +18,7 @@ public class AdvertisementPage extends TestBase {
     //  Morningstar Investment Conference India Details Page
 
     //Morningstar brands and products locator
-    @FindBy(xpath = "//div[@class='mmds-top-hat-item--type mmds-top-hat-item--drawer']/button/span")
+    @FindBy(xpath = "(//div[@class='mmds-top-hat-item--type mmds-top-hat-item--drawer']/button/span)[1]")
     private WebElement morningstarBrandsAndProducts;
 
     public boolean isMorningstarBrandsAndProductsDisplayed() {
@@ -50,7 +50,7 @@ public class AdvertisementPage extends TestBase {
     }
 
     //Morningstar logo locator
-    @FindBy(xpath = "//img[@alt='Morningstar India']")
+    @FindBy(xpath = "(//img[@alt='Morningstar logo'])[1]")
     private WebElement morningstarLogo;
 
     public boolean isMorningstarLogoDisplayed() {
@@ -66,7 +66,7 @@ public class AdvertisementPage extends TestBase {
     }
 
     //Morningstar Investment Conference India text
-    @FindBy(xpath = "//*[@class='ck-page-nav__bar__heading']")
+    @FindBy(xpath = "//div[@class='ck-page-nav__bar__heading']/a")
     private WebElement morningstarInvestmentConferenceIndia;
 
     public boolean isMorningstarInvestmentConferenceIndiaDisplayed() {
@@ -82,7 +82,7 @@ public class AdvertisementPage extends TestBase {
     }
 
     //Brands text
-    @FindBy(xpath = "//div[@class='mmds-top-hat-item--type mmds-top-hat-item--drawer']/button/span")
+    @FindBy(xpath = "//button[@class='mds-nav-item__mdc mds-nav-item--site__mdc' and text()='Brands ']")
     private WebElement brandsText;
 
     public boolean isBrandsTextDisplayed() {
@@ -98,7 +98,7 @@ public class AdvertisementPage extends TestBase {
     }
 
     //Products text
-    @FindBy(xpath = "//div[@class='mmds-top-hat-item--type mmds-top-hat-item--drawer']/button/span")
+    @FindBy(xpath = "//button[@class='mds-nav-item__mdc mds-nav-item--site__mdc' and text()='Products ']")
     private WebElement productsText;
 
     public boolean isProductsTextDisplayed() {
@@ -114,7 +114,7 @@ public class AdvertisementPage extends TestBase {
     }
 
     // Segments text
-    @FindBy(xpath = "//div[@class='mmds-top-hat-item--type mmds-top-hat-item--drawer']/button/span")
+    @FindBy(xpath = "//button[@class='mds-nav-item__mdc mds-nav-item--site__mdc' and text()='Segments ']")
     private WebElement segmentsText;
 
     public boolean isSegmentsTextDisplayed() {
@@ -130,7 +130,7 @@ public class AdvertisementPage extends TestBase {
     }
 
     //Insights text
-    @FindBy(xpath = "//div[@class='mmds-top-hat-item--type mmds-top-hat-item--drawer']/button/span")
+    @FindBy(xpath = "//button[@class='mds-nav-item__mdc mds-nav-item--site__mdc' and text()='Insights ']")
     private WebElement insightsText;
 
     public boolean isInsightsTextDisplayed() {
@@ -146,7 +146,7 @@ public class AdvertisementPage extends TestBase {
     }
 
     // Overview text
-    @FindBy(xpath = "//div[@class='mmds-top-hat-item--type mmds-top-hat-item--drawer']/button/span")
+    @FindBy(xpath = "//a[@class='mds-nav-item__mdc mds-nav-item--page__mdc' and text()='Overview ']")
     private WebElement overviewText;
 
     public boolean isOverviewTextDisplayed() {
@@ -162,7 +162,7 @@ public class AdvertisementPage extends TestBase {
     }
 
     // Agenda text
-    @FindBy(xpath = "//div[@class='mmds-top-hat-item--type mmds-top-hat-item--drawer']/button/span")
+    @FindBy(xpath = "//a[@class='mds-nav-item__mdc mds-nav-item--page__mdc' and text()='Agenda ']")
     private WebElement agendaText;
 
     public boolean isAgendaTextDisplayed() {
@@ -178,7 +178,7 @@ public class AdvertisementPage extends TestBase {
     }
 
     // Travel text
-    @FindBy(xpath = "//div[@class='mmds-top-hat-item--type mmds-top-hat-item--drawer']/button/span")
+    @FindBy(xpath = "//a[@class='mds-nav-item__mdc mds-nav-item--page__mdc' and text()='Travel ']")
     private WebElement travelText;
 
     public boolean isTravelTextDisplayed() {
@@ -194,7 +194,7 @@ public class AdvertisementPage extends TestBase {
     }
 
     // Partners text
-    @FindBy(xpath = "//div[@class='mmds-top-hat-item--type mmds-top-hat-item--drawer']/button/span")
+    @FindBy(xpath = "//button[@class='mds-nav-item__mdc mds-nav-item--page__mdc']")
     private WebElement partnersText;
 
     public boolean isPartnersTextDisplayed() {
@@ -210,10 +210,10 @@ public class AdvertisementPage extends TestBase {
     }
 
     // FAQ text
-    @FindBy(xpath = "//div[@class='mmds-top-hat-item--type mmds-top-hat-item--drawer']/button/span")
+    @FindBy(xpath = "//a[@class='mds-nav-item__mdc mds-nav-item--page__mdc' and text()='FAQ ']")
     private WebElement faqText;
 
-    public boolean isFaqTextDisplayed() {
+    public boolean isFAQTextDisplayed() {
         return isDisplayed(faqText);
     }
 
@@ -221,12 +221,12 @@ public class AdvertisementPage extends TestBase {
         click(faqText, "Faq Text");
     }
 
-    public void validateTextFaqText(String expectedText) {
+    public void validateTextFAQText(String expectedText) {
         softAssert(faqText, expectedText);
     }   
 
     //Register now Button
-    @FindBy(xpath = "//div[@class='mmds-top-hat-item--type mmds-top-hat-item--drawer']/button/span")
+    @FindBy(xpath = "//div[@class='ck-page-nav__bar__nav-items__button']")
     private WebElement registerNowButton;
 
     public boolean isRegisterNowButtonDisplayed() {
@@ -242,7 +242,7 @@ public class AdvertisementPage extends TestBase {
     }
 
     //Welcome to the Morningstar Investment Conference India 2025 heading
-    @FindBy(xpath = "//div[@class='mmds-top-hat-item--type mmds-top-hat-item--drawer']/button/span")
+    @FindBy(xpath = "//h1[@class='title display-m-mmds']")
     private WebElement welcomeToTheMorningstarInvestmentConferenceIndia2025Heading;
 
     public boolean isWelcomeToTheMorningstarInvestmentConferenceIndia2025HeadingDisplayed() {
@@ -258,7 +258,7 @@ public class AdvertisementPage extends TestBase {
     }
 
    //Welcome to the Morningstar Investment Conference India 2025 Sub-heading
-    @FindBy(xpath = "//div[@class='mmds-top-hat-item--type mmds-top-hat-item--drawer']/button/span")
+    @FindBy(xpath = "//div[@class='text-copy description']")
     private WebElement welcomeToTheMorningstarInvestmentConferenceIndia2025SubHeading;
 
     public boolean isWelcomeToTheMorningstarInvestmentConferenceIndia2025SubHeadingDisplayed() {
@@ -274,7 +274,7 @@ public class AdvertisementPage extends TestBase {
     }
 
     // Date of conference
-    @FindBy(xpath = "//div[@class='mmds-top-hat-item--type mmds-top-hat-item--drawer']/button/span")
+    @FindBy(xpath = "(//p[@class='ck-body-text ck-body-text--l ck-color-text-- '])[2]")
     private WebElement dateOfConference;
 
     public boolean isDateOfConferenceDisplayed() {
@@ -290,7 +290,7 @@ public class AdvertisementPage extends TestBase {
     }
 
     //location of conference
-    @FindBy(xpath = "//div[@class='mmds-top-hat-item--type mmds-top-hat-item--drawer']/button/span")
+    @FindBy(xpath = "(//p[@class='ck-body-text ck-body-text--l ck-color-text-- '])[3]")
     private WebElement locationOfConference;
 
     public boolean isLocationOfConferenceDisplayed() {
@@ -306,7 +306,7 @@ public class AdvertisementPage extends TestBase {
     }
 
     //Register Now Button2
-    @FindBy(xpath = "//div[@class='mmds-top-hat-item--type mmds-top-hat-item--drawer']/button/span")
+    @FindBy(xpath = "(//div[@class='event-hero__ctas']/a/span)[1]")
     private WebElement registerNowButton2;
 
     public boolean isRegisterNowButton2Displayed() {
@@ -322,7 +322,7 @@ public class AdvertisementPage extends TestBase {
     }
 
     // Watch video Button
-    @FindBy(xpath = "//div[@class='mmds-top-hat-item--type mmds-top-hat-item--drawer']/button/span")
+    @FindBy(xpath = "//button[@target='_blank']/span")
     private WebElement watchVideoButton;
 
     public boolean isWatchVideoButtonDisplayed() {
@@ -338,7 +338,7 @@ public class AdvertisementPage extends TestBase {
     }
 
     //Countdown Timer Text
-    @FindBy(xpath = "//div[@class='mmds-top-hat-item--type mmds-top-hat-item--drawer']/button/span")
+    @FindBy(xpath = "//h2[@class='countdown--title']")
     private WebElement countdownTimerText;
 
     public boolean isCountdownTimerTextDisplayed() {
@@ -354,7 +354,7 @@ public class AdvertisementPage extends TestBase {
     }
 
     //   Countdown timer
-    @FindBy(xpath = "//div[@class='mmds-top-hat-item--type mmds-top-hat-item--drawer']/button/span")
+    @FindBy(xpath = "//div[@class='countdown--timer countdown--desktop']")
     private WebElement countdownTimer;
 
     public boolean isCountdownTimerDisplayed() {
@@ -370,7 +370,7 @@ public class AdvertisementPage extends TestBase {
     }
 
     // Speaker section header
-    @FindBy(xpath = "//div[@class='mmds-top-hat-item--type mmds-top-hat-item--drawer']/button/span")
+    @FindBy(xpath = "//h2[@class='ck-speakers-title title-l-mmds']")
     private WebElement speakerSectionHeader;
 
     public boolean isSpeakerSectionHeaderDisplayed() {
@@ -386,7 +386,7 @@ public class AdvertisementPage extends TestBase {
     }
 
     // Speaker section sub-header
-    @FindBy(xpath = "//div[@class='mmds-top-hat-item--type mmds-top-hat-item--drawer']/button/span")
+    @FindBy(xpath = "//p[@class='ck-speakers-description body-l-mmds']")
     private WebElement speakerSectionSubHeader;
 
     public boolean isSpeakerSectionSubHeaderDisplayed() {
@@ -402,7 +402,7 @@ public class AdvertisementPage extends TestBase {
     }
 
     // Stand out as Sponsors Text 
-    @FindBy(xpath = "//div[@class='mmds-top-hat-item--type mmds-top-hat-item--drawer']/button/span")
+    @FindBy(xpath = "//h2[@class='thanks-section__title']")
     private WebElement standOutAsSponsorsText;
 
     public boolean isStandOutAsSponsorsTextDisplayed() {
@@ -418,7 +418,7 @@ public class AdvertisementPage extends TestBase {
     }
 
     // Stand out as Sponsors Sub-Text
-    @FindBy(xpath = "//div[@class='mmds-top-hat-item--type mmds-top-hat-item--drawer']/button/span")
+    @FindBy(xpath = "//p[@class='thanks-section__description']")
     private WebElement standOutAsSponsorsSubText;
 
     public boolean isStandOutAsSponsorsSubTextDisplayed() {
@@ -434,7 +434,7 @@ public class AdvertisementPage extends TestBase {
     }
 
     // Become a sponsor Button
-    @FindBy(xpath = "//div[@class='mmds-top-hat-item--type mmds-top-hat-item--drawer']/button/span")
+    @FindBy(xpath = "(//div[@class='thanks-section__ctas']/a/span)[1]")
     private WebElement becomeASponsorButton;
 
     public boolean isBecomeASponsorButtonDisplayed() {
@@ -449,5 +449,15 @@ public class AdvertisementPage extends TestBase {
         softAssert(becomeASponsorButton, expectedText);
     }
 
-    // 
+    // Accept all cookies button
+    @FindBy(xpath = "//button[@id='onetrust-accept-btn-handler']")
+    private WebElement acceptAllCookiesButton;
+    public boolean isAcceptAllCookiesButtonDisplayed() {
+        return isDisplayed(acceptAllCookiesButton);
+    }
+    public void clickOnAcceptAllCookiesButton() {
+        click(acceptAllCookiesButton, "Accept All Cookies Button");
+    }
+
+
 }

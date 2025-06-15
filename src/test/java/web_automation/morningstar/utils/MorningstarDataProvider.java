@@ -1,6 +1,7 @@
 package web_automation.morningstar.utils;
 
 import org.testng.annotations.DataProvider;
+import web_automation.commons.base.CommonTestBase;
 
 public class MorningstarDataProvider {
     //Adding data provider for Contact Us page
@@ -12,9 +13,17 @@ public class MorningstarDataProvider {
     }
 
     @DataProvider
-    public static Object[][] morningstarFormData() {
+    public static Object[][] morningstarFormDataInitialRegistration() {
+        //Adding data provider for Initial Registration page
+        // Adding random data for firstname, lastname, email and phone
+        // Using generateRandomString method from CommonTestBase class
+        CommonTestBase commonTestBase = new CommonTestBase();
+        String firstname = commonTestBase.generateRandomString(10, "test");
+        String lastname = commonTestBase.generateRandomString(10, "test");
+        String email = commonTestBase.generateRandomString(6, "test") + "@gmail.com";
+        String phone = String.valueOf(commonTestBase.generateRandomInt(10));
         return new Object[][] {
-                {"", "/contact-us"  }
+                {firstname, lastname, email, phone  }
         };
     }
 }

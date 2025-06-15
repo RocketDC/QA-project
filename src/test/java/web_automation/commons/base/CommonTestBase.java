@@ -200,6 +200,13 @@ public class CommonTestBase {
         return sb.toString();
     }
 
+
+    //Generate random int
+    public int generateRandomInt(int length) {
+        Random rand = new Random();
+        return rand.nextInt(length);
+    }
+
     public void hardWait(double seconds) {
         try {
             Thread.sleep((long) (seconds * 1000));
