@@ -16,7 +16,7 @@ public class EventRegistration extends TestBase {
 
     // Initial Registration Page
     //Initial Registration text
-    @FindBy(id = "InitialRegistrationText")
+    @FindBy(xpath = "//*[@class='WebsiteNavigator__selectedPage___hIMBf']")
     private WebElement initialRegistrationText;
 
     public boolean isInitialRegistrationTextDisplayed() {
@@ -28,7 +28,7 @@ public class EventRegistration extends TestBase {
     }
 
     //Personal Information header
-    @FindBy(id = "PersonalInformationHeader")
+    @FindBy(xpath = "//h2[@class='css-87ndg2']")
     private WebElement personalInformationHeader;
 
     public boolean isPersonalInformationHeaderDisplayed() {
@@ -40,7 +40,7 @@ public class EventRegistration extends TestBase {
     }
 
     //Personal Information sub-header
-    @FindBy(id = "PersonalInformationSubHeader")
+    @FindBy(xpath = "//div[@class='css-87ndg2' and @data-cvent-id='IdentityConfirmation-instructionalText']")
     private WebElement personalInformationSubHeader;
 
     public boolean isPersonalInformationSubHeaderDisplayed() {
@@ -52,7 +52,7 @@ public class EventRegistration extends TestBase {
     }
 
     //First Name label
-    @FindBy(id = "FirstName")
+    @FindBy(xpath = "(//span[@role='heading'])[1]")
     private WebElement firstName;
 
     public boolean isFirstNameDisplayed() {
@@ -64,7 +64,7 @@ public class EventRegistration extends TestBase {
     }
 
     //First Name textbox
-    @FindBy(id = "FirstName")
+    @FindBy(xpath = "//input[@aria-label='First name']")
     private WebElement firstNameTextbox;
 
     public boolean isFirstNameTextboxDisplayed() {
@@ -80,7 +80,7 @@ public class EventRegistration extends TestBase {
     }
 
     //Last Name label
-    @FindBy(id = "LastName")
+    @FindBy(xpath = "(//span[@role='heading'])[2]")
     private WebElement lastName;
 
     public boolean isLastNameDisplayed() {
@@ -92,7 +92,7 @@ public class EventRegistration extends TestBase {
     }
 
     //Last Name textbox
-    @FindBy(id = "LastName")
+    @FindBy(xpath = "//input[@aria-label='Last name']")
     private WebElement lastNameTextbox;
 
     public boolean isLastNameTextboxDisplayed() {
@@ -108,7 +108,7 @@ public class EventRegistration extends TestBase {
     }
 
     //Email label
-    @FindBy(id = "Email")
+    @FindBy(xpath = "(//span[@role='heading'])[3]")
     private WebElement email;
 
     public boolean isEmailDisplayed() {
@@ -120,7 +120,7 @@ public class EventRegistration extends TestBase {
     }
 
     //Email textbox
-    @FindBy(id = "Email")
+    @FindBy(xpath = "//input[@aria-label='Email address']")
     private WebElement emailTextbox;
 
     public boolean isEmailTextboxDisplayed() {
@@ -136,7 +136,7 @@ public class EventRegistration extends TestBase {
     }
 
     // Mobile label
-    @FindBy(id = "Mobile")
+    @FindBy(xpath = "(//span[@role='heading'])[4]")
     private WebElement mobile;
 
     public boolean isMobileDisplayed() {
@@ -148,7 +148,7 @@ public class EventRegistration extends TestBase {
     }
 
     // Mobile textbox
-    @FindBy(id = "Mobile")
+    @FindBy(xpath = "//input[@aria-label='Mobile phone number']")
     private WebElement mobileTextbox;
 
     public boolean isMobileTextboxDisplayed() {
@@ -164,7 +164,7 @@ public class EventRegistration extends TestBase {
     }
 
     // Mobile format label
-    @FindBy(id = "MobileFormat")
+    @FindBy(xpath = "//div[@id='032e80c1-f29f-44e6-af13-a89e53906422']")
     private WebElement mobileFormat;
 
     public boolean isMobileFormatDisplayed() {
@@ -176,7 +176,7 @@ public class EventRegistration extends TestBase {
     }
 
     //I'm registering on behalf of this person text
-    @FindBy(id = "ImRegisteringOnBehalfOfThisPerson")
+    @FindBy(xpath = "//*[@id='adminRegSelected_0']/../label/div")
     private WebElement imRegisteringOnBehalfOfThisPerson;
 
     public boolean isImRegisteringOnBehalfOfThisPersonDisplayed() {
@@ -188,7 +188,7 @@ public class EventRegistration extends TestBase {
     }
 
     //I'm registering on behalf of this person checkbox
-    @FindBy(id = "ImRegisteringOnBehalfOfThisPerson")
+    @FindBy(id = "adminRegSelected_0")
     private WebElement imRegisteringOnBehalfOfThisPersonCheckbox;
 
     public boolean isImRegisteringOnBehalfOfThisPersonCheckboxDisplayed() {
@@ -200,7 +200,7 @@ public class EventRegistration extends TestBase {
     }
 
     // Cancel Button
-    @FindBy(id = "Cancel")
+    @FindBy(id = "exit")
     private WebElement cancelButton;
 
     public boolean isCancelButtonDisplayed() {
@@ -215,20 +215,20 @@ public class EventRegistration extends TestBase {
         click(cancelButton, "Cancel");
     }
 
-    // Submit Button
-    @FindBy(id = "Submit")
-    private WebElement submitButton;
+    // Next Button
+    @FindBy(id = "forward")
+    private WebElement nextButton;
 
-    public boolean isSubmitButtonDisplayed() {
-        return isDisplayed(submitButton);
+    public boolean isNextButton1Displayed() {
+        return isDisplayed(nextButton);
     }
 
-    public void validateTextSubmitButton(String expectedText) {
-        softAssert(submitButton, expectedText);
+    public void validateTextNextButton1Button(String expectedText) {
+        softAssert(nextButton, expectedText);
     }
 
-    public void clickSubmitButton() {
-        click(submitButton, "Submit");
+    public void clickNextButton1() {
+        click(nextButton, "Next Button");
     }
 
     // Registration Page
@@ -785,18 +785,18 @@ public class EventRegistration extends TestBase {
 
     //Next Button
     @FindBy(id = "NextButton")
-    private WebElement nextButton;
+    private WebElement nextButton2;
 
     public boolean isNextButtonDisplayed() {
-        return isDisplayed(nextButton);
+        return isDisplayed(nextButton2);
     }
 
     public void clickNextButton() {
-        click(nextButton, "Next Button");
+        click(nextButton2, "Next Button");
     }
 
     public void validateTextNextButton(String expectedText) {
-        softAssert(nextButton, expectedText);
+        softAssert(nextButton2, expectedText);
     }
 
     // Cancel Button2

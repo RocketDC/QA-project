@@ -459,5 +459,19 @@ public class AdvertisementPage extends TestBase {
         click(acceptAllCookiesButton, "Accept All Cookies Button");
     }
 
+//Closing the cookies text box
+    @FindBy(xpath = "//div[@id='onetrust-close-btn-container']/button")
+    private WebElement closeCookiesTextBox;
 
+    public boolean isCloseCookiesTextBoxDisplayed() {
+        return isDisplayed(closeCookiesTextBox);
+    }
+
+    public void clickOnCloseCookiesTextBox() {
+        click(closeCookiesTextBox, "Close Cookies Text Box");
+    }
+
+    public void validateTextCloseCookiesTextBox(String expectedText) {
+        softAssert(closeCookiesTextBox, expectedText);
+    }
 }

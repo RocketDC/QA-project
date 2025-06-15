@@ -21,7 +21,7 @@ public class MorningstarDataProvider {
         String firstname = commonTestBase.generateRandomString(10, "test");
         String lastname = commonTestBase.generateRandomString(10, "test");
         String email = commonTestBase.generateRandomString(6, "test") + "@gmail.com";
-        String phone = String.valueOf(commonTestBase.generateRandomInt(10));
+        String phone = "+91"+String.valueOf(commonTestBase.generateRandomInt(10));
         return new Object[][] {
                 {firstname, lastname, email, phone  }
         };

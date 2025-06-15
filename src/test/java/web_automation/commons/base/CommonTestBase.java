@@ -201,10 +201,11 @@ public class CommonTestBase {
     }
 
 
-    //Generate random int
+    //Generate random int within a specified length
     public int generateRandomInt(int length) {
         Random rand = new Random();
-        return rand.nextInt(length);
+        return rand.nextInt((int) Math.pow(10, length) - (int) Math.pow(10, length - 1)) + (int) Math.pow(10, length - 1);
+
     }
 
     public void hardWait(double seconds) {
@@ -369,7 +370,7 @@ public class CommonTestBase {
     }
 
     public void validatePlaceholderText(WebElement element, String expectedText) {
-        ExtentTest test = extent.createTest("Checking text ➜ " + expectedText);
+        ExtentTest test = extent.createTest("Checking Placeholder text ➜ " + expectedText);
         setExtentTest(test);
         waitForElementToBeVisible(element);
         String actualText = element.getAttribute("placeholder");
