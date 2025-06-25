@@ -3,10 +3,13 @@ package web_automation.commons.base;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
+
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.JsonFormatter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import com.epam.healenium.SelfHealingDriver;
+import org.openqa.selenium.support.ui.Select;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
@@ -209,6 +212,7 @@ public class CommonTestBase {
 
     public void click(WebElement el, String message) {
         ExtentTest test = extent.createTest("Clicking on ➜ " + message);
+        logger.info("Clicking on ➜ " + message);
         setExtentTest(test);
         try {
             new WebDriverWait(getDriver(), 10)
@@ -479,6 +483,7 @@ public class CommonTestBase {
             return null;
         }
     }
+
     public void switchToFrame(WebElement frame) {
         ExtentTest test = extent.createTest("Switching to frame");
         setExtentTest(test);
@@ -489,6 +494,34 @@ public class CommonTestBase {
         } catch (Exception e) {
             test.log(Status.FAIL, "Failed to switch to frame: " + e.getMessage());
             logger.error("Failed to switch to frame: " + e.getMessage());
+        }
+    }
+
+    public void switchToDefaultContent() {
+        ExtentTest test = extent.createTest("Switching to default content");
+        setExtentTest(test);
+        try {
+            getDriver().switchTo().defaultContent();
+            test.log(Status.PASS, "Switched to default content successfully");
+            logger.info("Switched to default content successfully");
+        } catch (Exception e) {
+            test.log(Status.FAIL, "Failed to switch to default content: " + e.getMessage());
+            logger.error("Failed to switch to default content: " + e.getMessage());
+        }
+    }
+    
+    public void selectFromDropdown(WebElement element, String option, String message) {
+        ExtentTest test = extent.createTest("Selecting option from dropdown");
+        setExtentTest(test);
+        try {
+            click(element, message);
+            Select select = new Select(element);
+            select.selectByVisibleText(option);
+            test.log(Status.PASS, "Option " + option + " selected successfully" + message);
+            logger.info("Option " + option + " selected successfully" + message);
+        } catch (Exception e) {
+            test.log(Status.FAIL, "Failed to select option: " + option + " " + e.getMessage());
+            logger.error("Failed to select option: " + option + " " + e.getMessage());
         }
     }
 

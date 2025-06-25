@@ -17,7 +17,7 @@ public class GetADemoPage extends TestBase{
     //@FindBy is used to store the locators
 
     //Seclore logo locator
-    @FindBy(xpath = "//img[@alt='Seclore']")
+    @FindBy(xpath = "(//img[@alt='Seclore'])[1]//h1[@class='wp-block-heading']")
     private WebElement secloreLogo;
 
     public boolean secloreLogoIsDisplayed() {
@@ -30,7 +30,7 @@ public class GetADemoPage extends TestBase{
         click(secloreLogo, "Seclore Logo");
     }
 
-    @FindBy(xpath = "//h1[contains(text(),'Share Data Fearlessly')]")
+    @FindBy(xpath = "//h1[@class='wp-block-heading']")
     private WebElement headerShareDataFearlessly;
 
     public boolean headerShareDataFearlesslyIsDisplayed() {
@@ -43,7 +43,7 @@ public class GetADemoPage extends TestBase{
     }
     
 
-    @FindBy(xpath = "//h2[contains(text(),'Protect & control your digital assets wherever they go')]")
+    @FindBy(xpath = "//h2[contains(text(),'Protect & control your digital assets wherever the')]")
     private WebElement subHeaderProtectControl;
 
     public boolean subHeaderProtectControlIsDisplayed() {
@@ -55,7 +55,7 @@ public class GetADemoPage extends TestBase{
         softAssert(subHeaderProtectControl, text);
     }
 
-    @FindBy(xpath = "//li[contains(text(),'Digital asset security')]")
+    @FindBy(xpath = "//li[contains(text(),'Digital asset security for every user, device, app')]")
     private WebElement listDigitalAssetSecurity;
 
     public boolean listDigitalAssetSecurityIsDisplayed() {
@@ -67,7 +67,7 @@ public class GetADemoPage extends TestBase{
         softAssert(listDigitalAssetSecurity, text);
     }
 
-    @FindBy(xpath = "//li[contains(text(),'Granular access and privacy controls')]")
+    @FindBy(xpath = "//li[@class='lazyloaded']")
     private WebElement listGranularAccess;
 
     public boolean listGranularAccessIsDisplayed() {
@@ -79,7 +79,7 @@ public class GetADemoPage extends TestBase{
         softAssert(listGranularAccess, text);
     }
 
-    @FindBy(xpath = "//li[contains(text(),'Never lose control or visibility')]")
+    @FindBy(xpath = "//li[contains(text(),'Never lose control or visibility of your digital a')]")
     private WebElement listNeverLoseControl;
 
     public boolean listNeverLoseControlIsDisplayed() {
@@ -91,7 +91,7 @@ public class GetADemoPage extends TestBase{
         softAssert(listNeverLoseControl, text);
     }
 
-    @FindBy(xpath = "//a[contains(text(),\"See Seclore’s data-centric security in action\")]")
+    @FindBy(xpath = "//h2[contains(text(),'See Seclore’s data-centric security in action.')]")
     private WebElement linkSeeDataCentricSecurity;
 
     public boolean linkSeeDataCentricSecurityIsDisplayed() {
@@ -103,7 +103,7 @@ public class GetADemoPage extends TestBase{
         softAssert(linkSeeDataCentricSecurity, text);
     }
 
-    @FindBy(xpath = "//h1[contains(text(),'Request a personalized demo')]")
+    @FindBy(xpath = "//h3[normalize-space()='Request a personalized demo']")
     private WebElement headerRequestDemo;
 
     public boolean headerRequestDemoIsDisplayed() {
@@ -115,7 +115,7 @@ public class GetADemoPage extends TestBase{
         softAssert(headerRequestDemo, text);
     }
     //Label Business Email
-    @FindBy(xpath = "//label[contains(text(),'Business Email')]")
+    @FindBy(xpath = "//span[normalize-space()='Business Email']")
     private WebElement labelBusinessEmail;
 
     public boolean labelBusinessEmailIsDisplayed() {
@@ -128,7 +128,7 @@ public class GetADemoPage extends TestBase{
     }
 
     //Input Business Email
-    @FindBy(xpath = "//label[contains(text(),'Business Email')]/following-sibling::input")
+    @FindBy(xpath = "//input[@id='email-b43dfbf4-98dd-4008-ab59-8a347a8b5456']")
     private WebElement inputBusinessEmail;
 
     public boolean inputBusinessEmailIsDisplayed() {
@@ -147,7 +147,7 @@ public class GetADemoPage extends TestBase{
     }
 
     //Label First Name
-    @FindBy(xpath = "//label[contains(text(),'First Name')]")
+    @FindBy(xpath = "//span[normalize-space()='First Name']")
     private WebElement labelFirstName;
 
     public boolean labelFirstNameIsDisplayed() {
@@ -160,7 +160,7 @@ public class GetADemoPage extends TestBase{
     }
 
     //Input First Name
-    @FindBy(xpath = "//label[contains(text(),'First Name')]/following-sibling::input")
+    @FindBy(xpath = "//input[@id='firstname-b43dfbf4-98dd-4008-ab59-8a347a8b5456']")
     private WebElement inputFirstName;
     
 
@@ -179,7 +179,7 @@ public void validatePlaceholderTextOfInputFirstName(String text) {
 }
 //Label Last Name
 
-    @FindBy(xpath = "//label[contains(text(),'Last Name')]")
+    @FindBy(xpath = "//label[@id='label-lastname-b43dfbf4-98dd-4008-ab59-8a347a8b5456']")
     private WebElement labelLastName;
 
     public boolean labelLastNameIsDisplayed() {
@@ -192,7 +192,7 @@ public void validatePlaceholderTextOfInputFirstName(String text) {
     }
 
 //Input Last Name
-    @FindBy(xpath = "//label[contains(text(),'Last Name')]/following-sibling::input")
+    @FindBy(xpath = "//input[@id='lastname-b43dfbf4-98dd-4008-ab59-8a347a8b5456']")
     private WebElement inputLastName;
 
     public boolean inputLastNameIsDisplayed() {
@@ -210,7 +210,7 @@ public void validatePlaceholderTextOfInputFirstName(String text) {
     }
 
     //Label Company Name
-    @FindBy(xpath = "//label[contains(text(),'Company name')]")
+    @FindBy(xpath = "//label[@id='label-company-b43dfbf4-98dd-4008-ab59-8a347a8b5456']")
     private WebElement labelCompanyName;
 
     public boolean labelCompanyNameIsDisplayed() {
@@ -223,7 +223,7 @@ public void validatePlaceholderTextOfInputFirstName(String text) {
     }
 
     //Input Company Name
-    @FindBy(xpath = "//label[contains(text(),'Company name')]/following-sibling::input")
+    @FindBy(xpath = "//input[@id='company-b43dfbf4-98dd-4008-ab59-8a347a8b5456']")
     private WebElement inputCompanyName;
 
     public boolean inputCompanyNameIsDisplayed() {
@@ -240,7 +240,7 @@ public void validatePlaceholderTextOfInputFirstName(String text) {
         validatePlaceholderText(inputCompanyName, text);
     }
     //Label Job Title
-    @FindBy(xpath = "//label[contains(text(),'Job title')]")
+    @FindBy(xpath = "//span[normalize-space()='Job title']")
     private WebElement labelJobTitle;
 
     public boolean labelJobTitleIsDisplayed() {
@@ -252,7 +252,7 @@ public void validatePlaceholderTextOfInputFirstName(String text) {
         softAssert(labelJobTitle, text);
     }
 //Input Job Title
-    @FindBy(xpath = "//label[contains(text(),'Job title')]/following-sibling::input")
+    @FindBy(xpath = "//input[@id='jobtitle-b43dfbf4-98dd-4008-ab59-8a347a8b5456']")
     private WebElement inputJobTitle;
 
     public boolean inputJobTitleIsDisplayed() {
@@ -269,7 +269,7 @@ public void validatePlaceholderTextOfInputFirstName(String text) {
         validatePlaceholderText(inputJobTitle, text);
     }
     //Label Phone Number
-    @FindBy(xpath = "//label[contains(text(),'Phone number')]")
+    @FindBy(xpath = "//span[normalize-space()='Phone number']")
     private WebElement labelPhoneNumber;
 
     public boolean labelPhoneNumberIsDisplayed() {
@@ -281,7 +281,7 @@ public void validatePlaceholderTextOfInputFirstName(String text) {
         softAssert(labelPhoneNumber, text);
     }   
     //Input Phone Number
-    @FindBy(xpath = "//label[contains(text(),'Phone number')]/following-sibling::input")
+    @FindBy(xpath = "//input[@id='phone-b43dfbf4-98dd-4008-ab59-8a347a8b5456']")
     private WebElement inputPhoneNumber;
 
     public boolean inputPhoneNumberIsDisplayed() {
@@ -299,7 +299,7 @@ public void validatePlaceholderTextOfInputFirstName(String text) {
     }
 
     //Label Country 
-    @FindBy(xpath = "//label[contains(text(),'Country')]")
+    @FindBy(xpath = "//span[normalize-space()='Country']")
     private WebElement labelCountry;
 
     public boolean labelCountryIsDisplayed() {
@@ -311,7 +311,7 @@ public void validatePlaceholderTextOfInputFirstName(String text) {
         softAssert(labelCountry, text);
     }    
     //Input Country
-    @FindBy(xpath = "//label[contains(text(),'Country')]/following-sibling::input")
+    @FindBy(xpath = "//select[@id='country-b43dfbf4-98dd-4008-ab59-8a347a8b5456']")
     private WebElement inputCountry;
 
     public boolean inputCountryIsDisplayed() {
@@ -319,9 +319,9 @@ public void validatePlaceholderTextOfInputFirstName(String text) {
         return isDisplayed(inputCountry);
     }
     // Need to enter input in country
-    public void enterInputInCountry(String country) {
+    public void selectIndiaFromDropdown() {
         scrollIntoView(inputCountry);
-        sendKeys(inputCountry, country);
+        selectFromDropdown(inputCountry, "India", "India");
     }
     //Need to validate placeholder text
     public void validatePlaceholderTextOfInputCountry(String text) {
@@ -329,7 +329,7 @@ public void validatePlaceholderTextOfInputFirstName(String text) {
     }
     
     //Submit Button
-    @FindBy(xpath = "//button[contains(text(),'Submit')]")
+    @FindBy(xpath = "//input[@value='Submit']")
     private WebElement submitButton;
 
     public boolean submitButtonIsDisplayed() {
@@ -346,7 +346,7 @@ public void validatePlaceholderTextOfInputFirstName(String text) {
         softAssert(submitButton, text);
     }
     //Link Back to Home
-    @FindBy(xpath = "//a[contains(text(),'Back to Home')]")
+    @FindBy(xpath = "//a[normalize-space()='Back to Home']")
     private WebElement linkBackToHome;
 
     public boolean linkBackToHomeIsDisplayed() {
@@ -358,7 +358,24 @@ public void validatePlaceholderTextOfInputFirstName(String text) {
         scrollIntoView(linkBackToHome);
         click(linkBackToHome, "Back to Home");
     }
-    
+
+    //iframe with id hs-form-iframe-0
+    @FindBy(xpath = "//iframe[@id='hs-form-iframe-0']")
+    private WebElement iframe;
+
+    public boolean ifPesonalisedDemoIframeIsDisplayed() {
+        scrollIntoView(iframe);
+        return isDisplayed(iframe);
+    }
+
+    public void switchToPesonalisedDemoIframe() {
+        switchToFrame(iframe);
+    }
+    public void switchToDefaultSecloreContent() {
+        switchToDefaultContent();
+    }
+
+
     
 }
 

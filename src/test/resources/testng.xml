@@ -5,7 +5,7 @@
     <test name="Validating Get a Demo">
 
         <classes>
-            <class name="web_automation.seclore.tests.GetADemo"/>
+            <class name="web_automation.seclore.tests.TC01_GetADemo"/>
 
         </classes>
     </test>

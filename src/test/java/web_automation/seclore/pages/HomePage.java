@@ -15,7 +15,7 @@ public class HomePage extends TestBase{
     }
     
     /* ---------- Brand logo ---------- */
-    @FindBy(xpath = "//a[contains(@class,'navbar-brand')][contains(.,'SECLORE')]")
+    @FindBy(xpath = "(//*[@alt='Seclore'])[1]")
     private WebElement logoSeclore;
 
     public boolean logoSecloreIsDisplayed() {
@@ -29,7 +29,7 @@ public class HomePage extends TestBase{
     }
 
     /* ---------- Primary navigation ---------- */
-    @FindBy(xpath = "//nav//a[normalize-space()='Platform']")
+    @FindBy(xpath = "//*[@id='menu-item-10557']/a")
     private WebElement navPlatform;
 
     public boolean navPlatformIsDisplayed() {
@@ -51,7 +51,7 @@ public class HomePage extends TestBase{
         hover(navPlatform, "Platform");
     }
 
-    @FindBy(xpath = "//nav//a[normalize-space()='Solutions']")
+    @FindBy(xpath = "//*[@id='menu-item-10587']/a")
     private WebElement navSolutions;
     // Solutions isDispayed
     public boolean navSolutionsIsDisplayed() {
@@ -73,7 +73,7 @@ public class HomePage extends TestBase{
         hover(navSolutions, "Solutions");
     }
 
-    @FindBy(xpath = "//nav//a[normalize-space()='Pricing']")
+    @FindBy(xpath = "//*[@id='menu-item-10603']/a")
     private WebElement navPricing;
     //Pricing isDispayed
     public boolean navPricingIsDisplayed() {
@@ -95,7 +95,7 @@ public class HomePage extends TestBase{
         hover(navPricing, "Pricing");
     }
 
-    @FindBy(xpath = "//nav//a[normalize-space()='Resources']")
+    @FindBy(xpath = "//*[@id='menu-item-10607']/a")
     private WebElement navResources;
     //Resources isDispayed
     public boolean navResourcesIsDisplayed() {
@@ -117,7 +117,7 @@ public class HomePage extends TestBase{
         hover(navResources, "Resources");
     }
 
-    @FindBy(xpath = "//nav//a[normalize-space()='Partners']")
+    @FindBy(xpath = "//*[@id='menu-item-10644']/a")
     private WebElement navPartners;
     //Partners isDispayed
     public boolean navPartnersIsDisplayed() {
@@ -139,7 +139,7 @@ public class HomePage extends TestBase{
         hover(navPartners, "Partners");
     }
 
-    @FindBy(xpath = "//nav//a[normalize-space()='About']")
+    @FindBy(xpath = "//*[@id='menu-item-10667']/a")
     private WebElement navAbout;
     //About isDispayed
     public boolean navAboutIsDisplayed() {
@@ -161,7 +161,7 @@ public class HomePage extends TestBase{
         hover(navAbout, "About");
     }
 
-    @FindBy(xpath = "//nav//a[normalize-space()='Support']")
+    @FindBy(xpath = "//*[@id='menu-item-16549']/a")
     private WebElement navSupport;
     //Support isDispayed
     public boolean navSupportIsDisplayed() {
@@ -184,7 +184,7 @@ public class HomePage extends TestBase{
     }
 
     /* ---------- Utility links / icons ---------- */
-    @FindBy(xpath = "//a[normalize-space()='HOW TO OPEN A SECLORE FILE']")
+    @FindBy(xpath = "//*[@id='menu-item-12172']/a")
     private WebElement linkHowToOpenFile;
     //How to open a seclore file isDispayed
     public boolean linkHowToOpenFileIsDisplayed() {
@@ -197,7 +197,7 @@ public class HomePage extends TestBase{
         click(linkHowToOpenFile, "How to open a seclore file");
     }
 
-    @FindBy(xpath = "//button[@aria-label='Search'] | //a[@aria-label='Search']")
+    @FindBy(xpath = "menu-item-5371")
     private WebElement iconSearch;
     //Search isDispayed
     public boolean iconSearchIsDisplayed() {
@@ -210,7 +210,7 @@ public class HomePage extends TestBase{
         click(iconSearch, "Search");
     }
 
-    @FindBy(xpath = "//button[@aria-label='Language'] | //a[@aria-label='Language']")
+    @FindBy(xpath = "//*[@id='menu-item-5372']/a")
     private WebElement iconLanguage;
     //Language isDispayed
     public boolean iconLanguageIsDisplayed() {
@@ -224,7 +224,7 @@ public class HomePage extends TestBase{
     }
 
     /* ---------- Call-to-action button ---------- */
-    @FindBy(xpath = "//a[normalize-space()='Get a demo']")
+    @FindBy(xpath = "(//*[text() = 'Get a demo'])[2]")
     private WebElement btnGetADemo;
     //Get a demo isDispayed
     public boolean btnGetADemoIsDisplayed() {
