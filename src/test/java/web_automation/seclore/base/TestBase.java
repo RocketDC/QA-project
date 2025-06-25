@@ -1,4 +1,4 @@
-package web_automation.citiusTech.base;
+package web_automation.seclore.base;
 
 import web_automation.commons.base.CommonTestBase;
 
