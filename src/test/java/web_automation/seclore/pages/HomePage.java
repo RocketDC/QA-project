@@ -16,7 +16,7 @@ public class HomePage extends TestBase{
     
     /* ---------- Brand logo ---------- */
     @FindBy(xpath = "//a[contains(@class,'navbar-brand')][contains(.,'SECLORE')]")
-    public WebElement logoSeclore;
+    private WebElement logoSeclore;
 
     public boolean logoSecloreIsDisplayed() {
         scrollIntoView(logoSeclore);
@@ -30,7 +30,7 @@ public class HomePage extends TestBase{
 
     /* ---------- Primary navigation ---------- */
     @FindBy(xpath = "//nav//a[normalize-space()='Platform']")
-    public WebElement navPlatform;
+    private WebElement navPlatform;
 
     public boolean navPlatformIsDisplayed() {
         scrollIntoView(navPlatform);
@@ -45,9 +45,14 @@ public class HomePage extends TestBase{
     public void validateTextOfNavPlatform(String text) {
         softAssert(navPlatform, text);
     }
+    //hover navPlatform
+    public void hoverNavPlatform() {
+        scrollIntoView(navPlatform);
+        hover(navPlatform, "Platform");
+    }
 
     @FindBy(xpath = "//nav//a[normalize-space()='Solutions']")
-    public WebElement navSolutions;
+    private WebElement navSolutions;
     // Solutions isDispayed
     public boolean navSolutionsIsDisplayed() {
         scrollIntoView(navSolutions);
@@ -62,9 +67,14 @@ public class HomePage extends TestBase{
     public void validateTextOfNavSolutions(String text) {
         softAssert(navSolutions, text);
     }
+    //hover navSolutions
+    public void hoverNavSolutions() {
+        scrollIntoView(navSolutions);
+        hover(navSolutions, "Solutions");
+    }
 
     @FindBy(xpath = "//nav//a[normalize-space()='Pricing']")
-    public WebElement navPricing;
+    private WebElement navPricing;
     //Pricing isDispayed
     public boolean navPricingIsDisplayed() {
         scrollIntoView(navPricing);
@@ -79,9 +89,14 @@ public class HomePage extends TestBase{
     public void validateTextOfNavPricing(String text) {
         softAssert(navPricing, text);
     }
+    //hover navPricing
+    public void hoverNavPricing() {
+        scrollIntoView(navPricing);
+        hover(navPricing, "Pricing");
+    }
 
     @FindBy(xpath = "//nav//a[normalize-space()='Resources']")
-    public WebElement navResources;
+    private WebElement navResources;
     //Resources isDispayed
     public boolean navResourcesIsDisplayed() {
         scrollIntoView(navResources);
@@ -96,9 +111,14 @@ public class HomePage extends TestBase{
     public void validateTextOfNavResources(String text) {
         softAssert(navResources, text);
     }
+    //hover navResources
+    public void hoverNavResources() {
+        scrollIntoView(navResources);
+        hover(navResources, "Resources");
+    }
 
     @FindBy(xpath = "//nav//a[normalize-space()='Partners']")
-    public WebElement navPartners;
+    private WebElement navPartners;
     //Partners isDispayed
     public boolean navPartnersIsDisplayed() {
         scrollIntoView(navPartners);
@@ -113,9 +133,14 @@ public class HomePage extends TestBase{
     public void validateTextOfNavPartners(String text) {
         softAssert(navPartners, text);
     }
+    //hover navPartners
+    public void hoverNavPartners() {
+        scrollIntoView(navPartners);
+        hover(navPartners, "Partners");
+    }
 
     @FindBy(xpath = "//nav//a[normalize-space()='About']")
-    public WebElement navAbout;
+    private WebElement navAbout;
     //About isDispayed
     public boolean navAboutIsDisplayed() {
         scrollIntoView(navAbout);
@@ -130,9 +155,14 @@ public class HomePage extends TestBase{
     public void validateTextOfNavAbout(String text) {
         softAssert(navAbout, text);
     }
+    //hover navAbout
+    public void hoverNavAbout() {
+        scrollIntoView(navAbout);
+        hover(navAbout, "About");
+    }
 
     @FindBy(xpath = "//nav//a[normalize-space()='Support']")
-    public WebElement navSupport;
+    private WebElement navSupport;
     //Support isDispayed
     public boolean navSupportIsDisplayed() {
         scrollIntoView(navSupport);
@@ -147,10 +177,15 @@ public class HomePage extends TestBase{
     public void validateTextOfNavSupport(String text) {
         softAssert(navSupport, text);
     }
+    //hover navSupport
+    public void hoverNavSupport() {
+        scrollIntoView(navSupport);
+        hover(navSupport, "Support");
+    }
 
     /* ---------- Utility links / icons ---------- */
     @FindBy(xpath = "//a[normalize-space()='HOW TO OPEN A SECLORE FILE']")
-    public WebElement linkHowToOpenFile;
+    private WebElement linkHowToOpenFile;
     //How to open a seclore file isDispayed
     public boolean linkHowToOpenFileIsDisplayed() {
         scrollIntoView(linkHowToOpenFile);
@@ -163,7 +198,7 @@ public class HomePage extends TestBase{
     }
 
     @FindBy(xpath = "//button[@aria-label='Search'] | //a[@aria-label='Search']")
-    public WebElement iconSearch;
+    private WebElement iconSearch;
     //Search isDispayed
     public boolean iconSearchIsDisplayed() {
         scrollIntoView(iconSearch);
@@ -176,7 +211,7 @@ public class HomePage extends TestBase{
     }
 
     @FindBy(xpath = "//button[@aria-label='Language'] | //a[@aria-label='Language']")
-    public WebElement iconLanguage;
+    private WebElement iconLanguage;
     //Language isDispayed
     public boolean iconLanguageIsDisplayed() {
         scrollIntoView(iconLanguage);
@@ -190,7 +225,7 @@ public class HomePage extends TestBase{
 
     /* ---------- Call-to-action button ---------- */
     @FindBy(xpath = "//a[normalize-space()='Get a demo']")
-    public WebElement btnGetADemo;
+    private WebElement btnGetADemo;
     //Get a demo isDispayed
     public boolean btnGetADemoIsDisplayed() {
         scrollIntoView(btnGetADemo);
@@ -204,5 +239,10 @@ public class HomePage extends TestBase{
     //Validate text
     public void validateTextOfBtnGetADemo(String text) {
         softAssert(btnGetADemo, text);
+    }
+    //hover btnGetADemo
+    public void hoverBtnGetADemo() {
+        scrollIntoView(btnGetADemo);
+        hover(btnGetADemo, "Get a demo");
     }
 }
