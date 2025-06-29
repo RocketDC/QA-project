@@ -31,9 +31,9 @@ public class RegisterPage extends TestBase{
         scrollIntoView(logoSeclorePartner);
         return isDisplayed(logoSeclorePartner);
     }
-    
+
     //Login button
-    @FindBy(xpath = "//button[@type='submit']")
+    @FindBy(xpath = "(//a[@role='button'][normalize-space()='Login'])[2]")
     private WebElement loginButton;
 
     //Click on Login Button
@@ -54,7 +54,7 @@ public class RegisterPage extends TestBase{
     }
 
     //Register button
-    @FindBy(xpath = "//a[@href='/register']")
+    @FindBy(xpath = "(//a[@role='button'][normalize-space()='Register'])[2]")
     private WebElement registerButton;
 
     //Click on Register Button
@@ -75,7 +75,7 @@ public class RegisterPage extends TestBase{
 
 
     //Register now to access your portal. text heading and sub-heading
-    @FindBy(xpath = "//h1[contains(text(),'Register now to access your portal.')]")
+    @FindBy(xpath = "//div[@class='bee-block bee-block-1 bee-heading']")
     private WebElement registerHeading;
 
     //Validate Register heading is displayed
@@ -105,8 +105,25 @@ public class RegisterPage extends TestBase{
         softAssert(alreadyHaveAccountText, text);
     }
 
+    //Validate text of Register sub-heading
+    @FindBy(xpath = "//p[contains(text(),'We commit to helping our partners reach their goal')]")
+    private WebElement registerSubHeading;
+
+    //Validate Register sub-heading is displayed
+    public boolean isRegisterSubHeadingDisplayed() {
+        scrollIntoView(registerSubHeading);
+        return isDisplayed(registerSubHeading);
+    }
+
+    //Validate text of Register sub-heading
+    public void validateTextOfRegisterSubHeading(String text) {
+        scrollIntoView(registerSubHeading);
+        softAssert(registerSubHeading, text);
+    }
+
+
     //Company name label and input field
-    @FindBy(xpath = "//label[contains(text(),'Company Name')]")
+    @FindBy(xpath = "//label[normalize-space()='Company Name']")
     private WebElement companyNameLabel;
 
     //Validate Company Name label is displayed
@@ -121,7 +138,7 @@ public class RegisterPage extends TestBase{
         scrollIntoView(companyNameLabel);
         softAssert(companyNameLabel, text);
     }
-    @FindBy(xpath = "//input[@id='company_name']")
+    @FindBy(xpath = "//input[@id='name']")
     private WebElement companyNameInput;
 
     //Validate Company Name input field is displayed
@@ -143,7 +160,7 @@ public class RegisterPage extends TestBase{
     }
     
     //Email label and input field
-    @FindBy(xpath = "//label[contains(text(),'Email')]")
+    @FindBy(xpath = "//label[normalize-space()='Email Address']")
     private WebElement emailLabel;
 
     //Validate Email label is displayed
@@ -158,7 +175,7 @@ public class RegisterPage extends TestBase{
         softAssert(emailLabel, text);
     }
 
-    @FindBy(xpath = "//input[@id='email']")
+    @FindBy(xpath = "//div[@class='form-group col-md-12 ng-scope']//input[@id='email']")
     private WebElement emailInput;
 
     //Validate Email input field is displayed
@@ -181,7 +198,7 @@ public class RegisterPage extends TestBase{
 
 
     //First name label and input field
-    @FindBy(xpath = "//label[contains(text(),'First Name')]")
+    @FindBy(xpath = "//label[normalize-space()='First Name']")
     private WebElement firstNameLabel;
     //Validate First Name label is displayed
     public boolean isFirstNameLabelDisplayed() {
@@ -195,7 +212,7 @@ public class RegisterPage extends TestBase{
         softAssert(firstNameLabel, text);
     }
 
-    @FindBy(xpath = "//input[@id='first_name']")
+    @FindBy(xpath = "//input[@id='firstName']")
     private WebElement firstNameInput;
     //Validate First Name input field is displayed
     public boolean isFirstNameInputDisplayed() {
@@ -214,7 +231,7 @@ public class RegisterPage extends TestBase{
     }
 
     //Last name label and input field
-    @FindBy(xpath = "//label[contains(text(),'Last Name')]")
+    @FindBy(xpath = "//label[normalize-space()='Last Name']")
     private WebElement lastNameLabel;
 
     //Validate Last Name label is displayed
@@ -229,7 +246,7 @@ public class RegisterPage extends TestBase{
         softAssert(lastNameLabel, text);
     }
 
-    @FindBy(xpath = "//input[@id='last_name']")
+    @FindBy(xpath = "//input[@id='lastName']")
     private WebElement lastNameInput;
 
     //Validate Last Name input field is displayed
@@ -252,7 +269,7 @@ public class RegisterPage extends TestBase{
     }
 
     //Country label and input field(Dropdown)
-    @FindBy(xpath = "//label[contains(text(),'Country')]")
+    @FindBy(xpath = "//label[normalize-space()='Country']")
     private WebElement countryLabel;
 
     //Validate Country label is displayed
@@ -267,7 +284,7 @@ public class RegisterPage extends TestBase{
         softAssert(countryLabel, text);
     }
 
-    @FindBy(xpath = "//select[@id='country']")
+    @FindBy(xpath = "//span[@aria-label='Select box activate']")
     private WebElement countryDropdown;
 
     //Validate Country dropdown is displayed
@@ -283,7 +300,7 @@ public class RegisterPage extends TestBase{
     }
 
 //Phone number label and input field
-    @FindBy(xpath = "//label[contains(text(),'Phone Number')]")
+    @FindBy(xpath = "//label[normalize-space()='Phone']")
     private WebElement phoneNumberLabel;
 
     //Validate Phone Number label is displayed
@@ -320,7 +337,7 @@ public class RegisterPage extends TestBase{
     }
 
     //Type of partner label and input field(Dropdown)
-    @FindBy(xpath = "//label[contains(text(),'Type of Partner')]")
+    @FindBy(xpath = "//label[normalize-space()='Type of Partner']")
     private WebElement typeOfPartnerLabel;
 
     //Validate Type of Partner label is displayed
@@ -333,7 +350,7 @@ public class RegisterPage extends TestBase{
         scrollIntoView(typeOfPartnerLabel);
         softAssert(typeOfPartnerLabel, text);
     }
-    @FindBy(xpath = "//select[@id='type_of_partner']")
+    @FindBy(xpath = "//select[@name='8a998d8e933c08520193411fd6b65619']")
     private WebElement typeOfPartnerDropdown;
 
     //Validate Type of Partner dropdown is displayed
@@ -349,7 +366,7 @@ public class RegisterPage extends TestBase{
     }
 
     // Partner Size label, input field and footer text
-    @FindBy(xpath = "//label[contains(text(),'Partner Size')]")
+    @FindBy(xpath = "//label[normalize-space()='Partner Size (no. employees)']")
     private WebElement partnerSizeLabel;
 
     //Validate Partner Size label is displayed
@@ -364,7 +381,7 @@ public class RegisterPage extends TestBase{
         softAssert(partnerSizeLabel, text);
     }
 
-    @FindBy(xpath = "//input[@id='partner_size']")
+    @FindBy(xpath = "//input[@name='8a998373934232c1019345a8ec9d3102']")
     private WebElement partnerSizeInput;
 
     //Validate Partner Size input field is displayed
@@ -386,7 +403,7 @@ public class RegisterPage extends TestBase{
     }
 
     //Validate footer text
-    @FindBy(xpath = "//p[contains(text(),'By clicking Register, you agree to our Terms of Service and Privacy Policy.')]")
+    @FindBy(xpath = "//p[contains(text(),'Enter the approximate number of employees in your ')]")
     private WebElement footerText;
 
     //Validate footer text is displayed
@@ -403,7 +420,7 @@ public class RegisterPage extends TestBase{
 
 
     //Submit button
-    @FindBy(xpath = "//button[@type='submit']")
+    @FindBy(xpath = "//button[normalize-space()='Submit']")
     private WebElement submitButton;
 
     //Submit button is displayed

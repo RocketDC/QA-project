@@ -31,7 +31,7 @@ public class LoginPage extends TestBase{
     }
     
     //Login button
-    @FindBy(xpath = "//button[@type='submit']")
+    @FindBy(xpath = "(//a[@role='button'][normalize-space()='Login'])[2]")
     private WebElement loginButton;
 
     //Click on Login Button
@@ -52,7 +52,7 @@ public class LoginPage extends TestBase{
     }
 
     //Register button
-    @FindBy(xpath = "//a[@href='/register']")
+    @FindBy(xpath = "(//a[@role='button'][normalize-space()='Register'])[2]")
     private WebElement registerButton;
 
     //Click on Register Button
@@ -72,7 +72,7 @@ public class LoginPage extends TestBase{
     }
 
     //Login heading
-    @FindBy(xpath = "//h1[contains(text(),'Login to Seclore Partner Center')]")
+    @FindBy(xpath = "(//p[normalize-space()='Login'])[1]")
     private WebElement loginHeading;
 
     //Validate Login heading is displayed
@@ -87,7 +87,7 @@ public class LoginPage extends TestBase{
         softAssert(loginHeading, text);
     }
     //Email label field
-    @FindBy(xpath = "//input[@id='email']")
+    @FindBy(xpath = "(//label[@for='inputEmail'][normalize-space()='Email Address'])[1]")
     private WebElement emailLabelField;
 
     //Validate if Email label field is displayed
@@ -102,7 +102,7 @@ public class LoginPage extends TestBase{
     }
 
     //Email input field
-    @FindBy(xpath = "//input[@id='email']")
+    @FindBy(xpath = "(//input[@id='inputEmail'])[1]")
     private WebElement emailInputField;
 
     //Validate if Email input field is displayed
@@ -124,7 +124,7 @@ public class LoginPage extends TestBase{
     }
 
     //Password label field
-    @FindBy(xpath = "//label[@for='password']")
+    @FindBy(xpath = "//label[normalize-space()='Password']")
     private WebElement passwordLabelField;
 
     //Validate if password label is displayed
@@ -140,7 +140,7 @@ public class LoginPage extends TestBase{
         softAssert(passwordLabelField, text);
     }
     //Password input field
-    @FindBy(xpath = "//input[@id='password']")
+    @FindBy(xpath = "//input[@id='inputPassword']")
     private WebElement passwordInputField;
     //Validate if Password input field is displayed
     public boolean passwordInputFieldIsDisplayed(){
@@ -162,7 +162,7 @@ public class LoginPage extends TestBase{
     }
 
     //Forgot Password link
-    @FindBy(xpath = "//a[@href='/forgot-password']")
+    @FindBy(xpath = "//a[normalize-space()='Forgot Your Password?']")
     private WebElement forgotPasswordLink;
 
     //Forgot Password link is displayed
@@ -184,7 +184,7 @@ public class LoginPage extends TestBase{
     }
 
     //Sign in button
-    @FindBy(xpath = "//button[@type='submit']")
+    @FindBy(xpath = "//button[@id='loginButton']")
     private WebElement signInButton;
 
     //Sign in button is displayed
@@ -205,7 +205,7 @@ public class LoginPage extends TestBase{
     }
 
     //Not a partner? text
-    @FindBy(xpath = "//p[contains(text(),'Not a partner?')]")
+    @FindBy(xpath = "//p[normalize-space()='Not a partner?']")
     private WebElement notAPartnerText;
 
     //Validate Not a partner? text is displayed
@@ -221,7 +221,7 @@ public class LoginPage extends TestBase{
     }
 
     //Register today button
-    @FindBy(xpath = "//a[@href='/register']")
+    @FindBy(xpath = "//div[@class='bee-col bee-col-2 bee-col-w4']//span[contains(text(),'Register today')]")
     private WebElement registerTodayButton;
 
     //Register today button is displayed
@@ -243,7 +243,7 @@ public class LoginPage extends TestBase{
     }
 
     //Welcome partner Portal page heading
-    @FindBy(xpath = "//h1[contains(text(),'Welcome to the Seclore Partner Portal')]")
+    @FindBy(xpath = "//span[normalize-space()='Welcome to your  partner portal']")
     private WebElement welcomePartnerPortalHeading;
 
     //Welcome partner Portal page heading is displayed
@@ -259,7 +259,7 @@ public class LoginPage extends TestBase{
     }
 
     //Checkout all inclusive section heading
-    @FindBy(xpath = "//h2[contains(text(),'Checkout all inclusive')]")
+    @FindBy(xpath = "//span[normalize-space()='Check out our all-inclusive partner success programs in our Partner Portal.']")
     private WebElement checkoutAllInclusiveSectionHeading;
 
     //Checkout all inclusive section heading is displayed
@@ -276,7 +276,7 @@ public class LoginPage extends TestBase{
 
 
     //Checkout all inclusive section sub-heading
-    @FindBy(xpath = "//p[contains(text(),'Get access to the latest resources, tools, and support to help you succeed as a Seclore partner.')]")
+    @FindBy(xpath = "//p[contains(text(),'Our Partner Success team is here to help you with ')]")
     private WebElement checkoutAllInclusiveSectionSubHeading;
 
     //Checkout all inclusive section sub-heading is displayed
@@ -292,7 +292,7 @@ public class LoginPage extends TestBase{
     }
 
     //Register today 2nd button
-    @FindBy(xpath = "//a[@href='/register']")
+    @FindBy(xpath = "(//span[contains(text(),'Register today')])[2]")
     private WebElement registerToday2ndButton;
 
     //Register today 2nd button is displayed
@@ -314,7 +314,7 @@ public class LoginPage extends TestBase{
     }
 
     // Create your own microsite text heading
-    @FindBy(xpath = "//h2[contains(text(),'Create your own microsite')]")
+    @FindBy(xpath = "//span[normalize-space()='Create your own microsite']")
     private WebElement createYourOwnMicrositeHeading;
 
     // Create your own microsite text heading is displayed
@@ -330,7 +330,7 @@ public class LoginPage extends TestBase{
     }
 
     // Create your own microsite text sub-heading
-    @FindBy(xpath = "//p[contains(text(),'Easily create a personalized microsite to showcase your brand and offerings.')]")
+    @FindBy(xpath = "//p[contains(text(),'Check out our customizable microsite that helps yo')]")
     private WebElement createYourOwnMicrositeSubHeading;
 
     // Create your own microsite text sub-heading is displayed
@@ -346,7 +346,7 @@ public class LoginPage extends TestBase{
     }
 
     // Create your own microsite icon
-    @FindBy(xpath = "//img[@alt='Create your own microsite']")
+    @FindBy(xpath = "//div[@class='bee-col bee-col-1 bee-col-w4']//img[contains(@class,'bee-fixedwidth')]")
     private WebElement createYourOwnMicrositeIcon;
 
     // Create your own microsite icon is displayed
@@ -372,7 +372,7 @@ public class LoginPage extends TestBase{
     }
 
     // Customize an email campaign text sub-heading
-    @FindBy(xpath = "//p[contains(text(),'Create and send personalized email campaigns to your audience.')]")
+    @FindBy(xpath = "//p[contains(text(),'Check out our pre-packaged campaigns, and customiz')]")
     private WebElement customizeAnEmailCampaignSubHeading;
 
     // Customize an email campaign text sub-heading is displayed
@@ -388,7 +388,7 @@ public class LoginPage extends TestBase{
     }
 
     // Customize an email campaign icon
-    @FindBy(xpath = "//img[@alt='Customize an email campaign']")
+    @FindBy(xpath = "//div[@class='bee-col bee-col-2 bee-col-w4']//img[contains(@class,'bee-fixedwidth')]")
     private WebElement customizeAnEmailCampaignIcon;
 
     // Customize an email campaign icon is displayed
@@ -398,7 +398,7 @@ public class LoginPage extends TestBase{
     }
 
     //Try our co-branded collateral text heading
-    @FindBy(xpath = "//h2[contains(text(),'Try our co-branded collateral')]")
+    @FindBy(xpath = "//span[normalize-space()='Try our co-branded collateral']")
     private WebElement tryOurCoBrandedCollateralHeading;
 
     //Try our co-branded collateral text heading is displayed
@@ -413,7 +413,7 @@ public class LoginPage extends TestBase{
         softAssert(tryOurCoBrandedCollateralHeading, text);
     }
     //Try our co-branded collateral text sub-heading
-    @FindBy(xpath = "//p[contains(text(),'Access a library of co-branded collateral to enhance your marketing efforts.')]")
+    @FindBy(xpath = "//p[contains(text(),'Check out all of our pre-made collateral that can ')]")
     private WebElement tryOurCoBrandedCollateralSubHeading;
 
     //Try our co-branded collateral text sub-heading is displayed
@@ -429,7 +429,7 @@ public class LoginPage extends TestBase{
     }
 
     //Try our co-branded collateral icon
-    @FindBy(xpath = "//img[@alt='Try our co-branded collateral']")
+    @FindBy(xpath = "//div[@class='bee-col bee-col-3 bee-col-w4']//img[contains(@class,'bee-fixedwidth')]")
     private WebElement tryOurCoBrandedCollateralIcon;
 
     //Try our co-branded collateral icon is displayed
@@ -440,7 +440,7 @@ public class LoginPage extends TestBase{
 
 
     // Are you generating new, exciting leads? text heading
-    @FindBy(xpath = "//h2[contains(text(),'Are you generating new, exciting leads?')]")
+    @FindBy(xpath = "//span[normalize-space()='Are you generating new, exciting leads?']")
     private WebElement areYouGeneratingNewExcitingLeadsHeading;
 
     // Are you generating new, exciting leads? text heading is displayed
@@ -456,7 +456,7 @@ public class LoginPage extends TestBase{
     }
 
     // Are you generating new, exciting leads? text sub-heading
-    @FindBy(xpath = "//p[contains(text(),'Discover how to leverage Seclore’s resources to drive new business opportunities.')]")
+    @FindBy(xpath = "//p[contains(text(),'Take a look at all we have to offer and find marke')]")
     private WebElement areYouGeneratingNewExcitingLeadsSubHeading;
     // Are you generating new, exciting leads? text sub-heading is displayed
     public boolean isAreYouGeneratingNewExcitingLeadsSubHeadingDisplayed() {
@@ -471,7 +471,7 @@ public class LoginPage extends TestBase{
     }
 
     // Need help navigating the Portal? text heading and sub-heading
-    @FindBy(xpath = "//h2[contains(text(),'Need help navigating the Portal?')]")
+    @FindBy(xpath = "//span[normalize-space()='Need help navigating the Portal?']")
     private WebElement needHelpNavigatingThePortalHeading;
 
     // Need help navigating the Portal? text heading is displayed
@@ -487,7 +487,7 @@ public class LoginPage extends TestBase{
     }
 
     // Need help navigating the Portal? text sub-heading
-    @FindBy(xpath = "//p[contains(text(),'Get assistance with navigating the Seclore Portal and accessing resources.')]")
+    @FindBy(xpath = "//p[contains(text(),'Our Seclore team is here to assist you with any qu')]")
     private WebElement needHelpNavigatingThePortalSubHeading;
 
     // Need help navigating the Portal? text sub-heading is displayed
