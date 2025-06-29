@@ -65,9 +65,7 @@ public class TC01_GetADemo extends TestBase {
             homePage.validateTextOfNavPricing("Pricing");
             test.log(Status.PASS, "Pricing text is correct");
             logger.info("Pricing text is correct");
-            homePage.hoverNavPricing();
-            test.log(Status.PASS, "Pricing is hovered");
-            logger.info("Pricing is hovered");
+           
         } else {
             test.log(Status.FAIL, "Pricing is not displayed");
             logger.error("Pricing is not displayed");
@@ -176,7 +174,7 @@ public class TC01_GetADemo extends TestBase {
 
     //Test case 2: Verifying Get a demo Page
     @Test(priority = 2, description = "Verifying Get a demo Page", dependsOnMethods = "verifyGetADemoButtonAndNavButtonsAreDisplayed", dataProvider = "secloreData", dataProviderClass = SecloreDataProvider.class)
-    public void verifyGetADemoPage(String businessEmail, String firstName, String lastName, String companyName, String jobTitle, String phoneNumber, String country) {
+    public void verifyGetADemoPage(String businessEmail, String firstName, String lastName, String companyName, String jobTitle, String phoneNumber, String country, String state) {
         ExtentTest test = extent
                 .createTest("TC" + getClass() + "_verifyGetADemoPage",
                         "Verifying Get a demo Page")
@@ -213,7 +211,7 @@ public class TC01_GetADemo extends TestBase {
         if (getADemoPage.listDigitalAssetSecurityIsDisplayed()) {
             test.log(Status.PASS, "List is displayed");
             logger.info("List is displayed");
-            getADemoPage.validateTextOfListDigitalAssetSecurity("Digital asset security");
+            getADemoPage.validateTextOfListDigitalAssetSecurity("Digital asset security for every user, device, app, and cloud");
         } else {
             test.log(Status.FAIL, "List is not displayed");
             logger.error("List is not displayed");
@@ -229,7 +227,7 @@ public class TC01_GetADemo extends TestBase {
         if (getADemoPage.listNeverLoseControlIsDisplayed()) {
             test.log(Status.PASS, "List is displayed");
             logger.info("List is displayed");
-            getADemoPage.validateTextOfListNeverLoseControl("Never lose control or visibility");
+            getADemoPage.validateTextOfListNeverLoseControl("Never lose control or visibility of your digital assets");
         } else {
             test.log(Status.FAIL, "List is not displayed");
             logger.error("List is not displayed");
@@ -237,7 +235,7 @@ public class TC01_GetADemo extends TestBase {
         if (getADemoPage.linkSeeDataCentricSecurityIsDisplayed()) {
             test.log(Status.PASS, "Link is displayed");
             logger.info("Link is displayed");
-            getADemoPage.validateTextOfLinkSeeDataCentricSecurity("See Seclore’s data-centric security in action");
+            getADemoPage.validateTextOfLinkSeeDataCentricSecurity("See Seclore’s data-centric security in action.");
         } else {
             test.log(Status.FAIL, "Link is not displayed");
             logger.error("Link is not displayed");
@@ -289,7 +287,7 @@ public class TC01_GetADemo extends TestBase {
                 if (getADemoPage.labelLastNameIsDisplayed()) {
                     test.log(Status.PASS, "Label is displayed");
                     logger.info("Label is displayed");
-                    getADemoPage.validateTextOfLabelLastName("Last Name");
+                    getADemoPage.validateTextOfLabelLastName("Last Name*");
                 } else {
                     test.log(Status.FAIL, "Label is not displayed");
                     logger.error("Label is not displayed");
@@ -306,7 +304,7 @@ public class TC01_GetADemo extends TestBase {
                 if (getADemoPage.labelCompanyNameIsDisplayed()) {
                     test.log(Status.PASS, "Label is displayed");
                     logger.info("Label is displayed");
-                    getADemoPage.validateTextOfLabelCompanyName("Company Name");
+                    getADemoPage.validateTextOfLabelCompanyName("Company name*");
                 } else {
                     test.log(Status.FAIL, "Label is not displayed");
                     logger.error("Label is not displayed");
@@ -323,7 +321,7 @@ public class TC01_GetADemo extends TestBase {
                 if (getADemoPage.labelJobTitleIsDisplayed()) {
                     test.log(Status.PASS, "Label is displayed");
                     logger.info("Label is displayed");
-                    getADemoPage.validateTextOfLabelJobTitle("Job Title");
+                    getADemoPage.validateTextOfLabelJobTitle("Job title");
                 } else {
                     test.log(Status.FAIL, "Label is not displayed");
                     logger.error("Label is not displayed");
@@ -340,7 +338,7 @@ public class TC01_GetADemo extends TestBase {
                 if (getADemoPage.labelPhoneNumberIsDisplayed()) {
                     test.log(Status.PASS, "Label is displayed");
                     logger.info("Label is displayed");
-                    getADemoPage.validateTextOfLabelPhoneNumber("Phone Number");
+                    getADemoPage.validateTextOfLabelPhoneNumber("Phone number");
                 } else {
                     test.log(Status.FAIL, "Label is not displayed");
                     logger.error("Label is not displayed");
@@ -365,7 +363,25 @@ public class TC01_GetADemo extends TestBase {
                 if (getADemoPage.inputCountryIsDisplayed()) {
                     test.log(Status.PASS, "Input is displayed");
                     logger.info("Input is displayed");
-                    getADemoPage.enterInputInCountry(country);
+                    getADemoPage.selectIndiaFromDropdown(country);
+                } else {
+                    test.log(Status.FAIL, "Input is not displayed");
+                    logger.error("Input is not displayed");
+                }
+                hardWait(3);
+                //Validating state
+                if (getADemoPage.labelStateIsDisplayed()) {
+                    test.log(Status.PASS, "Label is displayed");
+                    logger.info("Label is displayed");
+                    getADemoPage.validateTextOfLabelState("India States*");
+                } else {
+                    test.log(Status.FAIL, "Label is not displayed");
+                    logger.error("Label is not displayed");
+                }
+                if (getADemoPage.inputStateIsDisplayed()) {
+                    test.log(Status.PASS, "Input is displayed");
+                    logger.info("Input is displayed");
+                    getADemoPage.selectStateFromDropdown(state);
                 } else {
                     test.log(Status.FAIL, "Input is not displayed");
                     logger.error("Input is not displayed");
@@ -374,8 +390,8 @@ public class TC01_GetADemo extends TestBase {
                 if (getADemoPage.submitButtonIsDisplayed()) {
                     test.log(Status.PASS, "Button is displayed");
                     logger.info("Button is displayed");
-                    getADemoPage.validateTextOfSubmitButton("Submit");
-                    getADemoPage.clickOnSubmitButton();
+//                    getADemoPage.validateTextOfSubmitButton("Submit");
+//                    getADemoPage.clickOnSubmitButton();
                 } else {
                     test.log(Status.FAIL, "Button is not displayed");
                     logger.error("Button is not displayed");

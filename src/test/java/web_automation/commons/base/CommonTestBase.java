@@ -139,7 +139,7 @@ public class CommonTestBase {
         prefs.put("profile.default_content_setting_values.notifications", 2);
 // Apply prefs
         options.setExperimentalOption("prefs", prefs);
-        System.setProperty("heal-enabled", "false");
+        System.setProperty("heal-enabled", "true");
         WebDriver chromeDriver = new ChromeDriver(options);
 //        create Self-healing driver
         SelfHealingDriver driver = SelfHealingDriver.create(chromeDriver);
@@ -514,7 +514,7 @@ public class CommonTestBase {
         ExtentTest test = extent.createTest("Selecting option from dropdown");
         setExtentTest(test);
         try {
-            click(element, message);
+
             Select select = new Select(element);
             select.selectByVisibleText(option);
             test.log(Status.PASS, "Option " + option + " selected successfully" + message);

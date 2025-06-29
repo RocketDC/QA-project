@@ -21,7 +21,8 @@ public class SecloreDataProvider {
                 "Survey Corps",                 // Company name
                 "Attack Titan Shifter",         // Job title
                 "8451234567",                   // Phone number
-                "Paradis"                       // Country
+                "India",                        // Country
+                "Maharashtra"                   // State    
             }
         };
     }

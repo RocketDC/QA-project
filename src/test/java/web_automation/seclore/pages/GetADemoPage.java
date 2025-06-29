@@ -17,7 +17,7 @@ public class GetADemoPage extends TestBase{
     //@FindBy is used to store the locators
 
     //Seclore logo locator
-    @FindBy(xpath = "(//img[@alt='Seclore'])[1]//h1[@class='wp-block-heading']")
+    @FindBy(xpath = "//a[@class='site-logo lazyloaded']")
     private WebElement secloreLogo;
 
     public boolean secloreLogoIsDisplayed() {
@@ -319,15 +319,39 @@ public void validatePlaceholderTextOfInputFirstName(String text) {
         return isDisplayed(inputCountry);
     }
     // Need to enter input in country
-    public void selectIndiaFromDropdown() {
+    public void selectIndiaFromDropdown(String country) {
         scrollIntoView(inputCountry);
-        selectFromDropdown(inputCountry, "India", "India");
+        selectFromDropdown(inputCountry, country, "Selecting "+ country);
     }
     //Need to validate placeholder text
     public void validatePlaceholderTextOfInputCountry(String text) {
         validatePlaceholderText(inputCountry, text);
     }
-    
+
+    //Label State
+    @FindBy(xpath = "//label[@id='label-india_states-b43dfbf4-98dd-4008-ab59-8a347a8b5456']")
+    private WebElement labelState;
+
+    public boolean labelStateIsDisplayed() {
+        scrollIntoView(labelState);
+        return isDisplayed(labelState);
+    }
+    public void validateTextOfLabelState(String text) {
+        softAssert(labelState, text);
+    }
+    //Input State
+    @FindBy(xpath = "//select[@id='india_states-b43dfbf4-98dd-4008-ab59-8a347a8b5456']")
+    private WebElement inputState;
+
+    public boolean inputStateIsDisplayed() {
+        scrollIntoView(inputState);
+        return isDisplayed(inputState);
+    }
+    // Need to enter input in state
+    public void selectStateFromDropdown(String state) {
+        scrollIntoView(inputState);
+        selectFromDropdown(inputState, state, "Selecting " + state);
+    }
     //Submit Button
     @FindBy(xpath = "//input[@value='Submit']")
     private WebElement submitButton;
