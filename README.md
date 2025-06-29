@@ -1,20 +1,27 @@
-# CitiusTech Web Automation Project
+# 🔍 Seclore Web Automation Project
 
-This project contains automated test scripts for the CitiusTech website, focusing on the Contact Us page and homepage functionality.
+[![Selenium](https://img.shields.io/badge/Selenium-43B02A?style=for-the-badge&logo=selenium&logoColor=white)](https://www.selenium.dev/)
+[![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://www.java.com/)
+[![Maven](https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white)](https://maven.apache.org/)
 
-## Project Overview
+This project contains automated test scripts for the Seclore website, focusing on the login, register, and demo page functionality. 🚀
 
-This is a Selenium-based web automation project that automates the following:
-1. Landing on the CitiusTech homepage
-2. Navigation to the Contact Us page
-3. Various interactions and validations on both pages
+## 📋 Project Overview
 
-## Project Structure
+This is a Selenium-based web automation project that automates the following flow:
+
+1. 🏠 Landing on the Seclore homepage
+2. 📝 Navigation to the Get a Demo page and validation
+3. 🔙 Return to the Homepage and validation
+4. 🔑 Navigation to the Login page and validation
+5. 📝 Navigation to the Register page and validation
+
+## 🗂️ Project Structure
 
 ```
 src/test/java/
 ├── web_automation/
-│   ├── citiusTech/
+│   ├── seclore/
 │   │   ├── base/           # Base test classes
 │   │   ├── pages/          # Page Object Model implementations
 │   │   └── tests/          # Test cases
@@ -23,12 +30,12 @@ src/test/java/
 └── reports/               # Test execution reports
 ```
 
-## Prerequisites
+## ⚙️ Prerequisites
 
-- Java JDK 8 or higher
-- Maven 3.6 or higher
-- Chrome browser
-- ChromeDriver (automatically managed via WebDriverManager)
+- ☕ Java JDK 8 or higher
+- 🏗️ Maven 3.6 or higher
+- 🌐 Chrome browser
+- 🚦 ChromeDriver (automatically managed via WebDriverManager)
 
 ## Setup Instructions
 
@@ -42,32 +49,33 @@ src/test/java/
    mvn test
    ```
 
-## Features
+## ✨ Features
 
-- Page Object Model (POM) design pattern
-- ExtentReports for detailed test reporting
-- Self-healing capabilities using Healium
-- Comprehensive logging system
-- Chrome browser automation
-- Test data management
+- 🏗️ Page Object Model (POM) design pattern
+- 📊 ExtentReports for detailed test reporting
+- 📝 Comprehensive logging system
+- 🌐 Chrome browser automation
+- 💾 Test data management
+- ✅ Automated page validations
 
-## Key Components
+## 🧩 Key Components
 
-### Base Classes
+### 🔧 Base Classes
 - `TestBase`: Core test base class with setup and teardown
 - `CommonTestBase`: Common utilities and methods
 
-### Pages
-- `HomePage`: Handles homepage interactions
-- `ContactUsPage`: Handles contact us page interactions
+### 📄 Pages
+- `HomePage`: 🏠 Handles homepage interactions and validations
+- `LoginPage`: 🔑 Handles login page interactions and validations
+- `RegisterPage`: 📝 Handles registration page interactions and validations
 
-### Test Cases
-- Homepage navigation
-- Contact form validation
-- UI element verification
-- Form submission testing
+### 🧪 Test Cases
+- 🏠 Homepage navigation and validation
+- 📝 Get a Demo page navigation and validation
+- 🔑 Login page navigation and validation
+- ✏️ Register page navigation and validation
 
-## Reports
+## 📊 Reports
 
 Test execution reports are generated in the `reports` directory. The reports include:
 - Detailed test execution status
@@ -75,19 +83,25 @@ Test execution reports are generated in the `reports` directory. The reports inc
 - Performance metrics
 - Browser logs
 
-## Configuration
+## ⚙️ Configuration
 
 The project uses configuration files located in the `config` directory:
 - `QA.properties`: Contains environment-specific configurations
 
-## Contributing
+## 👥 Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
+1. 🍴 Fork the repository
+2. 🌿 Create a feature branch
+3. 💾 Commit your changes
+4. 🔄 Push to the branch
+5. 🔄 Create a Pull Request
 
-## License
+## 📝 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+<div align="center">
+  Made with ❤️ using Selenium WebDriver
+</div>
