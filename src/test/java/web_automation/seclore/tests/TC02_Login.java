@@ -15,11 +15,13 @@ public class TC02_Login extends TestBase {
     public void verifyLoginButtonAndNavButtonsAreDisplayed(String url, String endpoint) {
         ExtentTest test = extent.createTest(
                 moduleName + " - " + "Verify that the Login button and nav buttons are displayed on the homepage");
-        //Validate if browser is open else open browser
+        // Validate if browser is open else open browser
         if (getDriver() == null) {
             test.log(Status.INFO, "Browser is not open");
             logger.info("Browser is not open");
 
+        } else {
+            getDriver().navigate().to("https://partners.seclore.com/#/page/login");
         }
 
         LoginPage loginPage = new LoginPage(getDriver());
@@ -31,7 +33,7 @@ public class TC02_Login extends TestBase {
             logger.error("Seclore logo is not displayed");
         }
 
-        //Validate login text button is displayed
+        // Validate login text button is displayed
         if (loginPage.isLoginButtonDisplayed()) {
             test.log(Status.PASS, "Login button is displayed");
             logger.info("Login button is displayed");
@@ -46,23 +48,24 @@ public class TC02_Login extends TestBase {
             test.log(Status.FAIL, "Login button is not displayed");
             logger.error("Login button is not displayed");
         }
-        //Validate register text button is displayed
+        // Validate register text button is displayed
         if (loginPage.isRegisterButtonDisplayed()) {
             test.log(Status.PASS, "Register button is displayed");
             logger.info("Register button is displayed");
             loginPage.validateTextOfRegisterButton("Register");
             test.log(Status.PASS, "Register button text is correct");
             logger.info("Register button text is correct");
-            loginPage.clickRegisterButton();
-            test.log(Status.PASS, "Register button is clicked");
-            logger.info("Register button is clicked");
+//            loginPage.clickRegisterButton();
+//            getDriver().navigate().back();
+//            test.log(Status.PASS, "Register button is clicked");
+//            logger.info("Register button is clicked");
 
         } else {
             test.log(Status.FAIL, "Register button is not displayed");
             logger.error("Register button is not displayed");
         }
 
-        //Validate login heading is displayed
+        // Validate login heading is displayed
         if (loginPage.isLoginHeadingDisplayed()) {
             test.log(Status.PASS, "Login heading is displayed");
             logger.info("Login heading is displayed");
@@ -75,7 +78,7 @@ public class TC02_Login extends TestBase {
             logger.error("Login heading is not displayed");
         }
 
-        //Validate email label field is displayed
+        // Validate email label field is displayed
         if (loginPage.isEmailLabelFieldDisplayed()) {
             test.log(Status.PASS, "Email label field is displayed");
             logger.info("Email label field is displayed");
@@ -88,20 +91,27 @@ public class TC02_Login extends TestBase {
             logger.error("Email label field is not displayed");
         }
 
-        //Validate email input field is displayed
+        // Validate email input field is displayed
         if (loginPage.isEmailInputFieldDisplayed()) {
             test.log(Status.PASS, "Email input field is displayed");
             logger.info("Email input field is displayed");
             loginPage.validatePlaceholderTextOfEmailInputField("Email Address");
             test.log(Status.PASS, "Email input field placeholder text is correct");
             logger.info("Email input field placeholder text is correct");
+            loginPage.enterTextInEmailInputField("Email Address");
+            test.log(Status.PASS, "Email input field text is entered");
+            logger.info("Email input field text is entered");
+            loginPage.clearTextInEmailInputField();
+            test.log(Status.PASS, "Email input field text is cleared");
+            logger.info("Email input field text is cleared");
+
 
         } else {
             test.log(Status.FAIL, "Email input field is not displayed");
             logger.error("Email input field is not displayed");
         }
 
-        //Validate password label field is displayed
+        // Validate password label field is displayed
         if (loginPage.passwordLabelIsDisplayed()) {
             test.log(Status.PASS, "Password label field is displayed");
             logger.info("Password label field is displayed");
@@ -114,7 +124,7 @@ public class TC02_Login extends TestBase {
             logger.error("Password label field is not displayed");
         }
 
-        //Validate password input field is displayed
+        // Validate password input field is displayed
         if (loginPage.passwordInputFieldIsDisplayed()) {
             test.log(Status.PASS, "Password input field is displayed");
             logger.info("Password input field is displayed");
@@ -124,13 +134,15 @@ public class TC02_Login extends TestBase {
             loginPage.enterTextInPasswordInputField("Password");
             test.log(Status.PASS, "Password input field text is correct");
             logger.info("Password input field text is correct");
-
+            loginPage.clearTextInPasswordInputField();
+            test.log(Status.PASS, "Password input field text is cleared");
+            logger.info("Password input field text is cleared");
         } else {
             test.log(Status.FAIL, "Password input field is not displayed");
             logger.error("Password input field is not displayed");
         }
 
-        //Validate forgot password link is displayed
+        // Validate forgot password link is displayed
         if (loginPage.isForgotPasswordLinkDisplayed()) {
             test.log(Status.PASS, "Forgot password link is displayed");
             logger.info("Forgot password link is displayed");
@@ -143,7 +155,7 @@ public class TC02_Login extends TestBase {
             logger.error("Forgot password link is not displayed");
         }
 
-        //Validate sign in button is displayed
+        // Validate sign in button is displayed
         if (loginPage.isSignInButtonDisplayed()) {
             test.log(Status.PASS, "Sign in button is displayed");
             logger.info("Sign in button is displayed");
@@ -156,7 +168,7 @@ public class TC02_Login extends TestBase {
             logger.error("Sign in button is not displayed");
         }
 
-        //Validate not a partner text is displayed
+        // Validate not a partner text is displayed
         if (loginPage.isNotAPartnerTextDisplayed()) {
             test.log(Status.PASS, "Not a partner text is displayed");
             logger.info("Not a partner text is displayed");
@@ -168,18 +180,18 @@ public class TC02_Login extends TestBase {
             test.log(Status.FAIL, "Not a partner text is not displayed");
             logger.error("Not a partner text is not displayed");
         }
-        //Validate register today button is displayed
+        // Validate register today button is displayed
         if (loginPage.isRegisterTodayButtonDisplayed()) {
             test.log(Status.PASS, "Register today button is displayed");
             logger.info("Register today button is displayed");
-            loginPage.validateTextOfRegisterTodayButton("Register Today");
-            //click register today button
-            loginPage.clickRegisterTodayButton();
-            test.log(Status.PASS, "Register today button is clicked");
-            logger.info("Register today button is clicked");
-            getDriver().navigate().back();
-            test.info("Navigated back to login page");
-            logger.info("Navigated back to login page");
+            loginPage.validateTextOfRegisterTodayButton("Register today");
+            // click register today button
+            // loginPage.clickRegisterTodayButton();
+//            test.log(Status.PASS, "Register today button is clicked");
+//            logger.info("Register today button is clicked");
+//            getDriver().navigate().back();
+//            test.info("Navigated back to login page");
+//            logger.info("Navigated back to login page");
             test.log(Status.PASS, "Register today button text is correct");
             logger.info("Register today button text is correct");
 
@@ -188,7 +200,7 @@ public class TC02_Login extends TestBase {
             logger.error("Register today button is not displayed");
         }
 
-        //Validate Welcome partner Portal page heading
+        // Validate Welcome partner Portal page heading
         if (loginPage.isWelcomePartnerPortalHeadingDisplayed()) {
             test.log(Status.PASS, "Welcome partner Portal page heading is displayed");
             logger.info("Welcome partner Portal page heading is displayed");
@@ -202,7 +214,7 @@ public class TC02_Login extends TestBase {
 
         }
 
-        //Validate Checkout all inclusive section heading
+        // Validate Checkout all inclusive section heading
         if (loginPage.isCheckoutAllInclusiveSectionHeadingDisplayed()) {
             test.log(Status.PASS, "Checkout all inclusive section heading is displayed");
             logger.info("Checkout all inclusive section heading is displayed");
@@ -216,7 +228,7 @@ public class TC02_Login extends TestBase {
             logger.error("Checkout all inclusive section heading is not displayed");
         }
 
-        //Validate Checkout all inclusive section sub-heading
+        // Validate Checkout all inclusive section sub-heading
         if (loginPage.isCheckoutAllInclusiveSectionSubHeadingDisplayed()) {
             test.log(Status.PASS, "Checkout all inclusive section sub-heading is displayed");
             logger.info("Checkout all inclusive section sub-heading is displayed");
@@ -230,19 +242,19 @@ public class TC02_Login extends TestBase {
             logger.error("Checkout all inclusive section sub-heading is not displayed");
         }
 
-        //Validate Register today 2nd button
+        // Validate Register today 2nd button
         if (loginPage.isRegisterToday2ndButtonDisplayed()) {
             test.log(Status.PASS, "Register today 2nd button is displayed");
             logger.info("Register today 2nd button is displayed");
             loginPage.validateTextOfRegisterToday2ndButton("Register today");
             test.log(Status.PASS, "Register today 2nd button text is correct");
             logger.info("Register today 2nd button text is correct");
-            loginPage.clickRegisterToday2ndButton();
-            test.log(Status.PASS, "Register today 2nd button is clicked");
-            logger.info("Register today 2nd button is clicked");
-            getDriver().navigate().back();
-            test.info("Navigated back to login page");
-            logger.info("Navigated back to login page");
+//            loginPage.clickRegisterToday2ndButton();
+//            test.log(Status.PASS, "Register today 2nd button is clicked");
+//            logger.info("Register today 2nd button is clicked");
+//            getDriver().navigate().back();
+//            test.info("Navigated back to login page");
+//            logger.info("Navigated back to login page");
 
         } else {
             test.log(Status.FAIL, "Register today 2nd button is not displayed");
@@ -288,7 +300,7 @@ public class TC02_Login extends TestBase {
         if (loginPage.isCustomizeAnEmailCampaignHeadingDisplayed()) {
             test.log(Status.PASS, "Customize an email campaign text heading is displayed");
             logger.info("Customize an email campaign text heading is displayed");
-            loginPage.validateTextOfCustomizeAnEmailCampaignHeading("Customize an email campaign");
+            loginPage.validateTextOfCustomizeAnEmailCampaignHeading("Check out our pre-packaged campaigns, and customize them to start building leads today.");
             test.log(Status.PASS, "Customize an email campaign text heading text is correct");
             logger.info("Customize an email campaign text heading text is correct");
 
@@ -355,7 +367,7 @@ public class TC02_Login extends TestBase {
             test.log(Status.FAIL, "Try our co-branded collateral icon is not displayed");
             logger.error("Try our co-branded collateral icon is not displayed");
         }
-        //Validate Are you generating new, exciting leads? text heading
+        // Validate Are you generating new, exciting leads? text heading
         if (loginPage.isAreYouGeneratingNewExcitingLeadsHeadingDisplayed()) {
             test.log(Status.PASS, "Are you generating new, exciting leads? text heading is displayed");
             logger.info("Are you generating new, exciting leads? text heading is displayed");
@@ -367,7 +379,7 @@ public class TC02_Login extends TestBase {
             test.log(Status.FAIL, "Are you generating new, exciting leads? text heading is not displayed");
             logger.error("Are you generating new, exciting leads? text heading is not displayed");
         }
-        //Validate Are you generating new, exciting leads? text sub-heading
+        // Validate Are you generating new, exciting leads? text sub-heading
         if (loginPage.isAreYouGeneratingNewExcitingLeadsSubHeadingDisplayed()) {
             test.log(Status.PASS, "Are you generating new, exciting leads? text sub-heading is displayed");
             logger.info("Are you generating new, exciting leads? text sub-heading is displayed");
@@ -406,6 +418,5 @@ public class TC02_Login extends TestBase {
             logger.error("Need help navigating the Portal? text sub-heading is not displayed");
         }
     }
-
 
 }

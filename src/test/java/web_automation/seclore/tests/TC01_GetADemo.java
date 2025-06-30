@@ -12,7 +12,8 @@ import web_automation.seclore.utils.SecloreDataProvider;
 public class TC01_GetADemo extends TestBase {
     public final String moduleName = "Get A Demo";
 
-    //Test case 1: Verify that the Get a Demo button and nav buttons are displayed on the homepage
+    // Test case 1: Verify that the Get a Demo button and nav buttons are displayed
+    // on the homepage
     @Test(priority = 1, description = "Verify that the Get a Demo button and nav buttons are displayed on the homepage", dataProvider = "secloreUrls", dataProviderClass = SecloreDataProvider.class)
     public void verifyGetADemoButtonAndNavButtonsAreDisplayed(String url, String endpoint) {
         ExtentTest test = extent
@@ -65,7 +66,7 @@ public class TC01_GetADemo extends TestBase {
             homePage.validateTextOfNavPricing("Pricing");
             test.log(Status.PASS, "Pricing text is correct");
             logger.info("Pricing text is correct");
-           
+
         } else {
             test.log(Status.FAIL, "Pricing is not displayed");
             logger.error("Pricing is not displayed");
@@ -172,9 +173,10 @@ public class TC01_GetADemo extends TestBase {
 
     }
 
-    //Test case 2: Verifying Get a demo Page
+    // Test case 2: Verifying Get a demo Page
     @Test(priority = 2, description = "Verifying Get a demo Page", dependsOnMethods = "verifyGetADemoButtonAndNavButtonsAreDisplayed", dataProvider = "secloreData", dataProviderClass = SecloreDataProvider.class)
-    public void verifyGetADemoPage(String businessEmail, String firstName, String lastName, String companyName, String jobTitle, String phoneNumber, String country, String state) {
+    public void verifyGetADemoPage(String businessEmail, String firstName, String lastName, String companyName,
+            String jobTitle, String phoneNumber, String country, String state) {
         ExtentTest test = extent
                 .createTest("TC" + getClass() + "_verifyGetADemoPage",
                         "Verifying Get a demo Page")
@@ -203,7 +205,8 @@ public class TC01_GetADemo extends TestBase {
         if (getADemoPage.subHeaderProtectControlIsDisplayed()) {
             test.log(Status.PASS, "Sub header is displayed");
             logger.info("Sub header is displayed");
-            getADemoPage.validateTextOfSubHeaderProtectControl("Protect & control your digital assets wherever they go");
+            getADemoPage
+                    .validateTextOfSubHeaderProtectControl("Protect & control your digital assets wherever they go");
         } else {
             test.log(Status.FAIL, "Sub header is not displayed");
             logger.error("Sub header is not displayed");
@@ -211,7 +214,8 @@ public class TC01_GetADemo extends TestBase {
         if (getADemoPage.listDigitalAssetSecurityIsDisplayed()) {
             test.log(Status.PASS, "List is displayed");
             logger.info("List is displayed");
-            getADemoPage.validateTextOfListDigitalAssetSecurity("Digital asset security for every user, device, app, and cloud");
+            getADemoPage.validateTextOfListDigitalAssetSecurity(
+                    "Digital asset security for every user, device, app, and cloud");
         } else {
             test.log(Status.FAIL, "List is not displayed");
             logger.error("List is not displayed");
@@ -266,7 +270,7 @@ public class TC01_GetADemo extends TestBase {
                     test.log(Status.FAIL, "Input is not displayed");
                     logger.error("Input is not displayed");
                 }
-                //Validating first name
+                // Validating first name
                 if (getADemoPage.labelFirstNameIsDisplayed()) {
                     test.log(Status.PASS, "Label is displayed");
                     logger.info("Label is displayed");
@@ -283,7 +287,7 @@ public class TC01_GetADemo extends TestBase {
                     test.log(Status.FAIL, "Input is not displayed");
                     logger.error("Input is not displayed");
                 }
-                //Validating last name
+                // Validating last name
                 if (getADemoPage.labelLastNameIsDisplayed()) {
                     test.log(Status.PASS, "Label is displayed");
                     logger.info("Label is displayed");
@@ -300,7 +304,7 @@ public class TC01_GetADemo extends TestBase {
                     test.log(Status.FAIL, "Input is not displayed");
                     logger.error("Input is not displayed");
                 }
-                //Validating company name
+                // Validating company name
                 if (getADemoPage.labelCompanyNameIsDisplayed()) {
                     test.log(Status.PASS, "Label is displayed");
                     logger.info("Label is displayed");
@@ -317,7 +321,7 @@ public class TC01_GetADemo extends TestBase {
                     test.log(Status.FAIL, "Input is not displayed");
                     logger.error("Input is not displayed");
                 }
-                //Validating job title
+                // Validating job title
                 if (getADemoPage.labelJobTitleIsDisplayed()) {
                     test.log(Status.PASS, "Label is displayed");
                     logger.info("Label is displayed");
@@ -334,7 +338,7 @@ public class TC01_GetADemo extends TestBase {
                     test.log(Status.FAIL, "Input is not displayed");
                     logger.error("Input is not displayed");
                 }
-                //Validating phone number
+                // Validating phone number
                 if (getADemoPage.labelPhoneNumberIsDisplayed()) {
                     test.log(Status.PASS, "Label is displayed");
                     logger.info("Label is displayed");
@@ -351,7 +355,7 @@ public class TC01_GetADemo extends TestBase {
                     test.log(Status.FAIL, "Input is not displayed");
                     logger.error("Input is not displayed");
                 }
-                //Validating country
+                // Validating country
                 if (getADemoPage.labelCountryIsDisplayed()) {
                     test.log(Status.PASS, "Label is displayed");
                     logger.info("Label is displayed");
@@ -369,7 +373,7 @@ public class TC01_GetADemo extends TestBase {
                     logger.error("Input is not displayed");
                 }
                 hardWait(3);
-                //Validating state
+                // Validating state
                 if (getADemoPage.labelStateIsDisplayed()) {
                     test.log(Status.PASS, "Label is displayed");
                     logger.info("Label is displayed");
@@ -386,12 +390,12 @@ public class TC01_GetADemo extends TestBase {
                     test.log(Status.FAIL, "Input is not displayed");
                     logger.error("Input is not displayed");
                 }
-                //Validating submit button
+                // Validating submit button
                 if (getADemoPage.submitButtonIsDisplayed()) {
                     test.log(Status.PASS, "Button is displayed");
                     logger.info("Button is displayed");
-//                    getADemoPage.validateTextOfSubmitButton("Submit");
-//                    getADemoPage.clickOnSubmitButton();
+                    // getADemoPage.validateTextOfSubmitButton("Submit");
+                    // getADemoPage.clickOnSubmitButton();
                 } else {
                     test.log(Status.FAIL, "Button is not displayed");
                     logger.error("Button is not displayed");
@@ -405,7 +409,7 @@ public class TC01_GetADemo extends TestBase {
             logger.error("Pesonalised demo iframe is not displayed");
         }
 
-        if(getADemoPage.linkBackToHomeIsDisplayed()) {
+        if (getADemoPage.linkBackToHomeIsDisplayed()) {
             test.log(Status.PASS, "Link is displayed");
             logger.info("Link is displayed");
             getADemoPage.clickOnLinkBackToHome();
@@ -413,7 +417,6 @@ public class TC01_GetADemo extends TestBase {
             test.log(Status.FAIL, "Link is not displayed");
             logger.error("Link is not displayed");
         }
-
 
     }
 }

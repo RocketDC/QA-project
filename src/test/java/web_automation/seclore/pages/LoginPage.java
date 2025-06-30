@@ -121,7 +121,10 @@ public class LoginPage extends TestBase {
         scrollIntoView(emailInputField);
         sendKeys(emailInputField, text);
     }
-
+    public void clearTextInEmailInputField() {
+        scrollIntoView(emailInputField);
+        clearTextBox(emailInputField, "Email input field cleared");
+    }
     //Validate placeholder text
     public void validatePlaceholderTextOfEmailInputField(String text) {
         scrollIntoView(emailInputField);
@@ -166,6 +169,11 @@ public class LoginPage extends TestBase {
         scrollIntoView(passwordInputField);
         sendKeys(passwordInputField, text);
 
+    }
+
+    public void clearTextInPasswordInputField() {
+        scrollIntoView(passwordInputField);
+        clearTextBox(passwordInputField, "Password input field cleared");
     }
 
     //Forgot Password link

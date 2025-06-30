@@ -366,7 +366,7 @@ public class CommonTestBase {
     }
 
     public void validatePlaceholderText(WebElement element, String expectedText) {
-        ExtentTest test = extent.createTest("Checking text ➜ " + expectedText);
+        ExtentTest test = extent.createTest("Checking Placeholder text ➜ " + expectedText);
         setExtentTest(test);
         waitForElementToBeVisible(element);
         String actualText = element.getAttribute("placeholder");
@@ -524,7 +524,19 @@ public class CommonTestBase {
             logger.error("Failed to select option: " + option + " " + e.getMessage());
         }
     }
-
+//Clear text from text box
+    public void clearTextBox(WebElement element, String message) {
+        ExtentTest test = extent.createTest("Clearing text from text box");
+        setExtentTest(test);
+        try {
+            element.clear();
+            test.log(Status.PASS, "Text cleared successfully for " + message);
+            logger.info("Text cleared successfully for " + message);
+        } catch (Exception e) {
+            test.log(Status.FAIL, "Failed to clear text: " + e.getMessage());
+            logger.error("Failed to clear text: " + e.getMessage());
+        }
+    }
 
 
 }
