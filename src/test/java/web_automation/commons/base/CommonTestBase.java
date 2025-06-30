@@ -37,7 +37,7 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class CommonTestBase {
+public class CommonTestBase implements AutomationInterface{
     private final String moduleName = "CommonTestBase";
 
     private static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
@@ -290,7 +290,7 @@ public class CommonTestBase {
      * Helper that returns <code>true</code> when a node containing the supplied text becomes visible within 5 seconds.
      * Uses <code>normalize-space()</code> so stray whitespace in the DOM does not break the match.
      */
-    private boolean isTextPresent(String text) {
+    public boolean isTextPresent(String text) {
         WebDriverWait wait = new WebDriverWait(getDriver(), 5);
         try {
             WebElement element = wait.until(
@@ -539,6 +539,36 @@ public class CommonTestBase {
         } catch (Exception e) {
             test.log(Status.FAIL, "Failed to clear text: " + e.getMessage());
             logger.error("Failed to clear text: " + e.getMessage());
+        }
+    }
+    // FindElemnt By method
+    public WebElement findElement(By by) {
+        ExtentTest test = extent.createTest("Finding element");
+        setExtentTest(test);
+        try {
+            WebElement element = getDriver().findElement(by);
+            test.log(Status.PASS, "Element found successfully");
+            logger.info("Element found successfully");
+            return element;
+        } catch (Exception e) {
+            test.log(Status.FAIL, "Failed to find element: " + e.getMessage());
+            logger.error("Failed to find element: " + e.getMessage());
+            return null;
+        }
+    }
+    // FindElements By method
+    public List<WebElement> findElements(By by) {
+        ExtentTest test = extent.createTest("Finding elements");
+        setExtentTest(test);
+        try {
+            List<WebElement> elements = getDriver().findElements(by);
+            test.log(Status.PASS, "Elements found successfully");
+            logger.info("Elements found successfully");
+            return elements;
+        } catch (Exception e) {
+            test.log(Status.FAIL, "Failed to find elements: " + e.getMessage());
+            logger.error("Failed to find elements: " + e.getMessage());
+            return null;
         }
     }
 

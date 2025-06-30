@@ -218,7 +218,7 @@ public class HomePage extends TestBase {
         click(linkHowToOpenFile, "How to open a seclore file");
     }
 
-    @FindBy(xpath = "menu-item-5371")
+    @FindBy(xpath = "//span[normalize-space()='Search']")
     private WebElement iconSearch;
 
     //Search isDispayed
