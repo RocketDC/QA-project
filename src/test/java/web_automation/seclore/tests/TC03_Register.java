@@ -11,18 +11,17 @@ import web_automation.seclore.utils.SecloreDataProvider;
 public class TC03_Register extends TestBase {
     public final String moduleName = "Register";
 
-    @Test(priority = 1, description = "Verify that the Login button and nav buttons are displayed on the homepage", dataProvider = "secloreUrls", dataProviderClass = SecloreDataProvider.class)
-    public void verifyLoginButtonAndNavButtonsAreDisplayed(String url, String endpoint) {
+    @Test(priority = 1, description = "Verify register page elements", dataProvider = "secloreUrls", dataProviderClass = SecloreDataProvider.class)
+    public void verifyRegisterPage(String url, String endpoint) {
         ExtentTest test = extent.createTest(
-                moduleName + " - " + "Verify that the Login button and nav buttons are displayed on the homepage");
+                moduleName + " - " + "Verify register page elements");
+        setExtentTest(test);
         RegisterPage registerPage = new RegisterPage(getDriver());
 
         getDriver().navigate().to("https://partners.seclore.com/#/page/register");
         test.log(Status.PASS, "Navigated to Register Page");
         logger.info("Navigated to Register Page");
         hardWait(7);
-        //Accept the alert if present
-        acceptAlert();
 
         if (registerPage.isSecloreLogoDisplayed()) {
             test.log(Status.PASS, "Seclore logo is displayed");
@@ -70,12 +69,35 @@ public class TC03_Register extends TestBase {
         if (registerPage.isRegisterSubHeadingDisplayed()) {
             test.log(Status.PASS, "Register sub-heading is displayed");
             logger.info("Register sub-heading is displayed");
-            registerPage.validateTextOfRegisterSubHeading("We commit to helping our partners reach their goal");
+            registerPage.validateTextOfRegisterSubHeading("We commit to helping our partners reach their goals and exceed expectations with our products. Register to access a turn-key customizable solution that provides you with campaigns, emails, and all the tools you need to be successful with us.  ");
             test.log(Status.PASS, "Register sub-heading text is correct");
             logger.info("Register sub-heading text is correct");
         } else {
             test.log(Status.FAIL, "Register sub-heading is not displayed");
             logger.error("Register sub-heading is not displayed");
+        }
+
+        // Validate Country label and input field(Dropdown)
+        if (registerPage.isCountryLabelDisplayed()) {
+            test.log(Status.PASS, "Country label is displayed");
+            logger.info("Country label is displayed");
+            registerPage.validateTextOfCountryLabel("Country");
+            test.log(Status.PASS, "Country label text is correct");
+            logger.info("Country label text is correct");
+        } else {
+            test.log(Status.FAIL, "Country label is not displayed");
+            logger.error("Country label is not displayed");
+        }
+
+        if (registerPage.isCountryDropdownDisplayed()) {
+            test.log(Status.PASS, "Country dropdown is displayed");
+            logger.info("Country dropdown is displayed");
+            registerPage.selectCountryFromDropdown("India");
+            test.log(Status.PASS, "Country dropdown is selected");
+            logger.info("Country dropdown is selected");
+        } else {
+            test.log(Status.FAIL, "Country dropdown is not displayed");
+            logger.error("Country dropdown is not displayed");
         }
 
         // Validate Company Name label and input field
@@ -182,28 +204,7 @@ public class TC03_Register extends TestBase {
             logger.error("Last name input field is not displayed");
         }
 
-        // Validate Country label and input field(Dropdown)
-        if (registerPage.isCountryLabelDisplayed()) {
-            test.log(Status.PASS, "Country label is displayed");
-            logger.info("Country label is displayed");
-            registerPage.validateTextOfCountryLabel("Country");
-            test.log(Status.PASS, "Country label text is correct");
-            logger.info("Country label text is correct");
-        } else {
-            test.log(Status.FAIL, "Country label is not displayed");
-            logger.error("Country label is not displayed");
-        }
 
-        if (registerPage.isCountryDropdownDisplayed()) {
-            test.log(Status.PASS, "Country dropdown is displayed");
-            logger.info("Country dropdown is displayed");
-            registerPage.selectCountryFromDropdown("India");
-            test.log(Status.PASS, "Country dropdown is selected");
-            logger.info("Country dropdown is selected");
-        } else {
-            test.log(Status.FAIL, "Country dropdown is not displayed");
-            logger.error("Country dropdown is not displayed");
-        }
         // Validate Phone number label and input field
         if (registerPage.isPhoneNumberLabelDisplayed()) {
             test.log(Status.PASS, "Phone number label is displayed");
@@ -282,7 +283,7 @@ public class TC03_Register extends TestBase {
         if (registerPage.isPartnerSizeFooterTextDisplayed()) {
             test.log(Status.PASS, "Partner Size footer text is displayed");
             logger.info("Partner Size footer text is displayed");
-            registerPage.validateTextOfPartnerSizeFooterText("Partner Size (no. employees)");
+            registerPage.validateTextOfPartnerSizeFooterText("Enter the approximate number of employees in your company (Enter the number only)");
             test.log(Status.PASS, "Partner Size footer text is correct");
             logger.info("Partner Size footer text is correct");
         } else {

@@ -137,8 +137,12 @@ public class CommonTestBase {
 //  Prepare prefs to disable notifications (2 = block, 1 = allow)
         Map<String, Object> prefs = new HashMap<>();
         prefs.put("profile.default_content_setting_values.notifications", 2);
+        prefs.put("credentials_enable_service", false);
+        prefs.put("profile.password_manager_enabled", false);
 // Apply prefs
         options.setExperimentalOption("prefs", prefs);
+        options.addArguments("--disable-save-password-bubble");
+        options.addArguments("--incognito");
         System.setProperty("heal-enabled", "false");
         WebDriver chromeDriver = new ChromeDriver(options);
 //        create Self-healing driver

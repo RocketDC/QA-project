@@ -11,10 +11,13 @@ import web_automation.seclore.utils.SecloreDataProvider;
 public class TC02_Login extends TestBase {
     public final String moduleName = "Login";
 
-    @Test(priority = 1, description = "Verify that the Login button and nav buttons are displayed on the homepage", dataProvider = "secloreUrls", dataProviderClass = SecloreDataProvider.class)
-    public void verifyLoginButtonAndNavButtonsAreDisplayed(String url, String endpoint) {
-        ExtentTest test = extent.createTest(
-                moduleName + " - " + "Verify that the Login button and nav buttons are displayed on the homepage");
+    @Test(priority = 1, description = "Verify login page elements", dataProvider = "secloreUrls", dataProviderClass = SecloreDataProvider.class)
+    public void verifyLoginPage(String url, String endpoint) {
+        ExtentTest test = extent
+                .createTest("TC" + getClass() + "_verifyLoginPage",
+                        "Verify login page elements")
+                .assignCategory(moduleName);
+        setExtentTest(test);
         // Validate if browser is open else open browser
         if (getDriver() == null) {
             test.log(Status.INFO, "Browser is not open");
@@ -55,10 +58,10 @@ public class TC02_Login extends TestBase {
             loginPage.validateTextOfRegisterButton("Register");
             test.log(Status.PASS, "Register button text is correct");
             logger.info("Register button text is correct");
-//            loginPage.clickRegisterButton();
-//            getDriver().navigate().back();
-//            test.log(Status.PASS, "Register button is clicked");
-//            logger.info("Register button is clicked");
+            loginPage.clickRegisterButton();
+            getDriver().navigate().back();
+            test.log(Status.PASS, "Register button is clicked");
+            logger.info("Register button is clicked");
 
         } else {
             test.log(Status.FAIL, "Register button is not displayed");
@@ -186,12 +189,12 @@ public class TC02_Login extends TestBase {
             logger.info("Register today button is displayed");
             loginPage.validateTextOfRegisterTodayButton("Register today");
             // click register today button
-            // loginPage.clickRegisterTodayButton();
-//            test.log(Status.PASS, "Register today button is clicked");
-//            logger.info("Register today button is clicked");
-//            getDriver().navigate().back();
-//            test.info("Navigated back to login page");
-//            logger.info("Navigated back to login page");
+             loginPage.clickRegisterTodayButton();
+            test.log(Status.PASS, "Register today button is clicked");
+            logger.info("Register today button is clicked");
+            getDriver().navigate().back();
+            test.info("Navigated back to login page");
+            logger.info("Navigated back to login page");
             test.log(Status.PASS, "Register today button text is correct");
             logger.info("Register today button text is correct");
 
@@ -204,7 +207,7 @@ public class TC02_Login extends TestBase {
         if (loginPage.isWelcomePartnerPortalHeadingDisplayed()) {
             test.log(Status.PASS, "Welcome partner Portal page heading is displayed");
             logger.info("Welcome partner Portal page heading is displayed");
-            loginPage.validateTextOfWelcomePartnerPortalHeading("Welcome to your partner portal");
+            loginPage.validateTextOfWelcomePartnerPortalHeading("Welcome to your  partner portal");
             test.log(Status.PASS, "Welcome partner Portal page heading text is correct");
             logger.info("Welcome partner Portal page heading text is correct");
 
@@ -233,7 +236,7 @@ public class TC02_Login extends TestBase {
             test.log(Status.PASS, "Checkout all inclusive section sub-heading is displayed");
             logger.info("Checkout all inclusive section sub-heading is displayed");
             loginPage.validateTextOfCheckoutAllInclusiveSectionSubHeading(
-                    "Check out our all-inclusive partner success programs in our Partner Portal.");
+                    "Our Partner Success team is here to help you with an entire organization of industry, product and marketing experts that can help you grow your business. Find marketing resources to generate leads, create more opportunities and close more deals! ");
             test.log(Status.PASS, "Checkout all inclusive section sub-heading text is correct");
             logger.info("Checkout all inclusive section sub-heading text is correct");
 
@@ -249,12 +252,12 @@ public class TC02_Login extends TestBase {
             loginPage.validateTextOfRegisterToday2ndButton("Register today");
             test.log(Status.PASS, "Register today 2nd button text is correct");
             logger.info("Register today 2nd button text is correct");
-//            loginPage.clickRegisterToday2ndButton();
-//            test.log(Status.PASS, "Register today 2nd button is clicked");
-//            logger.info("Register today 2nd button is clicked");
-//            getDriver().navigate().back();
-//            test.info("Navigated back to login page");
-//            logger.info("Navigated back to login page");
+            loginPage.clickRegisterToday2ndButton();
+            test.log(Status.PASS, "Register today 2nd button is clicked");
+            logger.info("Register today 2nd button is clicked");
+            getDriver().navigate().back();
+            test.info("Navigated back to login page");
+            logger.info("Navigated back to login page");
 
         } else {
             test.log(Status.FAIL, "Register today 2nd button is not displayed");
@@ -278,7 +281,7 @@ public class TC02_Login extends TestBase {
             test.log(Status.PASS, "Create your own microsite text sub-heading is displayed");
             logger.info("Create your own microsite text sub-heading is displayed");
             loginPage.validateTextOfCreateYourOwnMicrositeSubHeading(
-                    "Check out our customizable microsite that helps you to create a unique and engaging partner portal.");
+                    "Check out our customizable microsite that helps you capitalize on our products.");
             test.log(Status.PASS, "Create your own microsite text sub-heading text is correct");
             logger.info("Create your own microsite text sub-heading text is correct");
 
@@ -313,7 +316,7 @@ public class TC02_Login extends TestBase {
         if (loginPage.isCustomizeAnEmailCampaignSubHeadingDisplayed()) {
             test.log(Status.PASS, "Customize an email campaign text sub-heading is displayed");
             logger.info("Customize an email campaign text sub-heading is displayed");
-            loginPage.validateTextOfCustomizeAnEmailCampaignSubHeading("Customize an email campaign");
+            loginPage.validateTextOfCustomizeAnEmailCampaignSubHeading("Check out our pre-packaged campaigns, and customize them to start building leads today. ");
             test.log(Status.PASS, "Customize an email campaign text sub-heading text is correct");
             logger.info("Customize an email campaign text sub-heading text is correct");
 
@@ -349,7 +352,7 @@ public class TC02_Login extends TestBase {
         if (loginPage.isTryOurCoBrandedCollateralSubHeadingDisplayed()) {
             test.log(Status.PASS, "Try our co-branded collateral text sub-heading is displayed");
             logger.info("Try our co-branded collateral text sub-heading is displayed");
-            loginPage.validateTextOfTryOurCoBrandedCollateralSubHeading("Try our co-branded collateral");
+            loginPage.validateTextOfTryOurCoBrandedCollateralSubHeading("Check out all of our pre-made collateral that can be customized to highlight your company.");
             test.log(Status.PASS, "Try our co-branded collateral text sub-heading text is correct");
             logger.info("Try our co-branded collateral text sub-heading text is correct");
 
@@ -384,7 +387,7 @@ public class TC02_Login extends TestBase {
             test.log(Status.PASS, "Are you generating new, exciting leads? text sub-heading is displayed");
             logger.info("Are you generating new, exciting leads? text sub-heading is displayed");
             loginPage.validateTextOfAreYouGeneratingNewExcitingLeadsSubHeading(
-                    "Are you generating new, exciting leads?");
+                    "Take a look at all we have to offer and find marketing resources to generate leads, create more opportunities and close more deals! ");
             test.log(Status.PASS, "Are you generating new, exciting leads? text sub-heading text is correct");
             logger.info("Are you generating new, exciting leads? text sub-heading text is correct");
 
@@ -409,7 +412,7 @@ public class TC02_Login extends TestBase {
         if (loginPage.isNeedHelpNavigatingThePortalSubHeadingDisplayed()) {
             test.log(Status.PASS, "Need help navigating the Portal? text sub-heading is displayed");
             logger.info("Need help navigating the Portal? text sub-heading is displayed");
-            loginPage.validateTextOfNeedHelpNavigatingThePortalSubHeading("Need help navigating the Portal?");
+            loginPage.validateTextOfNeedHelpNavigatingThePortalSubHeading("Our Seclore team is here to assist you with any questions or support you need to make the most of the Partner Portal and achieve your business goals.");
             test.log(Status.PASS, "Need help navigating the Portal? text sub-heading text is correct");
             logger.info("Need help navigating the Portal? text sub-heading text is correct");
 
@@ -417,6 +420,8 @@ public class TC02_Login extends TestBase {
             test.log(Status.FAIL, "Need help navigating the Portal? text sub-heading is not displayed");
             logger.error("Need help navigating the Portal? text sub-heading is not displayed");
         }
+
+
     }
 
 }
