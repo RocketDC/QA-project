@@ -24,7 +24,8 @@ src/test/java/
 │   ├── seclore/
 │   │   ├── base/           # Base test classes
 │   │   ├── pages/          # Page Object Model implementations
-│   │   └── tests/          # Test cases
+│   │   ├── tests/          # Test cases
+│   │   └── utils/          # Utility classes and helpers
 │   └── commons/            # Common utilities and base classes
 ├── config/                 # Configuration files
 └── reports/               # Test execution reports
@@ -64,8 +65,12 @@ src/test/java/
 - `TestBase`: Core test base class with setup and teardown
 - `CommonTestBase`: Common utilities and methods
 
+### 🛠️ Utilities
+- `SecloreDataProvider`: Provides test data for Seclore test cases
+
 ### 📄 Pages
 - `HomePage`: 🏠 Handles homepage interactions and validations
+- `GetADemoPage`: 📋 Handles Get a Demo page interactions and validations
 - `LoginPage`: 🔑 Handles login page interactions and validations
 - `RegisterPage`: 📝 Handles registration page interactions and validations
 

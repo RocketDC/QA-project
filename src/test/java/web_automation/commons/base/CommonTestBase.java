@@ -139,7 +139,7 @@ public class CommonTestBase {
         prefs.put("profile.default_content_setting_values.notifications", 2);
 // Apply prefs
         options.setExperimentalOption("prefs", prefs);
-        System.setProperty("heal-enabled", "true");
+        System.setProperty("heal-enabled", "false");
         WebDriver chromeDriver = new ChromeDriver(options);
 //        create Self-healing driver
         SelfHealingDriver driver = SelfHealingDriver.create(chromeDriver);

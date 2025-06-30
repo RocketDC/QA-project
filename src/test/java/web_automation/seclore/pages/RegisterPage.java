@@ -407,13 +407,13 @@ public class RegisterPage extends TestBase{
     private WebElement footerText;
 
     //Validate footer text is displayed
-    public boolean isFooterTextDisplayed() {
+    public boolean isPartnerSizeFooterTextDisplayed() {
         scrollIntoView(footerText);
         return isDisplayed(footerText);
     }
 
     //Validate text of footer
-    public void validateTextOfFooter(String text) {
+    public void validateTextOfPartnerSizeFooterText(String text) {
         scrollIntoView(footerText);
         softAssert(footerText, text);
     }
