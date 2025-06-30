@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import web_automation.seclore.base.TestBase;
 import org.openqa.selenium.WebElement;
 
-public class GetADemoPage extends TestBase{
+public class GetADemoPage extends TestBase {
     WebDriver driver;
 
     public GetADemoPage(WebDriver driver) {
@@ -41,7 +41,7 @@ public class GetADemoPage extends TestBase{
     public void validateTextOfHeaderShareDataFearlessly(String text) {
         softAssert(headerShareDataFearlessly, text);
     }
-    
+
 
     @FindBy(xpath = "//h2[contains(text(),'Protect & control your digital assets wherever the')]")
     private WebElement subHeaderProtectControl;
@@ -114,6 +114,7 @@ public class GetADemoPage extends TestBase{
     public void validateTextOfHeaderRequestDemo(String text) {
         softAssert(headerRequestDemo, text);
     }
+
     //Label Business Email
     @FindBy(xpath = "//span[normalize-space()='Business Email']")
     private WebElement labelBusinessEmail;
@@ -141,6 +142,7 @@ public class GetADemoPage extends TestBase{
         scrollIntoView(inputBusinessEmail);
         sendKeys(inputBusinessEmail, email);
     }
+
     //Need to validate placeholder text
     public void validatePlaceholderTextOfInputBusinessEmail(String text) {
         validatePlaceholderText(inputBusinessEmail, text);
@@ -162,21 +164,23 @@ public class GetADemoPage extends TestBase{
     //Input First Name
     @FindBy(xpath = "//input[@id='firstname-b43dfbf4-98dd-4008-ab59-8a347a8b5456']")
     private WebElement inputFirstName;
-    
+
 
     public boolean inputFirstNameIsDisplayed() {
         scrollIntoView(inputFirstName);
         return isDisplayed(inputFirstName);
     }
-// Need to enter input in first name
-public void enterInputInFirstName(String firstName) {
-    scrollIntoView(inputFirstName);
-    sendKeys(inputFirstName, firstName);
-}
-//Need to validate placeholder text
-public void validatePlaceholderTextOfInputFirstName(String text) {
-    validatePlaceholderText(inputFirstName, text);
-}
+
+    // Need to enter input in first name
+    public void enterInputInFirstName(String firstName) {
+        scrollIntoView(inputFirstName);
+        sendKeys(inputFirstName, firstName);
+    }
+
+    //Need to validate placeholder text
+    public void validatePlaceholderTextOfInputFirstName(String text) {
+        validatePlaceholderText(inputFirstName, text);
+    }
 //Label Last Name
 
     @FindBy(xpath = "//label[@id='label-lastname-b43dfbf4-98dd-4008-ab59-8a347a8b5456']")
@@ -191,7 +195,7 @@ public void validatePlaceholderTextOfInputFirstName(String text) {
         softAssert(labelLastName, text);
     }
 
-//Input Last Name
+    //Input Last Name
     @FindBy(xpath = "//input[@id='lastname-b43dfbf4-98dd-4008-ab59-8a347a8b5456']")
     private WebElement inputLastName;
 
@@ -199,11 +203,13 @@ public void validatePlaceholderTextOfInputFirstName(String text) {
         scrollIntoView(inputLastName);
         return isDisplayed(inputLastName);
     }
+
     // Need to enter input in last name
     public void enterInputInLastName(String lastName) {
         scrollIntoView(inputLastName);
         sendKeys(inputLastName, lastName);
     }
+
     //Need to validate placeholder text
     public void validatePlaceholderTextOfInputLastName(String text) {
         validatePlaceholderText(inputLastName, text);
@@ -230,15 +236,18 @@ public void validatePlaceholderTextOfInputFirstName(String text) {
         scrollIntoView(inputCompanyName);
         return isDisplayed(inputCompanyName);
     }
+
     // Need to enter input in company name
     public void enterInputInCompanyName(String companyName) {
         scrollIntoView(inputCompanyName);
         sendKeys(inputCompanyName, companyName);
     }
+
     //Need to validate placeholder text
     public void validatePlaceholderTextOfInputCompanyName(String text) {
         validatePlaceholderText(inputCompanyName, text);
     }
+
     //Label Job Title
     @FindBy(xpath = "//span[normalize-space()='Job title']")
     private WebElement labelJobTitle;
@@ -251,7 +260,8 @@ public void validatePlaceholderTextOfInputFirstName(String text) {
     public void validateTextOfLabelJobTitle(String text) {
         softAssert(labelJobTitle, text);
     }
-//Input Job Title
+
+    //Input Job Title
     @FindBy(xpath = "//input[@id='jobtitle-b43dfbf4-98dd-4008-ab59-8a347a8b5456']")
     private WebElement inputJobTitle;
 
@@ -259,15 +269,18 @@ public void validatePlaceholderTextOfInputFirstName(String text) {
         scrollIntoView(inputJobTitle);
         return isDisplayed(inputJobTitle);
     }
+
     // Need to enter input in job title
     public void enterInputInJobTitle(String jobTitle) {
         scrollIntoView(inputJobTitle);
         sendKeys(inputJobTitle, jobTitle);
     }
+
     //Need to validate placeholder text
     public void validatePlaceholderTextOfInputJobTitle(String text) {
         validatePlaceholderText(inputJobTitle, text);
     }
+
     //Label Phone Number
     @FindBy(xpath = "//span[normalize-space()='Phone number']")
     private WebElement labelPhoneNumber;
@@ -279,7 +292,8 @@ public void validatePlaceholderTextOfInputFirstName(String text) {
 
     public void validateTextOfLabelPhoneNumber(String text) {
         softAssert(labelPhoneNumber, text);
-    }   
+    }
+
     //Input Phone Number
     @FindBy(xpath = "//input[@id='phone-b43dfbf4-98dd-4008-ab59-8a347a8b5456']")
     private WebElement inputPhoneNumber;
@@ -288,11 +302,13 @@ public void validatePlaceholderTextOfInputFirstName(String text) {
         scrollIntoView(inputPhoneNumber);
         return isDisplayed(inputPhoneNumber);
     }
+
     // Need to enter input in phone number
     public void enterInputInPhoneNumber(String phoneNumber) {
         scrollIntoView(inputPhoneNumber);
         sendKeys(inputPhoneNumber, phoneNumber);
     }
+
     //Need to validate placeholder text
     public void validatePlaceholderTextOfInputPhoneNumber(String text) {
         validatePlaceholderText(inputPhoneNumber, text);
@@ -309,7 +325,8 @@ public void validatePlaceholderTextOfInputFirstName(String text) {
 
     public void validateTextOfLabelCountry(String text) {
         softAssert(labelCountry, text);
-    }    
+    }
+
     //Input Country
     @FindBy(xpath = "//select[@id='country-b43dfbf4-98dd-4008-ab59-8a347a8b5456']")
     private WebElement inputCountry;
@@ -318,11 +335,13 @@ public void validatePlaceholderTextOfInputFirstName(String text) {
         scrollIntoView(inputCountry);
         return isDisplayed(inputCountry);
     }
+
     // Need to enter input in country
     public void selectIndiaFromDropdown(String country) {
         scrollIntoView(inputCountry);
-        selectFromDropdown(inputCountry, country, "Selecting "+ country);
+        selectFromDropdown(inputCountry, country, "Selecting " + country);
     }
+
     //Need to validate placeholder text
     public void validatePlaceholderTextOfInputCountry(String text) {
         validatePlaceholderText(inputCountry, text);
@@ -336,9 +355,11 @@ public void validatePlaceholderTextOfInputFirstName(String text) {
         scrollIntoView(labelState);
         return isDisplayed(labelState);
     }
+
     public void validateTextOfLabelState(String text) {
         softAssert(labelState, text);
     }
+
     //Input State
     @FindBy(xpath = "//select[@id='india_states-b43dfbf4-98dd-4008-ab59-8a347a8b5456']")
     private WebElement inputState;
@@ -347,11 +368,13 @@ public void validatePlaceholderTextOfInputFirstName(String text) {
         scrollIntoView(inputState);
         return isDisplayed(inputState);
     }
+
     // Need to enter input in state
     public void selectStateFromDropdown(String state) {
         scrollIntoView(inputState);
         selectFromDropdown(inputState, state, "Selecting " + state);
     }
+
     //Submit Button
     @FindBy(xpath = "//input[@value='Submit']")
     private WebElement submitButton;
@@ -360,15 +383,18 @@ public void validatePlaceholderTextOfInputFirstName(String text) {
         scrollIntoView(submitButton);
         return isDisplayed(submitButton);
     }
+
     // Need to click on submit button
     public void clickOnSubmitButton() {
         scrollIntoView(submitButton);
         click(submitButton, "Submit");
     }
+
     //Validate text on submit button
     public void validateTextOfSubmitButton(String text) {
         softAssert(submitButton, text);
     }
+
     //Link Back to Home
     @FindBy(xpath = "//a[normalize-space()='Back to Home']")
     private WebElement linkBackToHome;
@@ -377,6 +403,7 @@ public void validatePlaceholderTextOfInputFirstName(String text) {
         scrollIntoView(linkBackToHome);
         return isDisplayed(linkBackToHome);
     }
+
     // Need to click on back to home
     public void clickOnLinkBackToHome() {
         scrollIntoView(linkBackToHome);
@@ -395,12 +422,12 @@ public void validatePlaceholderTextOfInputFirstName(String text) {
     public void switchToPesonalisedDemoIframe() {
         switchToFrame(iframe);
     }
+
     public void switchToDefaultSecloreContent() {
         switchToDefaultContent();
     }
 
 
-    
 }
 
 

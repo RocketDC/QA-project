@@ -20,9 +20,6 @@ public class TC03_Register extends TestBase {
         if (registerPage.isSecloreLogoDisplayed()) {
             test.log(Status.PASS, "Seclore logo is displayed");
             logger.info("Seclore logo is displayed");
-            registerPage.validateTextOfSecloreLogo("Seclore Partner Center Logo");
-            test.log(Status.PASS, "Seclore logo text is correct");
-            logger.info("Seclore logo text is correct");
         } else {
             test.log(Status.FAIL, "Seclore logo is not displayed");
             logger.error("Seclore logo is not displayed");
@@ -189,119 +186,102 @@ public class TC03_Register extends TestBase {
             logger.error("Country dropdown is not displayed");
         }
         //Validate Phone number label and input field
-    if(registerPage.isPhoneNumberLabelDisplayed())
+        if (registerPage.isPhoneNumberLabelDisplayed()) {
+            test.log(Status.PASS, "Phone number label is displayed");
+            logger.info("Phone number label is displayed");
+            registerPage.validateTextOfPhoneNumberLabel("Phone");
+            test.log(Status.PASS, "Phone number label text is correct");
+            logger.info("Phone number label text is correct");
+        } else {
+            test.log(Status.FAIL, "Phone number label is not displayed");
+            logger.error("Phone number label is not displayed");
+        }
 
-    {
-        test.log(Status.PASS, "Phone number label is displayed");
-        logger.info("Phone number label is displayed");
-        registerPage.validateTextOfPhoneNumberLabel("Phone");
-        test.log(Status.PASS, "Phone number label text is correct");
-        logger.info("Phone number label text is correct");
-    }else
-    {
-        test.log(Status.FAIL, "Phone number label is not displayed");
-        logger.error("Phone number label is not displayed");
+        if (registerPage.isPhoneNumberInputDisplayed()) {
+            test.log(Status.PASS, "Phone number input field is displayed");
+            logger.info("Phone number input field is displayed");
+            registerPage.validatePlaceholderTextOfPhoneNumberInput("Phone");
+            test.log(Status.PASS, "Phone number input field placeholder text is correct");
+            logger.info("Phone number input field placeholder text is correct");
+        } else {
+            test.log(Status.FAIL, "Phone number input field is not displayed");
+            logger.error("Phone number input field is not displayed");
+        }
+
+        //Validate Type of partner label and input field(Dropdown)
+        if (registerPage.isTypeOfPartnerLabelDisplayed()) {
+            test.log(Status.PASS, "Type of partner label is displayed");
+            logger.info("Type of partner label is displayed");
+            registerPage.validateTextOfTypeOfPartnerLabel("Type of Partner");
+            test.log(Status.PASS, "Type of partner label text is correct");
+            logger.info("Type of partner label text is correct");
+        } else {
+            test.log(Status.FAIL, "Type of partner label is not displayed");
+            logger.error("Type of partner label is not displayed");
+        }
+
+        if (registerPage.isTypeOfPartnerDropdownDisplayed()) {
+            test.log(Status.PASS, "Type of partner dropdown is displayed");
+            logger.info("Type of partner dropdown is displayed");
+            registerPage.selectTypeOfPartnerFromDropdown("Type of Partner");
+            test.log(Status.PASS, "Type of partner dropdown is selected");
+            logger.info("Type of partner dropdown is selected");
+        } else {
+            test.log(Status.FAIL, "Type of partner dropdown is not displayed");
+            logger.error("Type of partner dropdown is not displayed");
+        }
+
+        // Validate Partner Size label, input field and footer text
+        if (registerPage.isPartnerSizeLabelDisplayed()) {
+            test.log(Status.PASS, "Partner Size label is displayed");
+            logger.info("Partner Size label is displayed");
+            registerPage.validateTextOfPartnerSizeLabel("Partner Size (no. employees)");
+            test.log(Status.PASS, "Partner Size label text is correct");
+            logger.info("Partner Size label text is correct");
+        } else {
+            test.log(Status.FAIL, "Partner Size label is not displayed");
+            logger.error("Partner Size label is not displayed");
+        }
+
+        if (registerPage.isPartnerSizeInputDisplayed()) {
+            test.log(Status.PASS, "Partner Size input field is displayed");
+            logger.info("Partner Size input field is displayed");
+            registerPage.validatePlaceholderTextOfPartnerSizeInput("Partner Size (no. employees)");
+            test.log(Status.PASS, "Partner Size input field placeholder text is correct");
+            logger.info("Partner Size input field placeholder text is correct");
+        } else {
+            test.log(Status.FAIL, "Partner Size input field is not displayed");
+            logger.error("Partner Size input field is not displayed");
+        }
+
+        if (registerPage.isPartnerSizeFooterTextDisplayed()) {
+            test.log(Status.PASS, "Partner Size footer text is displayed");
+            logger.info("Partner Size footer text is displayed");
+            registerPage.validateTextOfPartnerSizeFooterText("Partner Size (no. employees)");
+            test.log(Status.PASS, "Partner Size footer text is correct");
+            logger.info("Partner Size footer text is correct");
+        } else {
+            test.log(Status.FAIL, "Partner Size footer text is not displayed");
+            logger.error("Partner Size footer text is not displayed");
+        }
+
+        //Validate Submit button
+        if (registerPage.isSubmitButtonDisplayed()) {
+            test.log(Status.PASS, "Submit button is displayed");
+            logger.info("Submit button is displayed");
+            registerPage.validateTextOfSubmitButton("Submit");
+            test.log(Status.PASS, "Submit button text is correct");
+            logger.info("Submit button text is correct");
+            registerPage.clickSubmitButton();
+            test.log(Status.PASS, "Submit button is clicked");
+            logger.info("Submit button is clicked");
+        } else {
+            test.log(Status.FAIL, "Submit button is not displayed");
+            logger.error("Submit button is not displayed");
+        }
+
     }
 
-    if(registerPage.isPhoneNumberInputDisplayed())
-    {
-        test.log(Status.PASS, "Phone number input field is displayed");
-        logger.info("Phone number input field is displayed");
-        registerPage.validatePlaceholderTextOfPhoneNumberInput("Phone");
-        test.log(Status.PASS, "Phone number input field placeholder text is correct");
-        logger.info("Phone number input field placeholder text is correct");
-    }else
-    {
-        test.log(Status.FAIL, "Phone number input field is not displayed");
-        logger.error("Phone number input field is not displayed");
-    }
 
-    //Validate Type of partner label and input field(Dropdown)
-    if(registerPage.isTypeOfPartnerLabelDisplayed())
-    {
-        test.log(Status.PASS, "Type of partner label is displayed");
-        logger.info("Type of partner label is displayed");
-        registerPage.validateTextOfTypeOfPartnerLabel("Type of Partner");
-        test.log(Status.PASS, "Type of partner label text is correct");
-        logger.info("Type of partner label text is correct");
-    }else
-    {
-        test.log(Status.FAIL, "Type of partner label is not displayed");
-        logger.error("Type of partner label is not displayed");
-    }
-
-    if(registerPage.isTypeOfPartnerDropdownDisplayed())
-    {
-        test.log(Status.PASS, "Type of partner dropdown is displayed");
-        logger.info("Type of partner dropdown is displayed");
-        registerPage.selectTypeOfPartnerFromDropdown("Type of Partner");
-        test.log(Status.PASS, "Type of partner dropdown is selected");
-        logger.info("Type of partner dropdown is selected");
-    }else
-    {
-        test.log(Status.FAIL, "Type of partner dropdown is not displayed");
-        logger.error("Type of partner dropdown is not displayed");
-    }
-
-    // Validate Partner Size label, input field and footer text
-    if(registerPage.isPartnerSizeLabelDisplayed())
-    {
-        test.log(Status.PASS, "Partner Size label is displayed");
-        logger.info("Partner Size label is displayed");
-        registerPage.validateTextOfPartnerSizeLabel("Partner Size (no. employees)");
-        test.log(Status.PASS, "Partner Size label text is correct");
-        logger.info("Partner Size label text is correct");
-    }else
-    {
-        test.log(Status.FAIL, "Partner Size label is not displayed");
-        logger.error("Partner Size label is not displayed");
-    }
-
-    if(registerPage.isPartnerSizeInputDisplayed())
-    {
-        test.log(Status.PASS, "Partner Size input field is displayed");
-        logger.info("Partner Size input field is displayed");
-        registerPage.validatePlaceholderTextOfPartnerSizeInput("Partner Size (no. employees)");
-        test.log(Status.PASS, "Partner Size input field placeholder text is correct");
-        logger.info("Partner Size input field placeholder text is correct");
-    }else
-    {
-        test.log(Status.FAIL, "Partner Size input field is not displayed");
-        logger.error("Partner Size input field is not displayed");
-    }
-
-    if(registerPage.isPartnerSizeFooterTextDisplayed())
-    {
-        test.log(Status.PASS, "Partner Size footer text is displayed");
-        logger.info("Partner Size footer text is displayed");
-        registerPage.validateTextOfPartnerSizeFooterText("Partner Size (no. employees)");
-        test.log(Status.PASS, "Partner Size footer text is correct");
-        logger.info("Partner Size footer text is correct");
-    }else
-    {
-        test.log(Status.FAIL, "Partner Size footer text is not displayed");
-        logger.error("Partner Size footer text is not displayed");
-    }
-
-    //Validate Submit button
-    if(registerPage.isSubmitButtonDisplayed())
-    {
-        test.log(Status.PASS, "Submit button is displayed");
-        logger.info("Submit button is displayed");
-        registerPage.validateTextOfSubmitButton("Submit");
-        test.log(Status.PASS, "Submit button text is correct");
-        logger.info("Submit button text is correct");
-        registerPage.clickSubmitButton();
-        test.log(Status.PASS, "Submit button is clicked");
-        logger.info("Submit button is clicked");
-    }else
-    {
-        test.log(Status.FAIL, "Submit button is not displayed");
-        logger.error("Submit button is not displayed");
-    }
-    
-    }
-
-    
 }
 

@@ -8,9 +8,9 @@ import com.aventstack.extentreports.Status;
 import web_automation.seclore.pages.LoginPage;
 import web_automation.seclore.utils.SecloreDataProvider;
 
-public class TC02_Login extends TestBase{
+public class TC02_Login extends TestBase {
     public final String moduleName = "Login";
-    
+
     @Test(priority = 1, description = "Verify that the Login button and nav buttons are displayed on the homepage", dataProvider = "secloreUrls", dataProviderClass = SecloreDataProvider.class)
     public void verifyLoginButtonAndNavButtonsAreDisplayed(String url, String endpoint) {
         ExtentTest test = extent.createTest(
@@ -382,30 +382,30 @@ public class TC02_Login extends TestBase{
         }
 
         // Validate Need help navigating the Portal? text heading and sub-heading
-    if (loginPage.isNeedHelpNavigatingThePortalHeadingDisplayed()) {
-        test.log(Status.PASS, "Need help navigating the Portal? text heading is displayed");
-        logger.info("Need help navigating the Portal? text heading is displayed");
-        loginPage.validateTextOfNeedHelpNavigatingThePortalHeading("Need help navigating the Portal?");
-        test.log(Status.PASS, "Need help navigating the Portal? text heading text is correct");
-        logger.info("Need help navigating the Portal? text heading text is correct");
+        if (loginPage.isNeedHelpNavigatingThePortalHeadingDisplayed()) {
+            test.log(Status.PASS, "Need help navigating the Portal? text heading is displayed");
+            logger.info("Need help navigating the Portal? text heading is displayed");
+            loginPage.validateTextOfNeedHelpNavigatingThePortalHeading("Need help navigating the Portal?");
+            test.log(Status.PASS, "Need help navigating the Portal? text heading text is correct");
+            logger.info("Need help navigating the Portal? text heading text is correct");
 
-    } else {
-        test.log(Status.FAIL, "Need help navigating the Portal? text heading is not displayed");
-        logger.error("Need help navigating the Portal? text heading is not displayed");
+        } else {
+            test.log(Status.FAIL, "Need help navigating the Portal? text heading is not displayed");
+            logger.error("Need help navigating the Portal? text heading is not displayed");
+        }
+
+        if (loginPage.isNeedHelpNavigatingThePortalSubHeadingDisplayed()) {
+            test.log(Status.PASS, "Need help navigating the Portal? text sub-heading is displayed");
+            logger.info("Need help navigating the Portal? text sub-heading is displayed");
+            loginPage.validateTextOfNeedHelpNavigatingThePortalSubHeading("Need help navigating the Portal?");
+            test.log(Status.PASS, "Need help navigating the Portal? text sub-heading text is correct");
+            logger.info("Need help navigating the Portal? text sub-heading text is correct");
+
+        } else {
+            test.log(Status.FAIL, "Need help navigating the Portal? text sub-heading is not displayed");
+            logger.error("Need help navigating the Portal? text sub-heading is not displayed");
+        }
     }
 
-    if (loginPage.isNeedHelpNavigatingThePortalSubHeadingDisplayed()) {
-        test.log(Status.PASS, "Need help navigating the Portal? text sub-heading is displayed");
-        logger.info("Need help navigating the Portal? text sub-heading is displayed");
-        loginPage.validateTextOfNeedHelpNavigatingThePortalSubHeading("Need help navigating the Portal?");
-        test.log(Status.PASS, "Need help navigating the Portal? text sub-heading text is correct");
-        logger.info("Need help navigating the Portal? text sub-heading text is correct");
 
-    } else {
-        test.log(Status.FAIL, "Need help navigating the Portal? text sub-heading is not displayed");
-        logger.error("Need help navigating the Portal? text sub-heading is not displayed");
-    }   
-    }
-
-    
 }

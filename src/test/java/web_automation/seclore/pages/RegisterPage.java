@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import web_automation.seclore.base.TestBase;
 
-public class RegisterPage extends TestBase{
+public class RegisterPage extends TestBase {
     // This class is currently empty, but can be expanded with methods and elements related to the registration page.
     // For example, you might want to add fields for username, password, email, and methods to submit the registration form.
     WebDriver driver;
@@ -47,6 +47,7 @@ public class RegisterPage extends TestBase{
         scrollIntoView(loginButton);
         return isDisplayed(loginButton);
     }
+
     //Validate text of Login button
     public void validateTextOfLoginButton(String text) {
         scrollIntoView(loginButton);
@@ -62,11 +63,13 @@ public class RegisterPage extends TestBase{
         scrollIntoView(registerButton);
         click(registerButton, "Register Button");
     }
+
     //Validate Register button is displayed
     public boolean isRegisterButtonDisplayed() {
         scrollIntoView(registerButton);
         return isDisplayed(registerButton);
     }
+
     //Validate text of Register button
     public void validateTextOfRegisterButton(String text) {
         scrollIntoView(registerButton);
@@ -138,6 +141,7 @@ public class RegisterPage extends TestBase{
         scrollIntoView(companyNameLabel);
         softAssert(companyNameLabel, text);
     }
+
     @FindBy(xpath = "//input[@id='name']")
     private WebElement companyNameInput;
 
@@ -158,7 +162,7 @@ public class RegisterPage extends TestBase{
         scrollIntoView(companyNameInput);
         sendKeys(companyNameInput, companyName);
     }
-    
+
     //Email label and input field
     @FindBy(xpath = "//label[normalize-space()='Email Address']")
     private WebElement emailLabel;
@@ -200,6 +204,7 @@ public class RegisterPage extends TestBase{
     //First name label and input field
     @FindBy(xpath = "//label[normalize-space()='First Name']")
     private WebElement firstNameLabel;
+
     //Validate First Name label is displayed
     public boolean isFirstNameLabelDisplayed() {
         scrollIntoView(firstNameLabel);
@@ -214,16 +219,19 @@ public class RegisterPage extends TestBase{
 
     @FindBy(xpath = "//input[@id='firstName']")
     private WebElement firstNameInput;
+
     //Validate First Name input field is displayed
     public boolean isFirstNameInputDisplayed() {
         scrollIntoView(firstNameInput);
         return isDisplayed(firstNameInput);
     }
+
     //Validate text of First Name input field
     public void validatePlaceholderTextOfFirstNameInput(String text) {
         scrollIntoView(firstNameInput);
         validatePlaceholderText(firstNameInput, text);
     }
+
     //Enter First Name
     public void enterFirstName(String firstName) {
         scrollIntoView(firstNameInput);
@@ -299,7 +307,7 @@ public class RegisterPage extends TestBase{
         selectFromDropdown(countryDropdown, text, "Selected Country: " + text);
     }
 
-//Phone number label and input field
+    //Phone number label and input field
     @FindBy(xpath = "//label[normalize-space()='Phone']")
     private WebElement phoneNumberLabel;
 
@@ -345,11 +353,13 @@ public class RegisterPage extends TestBase{
         scrollIntoView(typeOfPartnerLabel);
         return isDisplayed(typeOfPartnerLabel);
     }
+
     //Validate text of Type of Partner label
     public void validateTextOfTypeOfPartnerLabel(String text) {
         scrollIntoView(typeOfPartnerLabel);
         softAssert(typeOfPartnerLabel, text);
     }
+
     @FindBy(xpath = "//select[@name='8a998d8e933c08520193411fd6b65619']")
     private WebElement typeOfPartnerDropdown;
 
@@ -440,8 +450,6 @@ public class RegisterPage extends TestBase{
         scrollIntoView(submitButton);
         softAssert(submitButton, text);
     }
-
-    
 
 
 }

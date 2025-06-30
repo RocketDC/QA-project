@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import web_automation.seclore.base.TestBase;
 
-public class LoginPage extends TestBase{
+public class LoginPage extends TestBase {
     WebDriver driver;
 
     public LoginPage(WebDriver driver) {
@@ -29,7 +29,7 @@ public class LoginPage extends TestBase{
         scrollIntoView(logoSeclorePartner);
         return isDisplayed(logoSeclorePartner);
     }
-    
+
     //Login button
     @FindBy(xpath = "(//a[@role='button'][normalize-space()='Login'])[2]")
     private WebElement loginButton;
@@ -45,6 +45,7 @@ public class LoginPage extends TestBase{
         scrollIntoView(loginButton);
         return isDisplayed(loginButton);
     }
+
     //Validate text of Login button
     public void validateTextOfLoginButton(String text) {
         scrollIntoView(loginButton);
@@ -60,11 +61,13 @@ public class LoginPage extends TestBase{
         scrollIntoView(registerButton);
         click(registerButton, "Register Button");
     }
+
     //Validate Register button is displayed
     public boolean isRegisterButtonDisplayed() {
         scrollIntoView(registerButton);
         return isDisplayed(registerButton);
     }
+
     //Validate text of Register button
     public void validateTextOfRegisterButton(String text) {
         scrollIntoView(registerButton);
@@ -86,6 +89,7 @@ public class LoginPage extends TestBase{
         scrollIntoView(loginHeading);
         softAssert(loginHeading, text);
     }
+
     //Email label field
     @FindBy(xpath = "(//label[@for='inputEmail'][normalize-space()='Email Address'])[1]")
     private WebElement emailLabelField;
@@ -95,6 +99,7 @@ public class LoginPage extends TestBase{
         scrollIntoView(emailLabelField);
         return isDisplayed(emailLabelField);
     }
+
     //Validate text of Email label field
     public void validateTextOfEmailLabelField(String text) {
         scrollIntoView(emailLabelField);
@@ -120,7 +125,7 @@ public class LoginPage extends TestBase{
     //Validate placeholder text
     public void validatePlaceholderTextOfEmailInputField(String text) {
         scrollIntoView(emailInputField);
-        validatePlaceholderText(emailInputField,text);
+        validatePlaceholderText(emailInputField, text);
     }
 
     //Password label field
@@ -128,10 +133,10 @@ public class LoginPage extends TestBase{
     private WebElement passwordLabelField;
 
     //Validate if password label is displayed
-    public boolean passwordLabelIsDisplayed(){
+    public boolean passwordLabelIsDisplayed() {
         scrollIntoView(passwordLabelField);
         return isDisplayed(passwordLabelField);
-        
+
     }
 
     //Validate text of Password label field
@@ -139,11 +144,13 @@ public class LoginPage extends TestBase{
         scrollIntoView(passwordLabelField);
         softAssert(passwordLabelField, text);
     }
+
     //Password input field
     @FindBy(xpath = "//input[@id='inputPassword']")
     private WebElement passwordInputField;
+
     //Validate if Password input field is displayed
-    public boolean passwordInputFieldIsDisplayed(){
+    public boolean passwordInputFieldIsDisplayed() {
         scrollIntoView(passwordInputField);
         return isDisplayed(passwordInputField);
     }
@@ -157,8 +164,8 @@ public class LoginPage extends TestBase{
     //Enter the text in Password input field
     public void enterTextInPasswordInputField(String text) {
         scrollIntoView(passwordInputField);
-        sendKeys(passwordInputField, text); 
-    
+        sendKeys(passwordInputField, text);
+
     }
 
     //Forgot Password link
@@ -198,6 +205,7 @@ public class LoginPage extends TestBase{
         scrollIntoView(signInButton);
         click(signInButton, "Sign In Button");
     }
+
     //Validate text of Sign in button
     public void validateTextOfSignInButton(String text) {
         scrollIntoView(signInButton);
@@ -412,6 +420,7 @@ public class LoginPage extends TestBase{
         scrollIntoView(tryOurCoBrandedCollateralHeading);
         softAssert(tryOurCoBrandedCollateralHeading, text);
     }
+
     //Try our co-branded collateral text sub-heading
     @FindBy(xpath = "//p[contains(text(),'Check out all of our pre-made collateral that can ')]")
     private WebElement tryOurCoBrandedCollateralSubHeading;
@@ -458,6 +467,7 @@ public class LoginPage extends TestBase{
     // Are you generating new, exciting leads? text sub-heading
     @FindBy(xpath = "//p[contains(text(),'Take a look at all we have to offer and find marke')]")
     private WebElement areYouGeneratingNewExcitingLeadsSubHeading;
+
     // Are you generating new, exciting leads? text sub-heading is displayed
     public boolean isAreYouGeneratingNewExcitingLeadsSubHeadingDisplayed() {
         scrollIntoView(areYouGeneratingNewExcitingLeadsSubHeading);
@@ -502,6 +512,5 @@ public class LoginPage extends TestBase{
         softAssert(needHelpNavigatingThePortalSubHeading, text);
     }
 
-    
 
 }
