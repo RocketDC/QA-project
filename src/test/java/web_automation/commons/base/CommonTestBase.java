@@ -37,7 +37,7 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class CommonTestBase implements AutomationInterface{
+public class CommonTestBase implements AutomationInterface {
     private final String moduleName = "CommonTestBase";
 
     private static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
@@ -77,9 +77,9 @@ public class CommonTestBase implements AutomationInterface{
 
     }
 
-//    public static WebDriver getDriver() {
-//        return driver.get();
-//    }
+    //    public static WebDriver getDriver() {
+    //        return driver.get();
+    //    }
 
     public static void setDriver(WebDriver drv) {
         driver.set(drv);
@@ -92,7 +92,6 @@ public class CommonTestBase implements AutomationInterface{
             e.printStackTrace();
         }
     }
-
 
     public static void setExtentTest(ExtentTest testObj) {
         test.set(testObj);
@@ -129,7 +128,7 @@ public class CommonTestBase implements AutomationInterface{
 
         if (logFile.exists()) {
             try {
-                new FileWriter(logFile, false).close();  // Overwrites and clears the file
+                new FileWriter(logFile, false).close(); // Overwrites and clears the file
                 logger.info("Existing log file cleared.");
             } catch (IOException e) {
                 logger.error("Failed to clear log file: " + e.getMessage());
@@ -139,26 +138,26 @@ public class CommonTestBase implements AutomationInterface{
 
     public void initializeChromeDriver() {
 
-//        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
-//        WebDriver chromeDriver = new ChromeDriver();
+        //        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
+        //        WebDriver chromeDriver = new ChromeDriver();
 
-        WebDriverManager.chromedriver().setup();  // Auto-downloads the matching driver
+        WebDriverManager.chromedriver().setup(); // Auto-downloads the matching driver
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
-//  Prepare prefs to disable notifications (2 = block, 1 = allow)
+        //  Prepare prefs to disable notifications (2 = block, 1 = allow)
         Map<String, Object> prefs = new HashMap<>();
         prefs.put("profile.default_content_setting_values.notifications", 2);
         prefs.put("credentials_enable_service", false);
         prefs.put("profile.password_manager_enabled", false);
-// Apply prefs
+        // Apply prefs
         options.setExperimentalOption("prefs", prefs);
         options.addArguments("--disable-save-password-bubble");
         options.addArguments("--incognito");
         System.setProperty("heal-enabled", "false");
         WebDriver chromeDriver = new ChromeDriver(options);
-//        create Self-healing driver
+        //        create Self-healing driver
         SelfHealingDriver driver = SelfHealingDriver.create(chromeDriver);
-//        WebDriver driver = new ChromeDriver(options);
+        //        WebDriver driver = new ChromeDriver(options);
         setDriver(driver);
     }
 
@@ -181,7 +180,8 @@ public class CommonTestBase implements AutomationInterface{
         File dir = new File(REPORT_DIR);
         File[] files = dir.listFiles((d, name) -> name.endsWith(".html") || name.endsWith(".zip"));
         if (files != null) {
-            for (File file : files) file.delete();
+            for (File file : files)
+                file.delete();
         }
     }
 
@@ -204,7 +204,8 @@ public class CommonTestBase implements AutomationInterface{
     public List<String> extractRegexMatches(String input, String regex) {
         List<String> matches = new ArrayList<>();
         Matcher matcher = Pattern.compile(regex).matcher(input);
-        while (matcher.find()) matches.add(matcher.group());
+        while (matcher.find())
+            matches.add(matcher.group());
         return matches;
     }
 
@@ -266,7 +267,6 @@ public class CommonTestBase implements AutomationInterface{
         }
     }
 
-
     public boolean isElementEnabled(WebElement el) {
         try {
             new WebDriverWait(getDriver(), 12)
@@ -276,7 +276,6 @@ public class CommonTestBase implements AutomationInterface{
             return false;
         }
     }
-
 
     public void validateTextPresence(String expectedText) {
         // Create an Extent node for each individual text so you get granular pass/fail visibility.
@@ -306,8 +305,7 @@ public class CommonTestBase implements AutomationInterface{
         try {
             WebElement element = wait.until(
                     ExpectedConditions.presenceOfElementLocated(
-                            By.xpath("//*[contains(normalize-space(text()), '" + text + "')]")
-                    ));
+                            By.xpath("//*[contains(normalize-space(text()), '" + text + "')]")));
             return element != null;
         } catch (TimeoutException e) {
             return false;
@@ -427,7 +425,7 @@ public class CommonTestBase implements AutomationInterface{
     }
 
     // Validating alerts checkbox
-    public boolean isAlertPresent(){
+    public boolean isAlertPresent() {
         ExtentTest test = extent.createTest("Checking if alert is present");
         setExtentTest(test);
         try {
@@ -460,6 +458,7 @@ public class CommonTestBase implements AutomationInterface{
             logger.error("Failed to accept alert: " + e.getMessage());
         }
     }
+
     public void dismissAlert() {
         ExtentTest test = extent.createTest("Dismissing alert");
         setExtentTest(test);
@@ -524,7 +523,7 @@ public class CommonTestBase implements AutomationInterface{
             logger.error("Failed to switch to default content: " + e.getMessage());
         }
     }
-    
+
     public void selectFromDropdown(WebElement element, String option, String message) {
         ExtentTest test = extent.createTest("Selecting option from dropdown");
         setExtentTest(test);
@@ -539,7 +538,8 @@ public class CommonTestBase implements AutomationInterface{
             logger.error("Failed to select option: " + option + " " + e.getMessage());
         }
     }
-//Clear text from text box
+
+    //Clear text from text box
     public void clearTextBox(WebElement element, String message) {
         ExtentTest test = extent.createTest("Clearing text from text box");
         setExtentTest(test);
@@ -552,6 +552,7 @@ public class CommonTestBase implements AutomationInterface{
             logger.error("Failed to clear text: " + e.getMessage());
         }
     }
+
     // FindElemnt By method
     public WebElement findElement(By by) {
         ExtentTest test = extent.createTest("Finding element");
@@ -567,6 +568,7 @@ public class CommonTestBase implements AutomationInterface{
             return null;
         }
     }
+
     // FindElements By method
     public List<WebElement> findElements(By by) {
         ExtentTest test = extent.createTest("Finding elements");
@@ -583,5 +585,18 @@ public class CommonTestBase implements AutomationInterface{
         }
     }
 
+    public void validateUrl(String url, String endpoint) {
+        ExtentTest test = extent.createTest("Validating URL");
+        setExtentTest(test);
+        String actualUrl = getDriver().getCurrentUrl();
+        String expectedUrl = url + endpoint;
+        if (actualUrl.contains(expectedUrl)) {
+            test.log(Status.PASS, "URL validated successfully");
+            logger.info("URL validated successfully");
+        } else {
+            test.log(Status.FAIL, "URL validation failed");
+            logger.error("URL validation failed");
+        }
+    }
 
 }

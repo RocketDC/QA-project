@@ -7,7 +7,7 @@ public class ChaseDataProvide {
     @DataProvider
     public static Object[][] chaseUrls() {
         return new Object[][] {
-            {"https://www.chase.com/", "demo/"  }
+            {"https://www.chase.com", "/personal/home"  }
         };
     }
     
@@ -15,14 +15,10 @@ public class ChaseDataProvide {
     public static Object[][] chaseData() {
         return new Object[][] {
             {
-                "eren.jaeger@scouts.paradis",   // Business Email
-                "Eren",                         // First Name
-                "Jaeger",                       // Last Name
-                "Survey Corps",                 // Company name
-                "Attack Titan Shifter",         // Job title
-                "8451234567",                   // Phone number
-                "India",                        // Country
-                "Maharashtra"                   // State    
+                 //Sample username
+                 "sampleusername",
+                 //Sample password
+                 "samplepassword"
             }
         };
     }

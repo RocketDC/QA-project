@@ -24,6 +24,11 @@ public class HomePage extends TestBase {
         vaildatePageTitle(title);
     }
 
+    //Url
+    public void validateChaseUrl(String url, String endpoint) {
+        validateUrl(url, endpoint);
+    }
+
     //Personal CTA Text
     @FindBy(xpath = "//a[text()='Get a Demo']")
     private WebElement presonalCTAText;
@@ -618,6 +623,18 @@ public class HomePage extends TestBase {
 
     public void validateHomeLoansText(String text) {
         softAssert(homeLoansText, text);
+    }
+
+    //other Options button
+    @FindBy(xpath = "//a[text()='Get a Demo']")
+    private WebElement otherOptionsButton;
+
+    public boolean isOtherOptionsButtonDisplayed() {
+        return isDisplayed(otherOptionsButton);
+    }
+
+    public void clickOtherOptionsButton() {
+        click(otherOptionsButton, "Other Options Button");
     }
 
     //Auto loans icon
