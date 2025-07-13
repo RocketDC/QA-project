@@ -1,17 +1,17 @@
-package web_automation.seclore.tests;
+package web_automation.chase.tests;
 
 import org.testng.annotations.Test;
-import web_automation.seclore.base.TestBase;
+import web_automation.chase.base.TestBase;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
-import web_automation.seclore.pages.RegisterPage;
-import web_automation.seclore.utils.SecloreDataProvider;
+import web_automation.chase.pages.RegisterPage;
+import web_automation.chase.utils.ChaseDataProvide;
 
 public class TC03_Register extends TestBase {
     public final String moduleName = "Register";
 
-    @Test(priority = 1, description = "Verify register page elements", dataProvider = "secloreUrls", dataProviderClass = SecloreDataProvider.class)
+    @Test(priority = 1, description = "Verify register page elements", dataProvider = "secloreUrls", dataProviderClass = ChaseDataProvide.class)
     public void verifyRegisterPage(String url, String endpoint) {
         ExtentTest test = extent.createTest(
                 moduleName + " - " + "Verify register page elements");

@@ -1,18 +1,18 @@
-package web_automation.seclore.utils;
+package web_automation.chase.utils;
 
 import org.testng.annotations.DataProvider;
 
-public class SecloreDataProvider {
+public class ChaseDataProvide {
     //Adding data provider for Contact Us page
     @DataProvider
-    public static Object[][] secloreUrls() {
+    public static Object[][] chaseUrls() {
         return new Object[][] {
-            {"https://www.seclore.com/", "demo/"  }
+            {"https://www.chase.com/", "demo/"  }
         };
     }
-
+    
     @DataProvider
-    public static Object[][] secloreData() {
+    public static Object[][] chaseData() {
         return new Object[][] {
             {
                 "eren.jaeger@scouts.paradis",   // Business Email

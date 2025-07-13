@@ -1,17 +1,17 @@
-package web_automation.seclore.tests;
+package web_automation.chase.tests;
 
 import org.testng.annotations.Test;
-import web_automation.seclore.base.TestBase;
+import web_automation.chase.base.TestBase;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
-import web_automation.seclore.pages.LoginPage;
-import web_automation.seclore.utils.SecloreDataProvider;
+import web_automation.chase.pages.LoginPage;
+import web_automation.chase.utils.ChaseDataProvide;
 
 public class TC02_Login extends TestBase {
     public final String moduleName = "Login";
 
-    @Test(priority = 1, description = "Verify login page elements", dataProvider = "secloreUrls", dataProviderClass = SecloreDataProvider.class)
+    @Test(priority = 1, description = "Verify login page elements", dataProvider = "secloreUrls", dataProviderClass = ChaseDataProvide.class)
     public void verifyLoginPage(String url, String endpoint) {
         ExtentTest test = extent
                 .createTest("TC" + getClass() + "_verifyLoginPage",

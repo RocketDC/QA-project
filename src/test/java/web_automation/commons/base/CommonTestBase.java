@@ -66,6 +66,17 @@ public class CommonTestBase implements AutomationInterface{
         driver.set(drv);
     }
 
+    public void vaildatePageTitle(String title) {
+        ExtentTest test = extent.createTest("Validating page title");
+        setExtentTest(test);
+        WebDriverWait wait = new WebDriverWait(getDriver(), 10);
+        wait.until(ExpectedConditions.titleIs(title));
+        softAssert.assertEquals(getDriver().getTitle(), title);
+        logger.info("Page title validated");
+        test.log(Status.PASS, "Page title validated");
+
+    }
+
 //    public static WebDriver getDriver() {
 //        return driver.get();
 //    }

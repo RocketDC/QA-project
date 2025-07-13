@@ -1,4 +1,4 @@
-package web_automation.seclore.base;
+package web_automation.chase.base;
 
 import web_automation.commons.base.CommonTestBase;
 

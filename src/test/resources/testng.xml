@@ -5,9 +5,9 @@
     <test name="Validating Get a Demo">
 
         <classes>
-            <class name="web_automation.seclore.tests.TC01_GetADemo"/>
-            <class name="web_automation.seclore.tests.TC02_Login"/>
-            <class name="web_automation.seclore.tests.TC03_Register"/>
+            <class name="web_automation.chase.tests.TC01_GetADemo"/>
+            <class name="web_automation.chase.tests.TC02_Login"/>
+            <class name="web_automation.chase.tests.TC03_Register"/>
 
         </classes>
     </test>
