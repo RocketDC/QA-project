@@ -36,7 +36,7 @@ public class ContactUs extends TestBase {
     private WebElement nameInput;
 
     // Surname label
-    @FindBy(xpath = "//*[@for='form-surname-2']")
+    @FindBy(xpath = "//label[normalize-space()='Last name']")
     private WebElement surnameLabel;
 
     // Surname input
@@ -44,11 +44,11 @@ public class ContactUs extends TestBase {
     private WebElement surnameInput;
 
     // Position label
-    @FindBy(xpath = "//*[@for='form-position-2']")
+    @FindBy(xpath = "//label[normalize-space()='Position']")
     private WebElement positionLabel;
 
     // Position input
-    @FindBy(xpath = "//*[@id='form-position']")
+    @FindBy(xpath = "//input[@id='Position']")
     private WebElement positionInput;
 
     // Company label
@@ -68,11 +68,11 @@ public class ContactUs extends TestBase {
     private WebElement emailInput;
 
     // Phone label
-    @FindBy(xpath = "//*[@for='form-email-2']")
+    @FindBy(xpath = "//label[normalize-space()='Phone']")
     private WebElement phoneLabel;
 
     // Phone input
-    @FindBy(xpath = "//*[@for='form-email-2']/../input")
+    @FindBy(xpath = "//input[@id='Phone-Number']")
     private WebElement phoneInput;
 
     // Reason of contact label
@@ -84,7 +84,7 @@ public class ContactUs extends TestBase {
     private WebElement reasonOfContactInput;
 
     // Message label
-    @FindBy(xpath = "//*[@for='form-message-2']")
+    @FindBy(xpath = "//label[normalize-space()='Message']")
     private WebElement messageLabel;
 
     // Message input

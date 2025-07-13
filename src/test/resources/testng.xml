@@ -2,35 +2,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Regression Suite" verbose="2">
 
-<!--    <test name="Testing Sending SMS">-->
-<!--        <parameter name="deviceIndex" value="0"/>-->
-<!--        <classes>-->
-<!--            <class name="api_automation.SmsApi"/>-->
 
 
-
-<!--        </classes>-->
-<!--    </test>-->
-
-<!--    <test name="Analytics Vidya UI">-->
-
-<!--        <classes>-->
-<!--            <class name="web_automation.analytics_vidhya.tests.TC_HomePage"/>-->
-
-<!--        </classes>-->
-<!--    </test>-->
-<!--    <test name="Wissen UI">-->
-
-<!--        <classes>-->
-<!--            <class name="web_automation.wissen.tests.TC_ContactUs"/>-->
-
-<!--        </classes>-->
-<!--    </test>-->
-
-    <test name="Citius Tech UI">
+    <test name="Wissen Tech UI">
 
         <classes>
-            <class name="web_automation.citiusTech.tests.TC_ContactUs"/>
+            <class name="web_automation.wissen.tests.TC_ContactUs"/>
 
         </classes>
     </test>

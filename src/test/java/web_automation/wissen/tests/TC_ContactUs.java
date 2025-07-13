@@ -126,7 +126,7 @@ public class TC_ContactUs extends TestBase {
         }
 
         if (contactUs.isNameInputDisplayed()) {
-            contactUs.validatePlaceholderTextOfNameInput("e.g. Julia");
+            contactUs.validatePlaceholderTextOfNameInput("First Name");
             contactUs.enterName(name);
             test.log(Status.PASS, "Name input is displayed");
             logger.info("Name input is displayed");
@@ -137,7 +137,7 @@ public class TC_ContactUs extends TestBase {
 
         // Surname
         if (contactUs.isSurnameLabelDisplayed()) {
-            contactUs.validateTextOfSurnameLabel("SURNAME");
+            contactUs.validateTextOfSurnameLabel("LAST NAME");
             test.log(Status.PASS, "Surname label is displayed");
             logger.info("Surname label is displayed");
         } else {
@@ -146,7 +146,7 @@ public class TC_ContactUs extends TestBase {
         }
 
         if (contactUs.isSurnameInputDisplayed()) {
-            contactUs.validatePlaceholderTextOfSurnameInput("e.g. Smith");
+            contactUs.validatePlaceholderTextOfSurnameInput("Last Name");
             contactUs.enterSurname(surname);
             test.log(Status.PASS, "Surname input is displayed");
             logger.info("Surname input is displayed");
@@ -166,7 +166,7 @@ public class TC_ContactUs extends TestBase {
         }
 
         if (contactUs.isPositionInputDisplayed()) {
-            contactUs.validatePlaceholderTextOfPositionInput("e.g. CFO");
+            contactUs.validatePlaceholderTextOfPositionInput("Job Title");
             contactUs.enterPosition(position);
             test.log(Status.PASS, "Position input is displayed");
             logger.info("Position input is displayed");
@@ -186,7 +186,7 @@ public class TC_ContactUs extends TestBase {
         }
 
         if (contactUs.isCompanyInputDisplayed()) {
-            contactUs.validatePlaceholderTextOfCompanyInput("e.g. Papers");
+            contactUs.validatePlaceholderTextOfCompanyInput("Company Name");
             contactUs.enterCompany(company);
             test.log(Status.PASS, "Company input is displayed");
             logger.info("Company input is displayed");
@@ -206,7 +206,7 @@ public class TC_ContactUs extends TestBase {
         }
 
         if (contactUs.isEmailInputDisplayed()) {
-            contactUs.validatePlaceholderTextOfEmailInput("e.g.  julia.smith@gmail.com");
+            contactUs.validatePlaceholderTextOfEmailInput("Email Address");
             contactUs.enterEmail(email);
             test.log(Status.PASS, "Email input is displayed");
             logger.info("Email input is displayed");
@@ -226,7 +226,7 @@ public class TC_ContactUs extends TestBase {
         }
 
         if (contactUs.isPhoneInputDisplayed()) {
-            contactUs.validatePlaceholderTextOfPhoneInput("e.g.  555 - 777 - 333");
+            contactUs.validatePlaceholderTextOfPhoneInput("Phone Number");
             contactUs.enterPhone(phone);
             test.log(Status.PASS, "Phone input is displayed");
             logger.info("Phone input is displayed");
@@ -246,7 +246,7 @@ public class TC_ContactUs extends TestBase {
         }
 
         if (contactUs.isReasonOfContactInputDisplayed()) {
-            contactUs.validatePlaceholderTextOfReasonOfContactInput("Want to avail Saas as a service");
+            contactUs.validatePlaceholderTextOfReasonOfContactInput("Start Typing");
             contactUs.enterReasonOfContact(reasonOfContact);
             test.log(Status.PASS, "Reason of contact input is displayed");
             logger.info("Reason of contact input is displayed");
@@ -298,6 +298,8 @@ public class TC_ContactUs extends TestBase {
         if (contactUs.isSubmitButtonDisplayed()) {
             contactUs.validateTextOfSubmitButton("Submit");
             contactUs.clickSubmitButton();
+            test.log(Status.INFO, "Submit button is not clicked");
+            logger.info("Submit button is not clicked");
             test.log(Status.PASS, "Submit button is displayed");
             logger.info("Submit button is displayed");
         } else {
