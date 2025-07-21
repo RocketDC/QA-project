@@ -1,4 +1,4 @@
-package web_automation.commons.base;
+package android_automation.commons.base;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
