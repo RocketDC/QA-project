@@ -1,0 +1,13 @@
+package android_automation.android_project.utils;
+
+import org.testng.annotations.DataProvider;
+
+public class CitiusTechDataProvider {
+    //Adding data provider for Contact Us page
+    @DataProvider
+    public static Object[][] citiusTechData() {
+        return new Object[][] {
+            {"https://www.citiustech.com", "/contact-us"  }
+        };
+    }
+}
