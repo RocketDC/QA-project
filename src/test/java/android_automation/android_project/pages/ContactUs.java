@@ -1,10 +1,10 @@
 package android_automation.android_project.pages;
 
+import android_automation.android_project.base.TestBase;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-import web_automation.citiusTech.base.TestBase;
 
 
 public class ContactUs extends TestBase {

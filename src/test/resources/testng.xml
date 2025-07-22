@@ -30,7 +30,7 @@
     <test name="Citius Tech UI">
 
         <classes>
-            <class name="web_automation.citiusTech.tests.TC_ContactUs"/>
+            <class name=""/>
 
         </classes>
     </test>

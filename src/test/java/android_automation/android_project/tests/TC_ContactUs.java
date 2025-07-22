@@ -1,14 +1,15 @@
 package android_automation.android_project.tests;
 
+import android_automation.android_project.base.TestBase;
+import android_automation.android_project.utils.CitiusTechDataProvider;
 import org.testng.annotations.Test;
-import web_automation.citiusTech.base.TestBase;
+
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
-import web_automation.citiusTech.pages.ContactUs;
-import web_automation.citiusTech.utils.CitiusTechDataProvider;
+import android_automation.android_project.pages.ContactUs;
 
-public class TC_ContactUs extends TestBase{
+public class TC_ContactUs extends TestBase {
 public final String moduleName = "Contact Us";
     //Opening Contact Us page
     @Test(priority = 1,dataProvider = "citiusTechData",dataProviderClass = CitiusTechDataProvider.class)

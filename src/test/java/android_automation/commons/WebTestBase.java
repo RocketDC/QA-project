@@ -1,4 +1,4 @@
-package android_automation.commons.base;
+package android_automation.commons;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -30,15 +30,16 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 
+import java.time.Duration;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class CommonTestBase {
+public class WebTestBase {
     private final String moduleName = "CommonTestBase";
 
     private static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
-    protected static final Logger logger = LogManager.getLogger(CommonTestBase.class);
+    protected static final Logger logger = LogManager.getLogger(WebTestBase.class);
     public static Properties properties;
     public SoftAssert softAssert = new SoftAssert();
 
@@ -175,7 +176,7 @@ public class CommonTestBase {
 
     public boolean isElementDisplayed(WebElement el) {
         try {
-            new WebDriverWait(getDriver(), 10)
+            new WebDriverWait(getDriver(), Duration.ofSeconds(13))
                     .until(ExpectedConditions.visibilityOf(el));
             return el.isDisplayed() && el.isEnabled();
         } catch (Exception e) {
@@ -211,7 +212,7 @@ public class CommonTestBase {
         ExtentTest test = extent.createTest("Clicking on ➜ " + message);
         setExtentTest(test);
         try {
-            new WebDriverWait(getDriver(), 10)
+            new WebDriverWait(getDriver(), Duration.ofSeconds(10))
                     .until(ExpectedConditions.elementToBeClickable(el));
             el.click();
         } catch (Exception e) {
@@ -222,7 +223,7 @@ public class CommonTestBase {
 
     public void waitForElementToBeVisible(WebElement el) {
         try {
-            new WebDriverWait(getDriver(), 10)
+            new WebDriverWait(getDriver(), Duration.ofSeconds(10))
                     .until(ExpectedConditions.visibilityOf(el));
         } catch (Exception e) {
             logger.error("Element not visible: " + e.getMessage());
@@ -231,7 +232,7 @@ public class CommonTestBase {
 
     public void waitForElementToBeInvisible(WebElement el) {
         try {
-            new WebDriverWait(getDriver(), 10)
+            new WebDriverWait(getDriver(), Duration.ofSeconds(10))
                     .until(ExpectedConditions.invisibilityOf(el));
         } catch (Exception e) {
             logger.error("Element not invisible: " + e.getMessage());
@@ -240,7 +241,7 @@ public class CommonTestBase {
 
     public void waitForElementToBePresent(WebElement el) {
         try {
-            new WebDriverWait(getDriver(), 10)
+            new WebDriverWait(getDriver(), Duration.ofSeconds(10))
                     .until(ExpectedConditions.presenceOfElementLocated((By) el));
         } catch (Exception e) {
             logger.error("Element not present: " + e.getMessage());
@@ -250,7 +251,7 @@ public class CommonTestBase {
 
     public boolean isElementEnabled(WebElement el) {
         try {
-            new WebDriverWait(getDriver(), 12)
+            new WebDriverWait(getDriver(), Duration.ofSeconds(12))
                     .until(ExpectedConditions.visibilityOf(el));
             return el.isEnabled();
         } catch (Exception e) {
@@ -283,7 +284,7 @@ public class CommonTestBase {
      * Uses <code>normalize-space()</code> so stray whitespace in the DOM does not break the match.
      */
     private boolean isTextPresent(String text) {
-        WebDriverWait wait = new WebDriverWait(getDriver(), 5);
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(5));
         try {
             WebElement element = wait.until(
                     ExpectedConditions.presenceOfElementLocated(
@@ -299,7 +300,7 @@ public class CommonTestBase {
         try {
             logger.info("Scrolling...");
             Actions actions = new Actions(getDriver());
-            WebDriverWait wait = new WebDriverWait(getDriver(), 10);
+            WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
             actions.moveToElement(target).perform();
             wait.until(ExpectedConditions.visibilityOf(target));
         } catch (Exception e) {
@@ -319,7 +320,7 @@ public class CommonTestBase {
         ExtentTest test = extent.createTest("Checking if element is displayed");
         setExtentTest(test);
         try {
-            new WebDriverWait(getDriver(), 10)
+            new WebDriverWait(getDriver(), Duration.ofSeconds(10))
                     .until(ExpectedConditions.visibilityOf(element));
             if (element.isDisplayed()) {
                 return true;
@@ -412,7 +413,7 @@ public class CommonTestBase {
         ExtentTest test = extent.createTest("Checking if alert is present");
         setExtentTest(test);
         try {
-            WebDriverWait wait = new WebDriverWait(getDriver(), 10);
+            WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
             wait.until(ExpectedConditions.alertIsPresent());
             test.log(Status.PASS, "Alert is present");
             logger.info("Alert is present");

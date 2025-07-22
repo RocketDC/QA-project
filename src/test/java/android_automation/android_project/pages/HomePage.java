@@ -1,10 +1,11 @@
 package android_automation.android_project.pages;
 
+import android_automation.android_project.base.TestBase;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.WebElement;
-import web_automation.citiusTech.base.TestBase;
 
-public class HomePage extends TestBase{
+
+public class HomePage extends TestBase {
     //This class is used to store all the locators and methods for the Homepage
     //@FindBy is used to store the locators
 

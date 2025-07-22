@@ -1,7 +1,8 @@
 package android_automation.android_project.base;
 
-import web_automation.commons.base.CommonTestBase;
+import android_automation.commons.WebTestBase;
 
-public class TestBase extends CommonTestBase{
+
+public class TestBase extends WebTestBase {
     
 }

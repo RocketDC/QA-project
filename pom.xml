@@ -14,14 +14,14 @@
         <dependency>
             <groupId>io.appium</groupId>
             <artifactId>java-client</artifactId>
-            <version>7.6.0</version>
+            <version>8.3.0</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
-<!--        <dependency>-->
-<!--            <groupId>org.seleniumhq.selenium</groupId>-->
-<!--            <artifactId>selenium-java</artifactId>-->
-<!--            <version>4.27.0</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.27.0</version>
+        </dependency>
         <dependency>
             <groupId>com.aventstack</groupId>
             <artifactId>extentreports</artifactId>
@@ -131,19 +131,7 @@
             <artifactId>okhttp</artifactId>
             <version>4.11.0</version>
         </dependency>
-        <!--
-        <dependency>
-            <groupId>com.browserstack</groupId>
-            <artifactId>browserstack-java-sdk</artifactId>
-            <version>1.12.1</version>
-        </dependency>
 
-        <dependency>
-            <groupId>io.appium</groupId>
-            <artifactId>java-client</artifactId>
-            <version>8.3.0</version>
-        </dependency>
-        -->
     </dependencies>
 
 
