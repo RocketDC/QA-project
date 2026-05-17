@@ -1,0 +1,29 @@
+{
+  "name": "playwright-automation",
+  "version": "1.0.0",
+  "description": "A modern automation testing framework using Playwright with plans for AI-powered test generation using Ollama and MCP servers",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:chromium": "playwright test --project=chromium",
+    "test:firefox": "playwright test --project=firefox",
+    "test:webkit": "playwright test --project=webkit",
+    "report": "playwright show-report",
+    "install:browsers": "playwright install"
+  },
+  "keywords": [
+    "playwright",
+    "automation",
+    "testing",
+    "naukri",
+    "ai",
+    "ollama",
+    "mcp"
+  ],
+  "author": "Anand",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {}
+}
